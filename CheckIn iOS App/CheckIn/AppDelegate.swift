@@ -8,15 +8,23 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var tabBarController: UITabBarController!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        tabBarController = window?.rootViewController as! UITabBarController
+        
+        FIRApp.configure()
+        presentLoginScreen()
+        
         return true
     }
 
@@ -44,6 +52,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    func presentLoginScreen() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        
+        tabBarController.selectedIndex = 0
+        
+        let pvc = storyboard.instantiateViewController(withIdentifier: "passesViewController")
+        
+        print(tabBarController.selectedViewController ?? "NONEXISTANT")
+        print(tabBarController.viewControllers?[0] ?? "ALSO GONE")
+        tabBarController.selectedViewController?.navigationController?.present(controller, animated: true, completion: nil)
+        tabBarController.selectedViewController?.navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
