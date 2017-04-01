@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uwI-Ea-r9V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,38 +20,51 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vines" translatesAutoresizingMaskIntoConstraints="NO" id="QCL-1I-U3i">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccL-Ur-FYv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tdj-mN-Bvo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ccL-Ur-FYv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0yi-ak-KBr"/>
-                            <constraint firstItem="ccL-Ur-FYv" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="63p-su-f69"/>
-                            <constraint firstItem="QCL-1I-U3i" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="7rT-ug-Gu6"/>
-                            <constraint firstAttribute="trailing" secondItem="QCL-1I-U3i" secondAttribute="trailing" id="Nrd-B8-Nue"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ccL-Ur-FYv" secondAttribute="bottom" id="V9l-pA-ZCF"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="QCL-1I-U3i" secondAttribute="bottom" id="kF0-iN-9Ig"/>
-                            <constraint firstItem="QCL-1I-U3i" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="xR3-8p-lfR"/>
-                            <constraint firstAttribute="trailing" secondItem="ccL-Ur-FYv" secondAttribute="trailing" id="zzX-YR-nMe"/>
-                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="X0a-Ss-e05"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="991.20000000000005" y="374.66266866566718"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yMD-j4-8Gn">
+            <objects>
+                <viewController id="KV1-Ty-i3z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RAN-nC-hON"/>
+                        <viewControllerLayoutGuide type="bottom" id="c7d-E5-XKE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CC8-mt-7kw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="66e-Rw-FPc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N3g-Qz-oRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002.4" y="1141.9790104947526"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Fnv-J9-w1e">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uwI-Ea-r9V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="AXd-jQ-Wwf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="01J-lp-oVM" kind="relationship" relationship="viewControllers" id="D46-5n-dHw"/>
+                        <segue destination="KV1-Ty-i3z" kind="relationship" relationship="viewControllers" id="pfg-BN-sne"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YrV-ON-yOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="757.87106446776613"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="vines" width="336" height="455"/>
-    </resources>
 </document>

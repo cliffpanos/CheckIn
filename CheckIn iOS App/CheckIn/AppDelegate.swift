@@ -11,7 +11,7 @@ import CoreData
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationControllerDelegate {
 
     var window: UIWindow?
     var tabBarController: UITabBarController!
@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        C.appDelegate = self
+        let managedContext = self.persistentContainer.viewContext
+        C.user = LoggedIn(context: managedContext)
+        try! managedContext.save()
         
         tabBarController = window?.rootViewController as! UITabBarController
         
@@ -60,6 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.selectedIndex = 0
         
         let pvc = storyboard.instantiateViewController(withIdentifier: "passesViewController")
+        
+        let navController = storyboard.instantiateViewController(withIdentifier: "navigationController")
+        //window?.rootViewController = navController
+        
+
+        
+        tabBarController.popoverPresentationController?.delegate = self as? UIPopoverPresentationControllerDelegate
+        
+        navController.present(controller, animated: true, completion: nil)
         
         print(tabBarController.selectedViewController ?? "NONEXISTANT")
         print(tabBarController.viewControllers?[0] ?? "ALSO GONE")
