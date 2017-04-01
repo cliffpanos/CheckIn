@@ -7,6 +7,8 @@ build/
 DerivedData/
 
 .DS_Store
+*.idea
+workspace.xml
 
 ## Various settings
 *.pbxuser
