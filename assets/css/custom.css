@@ -38,6 +38,11 @@ body {
 .pad-top {
     padding-top:15px;
 }
+
+img {
+    height: inherit;
+    width: inherit;
+}
 /*==============================================
     MENU STYLES    
     =============================================*/
