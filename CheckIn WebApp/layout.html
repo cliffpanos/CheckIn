@@ -33,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="home.html">
+                    <a class="navbar-brand" href="index.html">
                         <img style="" src="../assets/img/CheckLogo.png"/>
                     </a>
                 </div>
@@ -56,8 +56,11 @@
     
         <div id="page-wrapper">
             <!--  PAGE INNER  -->
-            {% block content %}
-            {% endblock %}
+            <div id="page-inner">
+                {% block content %}
+                {% endblock %}
+            </div>
+
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
