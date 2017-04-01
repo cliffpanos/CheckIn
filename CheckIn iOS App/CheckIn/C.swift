@@ -14,7 +14,23 @@ class C {
     static var appDelegate: AppDelegate!
     static var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    static var passes = ["Katherine Allport", "William Epperson", "Claire Cox"]
+    static var passes: [Pass] {
+        get {
+            let managedContext = C.appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<Pass> = Pass.fetchRequest()
+            
+            if let passes = try? managedContext.fetch(fetchRequest) {
+                return passes
+            }
+            return [Pass]()
+        }
+        set (newPasses) {
+            let managedContext = C.appDelegate.persistentContainer.viewContext
+            if ((try? managedContext.save()) != nil) {
+                self.passes = newPasses
+            }
+        }
+    }
     
     static var passesActive: Bool = true
     static var automaticCheckIn: Bool = true

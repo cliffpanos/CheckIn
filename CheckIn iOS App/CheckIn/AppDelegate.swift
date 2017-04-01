@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import Firebase
+//import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationControllerDelegate {
@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         tabBarController = window?.rootViewController as! UITabBarController
         
-        FIRApp.configure()
+        //FIRApp.configure()
         presentLoginScreen()
-        
+                
         return true
     }
 

@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class PassesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var passes = [Pass]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
+        tableView.setContentOffset(offset, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
+        
+        self.passes = C.passes
         tableView.reloadData()
     }
     
@@ -29,6 +35,12 @@ class PassesViewController: UIViewController {
         let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
         self.present(controller, animated: true, completion: nil)
     }
+    
+    @IBAction func newPassPressed(_ sender: Any) {
+        let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
+        self.tabBarController?.present(controller, animated: true, completion: nil)
+    }
+    
     
 }
 
@@ -64,8 +76,8 @@ class PassCell: UITableViewCell {
     @IBOutlet weak var contactView: UIImageView!
     @IBOutlet weak var emailTitle: UILabel!
     
-    func decorate(for pass: String) {
-        self.nameTitle.text = pass
+    func decorate(for pass: Pass) {
+        self.nameTitle.text = pass.name ?? ""
         
         let imageName = C.passesActive ? "greenContactIcon" : "contactIcon"
         contactView.image = UIImage(named: imageName)
