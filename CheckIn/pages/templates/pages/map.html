@@ -9,13 +9,12 @@
 <div class="row">
     <div class="col-md-12">
         <!-- GOOGLE MAPS-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjjZmrVcuVdnZsk7r4l5Y0DEKf8nS83k&libraries=drawing&callback=initMap"
-                async defer></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOU1l9qakJv1NeidyU-bboBcGH1VLVgYw&libraries=drawing&callback=initMap"
+                type="text/javascript"></script>
         <!-- GOOGLE MAPS INIT-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjjZmrVcuVdnZsk7r4l5Y0DEKf8nS83k&libraries=drawing"></script>
 
-        <!-- /. MAP  -->
-        <div id="map"></div>
+        <!-- MAP  -->
+        <div id="map" style="height: 500px; width: auto; background-color: #2aabd2">HIIII</div>
         <script>
             // This example requires the Drawing library. Include the libraries=drawing
             // parameter when you first load the API. For example:
@@ -23,8 +22,8 @@
 
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: -34.397, lng: 150.644},
-                    zoom: 8
+                    center: {lat: 33.777, lng: -84.397},
+                    zoom: 10
                 });
 
                 var drawingManager = new google.maps.drawing.DrawingManager({
@@ -38,8 +37,8 @@
                     circleOptions: {
                         fillColor: '#ffff00',
                         fillOpacity: 1,
-                        strokeWeight: 5,
-                        clickable: false,
+                        strokeWeight: 4,
+                        clickable: true,
                         editable: true,
                         zIndex: 1
                     }

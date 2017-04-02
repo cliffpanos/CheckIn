@@ -17,15 +17,18 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
 
     <!-- JS -->
-    <script src="{% static 'pages/js/bootstrap.js' %}"></script>
     <script src="{% static 'pages/js/jquery-3.2.0.js' %}"></script>
     <script src="{% static 'pages/js/jquery.qrcode.min.js' %}"></script>
+    <script src="{% static 'pages/js/bootstrap.js' %}"></script>
+
+    <!-- OUR JS -->
+    <script src="{% static 'pages/js/custom.js' %}"></script>
 
     <!-- OUR Styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'pages/style.css' %}" />
+
 </head>
-    <!-- OUR JS -->
-    <script src="{% static 'pages/js/custom.js' %}"></script>
+
 
 
 
@@ -57,10 +60,10 @@
                         <a href="{% url 'index' %}"><i class="fa fa-desktop "></i>Home </a>
                     </li>
                     <li>
-                        <a href="{% url 'qrtest' %}"><i class="fa fa-desktop "></i> QR Test </a>
+                        <a href="{% url 'qrtest' %}"><i class="fa fa-desktop "></i>Pass Maker</a>
                     </li>
                     <li>
-                        <a href="{% url 'map' %}"><i class="fa fa-desktop "></i> Map </a>
+                        <a href="{% url 'map' %}"><i class="fa fa-desktop "></i>Property Map</a>
                     </li>
                 </ul>
             </div>
