@@ -10,5 +10,9 @@ def qrtest(request):
     template = loader.get_template('pages/qrtest.html')
     return HttpResponse(template.render())
 
+def map(request):
+    template = loader.get_template('pages/map.html')
+    return HttpResponse(template.render())
+
 def signup(request):
     return HttpResponse("This is the signup view!")
