@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textField?.inputAccessoryView = numberToolbar
         }
         
-        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
 
     }
 
@@ -98,7 +98,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func newAccountPressed(_ sender: Any) {
-        
+        let alert = UIAlertController(title: "Create Account Online", message: "Create a new account at checkin.com", preferredStyle: .alert)
+        let alertaction = UIAlertAction(title: "Great", style: .default, handler: nil)
+        alert.addAction(alertaction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func passwordMatchesEmail() -> Bool {

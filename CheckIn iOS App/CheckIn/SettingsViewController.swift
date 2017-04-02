@@ -13,10 +13,17 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var passesActiveSwitch: UISwitch!
     @IBOutlet weak var automaticCheckInSwitch: UISwitch!
     
+    @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var ownerEmailLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //TODO The three values below should be replaced with CoreData values
+        ownerLabel.text = C.nameOfUser
+        ownerEmailLabel.text = C.emailOfUser
+        locationLabel.text = C.locationName
     }
 
     @IBAction func passesSwitchChanged(_ sender: Any) {
@@ -26,16 +33,9 @@ class SettingsViewController: UIViewController {
         C.automaticCheckIn = automaticCheckInSwitch.isOn
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func showPass(_ sender: Any) {
+        let passController = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
+        self.present(passController, animated: true, completion: nil)
     }
-    */
 
 }

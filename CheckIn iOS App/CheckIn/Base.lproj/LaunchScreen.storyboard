@@ -23,7 +23,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Passes" id="MGW-ck-LWE">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Rdp-HD-cZt"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Rdp-HD-cZt">
+                            <color key="tintColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wtN-fl-sI8"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

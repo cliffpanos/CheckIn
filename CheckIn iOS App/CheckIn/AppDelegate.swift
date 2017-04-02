@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         tabBarController = window?.rootViewController as! UITabBarController
         
         //FIRApp.configure()
-        presentLoginScreen()
-                
+        
         return true
     }
 
@@ -56,35 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         self.saveContext()
     }
 
-    func presentLoginScreen() {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-        
-        tabBarController.selectedIndex = 0
-        
-        let pvc = storyboard.instantiateViewController(withIdentifier: "passesViewController")
-        
-        let navController = storyboard.instantiateViewController(withIdentifier: "navigationController")
-        //window?.rootViewController = navController
-        
-
-        
-        tabBarController.popoverPresentationController?.delegate = self as? UIPopoverPresentationControllerDelegate
-        
-        navController.present(controller, animated: true, completion: nil)
-        
-        print(tabBarController.selectedViewController ?? "NONEXISTANT")
-        print(tabBarController.viewControllers?[0] ?? "ALSO GONE")
-        tabBarController.selectedViewController?.navigationController?.present(controller, animated: true, completion: nil)
-        tabBarController.selectedViewController?.navigationController?.pushViewController(controller, animated: true)
-        
-    }
-    
-    
-    
-    
-    
     
     
     

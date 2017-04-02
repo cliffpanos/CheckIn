@@ -12,6 +12,7 @@ import CoreData
 class PassesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var passes = [Pass]()
     
@@ -19,6 +20,9 @@ class PassesViewController: UIViewController {
         super.viewDidLoad()
         let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
         tableView.setContentOffset(offset, animated: true)
+        
+        let toolbar = UIToolbar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

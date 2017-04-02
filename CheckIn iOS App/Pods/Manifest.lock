@@ -12,9 +12,11 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - QRCoder (0.3.0)
 
 DEPENDENCIES:
   - Firebase/Core
+  - QRCoder
 
 SPEC CHECKSUMS:
   Firebase: 85a581fb04e44f63ae9f4fbc8d6dabf4a4c18653
@@ -22,7 +24,8 @@ SPEC CHECKSUMS:
   FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  QRCoder: 92f20e157132630da4da05e9a69cdbe128a4cd08
 
-PODFILE CHECKSUM: d2a8bc394fe6d73aab2eff81053cb39e8ed2d284
+PODFILE CHECKSUM: 4b27f3e6100b6e5eb6e217b14f76836c0ed5dc16
 
 COCOAPODS: 1.2.0

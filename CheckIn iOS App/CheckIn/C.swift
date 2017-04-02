@@ -32,8 +32,31 @@ class C {
         }
     }
     
+    
+    
+    
+    
+    static var nameOfUser: String = "Clifford Panos"
+    static var emailOfUser: String = "cliffpanos@gmail.com"
+    static var locationName: String = "HackGSU Spring 2017 Demo"
+    
+    
     static var passesActive: Bool = true
+    
     static var automaticCheckIn: Bool = true
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     static var user: LoggedIn!
     static var userIsLoggedIn: Bool {
@@ -60,6 +83,21 @@ class C {
             }
         }
     
+    }
+    
+    static func save(pass: Pass?, withName name: String, andEmail email: String, from startTime: Date, to endTime: Date) -> Bool {
+        
+        let managedContext = C.appDelegate.persistentContainer.viewContext
+        
+        let pass = pass ?? Pass(context: managedContext)
+        
+        pass.name = name
+        pass.email = email
+        //pass.timeStart
+        //pass.timeEnd
+        
+        return (try? managedContext.save()) != nil
+        
     }
     
     
