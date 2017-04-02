@@ -11,27 +11,47 @@ import CoreData
 
 class PassDetailViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    
     var pass: Pass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Setup information using Pass
+        nameLabel.text = pass.name
+        emailLabel.text = pass.email
+        startTimeLabel.text = pass.timeStart
+        endTimeLabel.text = pass.timeEnd
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func revokeAccessPressed(_ sender: Any) {
+        
+        let action = UIAlertAction(title: "Revoke Pass", style: .destructive, handler:{ _ in
+            let success = C.delete(pass: self.pass)
+            
+            if success {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                let alert = UIAlertController(title: "Failed to revoke Pass", message: "The pass could not be revoked at this time.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
+        
+        let alert = UIAlertController(title: "Confirm Revocation", message: "Are you sure you want to revoke this pass?", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        
     }
-    
 
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
 
 }

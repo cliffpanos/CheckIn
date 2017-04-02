@@ -139,7 +139,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func animateOff() {
         
         dismissKeyboard()
-        UIView.animate(withDuration: 1.2, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.5, options: .curveEaseIn, animations: {
             
             let translationY = 0.5 * self.view.frame.height + 100
             self.primaryView.frame.origin.y += translationY

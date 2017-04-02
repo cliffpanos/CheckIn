@@ -13,6 +13,7 @@ class CheckInPassViewController: UIViewController {
 
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var qrCodeImageView: UIImageView!
+    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,4 +30,12 @@ class CheckInPassViewController: UIViewController {
     @IBAction func onDonePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func viewPanned(_ sender: Any) {
+    
+        if (panGestureRecognizer.velocity(in: self.view).y > 0) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }

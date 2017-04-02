@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PassesViewController: UIViewController {
+class PassesViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,13 +21,23 @@ class PassesViewController: UIViewController {
         let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
         tableView.setContentOffset(offset, animated: true)
         
+        //Setup ToolBar associated with keyboard
         let toolbar = UIToolbar()
+        toolbar.barStyle = .default
+        let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dismissKeyboard))
+        toolbar.items = [flex, done]
+        toolbar.sizeToFit()
+        searchBar.inputAccessoryView = toolbar
         
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
         
         self.passes = C.passes
         tableView.reloadData()
@@ -43,6 +53,10 @@ class PassesViewController: UIViewController {
     @IBAction func newPassPressed(_ sender: Any) {
         let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
         self.tabBarController?.present(controller, animated: true, completion: nil)
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     
@@ -81,9 +95,34 @@ class PassCell: UITableViewCell {
     @IBOutlet weak var emailTitle: UILabel!
     
     func decorate(for pass: Pass) {
-        self.nameTitle.text = pass.name ?? ""
+        self.nameTitle.text = pass.name ?? "Contact Name"
+        self.emailTitle.text = pass.email ?? ""
+        
+        if let imageData = pass.image {
+            var image = UIImage(data: imageData as Data)
+            image = image?.resize(image!, toFrame: contactView.frame)
+            contactView.image = image
+            return
+        }
         
         let imageName = C.passesActive ? "greenContactIcon" : "contactIcon"
         contactView.image = UIImage(named: imageName)
     }
+}
+
+extension UIImage {
+    
+    func resize(_ image: UIImage, toFrame newFrame: CGRect) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(newFrame.size, false, scale)
+        image.draw(in: CGRect(x: 0, y: 0, width: newFrame.size.width, height: newFrame.size.height))
+        
+        defer { UIGraphicsEndImageContext() }
+        guard let cgImage = cgImage?.cropping(to: newFrame) else { return image }
+        //UIBezierPath(ovalIn: newFrame).addClip()
+        //UIImage(cgImage: cgImage).draw(in: newFrame)
+        return UIGraphicsGetImageFromCurrentImageContext()!
+        
+    }
+
 }

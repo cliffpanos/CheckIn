@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import AddressBook
-import AddressBookUI
+import Contacts
+import ContactsUI
 
-class NewPassViewController: UIViewController, UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate {
+class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPickerDelegate {
 
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
@@ -19,6 +19,8 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, ABPeoplePick
     
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
+    
+    var imageData: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,35 +56,64 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, ABPeoplePick
     }
 
     @IBAction func chooseContactPressed(_ sender: Any) {
-        fillContactInformation()
+        
+        if CNContactStore.authorizationStatus(for: CNEntityType.contacts) != .authorized {
+            let contacts = CNContactStore()
+            
+            contacts.requestAccess(for: CNEntityType.contacts, completionHandler: {success, error in
+                if success {
+                    self.fillContactInformation()
+                }
+            })
+        } else {
+            fillContactInformation()
+        }
     }
     
     @IBAction func onCancelPressed(_ sender: Any) {
         if nameTextField.text != "" && emailTextField.text != "" {
             
-            let alert = UIAlertController(title: "Cancel Pass Creation", message: "Do you want to cancel creating this pass?", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Exit", style: .cancel, handler: { action in
+            let alert = UIAlertController(title: "Do you want to cancel creating this pass?", message: nil, preferredStyle: .actionSheet)
+            let discardAction = UIAlertAction(title: "Discard Pass", style: .destructive, handler: { action in
                 self.dismiss(animated: true, completion: nil)
             })
             
-            let alertAction = UIAlertAction(title: "Stay Here", style: .default, handler: nil)
-            alert.addAction(cancelAction)
+            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(alertAction)
+            alert.addAction(discardAction)
             self.present(alert, animated: true, completion: nil)
         
         } else {
+            
+            //Dismiss only if there is not a ton of user data that would be lost
             self.dismiss(animated: true, completion: nil)
+        
         }
 
     }
     
     @IBAction func sendPassPressed(_ sender: Any) {
+        
+        if nameTextField.text == "" {
+            let alert = UIAlertController(title: "Insufficient Information", message: "Please enter more information", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        
+        } else {
+            createAndSavePass()
+        }
+        
+    }
+    
+    func createAndSavePass() {
+        
         let name = nameTextField.text ?? ""
-        let email = emailTextField.text ?? ""
+        let email = emailTextField.text ?? "No email provided"
         let startDate = startDatePicker.date
         let endDate = endDatePicker.date
         
-        let success = C.save(pass: nil, withName: name, andEmail: email, from: startDate, to: endDate)
+        let success = C.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: startDate, to: endDate)
         
         if success {
             self.dismiss(animated: true, completion: nil)
@@ -92,7 +123,6 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, ABPeoplePick
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     @IBAction func handlePanDown(_ sender: Any) {
@@ -100,19 +130,22 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, ABPeoplePick
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
 
     func fillContactInformation() {
         
-        let contactsVC = ABPeoplePickerNavigationController()
-        contactsVC.peoplePickerDelegate = self
+        let contactsVC = CNContactPickerViewController()
+        contactsVC.delegate = self
         self.present(contactsVC, animated: true, completion: nil)
-        
         
     }
     
-    func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord) {
-        let name = person
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        
+        nameTextField.text = (contact.givenName as String) + " " + contact.familyName
+        emailTextField.text = (contact.emailAddresses.count > 0) ? contact.emailAddresses[0].value as String : ""
+        imageData = contact.imageDataAvailable ? contact.imageData : nil
+
     }
+    
 
 }

@@ -5,12 +5,13 @@
     </entity>
     <entity name="Pass" representedClassName="Pass" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStart" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="LoggedIn" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="Pass" positionX="-54" positionY="0" width="128" height="105"/>
+        <element name="Pass" positionX="-54" positionY="0" width="128" height="120"/>
     </elements>
 </model>

@@ -48,13 +48,7 @@ class C {
     
     
     
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -85,7 +79,7 @@ class C {
     
     }
     
-    static func save(pass: Pass?, withName name: String, andEmail email: String, from startTime: Date, to endTime: Date) -> Bool {
+    static func save(pass: Pass?, withName name: String, andEmail email: String, andImage imageData: Data?, from startTime: Date, to endTime: Date) -> Bool {
         
         let managedContext = C.appDelegate.persistentContainer.viewContext
         
@@ -93,10 +87,31 @@ class C {
         
         pass.name = name
         pass.email = email
-        //pass.timeStart
-        //pass.timeEnd
+        pass.timeStart = C.format(date: startTime)
+        pass.timeEnd = C.format(date: endTime)
+        
+        if let data = imageData {
+            pass.image = data as NSData
+        }
         
         return (try? managedContext.save()) != nil
+        
+    }
+    
+    static func delete(pass: Pass) -> Bool {
+        
+        let managedContext = C.appDelegate.persistentContainer.viewContext
+        managedContext.delete(pass)
+        
+        return (try? managedContext.save()) != nil
+        
+    }
+    
+    static func format(date: Date) -> String {
+        
+        let stringVersion = DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .medium)
+        
+        return stringVersion
         
     }
     
