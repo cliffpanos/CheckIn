@@ -29,8 +29,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
             locationManager.requestAlwaysAuthorization()
         }
+        
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "CurrentLocation"), style: .done, target: self, action: #selector(zoomToLocation))
+
+        navigationItem.rightBarButtonItem = button
 
     }
+    
+    func zoomToLocation() {
+        let userRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        mapView.setRegion(userRegion, animated: true)
+    }
+
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         mapView.showsUserLocation = (status == .authorizedAlways)
