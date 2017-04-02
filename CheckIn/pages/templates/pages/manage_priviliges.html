@@ -1,0 +1,88 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Manage Priviliges</h2>
+        <h5>Welcome to the manage priviliges page. Here you can add and remove invite priviliges, keep track of workers, and add or delete workers from the database.</h5>
+    </div>
+
+    <div class="col-lg-10 col-md-10">
+
+        <h3>Current Workers</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Can Invite Guests</th>
+                    <th>Remove?</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Adams</td>
+                    <td>John</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Eisenhower</td>
+                    <td>Dwight</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ford</td>
+                    <td>Gerald</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Hoover</td>
+                    <td>Herbert</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Kennedy</td>
+                    <td>Jack</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Obama</td>
+                    <td>Barrack</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Roosevelt</td>
+                    <td>Teddy</td>
+                    <td>Yes</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Washington</td>
+                    <td>George</td>
+                    <td>No (ask the cherry tree why)</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+</div>
+
+{% endblock %}

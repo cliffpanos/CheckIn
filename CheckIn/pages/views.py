@@ -16,3 +16,7 @@ def map(request):
 
 def signup(request):
     return HttpResponse("This is the signup view!")
+
+def manage_priviliges(request):
+    template = loader.get_template('pages/manage_priviliges.html')
+    return HttpResponse(template.render())
