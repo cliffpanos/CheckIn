@@ -54,18 +54,21 @@
         // clear
         $('#qr-code').empty();
 
-        // validate
-
         //get data
         var nameVal = $("input#name").val();
         var emailVal = $("input#email").val();
 
-        // qr code
-        $('#qr-code').qrcode({
-            width: 80,
-            height: 80,
-            text: nameVal + " " + emailVal
-        });
+        if (nameVal === '' || emailVal === '') {
+            $('#qr-code').append( "<p>Please enter valid name and email!</p>" );
+
+        } else {
+            // qr code
+            $('#qr-code').qrcode({
+                width: 100,
+                height: 100,
+                text: nameVal + " " + emailVal
+            });
+        }
 
         event.preventDefault();
     });

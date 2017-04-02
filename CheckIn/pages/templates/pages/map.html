@@ -2,7 +2,9 @@
 {% block content %}
 <div class="row">
     <div class="col-md-12">
-        <h2>Map</h2>
+        <h2>Property Manager</h2>
+        <h5>Welcome to the Property Manager. Here you can set the bounds for your property that will
+            keep track of visitors.</h5>
     </div>
 </div>
 
@@ -14,7 +16,7 @@
         <!-- GOOGLE MAPS INIT-->
 
         <!-- MAP  -->
-        <div id="map" style="height: 500px; width: auto; background-color: #2aabd2">HIIII</div>
+        <div id="map" style="height: 500px; width: auto;"></div>
         <script>
             // This example requires the Drawing library. Include the libraries=drawing
             // parameter when you first load the API. For example:
@@ -23,7 +25,7 @@
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 33.777, lng: -84.397},
-                    zoom: 10
+                    zoom: 15
                 });
 
                 var drawingManager = new google.maps.drawing.DrawingManager({
@@ -35,9 +37,9 @@
                     },
                     markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
                     circleOptions: {
-                        fillColor: '#ffff00',
-                        fillOpacity: 1,
-                        strokeWeight: 4,
+                        fillColor: '#039EC8',
+                        fillOpacity: .5,
+                        strokeWeight: 1,
                         clickable: true,
                         editable: true,
                         zIndex: 1
