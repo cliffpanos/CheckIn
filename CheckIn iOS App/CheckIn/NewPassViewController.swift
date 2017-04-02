@@ -100,7 +100,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         
-        } else if endDatePicker.date < startDatePicker.date {
+        } else if endDatePicker.date <= startDatePicker.date {
             let alert = UIAlertController(title: "Inordered Dates", message: "The start date must precede the end date", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)

@@ -44,10 +44,14 @@ class PassesViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
-        print("Logging out!!")
-        C.userIsLoggedIn = false
-        let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
-        self.present(controller, animated: true, completion: nil)
+
+        C.showDestructiveAlert(withTitle: "Logout", andMessage: "Are you sure you want to logout?", andDestructiveAction: "Logout", inView: self) { action in
+            //if C.result {
+                C.userIsLoggedIn = false
+                let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+                self.present(controller, animated: true, completion: nil)
+            //}
+        }
     }
     
     @IBAction func newPassPressed(_ sender: Any) {
@@ -115,7 +119,7 @@ extension UIImage {
     func resize(_ image: UIImage, toFrame newFrame: CGRect) -> UIImage {
         
         UIGraphicsBeginImageContextWithOptions(newFrame.size, false, scale)
-        image.draw(in: CGRect(x: 0, y: 0, width: newFrame.size.width, height: newFrame.size.height))
+        image.draw(in: newFrame)
         
         defer { UIGraphicsEndImageContext() }
         guard let cgImage = cgImage?.cropping(to: newFrame) else { return image }

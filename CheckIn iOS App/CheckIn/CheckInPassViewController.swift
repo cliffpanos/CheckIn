@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QRCoder
 
 class CheckInPassViewController: UIViewController {
 
@@ -18,14 +17,13 @@ class CheckInPassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let generator = QRCodeGenerator()
-        let image: QRImage = generator.createImage(value:
+        let image = C.generateQRCode(forMessage:
             "\(C.nameOfUser)|" +
             "\(C.emailOfUser)|" +
             "\(C.locationName)"
-            , size: qrCodeImageView.frame.size)!
+            , withSize: qrCodeImageView.frame.size)
         
-        qrCodeImageView.image = image as UIImage
+        qrCodeImageView.image = image
         
         ownerLabel.text = "\(C.nameOfUser)'s Pass"
         

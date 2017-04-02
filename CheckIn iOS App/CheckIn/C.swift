@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import QRCoder
+
 
 class C {
     
@@ -109,15 +111,52 @@ class C {
     
     static func format(date: Date) -> String {
         
-        let stringVersion = DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .medium)
+        let stringVersion = DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .short)
         
         return stringVersion
         
     }
     
     
+    //MARK: - QR Code handling
+    
+    static func share(image: UIImage, in viewController: UIViewController) {
+        
+        let shareItems: [Any] = [image]
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityType.print, UIActivityType.postToWeibo, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+        viewController.present(activityViewController, animated: true, completion: nil)
+        
+    }
+    
+    static func generateQRCode(forMessage message: String, withSize size: CGSize?) -> UIImage {
+        
+        let bounds = size ?? CGSize(width: 275, height: 275)
+        let generator = QRCodeGenerator()
+        let image: QRImage = generator.createImage(value: message, size: bounds)!
+        return image as UIImage
+    }
     
     
+    
+    //MARK: - AlertController helper methods
+    
+    static var result: Bool = false
+    
+    static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, forCompletion completionHandler: @escaping (UIAlertAction) -> Void) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            //C.result = false
+        })
+        let destructiveAction = UIAlertAction(title: destructive, style: .destructive, handler:
+            completionHandler)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(destructiveAction)
+        viewController.present(alert, animated: true, completion: nil)
+    
+    }
     
     
     

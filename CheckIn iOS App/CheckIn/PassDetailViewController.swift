@@ -28,6 +28,9 @@ class PassDetailViewController: UIViewController {
         startTimeLabel.text = pass.timeStart
         endTimeLabel.text = pass.timeEnd
         
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareQRCode))
+        navigationItem.rightBarButtonItem = shareButton
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +38,18 @@ class PassDetailViewController: UIViewController {
         
         passActivityState.text = C.passesActive ? "Pass Active Between:" : "Pass Currently Inactive."
     
+    }
+    
+    func shareQRCode() {
+        let qrCodeImage = C.generateQRCode(forMessage:
+            "\(self.nameLabel.text!)|" +
+            "\(self.emailLabel.text ?? "No email provided")|" +
+            "\(self.startTimeLabel.text!)|" +
+            "\(self.endTimeLabel.text!)|" +
+            "\(C.locationName)|"
+
+        , withSize: nil)
+        C.share(image: qrCodeImage, in: self)
     }
 
     @IBAction func revokeAccessPressed(_ sender: Any) {
