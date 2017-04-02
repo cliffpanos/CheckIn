@@ -8,18 +8,24 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        guard !C.userIsLoggedIn else {
+            return
+        }
+        
+        let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        
+        self.present(controller, animated: true, completion: nil)
     }
-
 
 }
 

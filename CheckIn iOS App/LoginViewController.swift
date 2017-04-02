@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,43 +23,77 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
+        for textField in [emailTextField, passwordTextField] {
+            let numberToolbar: UIToolbar = UIToolbar()
+            numberToolbar.barStyle = UIBarStyle.default
+            
+            numberToolbar.items = [
+                
+                UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
+                UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
+            ]
+            
+            numberToolbar.sizeToFit()
+            
+            textField?.inputAccessoryView = numberToolbar
+        }
+        
+        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+
     }
 
     func keyboardWillShow(notification: NSNotification) {
         if textFieldSelected {
             return
         }
-        UIView.animate(withDuration: 1.2, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+        print("moving up")
+        
+        UIView.animate(withDuration: 0.75, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+        
+            self.primaryView.frame.origin.y -= 75
             
-            self.primaryView.frame.origin.y -= 40
-            self.loginTitle.frame.origin.y -= 40
-            
-        }, completion: { _ in
-            self.textFieldSelected = false
-        })
+        }, completion: nil)
+        self.textFieldSelected = true
+
+        
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if !textFieldSelected {
+        if !self.textFieldSelected {
             return
         }
-        UIView.animate(withDuration: 1.2, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+        print("moving down")
+        
+        UIView.animate(withDuration: 0.75, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
             
-            self.primaryView.frame.origin.y += 40
-            self.loginTitle.frame.origin.y += 40
-            
-        }, completion: { _ in
-            self.textFieldSelected = true
-        })
+            self.primaryView.frame.origin.y += 75
+
+        }, completion: nil)
+        self.textFieldSelected = false
     }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch (textField) {
+        case emailTextField: passwordTextField.becomeFirstResponder()
+        default:
+            dismissKeyboard()
+            signInPressed(self)
+        }
+        return true
+    }
+    
     
     @IBAction func signInPressed(_ sender: Any) {
         
         if (passwordMatchesEmail()) {
-            self.dismiss(animated: true, completion: {
-                self.emailTextField.text = ""
-                self.passwordTextField.text = ""
-            })
+            C.userIsLoggedIn = true
+            animateOff()
+        } else {
+            shake()
         }
     }
 
@@ -74,9 +108,6 @@ class LoginViewController: UIViewController {
         
         if email == "user" && password == "pass" {
             return true
-        } else {
-            shake()
-            passwordTextField.text = ""
         }
         
         return false
@@ -99,6 +130,27 @@ class LoginViewController: UIViewController {
         animation.autoreverses = true
         animation.byValue = 7 //how much it moves
         self.passwordTextField.layer.add(animation, forKey: "position")
+        self.emailTextField.layer.add(animation, forKey: "position")
+    }
+    
+    func animateOff() {
+        
+        dismissKeyboard()
+        UIView.animate(withDuration: 1.2, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+            
+            let translationY = 0.5 * self.view.frame.height + 100
+            self.primaryView.frame.origin.y += translationY
+            self.loginTitle.text = "Login Successful!"
+
+            
+        }, completion: {_ in
+            self.textFieldSelected = false
+            self.dismiss(animated: true, completion: {
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
+            })
+        })
+        
     }
     
     

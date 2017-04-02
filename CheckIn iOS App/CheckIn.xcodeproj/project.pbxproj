@@ -15,6 +15,11 @@
 		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
+		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
+		91989DA61E90095E00F83E1C /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* C.swift */; };
+		91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA71E901B0C00F83E1C /* SettingsViewController.swift */; };
+		91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA91E904AA100F83E1C /* PassDetailViewController.swift */; };
+		91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAB1E9053B300F83E1C /* NewPassViewController.swift */; };
 		B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +35,11 @@
 		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
+		91989DA51E90095E00F83E1C /* C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
+		91989DA71E901B0C00F83E1C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		91989DA91E904AA100F83E1C /* PassDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailViewController.swift; sourceTree = "<group>"; };
+		91989DAB1E9053B300F83E1C /* NewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPassViewController.swift; sourceTree = "<group>"; };
 		BA47C6F0CB7D51770650959E /* Pods-CheckIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.debug.xcconfig"; sourceTree = "<group>"; };
 		BA900332F619702613FF1B96 /* Pods-CheckIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.release.xcconfig"; sourceTree = "<group>"; };
 		E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,8 +80,13 @@
 			children = (
 				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
 				916E0EE91E8F6CB700911417 /* MainViewController.swift */,
+				91989DA51E90095E00F83E1C /* C.swift */,
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
 				916E0EEB1E8F6CB700911417 /* Main.storyboard */,
+				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
+				91989DA31E90024800F83E1C /* PassesViewController.swift */,
+				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
+				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
 				916E0EF11E8F6CB700911417 /* Assets.xcassets */,
 				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
 				916E0EF61E8F6CB700911417 /* Info.plist */,
@@ -227,7 +242,12 @@
 			files = (
 				916E0F011E8F705400911417 /* LoginViewController.swift in Sources */,
 				916E0EEA1E8F6CB700911417 /* MainViewController.swift in Sources */,
+				91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */,
+				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* CheckIn.xcdatamodeld in Sources */,
+				91989DA61E90095E00F83E1C /* C.swift in Sources */,
+				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
+				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
