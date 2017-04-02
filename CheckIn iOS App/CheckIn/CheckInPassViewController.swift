@@ -19,7 +19,11 @@ class CheckInPassViewController: UIViewController {
         super.viewDidLoad()
 
         let generator = QRCodeGenerator()
-        let image: QRImage = generator.createImage(value: "\(C.nameOfUser)|\(C.emailOfUser)|\(C.locationName)", size: qrCodeImageView.frame.size)!
+        let image: QRImage = generator.createImage(value:
+            "\(C.nameOfUser)|" +
+            "\(C.emailOfUser)|" +
+            "\(C.locationName)"
+            , size: qrCodeImageView.frame.size)!
         
         qrCodeImageView.image = image as UIImage
         
@@ -33,7 +37,7 @@ class CheckInPassViewController: UIViewController {
     
     @IBAction func viewPanned(_ sender: Any) {
     
-        if (panGestureRecognizer.velocity(in: self.view).y > 0) {
+        if (panGestureRecognizer.velocity(in: self.view).y > 1) {
             self.dismiss(animated: true, completion: nil)
         }
     }

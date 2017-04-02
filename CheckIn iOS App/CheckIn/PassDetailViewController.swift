@@ -15,6 +15,7 @@ class PassDetailViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var passActivityState: UILabel!
     
     var pass: Pass!
     
@@ -27,6 +28,13 @@ class PassDetailViewController: UIViewController {
         startTimeLabel.text = pass.timeStart
         endTimeLabel.text = pass.timeEnd
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        passActivityState.text = C.passesActive ? "Pass Active Between:" : "Pass Currently Inactive."
+    
     }
 
     @IBAction func revokeAccessPressed(_ sender: Any) {

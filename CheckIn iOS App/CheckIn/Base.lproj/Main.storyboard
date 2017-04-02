@@ -556,10 +556,10 @@
             </objects>
             <point key="canvasLocation" x="2520.8000000000002" y="1143.7781109445277"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="EDM-GE-sb7">
             <objects>
-                <viewController id="wK2-hf-Sn1" sceneMemberID="viewController">
+                <viewController id="wK2-hf-Sn1" customClass="MapViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YyD-lD-utG"/>
                         <viewControllerLayoutGuide type="bottom" id="jSa-Cv-OkF"/>
@@ -567,8 +567,22 @@
                     <view key="view" contentMode="scaleToFill" id="VeT-fp-KN0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cVJ-nR-l1D">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cVJ-nR-l1D" firstAttribute="leading" secondItem="VeT-fp-KN0" secondAttribute="leading" id="NGs-Xf-Tdy"/>
+                            <constraint firstAttribute="trailing" secondItem="cVJ-nR-l1D" secondAttribute="trailing" id="Pdi-g9-U8N"/>
+                            <constraint firstItem="jSa-Cv-OkF" firstAttribute="top" secondItem="cVJ-nR-l1D" secondAttribute="bottom" id="Wof-XV-glK"/>
+                            <constraint firstItem="cVJ-nR-l1D" firstAttribute="top" secondItem="YyD-lD-utG" secondAttribute="bottom" id="fHp-BW-nIO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="cVJ-nR-l1D" id="zhm-kb-3Ic"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uym-VJ-d8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -808,6 +822,7 @@
                         <outlet property="emailLabel" destination="rbk-YD-xci" id="BHx-4l-r7A"/>
                         <outlet property="endTimeLabel" destination="Fwc-lZ-cBd" id="LRo-ph-AAT"/>
                         <outlet property="nameLabel" destination="d7g-DZ-3XX" id="XCw-h7-OiA"/>
+                        <outlet property="passActivityState" destination="yQb-rw-Jab" id="nLt-2P-g6p"/>
                         <outlet property="startTimeLabel" destination="eHj-ae-FWy" id="buX-ot-cXc"/>
                     </connections>
                 </viewController>

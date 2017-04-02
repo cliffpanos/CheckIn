@@ -95,7 +95,13 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
     @IBAction func sendPassPressed(_ sender: Any) {
         
         if nameTextField.text == "" {
-            let alert = UIAlertController(title: "Insufficient Information", message: "Please enter more information", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Insufficient Information", message: "Please enter a name at minimum", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        
+        } else if endDatePicker.date < startDatePicker.date {
+            let alert = UIAlertController(title: "Inordered Dates", message: "The start date must precede the end date", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
@@ -109,7 +115,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
     func createAndSavePass() {
         
         let name = nameTextField.text ?? ""
-        let email = emailTextField.text ?? "No email provided"
+        let email = emailTextField.text == "" ? "No email provided" : emailTextField.text ?? ""
         let startDate = startDatePicker.date
         let endDate = endDatePicker.date
         
@@ -126,7 +132,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
     }
     
     @IBAction func handlePanDown(_ sender: Any) {
-        if panGestureRecognizer.velocity(in: self.view).y > 0 {
+        if panGestureRecognizer.velocity(in: self.view).y > 1 {
             self.dismiss(animated: true, completion: nil)
         }
     }
