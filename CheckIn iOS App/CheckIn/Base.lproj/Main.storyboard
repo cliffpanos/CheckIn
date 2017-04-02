@@ -340,6 +340,11 @@
                                                 <rect key="frame" x="240" y="0.0" width="83" height="48"/>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4j8-jS-Q3w" firstAttribute="centerY" secondItem="nUS-eB-3Qe" secondAttribute="centerY" id="ROL-ye-0Sq"/>
+                                            <constraint firstItem="4j8-jS-Q3w" firstAttribute="top" secondItem="nUS-eB-3Qe" secondAttribute="top" id="iOL-QP-H8l"/>
+                                            <constraint firstAttribute="bottom" secondItem="4j8-jS-Q3w" secondAttribute="bottom" id="kB5-Sb-pQ5"/>
+                                        </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authOwner@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irw-wd-Ql5">
                                         <rect key="frame" x="0.0" y="98.5" width="323" height="20.5"/>
@@ -407,7 +412,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hwV-Qq-bA8">
                                                 <rect key="frame" x="0.0" y="43" width="323" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Checking In &amp; Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-p9-F6d">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Checking In &amp; Out" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-p9-F6d">
                                                         <rect key="frame" x="0.0" y="5" width="274" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -493,7 +498,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S6R-tg-tmy">
-                                <rect key="frame" x="49.5" y="195.5" width="275" height="275"/>
+                                <rect key="frame" x="50" y="196" width="275" height="275"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="4EG-ys-HfS"/>
                                     <constraint firstAttribute="height" constant="275" id="DAF-pg-9jC"/>
@@ -637,7 +642,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
-                                                    <rect key="frame" x="8" y="10.5" width="326" height="85"/>
+                                                    <rect key="frame" x="8" y="10.5" width="271" height="85"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI">
                                                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
@@ -647,16 +652,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-4c-o63">
-                                                            <rect key="frame" x="95" y="0.0" width="231" height="85"/>
+                                                            <rect key="frame" x="95" y="0.0" width="176" height="85"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saO-TA-7cA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="231" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="176" height="55"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-1g-giH">
-                                                                    <rect key="frame" x="0.0" y="30" width="231" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="30" width="176" height="55"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -743,7 +748,7 @@
                                         <color key="textColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Contact Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-DZ-3XX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" layoutMarginsFollowReadableWidth="YES" text="Contact Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7g-DZ-3XX">
                                         <rect key="frame" x="0.0" y="35.5" width="323" height="48"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                         <nil key="textColor"/>
@@ -756,6 +761,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="d7g-DZ-3XX" firstAttribute="top" secondItem="TT0-xh-DFt" secondAttribute="bottom" constant="15" id="2Zm-UK-eoP"/>
+                                    <constraint firstItem="d7g-DZ-3XX" firstAttribute="centerY" secondItem="1Fu-sg-2xz" secondAttribute="centerY" id="iIc-O3-mhP"/>
+                                    <constraint firstItem="rbk-YD-xci" firstAttribute="top" secondItem="d7g-DZ-3XX" secondAttribute="bottom" constant="15" id="o4I-cE-ZZs"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr">
                                 <rect key="frame" x="26" y="587" width="323" height="45"/>
