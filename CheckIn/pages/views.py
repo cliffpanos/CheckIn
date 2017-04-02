@@ -6,5 +6,9 @@ def index(request):
     template = loader.get_template('pages/index.html')
     return HttpResponse(template.render())
 
+def qrtest(request):
+    template = loader.get_template('pages/qrtest.html')
+    return HttpResponse(template.render())
+
 def signup(request):
     return HttpResponse("This is the signup view!")

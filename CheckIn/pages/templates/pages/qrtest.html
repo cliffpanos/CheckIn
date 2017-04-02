@@ -1,0 +1,75 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>QR Test</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6" id="place">
+
+        <!-- input form-->
+        <form id="form1">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <input type="submit">
+            </div>
+        </form>
+
+        <!-- output-->
+
+        <ul id="new-list"></ul>
+        <div id="output">
+            <div id="qr-code"></div>
+            <div id="data-output"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // JSON
+    //    $.getJSON( "js/test.json", function( data ) {
+    //        var items = [];
+    //        $.each( data, function( key, val ) {
+    //            items.push( "<li id='" + key + "'>" + val + "</li>" );
+    //        });
+    //
+    //        $( "<ul/>", {
+    //            "class": "new-list",
+    //            html: items.join( "" )
+    //        }).appendTo( "#place" );
+    //    });
+
+
+    // FORM & QR generation
+    $("#form1").submit(function (event) {
+        // clear
+        $('#qr-code').empty();
+
+        // validate
+
+        //get data
+        var nameVal = $("input#name").val();
+        var emailVal = $("input#email").val();
+
+        // qr code
+        $('#qr-code').qrcode({
+            width: 80,
+            height: 80,
+            text: nameVal + " " + emailVal
+        });
+
+        event.preventDefault();
+    });
+
+</script>
+
+{% endblock %}
