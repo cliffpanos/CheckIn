@@ -18,21 +18,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         locationManager.delegate = self
-        
-        //load pins
-        let hackGSU = Pin(name: "HackGSU",latitude: 33.7563920891773, longitude: -84.3890242522629)
-        
-        mapView.addAnnotation(hackGSU as MKAnnotation)
-        
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
             locationManager.requestAlwaysAuthorization()
         }
         
+        //load pins
+        let hackGSU = Pin(name: "HackGSU",latitude: 33.7563920891773, longitude: -84.3890242522629)
+        mapView.addAnnotation(hackGSU as MKAnnotation)
+        
         let button = UIBarButtonItem(image: #imageLiteral(resourceName: "CurrentLocation"), style: .done, target: self, action: #selector(zoomToLocation))
-
         navigationItem.rightBarButtonItem = button
+        
+        //https://www.raywenderlich.com/136165/core-location-geofencing-tutorial
 
     }
     
@@ -50,6 +49,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
 
 
-/*class Pin: MKAnnotation {
+class Pin: NSObject, MKAnnotation {
     
-}*/
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    var name: String = "Pin"
+    
+    init(name: String, latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.name = name
+    }
+    
+    public var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+    }
+    
+    public var title: String? {
+        return self.name
+    }
+    
+}
+
+
+

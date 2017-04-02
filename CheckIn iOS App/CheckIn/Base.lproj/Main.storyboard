@@ -31,21 +31,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AuD-Wj-DQv">
                                         <rect key="frame" x="24" y="24" width="205" height="152"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="   Email" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-ld-u3a">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="   Email" placeholder="   Email" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-ld-u3a">
                                                 <rect key="frame" x="0.0" y="0.0" width="205" height="37.5"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <color key="textColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lgR-gC-LZB"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="   Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-vJ-xCE">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="   Password" placeholder="   Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-vJ-xCE">
                                                 <rect key="frame" x="0.0" y="57.5" width="205" height="37"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <color key="textColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pMf-at-QJ7"/>
@@ -407,7 +407,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hwV-Qq-bA8">
                                                 <rect key="frame" x="0.0" y="43" width="323" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-p9-F6d">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Checking In &amp; Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-p9-F6d">
                                                         <rect key="frame" x="0.0" y="5" width="274" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -637,7 +637,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
-                                                    <rect key="frame" x="10" y="10.5" width="322" height="85"/>
+                                                    <rect key="frame" x="8" y="10.5" width="326" height="85"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI">
                                                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
@@ -647,16 +647,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-4c-o63">
-                                                            <rect key="frame" x="95" y="0.0" width="227" height="85"/>
+                                                            <rect key="frame" x="95" y="0.0" width="231" height="85"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saO-TA-7cA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="227" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="231" height="55"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-1g-giH">
-                                                                    <rect key="frame" x="0.0" y="30" width="227" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="30" width="231" height="55"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -666,6 +666,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="jgd-4c-o63" secondAttribute="bottom" id="Ysu-Af-Jwc"/>
+                                                        <constraint firstAttribute="height" constant="85" id="du2-ff-Dgh"/>
                                                         <constraint firstItem="jgd-4c-o63" firstAttribute="top" secondItem="ZPW-Mk-Beq" secondAttribute="top" id="kof-5x-niH"/>
                                                         <constraint firstAttribute="trailing" secondItem="jgd-4c-o63" secondAttribute="trailing" id="vUy-D1-Ldz"/>
                                                         <constraint firstItem="jgd-4c-o63" firstAttribute="centerY" secondItem="ZPW-Mk-Beq" secondAttribute="centerY" id="y1m-4r-WrU"/>
@@ -673,10 +674,9 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZPW-Mk-Beq" firstAttribute="top" secondItem="o5l-aT-zVf" secondAttribute="top" constant="10" id="ARR-eH-qCQ"/>
-                                                <constraint firstItem="ZPW-Mk-Beq" firstAttribute="leading" secondItem="o5l-aT-zVf" secondAttribute="leading" constant="10" id="XPU-yZ-fXl"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZPW-Mk-Beq" secondAttribute="trailing" constant="10" id="nQP-zS-tWP"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZPW-Mk-Beq" secondAttribute="bottom" constant="10" id="vcl-mL-0eM"/>
+                                                <constraint firstItem="ZPW-Mk-Beq" firstAttribute="leading" secondItem="o5l-aT-zVf" secondAttribute="leadingMargin" id="VDA-DC-x7P"/>
+                                                <constraint firstItem="ZPW-Mk-Beq" firstAttribute="centerY" secondItem="o5l-aT-zVf" secondAttribute="centerY" id="dyf-xB-39S"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZPW-Mk-Beq" secondAttribute="trailing" id="eFf-uL-SBr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
