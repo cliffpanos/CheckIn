@@ -7,9 +7,18 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--loginViewController-->
+        <scene sceneID="22G-IX-g76">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="loginViewController" id="GvT-Tt-oPu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGg-gh-zGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1937" y="-635"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -34,8 +43,8 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="   Email" placeholder="   Email" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KIE-ld-u3a">
                                                 <rect key="frame" x="0.0" y="0.0" width="205" height="37.5"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <color key="textColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lgR-gC-LZB"/>
@@ -45,7 +54,7 @@
                                                 <rect key="frame" x="0.0" y="57.5" width="205" height="37"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <color key="textColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pMf-at-QJ7"/>
@@ -136,7 +145,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-eT-Qwa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-eT-Qwa" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
                                 <rect key="frame" x="31" y="35" width="313" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -146,6 +155,11 @@
                                 <state key="normal" title="Choose Contact">
                                     <color key="titleColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="chooseContactPressed:" destination="g21-cy-4fY" eventType="touchUpInside" id="rar-QG-Qve"/>
                                 </connections>
@@ -153,9 +167,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-rQ-AVl" userLabel="Button Stack View">
                                 <rect key="frame" x="31" y="597" width="313" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-qz-BQv">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-qz-BQv" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="149" height="45"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="76U-bT-oPl"/>
                                         </constraints>
@@ -163,6 +176,14 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.75"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onCancelPressed:" destination="g21-cy-4fY" eventType="touchUpInside" id="Pu8-pg-4G0"/>
                                         </connections>
@@ -354,7 +375,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-ZM-TVL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-ZM-TVL" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
                                 <rect key="frame" x="26" y="592" width="323" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -364,6 +385,14 @@
                                 <state key="normal" title="Show Check-In Pass">
                                     <color key="titleColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showPass:" destination="K7k-Fg-uFx" eventType="touchUpInside" id="3Sd-VG-rNk"/>
                                 </connections>
@@ -498,13 +527,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S6R-tg-tmy">
-                                <rect key="frame" x="50" y="196" width="275" height="275"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="4EG-ys-HfS"/>
-                                    <constraint firstAttribute="height" constant="275" id="DAF-pg-9jC"/>
+                                    <constraint firstAttribute="width" constant="300" id="4EG-ys-HfS"/>
+                                    <constraint firstAttribute="height" constant="300" id="DAF-pg-9jC"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3do-Jg-BH0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3do-Jg-BH0" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
                                 <rect key="frame" x="31" y="587" width="313" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -514,6 +543,14 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onDonePressed:" destination="98K-LJ-ubf" eventType="touchUpInside" id="6yc-5a-ieU"/>
                                 </connections>
@@ -563,7 +600,7 @@
         <!--View Controller-->
         <scene sceneID="5e6-63-Wnm">
             <objects>
-                <viewController id="ODd-ar-dcP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationsViewController" id="ODd-ar-dcP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sc3-1f-6je"/>
                         <viewControllerLayoutGuide type="bottom" id="Rkd-6h-xjf"/>
@@ -641,27 +678,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
-                                                    <rect key="frame" x="8" y="10.5" width="271" height="85"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
+                                                    <rect key="frame" x="18" y="23" width="316" height="60"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI" customClass="RoundedImageView" customModule="CheckIn" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="85" id="Lyd-d5-ksg"/>
-                                                                <constraint firstAttribute="width" constant="85" id="utx-5t-DcJ"/>
+                                                                <constraint firstAttribute="height" constant="60" id="Lyd-d5-ksg"/>
+                                                                <constraint firstAttribute="width" constant="60" id="utx-5t-DcJ"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-4c-o63">
-                                                            <rect key="frame" x="95" y="0.0" width="176" height="85"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-4c-o63">
+                                                            <rect key="frame" x="75" y="0.0" width="241" height="60"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saO-TA-7cA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="176" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="241" height="32.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-1g-giH">
-                                                                    <rect key="frame" x="0.0" y="30" width="176" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="27.5" width="241" height="32.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -671,7 +713,6 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="jgd-4c-o63" secondAttribute="bottom" id="Ysu-Af-Jwc"/>
-                                                        <constraint firstAttribute="height" constant="85" id="du2-ff-Dgh"/>
                                                         <constraint firstItem="jgd-4c-o63" firstAttribute="top" secondItem="ZPW-Mk-Beq" secondAttribute="top" id="kof-5x-niH"/>
                                                         <constraint firstAttribute="trailing" secondItem="jgd-4c-o63" secondAttribute="trailing" id="vUy-D1-Ldz"/>
                                                         <constraint firstItem="jgd-4c-o63" firstAttribute="centerY" secondItem="ZPW-Mk-Beq" secondAttribute="centerY" id="y1m-4r-WrU"/>
@@ -679,15 +720,20 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZPW-Mk-Beq" firstAttribute="leading" secondItem="o5l-aT-zVf" secondAttribute="leadingMargin" id="VDA-DC-x7P"/>
+                                                <constraint firstItem="ZPW-Mk-Beq" firstAttribute="leading" secondItem="o5l-aT-zVf" secondAttribute="leadingMargin" constant="10" id="VDA-DC-x7P"/>
                                                 <constraint firstItem="ZPW-Mk-Beq" firstAttribute="centerY" secondItem="o5l-aT-zVf" secondAttribute="centerY" id="dyf-xB-39S"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ZPW-Mk-Beq" secondAttribute="trailing" id="eFf-uL-SBr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="contactView" destination="yqU-DE-djI" id="3Ey-9Z-lLZ"/>
                                             <outlet property="emailTitle" destination="Hln-1g-giH" id="UKX-3W-7uw"/>
                                             <outlet property="nameTitle" destination="saO-TA-7cA" id="I8x-Dv-Jgh"/>
+                                            <segue destination="3tQ-IF-YKG" kind="show" identifier="pushToPresDetail" id="9K0-40-2HE">
+                                                <segue key="commit" inheritsFrom="parent" id="prF-uw-85J"/>
+                                                <segue key="preview" inheritsFrom="commit" id="9F6-Rz-oZQ"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -767,7 +813,7 @@
                                     <constraint firstItem="rbk-YD-xci" firstAttribute="top" secondItem="d7g-DZ-3XX" secondAttribute="bottom" constant="15" id="o4I-cE-ZZs"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
                                 <rect key="frame" x="26" y="587" width="323" height="45"/>
                                 <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -775,8 +821,13 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <state key="normal" title="Revoke Access Pass">
-                                    <color key="titleColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="revokeAccessPressed:" destination="3tQ-IF-YKG" eventType="touchUpInside" id="ra8-Bp-BSE"/>
                                 </connections>
@@ -860,7 +911,7 @@
         <!--Main View Controller-->
         <scene sceneID="g0I-iE-hDA">
             <objects>
-                <tabBarController id="xu8-PM-eTo" customClass="MainViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="xu8-PM-eTo" customClass="MainViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZFS-lx-Y4M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -928,4 +979,7 @@
         <image name="greenContactIcon" width="85" height="85"/>
         <image name="vines" width="336" height="455"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9K0-40-2HE"/>
+    </inferredMetricsTieBreakers>
 </document>

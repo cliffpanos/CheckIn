@@ -23,11 +23,7 @@ class PassDetailViewController: UIViewController {
         super.viewDidLoad()
 
         //Setup information using Pass
-        nameLabel.text = pass.name
-        emailLabel.text = pass.email
-        startTimeLabel.text = pass.timeStart
-        endTimeLabel.text = pass.timeEnd
-        
+
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareQRCode))
         navigationItem.rightBarButtonItem = shareButton
         
@@ -35,6 +31,11 @@ class PassDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        nameLabel.text = pass.name
+        emailLabel.text = pass.email
+        startTimeLabel.text = pass.timeStart
+        endTimeLabel.text = pass.timeEnd
         
         passActivityState.text = C.passesActive ? "Pass Active Between:" : "Pass Currently Inactive."
     

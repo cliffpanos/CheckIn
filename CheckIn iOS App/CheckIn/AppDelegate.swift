@@ -24,7 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         C.user = LoggedIn(context: managedContext)
         try! managedContext.save()
         
-        tabBarController = window?.rootViewController as! UITabBarController
+        if (!C.userIsLoggedIn) {
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let loginController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            window?.rootViewController = loginController
+        } else {
+            tabBarController = window?.rootViewController as! UITabBarController
+        }
         
         //FIRApp.configure()
         

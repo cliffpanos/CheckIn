@@ -22,9 +22,9 @@ class MainViewController: UITabBarController {
             return
         }
         
-        let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        //let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
         
-        self.present(controller, animated: true, completion: nil)
+        //self.present(controller, animated: true, completion: nil)
     }
 
 }

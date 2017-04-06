@@ -81,6 +81,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
             let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(alertAction)
             alert.addAction(discardAction)
+            alert.popoverPresentationController?.sourceView = self.view
             self.present(alert, animated: true, completion: nil)
         
         } else {

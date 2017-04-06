@@ -13,9 +13,7 @@ class PassesViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    var passes = [Pass]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
@@ -32,26 +30,26 @@ class PassesViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.passes = C.passes
         tableView.reloadData()
+    
     }
     
+    
+    //MARK: - Navigation-related items
+    
     @IBAction func logoutPressed(_ sender: Any) {
-
-        C.showDestructiveAlert(withTitle: "Logout", andMessage: "Are you sure you want to logout?", andDestructiveAction: "Logout", inView: self) { action in
-            //if C.result {
-                C.userIsLoggedIn = false
+        
+        C.showDestructiveAlert(withTitle: "Conform Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self) { action in
                 let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
-                self.present(controller, animated: true, completion: nil)
-            //}
+            self.present(controller, animated: true, completion: {
+            })
+            C.userIsLoggedIn = false
+
         }
+
     }
     
     @IBAction func newPassPressed(_ sender: Any) {
@@ -63,17 +61,18 @@ class PassesViewController: UIViewController, UISearchBarDelegate {
         self.view.endEditing(true)
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
+    }
+    
     
 }
 
+
+//MARK: - TableView Delegation and Prototype Cell Implementation -----------------------------
+
 extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pass = C.passes[indexPath.row]
-        let controller = storyboard?.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
-        controller.pass = pass
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -89,6 +88,19 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         return C.passes.count
     }
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        //TODO
+        return false
+    }
+    
+    //Segue preparation for when a TableViewCell is pressed
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UITableViewCell, let destination = segue.destination as? PassDetailViewController {
+            destination.pass = C.passes[tableView.indexPath(for: cell)!.row]
+        }
+        
+    }
     
 }
 
@@ -103,8 +115,8 @@ class PassCell: UITableViewCell {
         self.emailTitle.text = pass.email ?? ""
         
         if let imageData = pass.image {
-            var image = UIImage(data: imageData as Data)
-            image = image?.resize(image!, toFrame: contactView.frame)
+            let image = UIImage(data: imageData as Data)
+            //image = image?.resize(image!, toFrame: contactView.frame)
             contactView.image = image
             return
         }
@@ -113,6 +125,9 @@ class PassCell: UITableViewCell {
         contactView.image = UIImage(named: imageName)
     }
 }
+
+
+//MARK: - UIImage class extension --------------------------------------------
 
 extension UIImage {
     

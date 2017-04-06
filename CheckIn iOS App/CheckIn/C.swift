@@ -55,7 +55,7 @@ class C {
     
     
     static var user: LoggedIn!
-    static var userIsLoggedIn: Bool {
+    static var userIsLoggedIn: Bool { //TODO user NSUserDefaults.standard
         get {
             
             let managedContext = appDelegate.persistentContainer.viewContext
@@ -70,6 +70,8 @@ class C {
         
         }
         set {
+            
+            print("SETTING LOGGED IN: \(newValue ? "IN" : "OUT")\n")
             let managedContext = appDelegate.persistentContainer.viewContext
             user.isLoggedIn = newValue
             do {
@@ -141,8 +143,6 @@ class C {
     
     //MARK: - AlertController helper methods
     
-    static var result: Bool = false
-    
     static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, forCompletion completionHandler: @escaping (UIAlertAction) -> Void) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -158,6 +158,24 @@ class C {
     
     }
     
+    
+    static func persistUsingUserDefaults() {
+        
+        let defaults = UserDefaults.standard
+        defaults.set("Saved value!", forKey: "keyString")
+        defaults.synchronize()
+    
+    }
+    
+    static func getFromUserDefaults() -> String {
+        
+        let defaults = UserDefaults.standard
+        if let string = defaults.object(forKey: "keyString") as? String {
+            return string
+        }
+        
+        return "failed"
+    }
     
     
     

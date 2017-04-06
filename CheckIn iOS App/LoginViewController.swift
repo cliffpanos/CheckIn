@@ -90,7 +90,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signInPressed(_ sender: Any) {
         
         if (passwordMatchesEmail()) {
-            C.userIsLoggedIn = true
             animateOff()
         } else {
             shake()
@@ -148,10 +147,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }, completion: {_ in
             self.textFieldSelected = false
+            
+            if !((C.appDelegate.window?.rootViewController) == nil) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+                C.appDelegate.window?.rootViewController = tabBarController as! UITabBarController
+                C.appDelegate.tabBarController = tabBarController as! UITabBarController
+                C.userIsLoggedIn = true
+            }
+
             self.dismiss(animated: true, completion: {
                 self.emailTextField.text = ""
                 self.passwordTextField.text = ""
+
+                C.userIsLoggedIn = true
+
             })
+            
         })
         
     }
