@@ -147,14 +147,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }, completion: {_ in
             self.textFieldSelected = false
-            
-            if !((C.appDelegate.window?.rootViewController) == nil) {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
-                C.appDelegate.window?.rootViewController = tabBarController as! UITabBarController
-                C.appDelegate.tabBarController = tabBarController as! UITabBarController
-                C.userIsLoggedIn = true
-            }
+                
+            C.userIsLoggedIn = true
 
             self.dismiss(animated: true, completion: {
                 self.emailTextField.text = ""
@@ -163,20 +157,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 C.userIsLoggedIn = true
 
             })
+            C.appDelegate.tabBarController.selectedIndex = 0
             
         })
         
     }
     
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

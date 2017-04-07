@@ -37,5 +37,16 @@ class SettingsViewController: UIViewController {
         let passController = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
         self.present(passController, animated: true, completion: nil)
     }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+        C.showDestructiveAlert(withTitle: "Confirm Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self) { action in
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            self.present(controller, animated: true, completion: nil)
+            C.userIsLoggedIn = false
+        }
+    
+    }
+    
 
 }

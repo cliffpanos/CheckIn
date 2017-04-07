@@ -40,18 +40,6 @@ class PassesViewController: UIViewController, UISearchBarDelegate {
     
     //MARK: - Navigation-related items
     
-    @IBAction func logoutPressed(_ sender: Any) {
-        
-        C.showDestructiveAlert(withTitle: "Conform Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self) { action in
-                let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            self.present(controller, animated: true, completion: {
-            })
-            C.userIsLoggedIn = false
-
-        }
-
-    }
-    
     @IBAction func newPassPressed(_ sender: Any) {
         let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
         self.tabBarController?.present(controller, animated: true, completion: nil)

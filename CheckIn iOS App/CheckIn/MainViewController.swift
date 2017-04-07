@@ -18,13 +18,11 @@ class MainViewController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        guard !C.userIsLoggedIn else {
-            return
+        if !C.userIsLoggedIn {
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            self.present(controller, animated: false, completion: nil)
         }
-        
-        //let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
-        
-        //self.present(controller, animated: true, completion: nil)
+    
     }
 
 }

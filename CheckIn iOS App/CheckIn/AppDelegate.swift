@@ -19,18 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         C.appDelegate = self
         let managedContext = self.persistentContainer.viewContext
+        
         C.user = LoggedIn(context: managedContext)
         try! managedContext.save()
         
-        if (!C.userIsLoggedIn) {
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let loginController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            window?.rootViewController = loginController
-        } else {
-            tabBarController = window?.rootViewController as! UITabBarController
-        }
+        tabBarController = window?.rootViewController as! UITabBarController
         
         //FIRApp.configure()
         

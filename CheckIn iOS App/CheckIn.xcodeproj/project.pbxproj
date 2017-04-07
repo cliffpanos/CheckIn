@@ -15,8 +15,6 @@
 		916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF11E8F6CB700911417 /* Assets.xcassets */; };
 		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
-		9185D25F1E958C3300E13AC8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9185D25E1E958C3300E13AC8 /* Login.storyboard */; };
-		9185D2611E959A1000E13AC8 /* LoginLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9185D2601E959A1000E13AC8 /* LoginLaunchScreen.storyboard */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
 		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
 		91989DA61E90095E00F83E1C /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* C.swift */; };
@@ -40,8 +38,6 @@
 		916E0EF61E8F6CB700911417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
-		9185D25E1E958C3300E13AC8 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		9185D2601E959A1000E13AC8 /* LoginLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginLaunchScreen.storyboard; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
 		91989DA51E90095E00F83E1C /* C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
@@ -93,7 +89,6 @@
 				91989DA51E90095E00F83E1C /* C.swift */,
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
 				916E0EEB1E8F6CB700911417 /* Main.storyboard */,
-				9185D25E1E958C3300E13AC8 /* Login.storyboard */,
 				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
 				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
 				91989DA31E90024800F83E1C /* PassesViewController.swift */,
@@ -103,7 +98,6 @@
 				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
 				916E0EF11E8F6CB700911417 /* Assets.xcassets */,
 				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
-				9185D2601E959A1000E13AC8 /* LoginLaunchScreen.storyboard */,
 				916E0EF61E8F6CB700911417 /* Info.plist */,
 				91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */,
 				916E0EEE1E8F6CB700911417 /* CheckIn.xcdatamodeld */,
@@ -194,10 +188,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */,
-				9185D2611E959A1000E13AC8 /* LoginLaunchScreen.storyboard in Resources */,
 				916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */,
 				91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */,
-				9185D25F1E958C3300E13AC8 /* Login.storyboard in Resources */,
 				916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
