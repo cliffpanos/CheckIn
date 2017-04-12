@@ -15,23 +15,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
     var window: UIWindow?
     var tabBarController: UITabBarController!
+    var launchedShortcutItem: UIApplicationShortcutItem?
+    var viewControllerStack: [UIViewController] = []
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         C.appDelegate = self
-        let managedContext = self.persistentContainer.viewContext
-        
-        C.user = LoggedIn(context: managedContext)
-        try! managedContext.save()
         
         tabBarController = window?.rootViewController as! UITabBarController
+        
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem]
+            as? UIApplicationShortcutItem {
+            launchedShortcutItem = shortcutItem
+        }
         
         //FIRApp.configure()
         
         return true
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        //Handles the 3D Touch Quick Actions from the home screen
+        let handledShortcutItem: Bool = handleQuickAction(for: shortcutItem)
+        completionHandler(handledShortcutItem)
+        
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -49,6 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        guard let shortcutItem = launchedShortcutItem else { return }
+        //guard unwraps launchedShortcutItem and checks if it is not null
+        
+        let _ = handleQuickAction(for: shortcutItem)
+        launchedShortcutItem = nil
+    
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -57,6 +76,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         self.saveContext()
     }
 
+    
+    // MARK: - Handle 3D-Touch Home Screen Quick Actions
+
+    func handleQuickAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
+        
+        var handled: Bool = false;
+        
+        guard C.userIsLoggedIn else {
+            return handled
+        }
+        
+        let newRootViewController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController")
+        self.window?.rootViewController = newRootViewController
+        self.tabBarController = newRootViewController as! UITabBarController
+        
+        
+        handled = true
+        
+        switch (shortcutItem.type) {
+        
+        case "showUserPass" :
+            C.appDelegate.tabBarController.selectedIndex = 1
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
+            C.appDelegate.tabBarController.present(controller, animated: true, completion: nil)
+
+        case "newGuestPass" :
+            C.appDelegate.tabBarController.selectedIndex = 0
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
+            C.appDelegate.tabBarController.present(controller, animated: true, completion: nil)
+
+        
+        case "checkInNow" :
+            C.appDelegate.tabBarController.selectedIndex = 1
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "mapViewController")
+            C.appDelegate.tabBarController.selectedViewController?.navigationController?.pushViewController(controller, animated: true)
+        
+        default: break //will never be executed
+        }
+        
+        return handled
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

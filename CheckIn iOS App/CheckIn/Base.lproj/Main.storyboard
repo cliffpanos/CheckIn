@@ -213,7 +213,7 @@
             </objects>
             <point key="canvasLocation" x="3228" y="-922.48875562218893"/>
         </scene>
-        <!--Settings-->
+        <!--Information-->
         <scene sceneID="Ibt-UQ-yBh">
             <objects>
                 <viewController id="K7k-Fg-uFx" customClass="SettingsViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
@@ -262,7 +262,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-ZM-TVL" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
-                                <rect key="frame" x="26" y="592" width="323" height="45"/>
+                                <rect key="frame" x="26" y="543" width="323" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Aux-8h-H0Q"/>
@@ -379,7 +379,7 @@
                             <constraint firstItem="4dZ-ZM-TVL" firstAttribute="leading" secondItem="EMw-Zy-rmT" secondAttribute="leadingMargin" constant="10" id="wEN-Hb-MfK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="HVi-Ml-pL5">
+                    <navigationItem key="navigationItem" title="Information" id="HVi-Ml-pL5">
                         <barButtonItem key="leftBarButtonItem" image="logout" id="Ngs-vd-Sir">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -404,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eT-Dw-YTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="438"/>
+            <point key="canvasLocation" x="2520.8000000000002" y="437.63118440779613"/>
         </scene>
         <!--Check In Pass View Controller-->
         <scene sceneID="TPC-S5-f0O">
@@ -517,7 +517,7 @@
         <!--Map View Controller-->
         <scene sceneID="EDM-GE-sb7">
             <objects>
-                <viewController id="wK2-hf-Sn1" customClass="MapViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" id="wK2-hf-Sn1" customClass="MapViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YyD-lD-utG"/>
                         <viewControllerLayoutGuide type="bottom" id="jSa-Cv-OkF"/>
@@ -527,7 +527,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cVJ-nR-l1D">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -546,7 +546,7 @@
             </objects>
             <point key="canvasLocation" x="3228" y="438"/>
         </scene>
-        <!--Passes-->
+        <!--Guest Passes-->
         <scene sceneID="oLh-EW-0uy">
             <objects>
                 <viewController storyboardIdentifier="passesViewController" id="ehR-IU-aNc" customClass="PassesViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
@@ -559,19 +559,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gNx-Zo-b2f">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search by contact" showsCancelButton="YES" id="cqV-HX-a2q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="ehR-IU-aNc" id="rTw-Lq-YuM"/>
-                                    </connections>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="passCell" rowHeight="105" id="MCl-D3-TF1" customClass="PassCell" customModule="CheckIn" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="105"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCl-D3-TF1" id="o5l-aT-zVf">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="104.5"/>
@@ -650,7 +642,7 @@
                             <constraint firstAttribute="trailing" secondItem="gNx-Zo-b2f" secondAttribute="trailing" id="zsM-80-Kuo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Passes" id="MM4-XR-iEp">
+                    <navigationItem key="navigationItem" title="Guest Passes" id="MM4-XR-iEp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hAe-ac-itG">
                             <connections>
                                 <action selector="newPassPressed:" destination="ehR-IU-aNc" id="UDJ-Cd-OnJ"/>
@@ -658,7 +650,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="cqV-HX-a2q" id="lbf-Wm-2Ls"/>
                         <outlet property="tableView" destination="gNx-Zo-b2f" id="kCW-PM-P3O"/>
                     </connections>
                 </viewController>
@@ -707,7 +698,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
-                                <rect key="frame" x="26" y="591" width="323" height="45"/>
+                                <rect key="frame" x="26" y="542" width="323" height="45"/>
                                 <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="w7h-v4-nPP"/>
@@ -820,16 +811,16 @@
             </objects>
             <point key="canvasLocation" x="852" y="56"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Guests-->
         <scene sceneID="qyQ-Wy-rXY">
             <objects>
-                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" id="jSB-RL-Gq4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="k10-Ad-DZu">
+                <navigationController storyboardIdentifier="firstNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="jSB-RL-Gq4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Guests" image="contactsIcon" id="k10-Ad-DZu">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k2V-d2-KXU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -850,10 +841,10 @@
         <!--Navigation Controller-->
         <scene sceneID="DeY-aF-t9F">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aPz-D7-Ckw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="secondNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="aPz-D7-Ckw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="x1d-Sh-AbV"/>
                     <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EmG-mT-rPb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -983,6 +974,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="contactsIcon" width="24" height="24"/>
         <image name="greenContactIcon" width="85" height="85"/>
         <image name="logout" width="24" height="22"/>
         <image name="vines" width="336" height="455"/>

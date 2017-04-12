@@ -61,10 +61,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkInLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-TE-xFf">
-                                <rect key="frame" x="49.5" y="195.5" width="275" height="275"/>
+                                <rect key="frame" x="75" y="221" width="225" height="225"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="275" id="SIl-eq-Ukt"/>
-                                    <constraint firstAttribute="width" constant="275" id="k0O-GD-8mi"/>
+                                    <constraint firstAttribute="height" constant="225" id="SIl-eq-Ukt"/>
+                                    <constraint firstAttribute="width" constant="225" id="k0O-GD-8mi"/>
                                 </constraints>
                             </imageView>
                         </subviews>

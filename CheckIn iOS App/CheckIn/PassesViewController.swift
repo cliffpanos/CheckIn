@@ -9,24 +9,36 @@
 import UIKit
 import CoreData
 
-class PassesViewController: UIViewController, UISearchBarDelegate {
+class PassesViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchDisplay = UISearchController(searchResultsController: nil)
+    var searchBar: UISearchBar!
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar = searchDisplay.searchBar
+        searchBar.placeholder = "Search by contact"
+        searchBar.autocapitalizationType = .words
+        searchBar.delegate = self
+        searchDisplay.dimsBackgroundDuringPresentation = false
+        self.searchDisplay.searchResultsUpdater = self
+        
+        
+        tableView.tableHeaderView = searchDisplay.searchBar
         let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
         tableView.setContentOffset(offset, animated: true)
         
-        //Setup ToolBar associated with keyboard
+        /*Setup ToolBar associated with keyboard
         let toolbar = UIToolbar()
         toolbar.barStyle = .default
         let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dismissKeyboard))
         toolbar.items = [flex, done]
         toolbar.sizeToFit()
-        searchBar.inputAccessoryView = toolbar
+        searchBar.inputAccessoryView = toolbar*/
         
     }
     
@@ -51,6 +63,16 @@ class PassesViewController: UIViewController, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         dismissKeyboard()
+    }
+    
+    
+    //MARK: - Handle search bar and search controller
+    fileprivate func isSearching() -> Bool {
+        return searchDisplay.isActive && !(searchDisplay.searchBar.text ?? "").isEmpty
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        //code
     }
     
     
@@ -81,9 +103,11 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         return false
     }
     
+    
     //Segue preparation for when a TableViewCell is pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        searchDisplay.dismiss(animated: true, completion: nil)
         if let cell = sender as? UITableViewCell, let destination = segue.destination as? PassDetailViewController {
             destination.pass = C.passes[tableView.indexPath(for: cell)!.row]
         }

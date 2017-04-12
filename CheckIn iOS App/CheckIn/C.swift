@@ -49,39 +49,21 @@ class C {
 
     
     
-    
+    static var userIsLoggedIn: Bool {
+        get {
+            if let loggedIn = UserDefaults.standard.value(forKey: "userIsLoggedIn") as? Bool {
+                return loggedIn
+            }
+            return false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "userIsLoggedIn")
+        }
+    }
 
     
     
-    
-    static var user: LoggedIn!
-    static var userIsLoggedIn: Bool { //TODO user NSUserDefaults.standard
-        get {
-            
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let fetchRequest: NSFetchRequest<LoggedIn> = LoggedIn.fetchRequest()
-            
-            let isLoggedIn = try? managedContext.fetch(fetchRequest)
-            if let isLoggedIn = isLoggedIn {
-                user = isLoggedIn[0]
-                return user.isLoggedIn
-            }
-            return false
-        
-        }
-        set {
-            
-            print("SETTING LOGGED IN: \(newValue ? "IN" : "OUT")\n")
-            let managedContext = appDelegate.persistentContainer.viewContext
-            user.isLoggedIn = newValue
-            do {
-                try managedContext.save()
-            } catch _ as NSError {
-                print("ERROR SAVING")
-            }
-        }
-    
-    }
+    //MARK: - Handle Guest Pass Functionality with Core Data
     
     static func save(pass: Pass?, withName name: String, andEmail email: String, andImage imageData: Data?, from startTime: Date, to endTime: Date) -> Bool {
         
