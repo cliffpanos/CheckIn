@@ -814,7 +814,7 @@
         <!--Guests-->
         <scene sceneID="qyQ-Wy-rXY">
             <objects>
-                <navigationController storyboardIdentifier="firstNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="jSB-RL-Gq4" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="primaryNavigationController" storyboardIdentifier="primaryNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="jSB-RL-Gq4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Guests" image="contactsIcon" id="k10-Ad-DZu">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -841,7 +841,7 @@
         <!--Navigation Controller-->
         <scene sceneID="DeY-aF-t9F">
             <objects>
-                <navigationController storyboardIdentifier="secondNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="aPz-D7-Ckw" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="secondaryNavigationController" storyboardIdentifier="secondaryNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="aPz-D7-Ckw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="x1d-Sh-AbV"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

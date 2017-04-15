@@ -14,8 +14,12 @@ class CheckInPassViewController: UIViewController {
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
+    var screenBrightness: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        screenBrightness = UIScreen.main.brightness
 
         let image = C.generateQRCode(forMessage:
             "\(C.nameOfUser)|" +
@@ -27,6 +31,11 @@ class CheckInPassViewController: UIViewController {
         
         ownerLabel.text = "\(C.nameOfUser)'s Pass"
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIScreen.main.brightness = screenBrightness
     }
 
     @IBAction func onDonePressed(_ sender: Any) {

@@ -6,6 +6,37 @@
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
+
+
+
+
+/* Finish geofences and CheckIn notifications
+ CloudKit + other kits
+ Fix 3D Touch quick actions
+ other peek & commit interaction
+ login screen for admins with QR scanner
+ hash?
+ multiple contacts
+ fix default contact image size
+ allow for multiple checkin locations
+ gesture recognizer speed
+ action menu on ipads
+ QR code encryption via hashing?
+ Make map zoom to checkin location, not user location
+ Grey font for tableView emails
+ Scroll views?
+ iPad optimization
+ WATCH APP
+ WIDGET
+ */
+
+
+
+
+
+
+
+
 import UIKit
 import CoreData
 //import Firebase
@@ -75,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
     
     // MARK: - Handle 3D-Touch Home Screen Quick Actions
 
@@ -87,9 +118,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             return handled
         }
         
-        let newRootViewController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController")
+        /*let newRootViewController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController")
         self.window?.rootViewController = newRootViewController
-        self.tabBarController = newRootViewController as! UITabBarController
+        self.tabBarController = newRootViewController as! UITabBarController*/
+        
+        var current = window?.visibleViewController
+        
+        print(current ?? "NO CURRENT VIEW CONTROLLER")
+        //var cont: Bool = true
+        
+        print("Navigation: \(current is UINavigationController)")
+        var identifier = current?.navigationController?.restorationIdentifier
+        print(identifier == "primaryNavigationController" || identifier == "secondaryNavigationController")
+        
+        while (identifier != "primaryNavigationController" && identifier != "secondaryNavigationController") {
+            
+            print(current!)
+                if let navController = current?.navigationController {
+                    navController.popToRootViewController(animated: false)
+                    current!.dismiss(animated: false, completion: nil)
+
+                } else {
+                    current!.dismiss(animated: false, completion: nil)
+                }
+
+            current = window?.visibleViewController
+            identifier = current?.navigationController?.restorationIdentifier
+            print(identifier ?? "NO IDENTIFIER")
+        }
         
         
         handled = true
@@ -117,30 +173,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         return handled
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -192,3 +225,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
 }
 
+
+
+public extension UIWindow {
+    public var visibleViewController: UIViewController? {
+        return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
+    }
+    
+    public static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
+        if let nc = vc as? UINavigationController {
+            return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)
+        } else if let tc = vc as? UITabBarController {
+            return UIWindow.getVisibleViewControllerFrom(tc.selectedViewController)
+        } else {
+            if let pvc = vc?.presentedViewController {
+                return UIWindow.getVisibleViewControllerFrom(pvc)
+            } else {
+                return vc
+            }
+        }
+    }
+}

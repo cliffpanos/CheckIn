@@ -108,6 +108,8 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         searchDisplay.dismiss(animated: true, completion: nil)
+        searchBar.text = ""
+        
         if let cell = sender as? UITableViewCell, let destination = segue.destination as? PassDetailViewController {
             destination.pass = C.passes[tableView.indexPath(for: cell)!.row]
         }
