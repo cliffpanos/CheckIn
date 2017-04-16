@@ -9,10 +9,30 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>CheckInWatchKitApp (Complication).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>CheckInWatchKitApp (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>CheckInWatchKitApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>916E0EE31E8F6CB700911417</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9187E3B11EA2F3700085E415</key>
 		<dict>
 			<key>primary</key>
 			<true/>

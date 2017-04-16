@@ -15,6 +15,15 @@
 		916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF11E8F6CB700911417 /* Assets.xcassets */; };
 		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
+		9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
+		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
+		9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C51EA2F3700085E415 /* InterfaceController.swift */; };
+		9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */; };
+		9187E3CA1EA2F3700085E415 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C91EA2F3700085E415 /* NotificationController.swift */; };
+		9187E3CC1EA2F3700085E415 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3CB1EA2F3700085E415 /* ComplicationController.swift */; };
+		9187E3CE1EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3CD1EA2F3700085E415 /* Assets.xcassets */; };
+		9187E3D21EA2F3700085E415 /* CheckInWatchKitApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
 		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
 		91989DA61E90095E00F83E1C /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* C.swift */; };
@@ -25,6 +34,48 @@
 		91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAF1E90DDDB00F83E1C /* MapViewController.swift */; };
 		B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9187E3C01EA2F3700085E415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 916E0EDC1E8F6CB700911417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9187E3BD1EA2F3700085E415;
+			remoteInfo = "CheckInWatchKitApp Extension";
+		};
+		9187E3D01EA2F3700085E415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 916E0EDC1E8F6CB700911417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9187E3B11EA2F3700085E415;
+			remoteInfo = CheckInWatchKitApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9187E3D81EA2F3700085E415 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9187E3DA1EA2F3700085E415 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				9187E3D21EA2F3700085E415 /* CheckInWatchKitApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
@@ -38,6 +89,18 @@
 		916E0EF61E8F6CB700911417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInWatchKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		9187E3B71EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9187E3B91EA2F3700085E415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CheckInWatchKitApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9187E3C41EA2F3700085E415 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		9187E3C51EA2F3700085E415 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		9187E3C91EA2F3700085E415 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		9187E3CB1EA2F3700085E415 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		9187E3CD1EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9187E3CF1EA2F3700085E415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
 		91989DA51E90095E00F83E1C /* C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
@@ -60,6 +123,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9187E3BB1EA2F3700085E415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				916E0EE61E8F6CB700911417 /* CheckIn */,
+				9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */,
+				9187E3C21EA2F3700085E415 /* CheckInWatchKitApp Extension */,
 				916E0EE51E8F6CB700911417 /* Products */,
 				9E79CA9B8E858BB0B0ABB5E0 /* Pods */,
 				95260616F8D44D890B15213F /* Frameworks */,
@@ -77,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				916E0EE41E8F6CB700911417 /* CheckIn.app */,
+				9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */,
+				9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +178,38 @@
 				916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */,
 			);
 			path = CheckIn;
+			sourceTree = "<group>";
+		};
+		9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */ = {
+			isa = PBXGroup;
+			children = (
+				9187E3B41EA2F3700085E415 /* Interface.storyboard */,
+				9187E3B71EA2F3700085E415 /* Assets.xcassets */,
+				9187E3B91EA2F3700085E415 /* Info.plist */,
+			);
+			path = CheckInWatchKitApp;
+			sourceTree = "<group>";
+		};
+		9187E3C21EA2F3700085E415 /* CheckInWatchKitApp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9187E3C51EA2F3700085E415 /* InterfaceController.swift */,
+				9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */,
+				9187E3C91EA2F3700085E415 /* NotificationController.swift */,
+				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
+				9187E3CD1EA2F3700085E415 /* Assets.xcassets */,
+				9187E3CF1EA2F3700085E415 /* Info.plist */,
+				9187E3C31EA2F3700085E415 /* Supporting Files */,
+			);
+			path = "CheckInWatchKitApp Extension";
+			sourceTree = "<group>";
+		};
+		9187E3C31EA2F3700085E415 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9187E3C41EA2F3700085E415 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		95260616F8D44D890B15213F /* Frameworks */ = {
@@ -136,15 +242,51 @@
 				916E0EE21E8F6CB700911417 /* Resources */,
 				26D8A8538680BFE0F95F1607 /* [CP] Embed Pods Frameworks */,
 				0E5EA589A3B969961049D00D /* [CP] Copy Pods Resources */,
+				9187E3DA1EA2F3700085E415 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9187E3D11EA2F3700085E415 /* PBXTargetDependency */,
 			);
 			name = CheckIn;
 			productName = CheckIn;
 			productReference = 916E0EE41E8F6CB700911417 /* CheckIn.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9187E3B11EA2F3700085E415 /* CheckInWatchKitApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9187E3D91EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp" */;
+			buildPhases = (
+				9187E3B01EA2F3700085E415 /* Resources */,
+				9187E3D81EA2F3700085E415 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9187E3C11EA2F3700085E415 /* PBXTargetDependency */,
+			);
+			name = CheckInWatchKitApp;
+			productName = CheckInWatchKitApp;
+			productReference = 9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		9187E3BD1EA2F3700085E415 /* CheckInWatchKitApp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9187E3D71EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp Extension" */;
+			buildPhases = (
+				9187E3BA1EA2F3700085E415 /* Sources */,
+				9187E3BB1EA2F3700085E415 /* Frameworks */,
+				9187E3BC1EA2F3700085E415 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CheckInWatchKitApp Extension";
+			productName = "CheckInWatchKitApp Extension";
+			productReference = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -160,6 +302,16 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = V7HL83ZN6U;
 						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					9187E3B11EA2F3700085E415 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = V7HL83ZN6U;
+						ProvisioningStyle = Automatic;
+					};
+					9187E3BD1EA2F3700085E415 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = V7HL83ZN6U;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -178,6 +330,8 @@
 			projectRoot = "";
 			targets = (
 				916E0EE31E8F6CB700911417 /* CheckIn */,
+				9187E3B11EA2F3700085E415 /* CheckInWatchKitApp */,
+				9187E3BD1EA2F3700085E415 /* CheckInWatchKitApp Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +345,23 @@
 				916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */,
 				91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */,
 				916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9187E3B01EA2F3700085E415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */,
+				9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9187E3BC1EA2F3700085E415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9187E3CE1EA2F3700085E415 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +435,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9187E3BA1EA2F3700085E415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9187E3CA1EA2F3700085E415 /* NotificationController.swift in Sources */,
+				9187E3CC1EA2F3700085E415 /* ComplicationController.swift in Sources */,
+				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
+				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9187E3C11EA2F3700085E415 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9187E3BD1EA2F3700085E415 /* CheckInWatchKitApp Extension */;
+			targetProxy = 9187E3C01EA2F3700085E415 /* PBXContainerItemProxy */;
+		};
+		9187E3D11EA2F3700085E415 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9187E3B11EA2F3700085E415 /* CheckInWatchKitApp */;
+			targetProxy = 9187E3D01EA2F3700085E415 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		916E0EEB1E8F6CB700911417 /* Main.storyboard */ = {
@@ -281,6 +476,14 @@
 				916E0EF41E8F6CB700911417 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9187E3B41EA2F3700085E415 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9187E3B51EA2F3700085E415 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -416,6 +619,76 @@
 			};
 			name = Release;
 		};
+		9187E3D31EA2F3700085E415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V7HL83ZN6U;
+				IBSC_MODULE = CheckInWatchKitApp_Extension;
+				INFOPLIST_FILE = CheckInWatchKitApp/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		9187E3D41EA2F3700085E415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V7HL83ZN6U;
+				IBSC_MODULE = CheckInWatchKitApp_Extension;
+				INFOPLIST_FILE = CheckInWatchKitApp/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		9187E3D51EA2F3700085E415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = V7HL83ZN6U;
+				INFOPLIST_FILE = "CheckInWatchKitApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		9187E3D61EA2F3700085E415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = V7HL83ZN6U;
+				INFOPLIST_FILE = "CheckInWatchKitApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -436,6 +709,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9187E3D71EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9187E3D51EA2F3700085E415 /* Debug */,
+				9187E3D61EA2F3700085E415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9187E3D91EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9187E3D31EA2F3700085E415 /* Debug */,
+				9187E3D41EA2F3700085E415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

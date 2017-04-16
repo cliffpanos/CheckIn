@@ -43,8 +43,8 @@ class CheckInPassViewController: UIViewController {
     }
     
     @IBAction func viewPanned(_ sender: Any) {
-    
-        if (panGestureRecognizer.velocity(in: self.view).y > 100) {
+        print(panGestureRecognizer.velocity(in: self.view).y)
+        if (panGestureRecognizer.velocity(in: self.view).y > 750) {
             self.dismiss(animated: true, completion: nil)
         }
     }

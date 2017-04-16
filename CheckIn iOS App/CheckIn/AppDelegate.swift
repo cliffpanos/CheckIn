@@ -25,7 +25,7 @@
  Make map zoom to checkin location, not user location
  Grey font for tableView emails
  Scroll views?
- iPad optimization
+ iPad optimization with action sheet
  WATCH APP
  WIDGET
  */
