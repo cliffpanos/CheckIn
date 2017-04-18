@@ -29,7 +29,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.mapType = .standard
         
         for pin in C.checkInLocations {
-        mapView.addAnnotation(pin as MKAnnotation)
+            mapView.addAnnotation(pin as MKAnnotation)
+            let circle = MKCircle(center: pin.coordinate, radius: 0.05 as CLLocationDistance)
+            self.mapView.add(circle)
         }
         
         let userbutton = UIBarButtonItem(image: #imageLiteral(resourceName: "CurrentLocation"), style: .done, target: self, action: #selector(zoomToUserLocation))
@@ -74,6 +76,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         mapView.showsUserLocation = (status == .authorizedAlways)
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let overlay = overlay as? MKCircle {
+            let circleRenderer = MKCircleRenderer(circle: overlay)
+            circleRenderer.fillColor = UIColor.white
+            return circleRenderer
+        }
+        return MKOverlayRenderer(overlay: overlay)
     }
 
 }

@@ -11,21 +11,31 @@ import Foundation
 import CoreLocation
 
 
-class MapViewInterfaceController: WKInterfaceController {
+class MapViewInterfaceController: WKInterfaceController, CLLocationManagerDelegate {
 
     @IBOutlet var mapView: WKInterfaceMap!
     var checkInLocations = [CLLocationCoordinate2D]()
+    var locationManager: CLLocationManager!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        getCoreLocations()
+        locationManager.startUpdatingLocation()
+
+    }
+    
+    func getCoreLocations() {
         ExtensionDelegate.session?.sendMessage(["Activity" : "MapRequest"], replyHandler: {
             message in
-            guard let locations = message["MapReply"] else {
+            guard message["Activity"] as? String == "MapReply", let latitude = message["latitude"], let longitude = message["longitude"] else {
                 return
             }
-            self.checkInLocations = locations as! [CLLocationCoordinate2D]
+            
+            self.checkInLocations = [CLLocationCoordinate2D(latitude: latitude as! CLLocationDegrees, longitude: longitude as! CLLocationDegrees)]
             for location in self.checkInLocations {
                 self.mapView.addAnnotation(location, with: .red)
             }
@@ -40,6 +50,9 @@ class MapViewInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         WC.currentlyPresenting = self
+        if checkInLocations.count == 0 {
+            getCoreLocations()
+        }
     }
 
     override func didDeactivate() {

@@ -14,6 +14,9 @@
             <objects>
                 <controller identifier="checkInPassInterfaceController" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp_Extension">
                     <items>
+                        <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
+                            <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
                         <imageView alignment="center" verticalAlignment="center" id="6mw-tI-a3l">
                             <gestureRecognizers>
                                 <panGestureRecognizer id="ydv-on-Vaj">
@@ -23,6 +26,9 @@
                                 </panGestureRecognizer>
                             </gestureRecognizers>
                         </imageView>
+                        <separator width="1" alignment="center" verticalAlignment="center" id="X8r-Zw-JsZ">
+                            <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
                     </items>
                     <connections>
                         <outlet property="imageView" destination="6mw-tI-a3l" id="QVZ-Rh-9lc"/>
@@ -38,24 +44,46 @@
                 <controller identifier="mainInterfaceController" title="CheckIn" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
                         <button width="1" height="30" alignment="left" title="CheckIn Pass" id="dSY-Ne-5LL">
-                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <segue destination="JHT-We-vg0" kind="modal" id="pPS-dc-PUT"/>
                             </connections>
                         </button>
-                        <button width="1" height="30" alignment="left" title="Location" id="qyJ-tg-9yd">
+                        <button width="1" height="30" alignment="left" title="My Location" id="qyJ-tg-9yd">
                             <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="tW1-ye-p6k" kind="push" id="3Vz-rb-aVV"/>
                             </connections>
                         </button>
-                        <separator alignment="left" id="sn4-tO-sHl"/>
+                        <separator alignment="left" id="sn4-tO-sHl">
+                            <color key="color" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
                         <table alignment="left" id="zgS-No-NKi">
                             <items>
-                                <tableRow id="8Dz-6V-GKF">
-                                    <group key="rootItem" width="1" alignment="left" id="qlq-0f-swz"/>
+                                <tableRow identifier="passCell" id="8Dz-6V-GKF" customClass="PassCell" customModule="CheckInWatchKitApp_Extension">
+                                    <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="qlq-0f-swz">
+                                        <items>
+                                            <group width="1" height="1" alignment="left" contentMode="center" spacing="7" id="JGi-UC-B6h">
+                                                <items>
+                                                    <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="OnE-UB-mZR">
+                                                        <items>
+                                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" contentMode="scaleAspectFill" id="GfI-pr-Ux2"/>
+                                                        </items>
+                                                    </group>
+                                                    <label height="40" alignment="left" text="Guest Name" textAlignment="left" id="3P3-xD-IYA">
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="guestName" destination="3P3-xD-IYA" id="36c-y3-osF"/>
+                                        <outlet property="imageView" destination="GfI-pr-Ux2" id="Im6-WQ-cl0"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
@@ -67,9 +95,19 @@
                             <menuItem title="Menu Item" id="pAm-ZD-IDp"/>
                         </items>
                     </menu>
+                    <connections>
+                        <outlet property="interfaceTable" destination="zgS-No-NKi" id="Ala-8j-DHE"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="59"/>
+        </scene>
+        <!--Guest Pass-->
+        <scene sceneID="qgw-9v-2fv">
+            <objects>
+                <controller title="Guest Pass" id="Gfe-By-bMv"/>
+            </objects>
+            <point key="canvasLocation" x="523" y="59"/>
         </scene>
         <!--signInNecessaryController-->
         <scene sceneID="Gh1-dr-gTs">
@@ -85,22 +123,19 @@
             </objects>
             <point key="canvasLocation" x="217" y="351"/>
         </scene>
-        <!--My CheckIn Location-->
+        <!--Location-->
         <scene sceneID="aG1-74-GAe">
             <objects>
-                <controller identifier="mapInterfaceController" title="My CheckIn Location" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp_Extension">
+                <controller identifier="mapInterfaceController" title="Location" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp_Extension">
                     <items>
-                        <label width="1" height="20" alignment="left" text="CheckIn Location" textAlignment="center" id="TLP-RX-Xla">
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </label>
-                        <map width="1" height="1" heightAdjustment="-20" alignment="left" id="39F-78-fWq"/>
+                        <map width="1" height="1" alignment="left" id="39F-78-fWq"/>
                     </items>
                     <connections>
                         <outlet property="mapView" destination="39F-78-fWq" id="aT6-Pp-jkK"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="59"/>
+            <point key="canvasLocation" x="523" y="-232"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

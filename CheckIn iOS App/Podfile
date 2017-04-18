@@ -6,6 +6,7 @@ target 'CheckIn' do
   use_frameworks!
   pod 'Firebase/Core'
   pod "QRCoder"
+  pod "QRCodeReader"
 
   # Pods for CheckIn
 

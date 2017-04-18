@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QRCodeReader
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -87,15 +88,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    //------------------------------------------
     @IBAction func signInPressed(_ sender: Any) {
         
         if (passwordMatchesEmail()) {
             animateOff()
+        } else if (isAdministratorLogin()){
+            let reader = QRCodeReaderViewController()
+            reader.resultCallback = {
+                print($1)
+            }
+            
+            reader.cancelCallback = {
+                $0.dismiss(animated: true, completion: nil)
+            }
+            self.present(reader, animated: true, completion: nil)
         } else {
             shake()
         }
     }
-
+    //------------------------------------------
+    
+    
     @IBAction func newAccountPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Create Account Online", message: "Create a new account at checkin.com", preferredStyle: .alert)
         let alertaction = UIAlertAction(title: "Great", style: .default, handler: nil)
@@ -108,11 +122,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        if email == "user" && password == "pass" {
-            return true
-        }
-        
-        return false
+        return email == "user" && password == "pass"
+
+    }
+    
+    func isAdministratorLogin() -> Bool {
+        return (emailTextField.text ?? "") == "admin" && (passwordTextField.text ?? "") == "pass"
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -8,22 +8,21 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-CheckIn.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>QRCodeReader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>QRCoder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,12 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4408D1B36853090C0852CFE4AB740E5B</key>
+		<key>39CCC3A809A9433C5A9E53CEE21001B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DADA43EE28AA6D1035D29ED6D4A6E0B7</key>
+		<key>6224897683C911ACB0140753B43939E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6A2633AA32A5B0AA3624A54284A5F6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

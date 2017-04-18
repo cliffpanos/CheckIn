@@ -73,17 +73,10 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
     @IBAction func onCancelPressed(_ sender: Any) {
         if nameTextField.text != "" && emailTextField.text != "" {
             
-            let alert = UIAlertController(title: "Do you want to cancel creating this pass?", message: nil, preferredStyle: .actionSheet)
-            let discardAction = UIAlertAction(title: "Discard Pass", style: .destructive, handler: { action in
+            C.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, withStyle: .actionSheet) { _ in
                 self.dismiss(animated: true, completion: nil)
-            })
-            
-            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alert.addAction(alertAction)
-            alert.addAction(discardAction)
-            alert.popoverPresentationController?.sourceView = self.view
-            self.present(alert, animated: true, completion: nil)
-        
+            }
+
         } else {
             
             //Dismiss only if there is not a ton of user data that would be lost
@@ -133,7 +126,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
     }
     
     @IBAction func handlePanDown(_ sender: Any) {
-        if panGestureRecognizer.velocity(in: self.view).y > 1 {
+        if panGestureRecognizer.velocity(in: self.view).y > 750 {
             self.dismiss(animated: true, completion: nil)
         }
     }

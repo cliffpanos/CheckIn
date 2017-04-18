@@ -15,6 +15,8 @@ class PassesViewController: UIViewController, UISearchBarDelegate, UISearchResul
     
     var searchDisplay = UISearchController(searchResultsController: nil)
     var searchBar: UISearchBar!
+    var filtered = [Pass]()
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,9 +74,14 @@ class PassesViewController: UIViewController, UISearchBarDelegate, UISearchResul
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        //code
-    }
+        
+        let text = searchBar.text?.lowercased() ?? ""
+        filtered = C.passes.filter { ($0.name ?? "").lowercased().contains(text) }
+        
+        print("FILTERING FROM FUNCTION CALLED!!")
+        tableView.reloadData()
     
+    }
     
 }
 
@@ -88,14 +95,14 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "passCell", for: indexPath) as! PassCell
 
-        let pass = C.passes[indexPath.row]
+        let pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
         cell.decorate(for: pass)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return C.passes.count
+        return isSearching() ? filtered.count : C.passes.count
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -111,7 +118,9 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         searchBar.text = ""
         
         if let cell = sender as? UITableViewCell, let destination = segue.destination as? PassDetailViewController {
-            destination.pass = C.passes[tableView.indexPath(for: cell)!.row]
+            //let index = tableView.indexPath(for: cell)?.row
+            let index = tableView.indexPathForRow(at: cell.center)!.row
+            destination.pass = isSearching() ? filtered[index] : C.passes[index]
         }
         
     }
@@ -122,11 +131,17 @@ class PassCell: UITableViewCell {
     
     @IBOutlet weak var nameTitle: UILabel!
     @IBOutlet weak var contactView: UIImageView!
-    @IBOutlet weak var emailTitle: UILabel!
+    @IBOutlet weak var startTime: UILabel!
     
     func decorate(for pass: Pass) {
         self.nameTitle.text = pass.name ?? "Contact Name"
-        self.emailTitle.text = pass.email ?? ""
+        
+        if let text = pass.timeStart {
+            let components = text.components(separatedBy: ",")
+            self.startTime.text = "\(components[0]) at\(components[2])"
+        } else {
+            self.startTime.text = pass.timeStart ?? "No Start Date & Time"
+        }
         
         if let imageData = pass.image {
             let image = UIImage(data: imageData as Data)

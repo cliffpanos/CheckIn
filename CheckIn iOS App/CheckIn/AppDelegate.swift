@@ -17,9 +17,7 @@
  login screen for admins with QR scanner
  hash?
  multiple contacts
- fix default contact image size
  allow for multiple checkin locations
- gesture recognizer speed
  action menu on ipads
  QR code encryption via hashing?
  Make map zoom to checkin location, not user location
@@ -114,10 +112,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         case "NeedCheckInPass" :
             let image = C.userQRCodePass(withSize: nil)
             let imageData = UIImagePNGRepresentation(image)!
-            replyHandler(["CheckInPass" : imageData])
+            replyHandler(["Activity" : "CheckInPassReply", "CheckInPass" : imageData])
         case "MapRequest" :
             let coordinate = C.checkInLocations[0].coordinate
-            replyHandler(["MapReply" : (coordinate.latitude, coordinate.longitude)])
+            replyHandler(["Activity" : "MapReply", "latitude" : coordinate.latitude, "longitude" :coordinate.longitude])
+        case "PassesRequest" :
+            for pass in C.passes {
+                guard let imageData = pass.image as Data? else {
+                    return
+                }
+                guard let image = UIImage(data: imageData) else {
+                    return
+                }
+                
+                UIGraphicsBeginImageContext(image.size)
+                let rect = CGRect(x: 0, y: 0, width: image.size.width * 0.05, height: image.size.height * 0.05)
+                image.draw(in: rect)
+                let img = UIGraphicsGetImageFromCurrentImageContext()
+                let imgData = UIImageJPEGRepresentation(img!, 0.2)
+                UIGraphicsEndImageContext()
+                
+                let dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"]) //TODO add "image" key
+                
+                //dictionary["image"] = imgData
+
+                print("Should be sending pass message")
+                let data = NSKeyedArchiver.archivedData(withRootObject: dictionary)
+                C.session?.sendMessage(["Activity" : "PassesReply", "Payload" : data], replyHandler: { _ in
+                    replyHandler([:])
+
+                }) {error in print(error) }
+            }
         default: print("no message handled")
         }
         print("iOS App did receive message")

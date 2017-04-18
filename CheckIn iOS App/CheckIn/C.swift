@@ -140,17 +140,21 @@ class C {
     
     //MARK: - AlertController helper methods
     
-    static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, forCompletion completionHandler: @escaping (UIAlertAction) -> Void) {
+    static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, withStyle style: UIAlertControllerStyle, forDestruction completionHandler: @escaping (UIAlertAction) -> Void) {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            //C.result = false
-        })
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let destructiveAction = UIAlertAction(title: destructive, style: .destructive, handler:
             completionHandler)
         
         alert.addAction(cancelAction)
         alert.addAction(destructiveAction)
+        
+        //Handle iPad presentation style
+        if let presenter = alert.popoverPresentationController {
+            presenter.sourceView = viewController.view
+            presenter.sourceRect = viewController.view.bounds
+        }
         viewController.present(alert, animated: true, completion: nil)
     
     }

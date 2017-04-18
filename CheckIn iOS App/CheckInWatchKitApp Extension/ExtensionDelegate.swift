@@ -26,12 +26,27 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
     
+        switch (message["Activity"] as? String ?? "") {
+        case "PassesReply":
+            let data = message["Payload"] as! Data
+            let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
+            print("RECEIVED PASSES REPLY FROM REQUEST")
+            WC.addPass(from: dictionary as! Dictionary<String, Any>)
+        default: print("no message handled")
+        }
+        print("Watch App did receive message")
     }
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         setSession()
         WC.ext = self
+        
+        for name in ["Clifford Panos", "Kate Allport", "Joe Torraca", "Madelyn Hightower"] {
+            let pass = Pass()
+            pass.name = name
+            WC.passes.append(pass)
+        }
     }
     
     func applicationDidEnterBackground() {
@@ -54,6 +69,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         })
         print("Activation complete")
         WC.getQRCodeImageUsingWC()
+        WC.requestPassesFromiOS()
 
     }
     

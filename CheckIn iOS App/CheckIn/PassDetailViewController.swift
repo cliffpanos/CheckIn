@@ -55,7 +55,7 @@ class PassDetailViewController: UIViewController {
 
     @IBAction func revokeAccessPressed(_ sender: Any) {
         
-        let action = UIAlertAction(title: "Revoke Pass", style: .destructive, handler:{ _ in
+        C.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, withStyle: .actionSheet) { _ in
             let success = C.delete(pass: self.pass)
             
             if success {
@@ -66,14 +66,7 @@ class PassDetailViewController: UIViewController {
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
             }
-        })
-        
-        let alert = UIAlertController(title: "Confirm Revocation", message: "Are you sure you want to revoke this pass?", preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(cancel)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        }
         
     }
 
