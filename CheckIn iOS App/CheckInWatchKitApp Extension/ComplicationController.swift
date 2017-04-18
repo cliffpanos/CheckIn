@@ -29,11 +29,39 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(.showOnLockScreen)
     }
     
+    
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+        
+        // Get the complication data from the extension delegate.
+        //let myDelegate = WC.ext
+        //var data : Dictionary = myDelegate.myComplicationData[complication]!
+        
+        var entry : CLKComplicationTimelineEntry?
+        let now = Date()
+        
+        // Create the template and timeline entry.
+        if complication.family == .modularSmall {
+            //let longText = data[ComplicationTextData]
+            //let shortText = data[ComplicationShortTextData]
+            
+            //let textTemplate = CLKComplicationTemplateModularSmallSimpleText()
+            //textTemplate.textProvider = CLKSimpleTextProvider(text: longText, shortText: shortText)
+            let imageTemplate = CLKComplicationTemplateModularSmallSimpleImage()
+            imageTemplate.imageProvider = CLKImageProvider(onePieceImage: #imageLiteral(resourceName: "clearIcon"))
+            
+            // Create the entry.
+
+            entry = CLKComplicationTimelineEntry(date: now, complicationTemplate: imageTemplate)
+            
+        } else {
+            // ...configure entries for other complication families.
+        }
+        
+        
         // Call the handler with the current timeline entry
-        handler(nil)
+        handler(entry)
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {

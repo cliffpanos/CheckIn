@@ -21,11 +21,7 @@ class CheckInPassViewController: UIViewController {
         
         screenBrightness = UIScreen.main.brightness
 
-        let image = C.generateQRCode(forMessage:
-            "\(C.nameOfUser)|" +
-            "\(C.emailOfUser)|" +
-            "\(C.locationName)"
-            , withSize: qrCodeImageView.frame.size)
+        let image = C.userQRCodePass(withSize: qrCodeImageView.frame.size)
         
         qrCodeImageView.image = image
         
@@ -43,7 +39,6 @@ class CheckInPassViewController: UIViewController {
     }
     
     @IBAction func viewPanned(_ sender: Any) {
-        print(panGestureRecognizer.velocity(in: self.view).y)
         if (panGestureRecognizer.velocity(in: self.view).y > 750) {
             self.dismiss(animated: true, completion: nil)
         }

@@ -13,6 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapTypeController: UISegmentedControl!
     
     let locationManager = CLLocationManager()
     
@@ -24,20 +25,50 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             locationManager.requestAlwaysAuthorization()
         }
         
-        //load pins
-        let hackGSU = Pin(name: "HackGSU",latitude: 33.7563920891773, longitude: -84.3890242522629)
-        mapView.addAnnotation(hackGSU as MKAnnotation)
+        mapView.showsUserLocation = true
+        mapView.mapType = .standard
         
-        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "CurrentLocation"), style: .done, target: self, action: #selector(zoomToLocation))
-        navigationItem.rightBarButtonItem = button
+        for pin in C.checkInLocations {
+        mapView.addAnnotation(pin as MKAnnotation)
+        }
         
+        let userbutton = UIBarButtonItem(image: #imageLiteral(resourceName: "CurrentLocation"), style: .done, target: self, action: #selector(zoomToUserLocation))
+        let checkInButton = UIBarButtonItem(image: #imageLiteral(resourceName: "checkInMapIcon"), style: .plain, target: self, action: #selector(zoomToCheckInLocation))
+        navigationItem.rightBarButtonItems = [
+            checkInButton, userbutton
+        ]
+        
+        zoomToCheckInLocation()
         //https://www.raywenderlich.com/136165/core-location-geofencing-tutorial
 
     }
     
-    func zoomToLocation() {
-        let userRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        mapView.setRegion(userRegion, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.tabBarController?.tabBar.isHidden = false
+    }
+    
+    @IBAction func mapTypeSelected(_ sender: Any) {
+        let mapTypes: [MKMapType] = [.standard, .satellite, .hybrid]
+        mapView.mapType = mapTypes[mapTypeController.selectedSegmentIndex]
+    }
+    
+    func zoomToCheckInLocation() {
+        let checkInLocation = C.checkInLocations[0].coordinate
+        zoom(to: checkInLocation, withViewSize: 0.005)
+    }
+    
+    func zoomToUserLocation() {
+        zoom(to: mapView.userLocation.coordinate, withViewSize: 0.05)
+    }
+    
+    func zoom(to location: CLLocationCoordinate2D, withViewSize sizeDelta: CLLocationDegrees) {
+        let newRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: sizeDelta, longitudeDelta: sizeDelta))
+        mapView.setRegion(newRegion, animated: true)
     }
 
     

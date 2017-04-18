@@ -7,11 +7,35 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
+    static var session: WCSession?
+    
+    func setSession() {
+        if WCSession.isSupported() {
+            ExtensionDelegate.session = WCSession.default()
+            ExtensionDelegate.session?.delegate = self
+            ExtensionDelegate.session?.activate()
+            ExtensionDelegate.session = WC.session
+        }
+        print("WATCH Session is reachable: \(String(describing: WC.session?.isReachable))")
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    
+    }
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        setSession()
+        WC.ext = self
+    }
+    
+    func applicationDidEnterBackground() {
+        print("Watch did enter background")
     }
 
     func applicationDidBecomeActive() {
@@ -22,9 +46,58 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
     }
+    
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        ExtensionDelegate.session?.sendMessage(["Activity" : "Session Activated"], replyHandler: nil, errorHandler: {
+            error in print(error)
+        })
+        print("Activation complete")
+        WC.getQRCodeImageUsingWC()
+
+    }
+    
+    func sessionReachabilityDidChange(_ session: WCSession) {
+        print("Reachability state did change-----------")
+        WC.getQRCodeImageUsingWC()
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        
+        for (key, value) in applicationContext {
+        
+            if key == "signInStatus" {
+                print("DID RECEIVE APPLICATION CONTEXT")
+                let loggedIn = value as! Bool
+                if loggedIn {
+                    WC.switchToSignInScreen()
+                } else {
+                    WC.switchUserNowLoggedIn()
+                }
+            }
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
+        
+        if backgroundTasks.count != 0 {
+            print("RECIEVED BACKGROUND TASK")
+        }
+        
+        
         for task in backgroundTasks {
             // Use a switch statement to check the task type
             switch task {
@@ -36,6 +109,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
             case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
                 // Be sure to complete the connectivity task once you’re done.
+                
                 connectivityTask.setTaskCompleted()
             case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
                 // Be sure to complete the URL session task once you’re done.

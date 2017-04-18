@@ -130,7 +130,6 @@ class PassCell: UITableViewCell {
         
         if let imageData = pass.image {
             let image = UIImage(data: imageData as Data)
-            //image = image?.resize(image!, toFrame: contactView.frame)
             contactView.image = image
             return
         }

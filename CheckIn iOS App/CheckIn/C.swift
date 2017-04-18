@@ -8,13 +8,16 @@
 
 import UIKit
 import CoreData
+import WatchConnectivity
 import QRCoder
+import CoreLocation
 
 
 class C {
     
     static var appDelegate: AppDelegate!
     static var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    static var session: WCSession?
     
     static var passes: [Pass] {
         get {
@@ -40,12 +43,14 @@ class C {
     
     static var nameOfUser: String = "Clifford Panos"
     static var emailOfUser: String = "cliffpanos@gmail.com"
-    static var locationName: String = "HackGSU Spring 2017 Demo"
+    static var locationName: String = "iOS Club 2017 Demo Day"
     
     
     static var passesActive: Bool = true
     
     static var automaticCheckIn: Bool = true
+    
+    static var checkInLocations = [Pin]()
 
     
     
@@ -57,7 +62,9 @@ class C {
             return false
         }
         set {
+            print("User is logging \(newValue ? "in" : "out")---------------")
             UserDefaults.standard.setValue(newValue, forKey: "userIsLoggedIn")
+            try! C.session?.updateApplicationContext(["signInStatus" : newValue])
         }
     }
 
@@ -113,6 +120,14 @@ class C {
         
     }
     
+    static func userQRCodePass(withSize size: CGSize?) -> UIImage {
+        return C.generateQRCode(forMessage:
+            "\(C.nameOfUser)|" +
+            "\(C.emailOfUser)|" +
+            "\(C.locationName)"
+            , withSize: size)
+    }
+    
     static func generateQRCode(forMessage message: String, withSize size: CGSize?) -> UIImage {
         
         let bounds = size ?? CGSize(width: 275, height: 275)
@@ -141,22 +156,22 @@ class C {
     }
     
     
-    static func persistUsingUserDefaults() {
+    static func persistUsingUserDefaults(_ value: Any?, for keyString: String) {
         
         let defaults = UserDefaults.standard
-        defaults.set("Saved value!", forKey: "keyString")
+        defaults.set(value, forKey: keyString)
         defaults.synchronize()
     
     }
     
-    static func getFromUserDefaults() -> String {
+    static func getFromUserDefaults(withKey keyString: String) -> Any? {
         
         let defaults = UserDefaults.standard
-        if let string = defaults.object(forKey: "keyString") as? String {
-            return string
+        if let value = defaults.object(forKey: keyString) {
+            return value
         }
         
-        return "failed"
+        return nil
     }
     
     

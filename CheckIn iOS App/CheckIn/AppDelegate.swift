@@ -28,6 +28,8 @@
  iPad optimization with action sheet
  WATCH APP
  WIDGET
+ implement search bar functionality
+ Add 3D Touch menu actions to watch app. Work on communication and core data things
  */
 
 
@@ -39,21 +41,34 @@
 
 import UIKit
 import CoreData
+import WatchConnectivity
 //import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationControllerDelegate, WCSessionDelegate {
 
     var window: UIWindow?
     var tabBarController: UITabBarController!
     var launchedShortcutItem: UIApplicationShortcutItem?
     var viewControllerStack: [UIViewController] = []
+    var changeRoot: Bool = false
+    var session: WCSession? {
+        return C.session
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         C.appDelegate = self
+        if WCSession.isSupported() {
+            C.session = WCSession.default()
+            C.session?.delegate = self
+            C.session?.activate()
+            
+            print("session \(String(describing: C.session)) activated on iPhone")
+            
+        }
         
         tabBarController = window?.rootViewController as! UITabBarController
         
@@ -62,10 +77,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             launchedShortcutItem = shortcutItem
         }
         
+        
+        //load pins
+        let hackGSU = Pin(name: "HackGSU",latitude: 33.7563920891773, longitude: -84.3890242522629)
+        let iOSClub = Pin(name: "iOS Club",latitude: 33.776732102728, longitude: -84.3958815877988)
+        C.checkInLocations = [iOSClub, hackGSU]
+        
         //FIRApp.configure()
         
         return true
     }
+    
+    
+    
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+        print("Should be sending QR Image")
+        let image = C.userQRCodePass(withSize: nil)
+        let imageData = UIImagePNGRepresentation(image)!
+        self.session!.sendMessage(["CheckInPass" : imageData], replyHandler: nil, errorHandler: nil)
+    
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        //code
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        //code
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        
+        switch (message["Activity"] as! String) {
+        case "NeedCheckInPass" :
+            let image = C.userQRCodePass(withSize: nil)
+            let imageData = UIImagePNGRepresentation(image)!
+            replyHandler(["CheckInPass" : imageData])
+        case "MapRequest" :
+            let coordinate = C.checkInLocations[0].coordinate
+            replyHandler(["MapReply" : (coordinate.latitude, coordinate.longitude)])
+        default: print("no message handled")
+        }
+        print("iOS App did receive message")
+
+    }
+    
+    
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
@@ -118,11 +177,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             return handled
         }
         
-        /*let newRootViewController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController")
-        self.window?.rootViewController = newRootViewController
-        self.tabBarController = newRootViewController as! UITabBarController*/
+        if (changeRoot) {
+            print("NEW ROOT")
+            let newRootViewController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController")
+            self.window?.rootViewController = newRootViewController
+            self.tabBarController = newRootViewController as! UITabBarController
+        } else {
+            self.changeRoot = true
+        }
         
-        var current = window?.visibleViewController
+        /*var current = window?.visibleViewController
         
         print(current ?? "NO CURRENT VIEW CONTROLLER")
         //var cont: Bool = true
@@ -145,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             current = window?.visibleViewController
             identifier = current?.navigationController?.restorationIdentifier
             print(identifier ?? "NO IDENTIFIER")
-        }
+        }*/
         
         
         handled = true
@@ -155,12 +219,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         case "showUserPass" :
             C.appDelegate.tabBarController.selectedIndex = 1
             let controller = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
-            C.appDelegate.tabBarController.present(controller, animated: true, completion: nil)
+            C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
 
         case "newGuestPass" :
             C.appDelegate.tabBarController.selectedIndex = 0
             let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
-            C.appDelegate.tabBarController.present(controller, animated: true, completion: nil)
+            C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
 
         
         case "checkInNow" :
@@ -168,7 +232,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             let controller = C.storyboard.instantiateViewController(withIdentifier: "mapViewController")
             C.appDelegate.tabBarController.selectedViewController?.navigationController?.pushViewController(controller, animated: true)
         
-        default: break //will never be executed
+        default: break //should never be executed
         }
         
         return handled

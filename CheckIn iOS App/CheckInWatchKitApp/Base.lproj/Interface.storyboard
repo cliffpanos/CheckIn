@@ -1,23 +1,115 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--checkInPassInterfaceController-->
+        <scene sceneID="kqL-gz-rC2">
+            <objects>
+                <controller identifier="checkInPassInterfaceController" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp_Extension">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" id="6mw-tI-a3l">
+                            <gestureRecognizers>
+                                <panGestureRecognizer id="ydv-on-Vaj">
+                                    <connections>
+                                        <action selector="pannedDown:" destination="JHT-We-vg0" id="yQB-pJ-UL9"/>
+                                    </connections>
+                                </panGestureRecognizer>
+                            </gestureRecognizers>
+                        </imageView>
+                    </items>
+                    <connections>
+                        <outlet property="imageView" destination="6mw-tI-a3l" id="QVZ-Rh-9lc"/>
+                        <outlet property="panGestureRecognizer" destination="ydv-on-Vaj" id="NXn-vp-9bv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="217" y="-232"/>
+        </scene>
+        <!--CheckIn-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller identifier="mainInterfaceController" title="CheckIn" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                    <items>
+                        <button width="1" height="30" alignment="left" title="CheckIn Pass" id="dSY-Ne-5LL">
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <segue destination="JHT-We-vg0" kind="modal" id="pPS-dc-PUT"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="30" alignment="left" title="Location" id="qyJ-tg-9yd">
+                            <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="tW1-ye-p6k" kind="push" id="3Vz-rb-aVV"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="sn4-tO-sHl"/>
+                        <table alignment="left" id="zgS-No-NKi">
+                            <items>
+                                <tableRow id="8Dz-6V-GKF">
+                                    <group key="rootItem" width="1" alignment="left" id="qlq-0f-swz"/>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="S67-Ut-jQ6">
+                        <items>
+                            <menuItem title="Menu Item" icon="accept" id="7Xu-te-GMo"/>
+                            <menuItem title="Menu Item" id="88k-sJ-xzX"/>
+                            <menuItem title="Menu Item" id="pAm-ZD-IDp"/>
+                        </items>
+                    </menu>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="59"/>
+        </scene>
+        <!--signInNecessaryController-->
+        <scene sceneID="Gh1-dr-gTs">
+            <objects>
+                <controller identifier="signInNecessaryController" id="yi5-29-Av8">
+                    <items>
+                        <label width="1" height="1" alignment="center" verticalAlignment="center" text="Sign in to CheckIn on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
+                            <color key="textColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="font" type="system" pointSize="25"/>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="217" y="351"/>
+        </scene>
+        <!--My CheckIn Location-->
+        <scene sceneID="aG1-74-GAe">
+            <objects>
+                <controller identifier="mapInterfaceController" title="My CheckIn Location" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp_Extension">
+                    <items>
+                        <label width="1" height="20" alignment="left" text="CheckIn Location" textAlignment="center" id="TLP-RX-Xla">
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <map width="1" height="1" heightAdjustment="-20" alignment="left" id="39F-78-fWq"/>
+                    </items>
+                    <connections>
+                        <outlet property="mapView" destination="39F-78-fWq" id="aT6-Pp-jkK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="59"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                        <label width="1" alignment="left" text="Checked In ✓" textAlignment="center" id="IdU-wH-bcW">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
@@ -31,7 +123,7 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="CheckInWatchKitApp" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
