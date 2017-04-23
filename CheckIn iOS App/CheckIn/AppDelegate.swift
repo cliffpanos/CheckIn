@@ -254,8 +254,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         case "checkInNow" :
             C.appDelegate.tabBarController.selectedIndex = 1
+
             let controller = C.storyboard.instantiateViewController(withIdentifier: "mapViewController")
-            C.appDelegate.tabBarController.selectedViewController?.navigationController?.pushViewController(controller, animated: true)
+            let nav = C.appDelegate.tabBarController.selectedViewController as! UINavigationController
+            nav.pushViewController(controller, animated: false)
         
         default: break //should never be executed
         }

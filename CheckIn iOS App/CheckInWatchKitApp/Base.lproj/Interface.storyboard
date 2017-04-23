@@ -68,7 +68,7 @@
                                                 <items>
                                                     <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="OnE-UB-mZR">
                                                         <items>
-                                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" contentMode="scaleAspectFill" id="GfI-pr-Ux2"/>
+                                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="clearIcon" contentMode="scaleAspectFill" id="GfI-pr-Ux2"/>
                                                         </items>
                                                     </group>
                                                     <label height="40" alignment="left" text="Guest Name" textAlignment="left" id="3P3-xD-IYA">
@@ -83,6 +83,7 @@
                                     <connections>
                                         <outlet property="guestName" destination="3P3-xD-IYA" id="36c-y3-osF"/>
                                         <outlet property="imageView" destination="GfI-pr-Ux2" id="Im6-WQ-cl0"/>
+                                        <segue destination="Gfe-By-bMv" kind="push" id="xKC-lr-cBl"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -100,12 +101,16 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="59"/>
+            <point key="canvasLocation" x="217" y="59"/>
         </scene>
         <!--Guest Pass-->
         <scene sceneID="qgw-9v-2fv">
             <objects>
-                <controller title="Guest Pass" id="Gfe-By-bMv"/>
+                <controller title="Guest Pass" id="Gfe-By-bMv">
+                    <items>
+                        <label width="1" alignment="left" text="Guest Name" textAlignment="center" id="Zgo-yS-vk5"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="523" y="59"/>
         </scene>
@@ -163,4 +168,5 @@
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

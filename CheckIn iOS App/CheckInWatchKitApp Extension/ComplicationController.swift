@@ -14,7 +14,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.forward, .backward])
+        
+        //Timeline can go backwards but not forwards
+        
+        handler([.backward])
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
@@ -26,7 +29,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
-        handler(.showOnLockScreen)
+        
+        let publicPrivacyBehavior = CLKComplicationPrivacyBehavior.showOnLockScreen
+        
+        handler(publicPrivacyBehavior)
     }
     
     
@@ -50,6 +56,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             //textTemplate.textProvider = CLKSimpleTextProvider(text: longText, shortText: shortText)
             let imageTemplate = CLKComplicationTemplateModularSmallSimpleImage()
             imageTemplate.imageProvider = CLKImageProvider(onePieceImage: #imageLiteral(resourceName: "clearIcon"))
+            imageTemplate.tintColor = UIColor(red: 0.0, green: 102.0/255.0, blue: 1.0, alpha: 1)
             
             // Create the entry.
 
@@ -73,6 +80,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the timeline entries after to the given date
         handler(nil)
     }
+    
     
     // MARK: - Placeholder Templates
     

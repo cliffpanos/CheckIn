@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9106AB601E9455C100CEBD7A /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106AB5F1E9455C100CEBD7A /* Designables.swift */; };
+		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
 		916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE71E8F6CB700911417 /* AppDelegate.swift */; };
 		916E0EEA1E8F6CB700911417 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE91E8F6CB700911417 /* MainViewController.swift */; };
 		916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EEB1E8F6CB700911417 /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
+		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
 		916E0EE41E8F6CB700911417 /* CheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E0EE71E8F6CB700911417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916E0EE91E8F6CB700911417 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */,
 				9187E3C91EA2F3700085E415 /* NotificationController.swift */,
 				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
+				911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */,
 				9187E3CD1EA2F3700085E415 /* Assets.xcassets */,
 				9187E3CF1EA2F3700085E415 /* Info.plist */,
 				9187E3C31EA2F3700085E415 /* Supporting Files */,
@@ -461,6 +464,7 @@
 				9187E3E21EA344490085E415 /* WC.swift in Sources */,
 				9187E3CC1EA2F3700085E415 /* ComplicationController.swift in Sources */,
 				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
+				911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */,
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 			);

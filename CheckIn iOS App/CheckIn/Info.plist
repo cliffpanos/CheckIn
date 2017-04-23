@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>CheckIn would like to be able to scan QR Code Passes</string>
+	<string>CheckIn would like to be able to scan Pass QR Codes</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>CheckIn would like to be able to save Passes to your Photo Library</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>CheckIn needs access to your location to check you in automcatically when you enter a geofence.</string>
+	<string>CheckIn wants to check you in automatically when you enter a geofence</string>
 	<key>NSContactsUsageDescription</key>
-	<string>CheckIn would like to access your Contacts</string>
+	<string>CheckIn would like to ease the Guest Pass authorization process</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

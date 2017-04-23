@@ -1,8 +1,8 @@
 {
     "aps": {
         "alert": {
-            "body": "Test message",
-            "title": "Optional title"
+            "body": "Automatically via Geofence",
+            "title": "Checked In ✓"
         },
         "category": "myCategory"
     },
