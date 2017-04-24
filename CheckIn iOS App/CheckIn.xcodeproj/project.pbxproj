@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9106AB601E9455C100CEBD7A /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106AB5F1E9455C100CEBD7A /* Designables.swift */; };
 		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
+		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
 		916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE71E8F6CB700911417 /* AppDelegate.swift */; };
 		916E0EEA1E8F6CB700911417 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE91E8F6CB700911417 /* MainViewController.swift */; };
 		916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EEB1E8F6CB700911417 /* Main.storyboard */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
+		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		916E0EE41E8F6CB700911417 /* CheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E0EE71E8F6CB700911417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916E0EE91E8F6CB700911417 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
 				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
 				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
+				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
 				916E0EF11E8F6CB700911417 /* Assets.xcassets */,
 				916E0EEB1E8F6CB700911417 /* Main.storyboard */,
 				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
@@ -448,6 +451,7 @@
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* CheckIn.xcdatamodeld in Sources */,
+				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
 				91989DA61E90095E00F83E1C /* C.swift in Sources */,
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
 				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,

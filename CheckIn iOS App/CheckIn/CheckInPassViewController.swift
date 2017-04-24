@@ -33,7 +33,6 @@ class CheckInPassViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         targetBrightness = 1.0
-        print("current: \(UIScreen.main.brightness)")
         updateScreenBrightness()
     }
     

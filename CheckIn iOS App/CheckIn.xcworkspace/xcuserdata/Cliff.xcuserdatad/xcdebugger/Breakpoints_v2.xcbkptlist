@@ -147,5 +147,158 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CheckIn/Designables.swift"
+            timestampString = "514707646.467595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "BorderedLabel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.__deallocating_deinit"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.456182"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.init (image : Swift.Optional&lt;__ObjC.UIImage&gt;) -&gt; CheckIn.RoundedImageView"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.458203"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.__allocating_init (image : Swift.Optional&lt;__ObjC.UIImage&gt;) -&gt; CheckIn.RoundedImageView"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.459978"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.init (image : Swift.Optional&lt;__ObjC.UIImage&gt;, highlightedImage : Swift.Optional&lt;__ObjC.UIImage&gt;) -&gt; CheckIn.RoundedImageView"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.461492"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.__allocating_init (image : Swift.Optional&lt;__ObjC.UIImage&gt;, highlightedImage : Swift.Optional&lt;__ObjC.UIImage&gt;) -&gt; CheckIn.RoundedImageView"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.463143"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.init (frame : __C.CGRect) -&gt; CheckIn.RoundedImageView"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.464723"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.__allocating_init (frame : __C.CGRect) -&gt; CheckIn.RoundedImageView"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.466332"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;CheckIn.RoundedImageView&gt;"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.467854"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CheckIn.RoundedImageView.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;CheckIn.RoundedImageView&gt;"
+                  moduleName = "CheckIn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Cliff/Documents/Coding%20in%20Xcode/CheckIn/CheckIn%20iOS%20App/CheckIn/Designables.swift"
+                  timestampString = "514707647.469395"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

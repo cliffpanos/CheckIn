@@ -38,6 +38,20 @@ class BorderedButton: UIButton {
     
 }
 
+@IBDesignable
+class BorderedLabel: UILabel {
+    
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        
+        didSet {
+            self.layer.cornerRadius = self.cornerRadius
+            self.layer.masksToBounds = true
+        }
+    
+    }
+    
+}
+
 
 @IBDesignable
 class RoundedImageView: UIImageView {

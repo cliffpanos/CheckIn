@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xLy-gk-eSZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xLy-gk-eSZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,18 +60,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkInLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-TE-xFf">
-                                <rect key="frame" x="75" y="221" width="225" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="SIl-eq-Ukt"/>
-                                    <constraint firstAttribute="width" constant="225" id="k0O-GD-8mi"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TCL-Aa-twH">
+                                <rect key="frame" x="102" y="303.5" width="173" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkInLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-TE-xFf">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="6FJ-Gj-UAu"/>
+                                            <constraint firstAttribute="height" constant="60" id="qVV-nr-F4a"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckIn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-Nc-xUQ">
+                                        <rect key="frame" x="70" y="12" width="103" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B0J-TE-xFf" firstAttribute="centerY" secondItem="xCh-UY-wTv" secondAttribute="centerY" id="512-sp-Z2r"/>
-                            <constraint firstItem="B0J-TE-xFf" firstAttribute="centerX" secondItem="xCh-UY-wTv" secondAttribute="centerX" id="SuI-8V-M3X"/>
+                            <constraint firstItem="TCL-Aa-twH" firstAttribute="centerX" secondItem="xCh-UY-wTv" secondAttribute="centerX" id="Swy-Cz-mw3"/>
+                            <constraint firstItem="TCL-Aa-twH" firstAttribute="centerY" secondItem="xCh-UY-wTv" secondAttribute="centerY" id="osv-Uq-6kJ"/>
                         </constraints>
                     </view>
                 </viewController>

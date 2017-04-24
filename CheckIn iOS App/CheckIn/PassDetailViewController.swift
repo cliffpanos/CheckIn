@@ -17,6 +17,7 @@ class PassDetailViewController: UIViewController {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var passActivityState: UILabel!
     
+    var imageView: RoundedImageView!
     var pass: Pass!
     
     override func viewDidLoad() {
@@ -26,6 +27,24 @@ class PassDetailViewController: UIViewController {
 
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareQRCode))
         navigationItem.rightBarButtonItem = shareButton
+        
+        
+        //Setup contact icon imageView in the titleView
+        
+        imageView = RoundedImageView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
+        imageView.contentMode = .scaleAspectFill
+        imageView.cornerRadius = 17.0
+        imageView.isOpaque = true
+        print(imageView)
+        
+        if let imageData = pass.image {
+            let image = UIImage(data: imageData as Data)
+                imageView.image = image
+        }
+
+        navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
+        navigationItem.titleView?.addSubview(imageView)
+        //self.navigationController?.view.addSubview(imageView)
         
     }
     
@@ -38,6 +57,11 @@ class PassDetailViewController: UIViewController {
         endTimeLabel.text = pass.timeEnd
         
         passActivityState.text = C.passesActive ? "Pass Active Between:" : "Pass Currently Inactive."
+        
+        if pass.image == nil {
+            let imageName = C.passesActive ? "greenContactIcon" : "contactIcon"
+            imageView.image = UIImage(named: imageName)
+        }
     
     }
     
