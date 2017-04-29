@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>CheckIn would like to be able to scan Pass QR Codes</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>CheckIn would like to be able to save Passes to your Photo Library</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>CheckIn wants to check you in automatically when you enter a geofence</string>
-	<key>NSContactsUsageDescription</key>
-	<string>CheckIn would like to ease the Guest Pass authorization process</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -30,39 +22,45 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>CheckIn would like to be able to scan Pass QR Codes</string>
+	<key>NSContactsUsageDescription</key>
+	<string>CheckIn would like to ease the Guest Pass authorization process</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>CheckIn wants to check you in automatically when you enter a geofence</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>CheckIn would like to be able to save Passes to your Photo Library</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Show CheckIn Pass</string>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>QRQuickAction</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Show CheckIn Pass</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>showUserPass</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>New Guest Pass</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeAdd</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Guest Pass</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>newGuestPass</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>CheckIn Now</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeLocation</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>CheckIn Now</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>checkInNow</string>
 		</dict>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -70,6 +68,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -78,5 +77,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

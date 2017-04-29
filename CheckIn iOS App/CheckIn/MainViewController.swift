@@ -9,18 +9,15 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        if !C.userIsLoggedIn {
+        guard C.userIsLoggedIn else {
             let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
             self.present(controller, animated: false, completion: nil)
+            
+            return
         }
     
     }

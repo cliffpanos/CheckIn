@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TCL-Aa-twH">
-                                <rect key="frame" x="102" y="303.5" width="173" height="60"/>
+                                <rect key="frame" x="97" y="303.5" width="177" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkInLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-TE-xFf">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -71,9 +70,9 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckIn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-Nc-xUQ">
-                                        <rect key="frame" x="70" y="12" width="103" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="70" y="12" width="107" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -81,7 +80,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TCL-Aa-twH" firstAttribute="centerX" secondItem="xCh-UY-wTv" secondAttribute="centerX" id="Swy-Cz-mw3"/>
+                            <constraint firstItem="TCL-Aa-twH" firstAttribute="centerX" secondItem="xCh-UY-wTv" secondAttribute="centerX" constant="-2" id="Swy-Cz-mw3"/>
                             <constraint firstItem="TCL-Aa-twH" firstAttribute="centerY" secondItem="xCh-UY-wTv" secondAttribute="centerY" id="osv-Uq-6kJ"/>
                         </constraints>
                     </view>

@@ -31,9 +31,9 @@ class PassDetailViewController: UIViewController {
         
         //Setup contact icon imageView in the titleView
         
-        imageView = RoundedImageView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
+        imageView = RoundedImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         imageView.contentMode = .scaleAspectFill
-        imageView.cornerRadius = 17.0
+        imageView.cornerRadius = 17.5
         imageView.isOpaque = true
         print(imageView)
         
@@ -42,7 +42,7 @@ class PassDetailViewController: UIViewController {
                 imageView.image = image
         }
 
-        navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
+        navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         navigationItem.titleView?.addSubview(imageView)
         //self.navigationController?.view.addSubview(imageView)
         

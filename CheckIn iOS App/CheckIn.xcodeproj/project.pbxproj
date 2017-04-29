@@ -150,6 +150,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9169EE191EB2FAD20018C434 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
+				91989DA51E90095E00F83E1C /* C.swift */,
+				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9169EE1A1EB2FAF10018C434 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				916E0EE91E8F6CB700911417 /* MainViewController.swift */,
+				916E0F001E8F705400911417 /* LoginViewController.swift */,
+				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
+				91989DA31E90024800F83E1C /* PassesViewController.swift */,
+				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
+				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
+				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
+				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9169EE1B1EB2FB100018C434 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		916E0EDB1E8F6CB700911417 = {
 			isa = PBXGroup;
 			children = (
@@ -175,18 +208,9 @@
 		916E0EE61E8F6CB700911417 /* CheckIn */ = {
 			isa = PBXGroup;
 			children = (
-				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
-				916E0EE91E8F6CB700911417 /* MainViewController.swift */,
-				91989DA51E90095E00F83E1C /* C.swift */,
-				916E0F001E8F705400911417 /* LoginViewController.swift */,
-				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
-				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
-				91989DA31E90024800F83E1C /* PassesViewController.swift */,
-				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
-				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
-				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
-				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
-				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
+				9169EE191EB2FAD20018C434 /* Models */,
+				9169EE1A1EB2FAF10018C434 /* Controllers */,
+				9169EE1B1EB2FB100018C434 /* Views */,
 				916E0EF11E8F6CB700911417 /* Assets.xcassets */,
 				916E0EEB1E8F6CB700911417 /* Main.storyboard */,
 				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
@@ -620,7 +644,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				INFOPLIST_FILE = CheckIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -638,7 +662,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				INFOPLIST_FILE = CheckIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";

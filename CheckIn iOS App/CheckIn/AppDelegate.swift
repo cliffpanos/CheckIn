@@ -28,8 +28,8 @@
  WIDGET
  implement search bar functionality
  Add 3D Touch menu actions to watch app. Work on communication and core data things
+ Write extension for screen class that manages brightness
  */
-
 
 
 
@@ -155,6 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         //Handles the 3D Touch Quick Actions from the home screen
         let handledShortcutItem: Bool = handleQuickAction(for: shortcutItem)
+
         completionHandler(handledShortcutItem)
         
     }
@@ -163,15 +164,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
+        CheckInPassViewController.targetBrightness = CheckInPassViewController.initialScreenBrightness
+        CheckInPassViewController.updateScreenBrightness()
+
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        CheckInPassViewController.targetBrightness = CheckInPassViewController.initialScreenBrightness
+        CheckInPassViewController.updateScreenBrightness()
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+       
+        if CheckInPassViewController.presented {
+            CheckInPassViewController.targetBrightness = 1.0
+            CheckInPassViewController.updateScreenBrightness()
+        }
+    
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -182,6 +197,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         let _ = handleQuickAction(for: shortcutItem)
         launchedShortcutItem = nil
+        self.changeRoot = true
+        
+        if CheckInPassViewController.presented {
+            CheckInPassViewController.targetBrightness = 1.0
+            CheckInPassViewController.updateScreenBrightness()
+        }
     
     }
 
@@ -204,11 +225,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         if (changeRoot) {
             print("NEW ROOT")
-            let newRootViewController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController")
+            let newRootViewController = C.storyboard.instantiateInitialViewController()
             self.window?.rootViewController = newRootViewController
             self.tabBarController = newRootViewController as! UITabBarController
-        } else {
-            self.changeRoot = true
         }
         
         /*var current = window?.visibleViewController
@@ -239,8 +258,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         handled = true
         
+        print("Switching on: \(shortcutItem.type)")
         switch (shortcutItem.type) {
         
+
         case "showUserPass" :
             C.appDelegate.tabBarController.selectedIndex = 1
             let controller = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
