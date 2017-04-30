@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910134571EB521EE006D11AD /* WCSessionManager.swift */; };
+		9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101345A1EB52902006D11AD /* 3D+QuickActions.swift */; };
 		9106AB601E9455C100CEBD7A /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106AB5F1E9455C100CEBD7A /* Designables.swift */; };
 		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
 		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
@@ -29,6 +31,10 @@
 		9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */; };
 		9187E3E11EA343490085E415 /* CheckInPassInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */; };
 		9187E3E21EA344490085E415 /* WC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3DB1EA3400A0085E415 /* WC.swift */; };
+		918BDCC71EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */; };
+		918BDCC81EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */; };
+		918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */; };
+		918BDCCE1EB6970B00DBAB4C /* ManagedUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
 		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
 		91989DA61E90095E00F83E1C /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* C.swift */; };
@@ -83,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		910134571EB521EE006D11AD /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
+		9101345A1EB52902006D11AD /* 3D+QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "3D+QuickActions.swift"; sourceTree = "<group>"; };
 		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
 		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -111,6 +119,9 @@
 		9187E3DB1EA3400A0085E415 /* WC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WC.swift; path = ../CheckInWatchKitApp/WC.swift; sourceTree = "<group>"; };
 		9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewInterfaceController.swift; sourceTree = "<group>"; };
 		9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPassInterfaceController.swift; sourceTree = "<group>"; };
+		918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivity.swift; sourceTree = "<group>"; };
+		918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
+		918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedUIViewController.swift; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
 		91989DA51E90095E00F83E1C /* C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
@@ -150,12 +161,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		910134591EB521F8006D11AD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
+				910134571EB521EE006D11AD /* WCSessionManager.swift */,
+				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
+				91989DA51E90095E00F83E1C /* C.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		9169EE191EB2FAD20018C434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */,
 				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
-				91989DA51E90095E00F83E1C /* C.swift */,
-				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -186,6 +207,7 @@
 		916E0EDB1E8F6CB700911417 = {
 			isa = PBXGroup;
 			children = (
+				918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */,
 				916E0EE61E8F6CB700911417 /* CheckIn */,
 				9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */,
 				9187E3C21EA2F3700085E415 /* CheckInWatchKitApp Extension */,
@@ -208,6 +230,7 @@
 		916E0EE61E8F6CB700911417 /* CheckIn */ = {
 			isa = PBXGroup;
 			children = (
+				910134591EB521F8006D11AD /* Managers */,
 				9169EE191EB2FAD20018C434 /* Models */,
 				9169EE1A1EB2FAF10018C434 /* Controllers */,
 				9169EE1B1EB2FB100018C434 /* Views */,
@@ -235,14 +258,8 @@
 		9187E3C21EA2F3700085E415 /* CheckInWatchKitApp Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9187E3DB1EA3400A0085E415 /* WC.swift */,
-				9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */,
-				9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */,
-				9187E3C51EA2F3700085E415 /* InterfaceController.swift */,
-				9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */,
-				9187E3C91EA2F3700085E415 /* NotificationController.swift */,
-				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
-				911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */,
+				918BDCC91EB6930C00DBAB4C /* Managers */,
+				918BDCCA1EB6932C00DBAB4C /* Controllers */,
 				9187E3CD1EA2F3700085E415 /* Assets.xcassets */,
 				9187E3CF1EA2F3700085E415 /* Info.plist */,
 				9187E3C31EA2F3700085E415 /* Supporting Files */,
@@ -256,6 +273,29 @@
 				9187E3C41EA2F3700085E415 /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		918BDCC91EB6930C00DBAB4C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */,
+				918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */,
+				9187E3DB1EA3400A0085E415 /* WC.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		918BDCCA1EB6932C00DBAB4C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */,
+				9187E3C51EA2F3700085E415 /* InterfaceController.swift */,
+				9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */,
+				9187E3C91EA2F3700085E415 /* NotificationController.swift */,
+				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
+				911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		95260616F8D44D890B15213F /* Frameworks */ = {
@@ -472,13 +512,17 @@
 				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
 				916E0EEA1E8F6CB700911417 /* MainViewController.swift in Sources */,
 				91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */,
+				918BDCC71EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */,
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
+				918BDCCE1EB6970B00DBAB4C /* ManagedUIViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* CheckIn.xcdatamodeld in Sources */,
 				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
 				91989DA61E90095E00F83E1C /* C.swift in Sources */,
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
+				910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */,
 				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
+				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,11 +533,13 @@
 			files = (
 				9187E3E11EA343490085E415 /* CheckInPassInterfaceController.swift in Sources */,
 				9187E3CA1EA2F3700085E415 /* NotificationController.swift in Sources */,
+				918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */,
 				9187E3E21EA344490085E415 /* WC.swift in Sources */,
 				9187E3CC1EA2F3700085E415 /* ComplicationController.swift in Sources */,
 				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
 				911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */,
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
+				918BDCC81EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

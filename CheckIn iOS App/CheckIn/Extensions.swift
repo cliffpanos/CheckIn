@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     
-    static func uiColor(fromHex rgbValue: UInt32) ->UIColor {
+    static func color(fromHex rgbValue: UInt32) ->UIColor {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/255.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/255.0
         let blue = CGFloat(rgbValue & 0xFF)/255.0

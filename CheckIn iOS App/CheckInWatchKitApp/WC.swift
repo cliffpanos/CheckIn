@@ -49,9 +49,7 @@ class WC: NSObject {
         }, errorHandler: { error in print(error) })
     
     }
-    
-    
-    
+        
     //MARK: - Handle pass retrieval and storage
     static var passes = [Pass]()
     static func requestPassesFromiOS() {

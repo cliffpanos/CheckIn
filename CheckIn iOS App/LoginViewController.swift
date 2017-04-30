@@ -37,6 +37,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             numberToolbar.sizeToFit()
             
             textField?.inputAccessoryView = numberToolbar
+            
+            textField?.isUserInteractionEnabled = true
         }
         
         let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
@@ -104,11 +106,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             self.present(reader, animated: true, completion: nil)
         } else {
+            //Let the user know that the entered information was incorrect
             shake()
         }
     }
     //------------------------------------------
     
+    
+    @IBAction func emailFieldPressed(_ sender: Any) {
+        print("becoming")
+        passwordTextField.resignFirstResponder()
+        emailTextField.becomeFirstResponder()
+    }
     
     @IBAction func newAccountPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Create Account Online", message: "Create a new account at checkin.com", preferredStyle: .alert)
@@ -153,7 +162,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func animateOff() {
         
         dismissKeyboard()
-        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.5, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.75, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.25, options: .curveEaseIn, animations: {
             
             let translationY = 0.5 * self.view.frame.height + 100
             self.primaryView.frame.origin.y += translationY

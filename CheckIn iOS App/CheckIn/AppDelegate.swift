@@ -21,14 +21,16 @@
  action menu on ipads
  QR code encryption via hashing?
  Make map zoom to checkin location, not user location
- Grey font for tableView emails
  Scroll views?
- iPad optimization with action sheet
- WATCH APP
+ iPad optimization with action sheet so that it doesn't crash
+ WATCH APP!!
  WIDGET
- implement search bar functionality
+ implement search bar functionality & FIX IT since it currently selects the wrong option
  Add 3D Touch menu actions to watch app. Work on communication and core data things
  Write extension for screen class that manages brightness
+ Change editableBound on Login screen textFields to move with the animation
+ Organize code into the Managers and file structure
+ Create Swift package thingy (like a Pod? for some of the IB designables and functions)
  */
 
 
@@ -304,6 +306,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
+                print("FATAL ERROR when loading PersistentStores from Core Data")
                  
                 /*
                  Typical reasons for an error here include:
@@ -318,7 +322,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -327,6 +331,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             do {
                 try context.save()
             } catch {
+                
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError

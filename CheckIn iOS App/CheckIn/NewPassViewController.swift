@@ -7,40 +7,56 @@
 //
 
 import UIKit
-import Contacts
 import ContactsUI
 
-class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPickerDelegate {
+class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
+    
+    @IBOutlet weak var startPickerTextField: UITextField!
+    
+    let datePicker = UIDatePicker()
+    
+    
+    let textInputAccessories = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
+        UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
+    ]
+    
     var imageData: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for textField in [nameTextField, emailTextField] {
+        for textField in [nameTextField, emailTextField, startPickerTextField] {
             let numberToolbar: UIToolbar = UIToolbar()
             numberToolbar.barStyle = UIBarStyle.default
             
-            numberToolbar.items = [
-                
-                UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
-                UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
-            ]
+            numberToolbar.items = textInputAccessories
             
             numberToolbar.sizeToFit()
             
             textField?.inputAccessoryView = numberToolbar
         
         } //End for loop
+        
+        startPickerTextField.placeholder = C.format(date: Date())
+        datePicker.minimumDate = Date()
+        datePicker.datePickerMode = .dateAndTime
+        startPickerTextField.inputView = datePicker
+        datePicker.backgroundColor = UIColor.white
+        datePicker.addTarget(self, action: #selector(fillDateField), for: .valueChanged)
     
+    }
+    
+    func fillDateField() {
+        let fieldToFill = startPickerTextField
+        
+        fieldToFill?.text = C.format(date: datePicker.date)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -55,20 +71,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
         self.view.endEditing(true)
     }
 
-    @IBAction func chooseContactPressed(_ sender: Any) {
-        
-        if CNContactStore.authorizationStatus(for: CNEntityType.contacts) != .authorized {
-            let contacts = CNContactStore()
-            
-            contacts.requestAccess(for: CNEntityType.contacts, completionHandler: {success, error in
-                if success {
-                    self.fillContactInformation()
-                }
-            })
-        } else {
-            fillContactInformation()
-        }
-    }
+
     
     @IBAction func onCancelPressed(_ sender: Any) {
         if nameTextField.text != "" && emailTextField.text != "" {
@@ -89,7 +92,7 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
     @IBAction func sendPassPressed(_ sender: Any) {
         
         if nameTextField.text == "" {
-            let alert = UIAlertController(title: "Insufficient Information", message: "Please enter a name at minimum", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Insufficient Information", message: "Please enter at minimum a name", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
@@ -124,14 +127,51 @@ class NewPassViewController: UIViewController, UITextFieldDelegate, CNContactPic
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-    @IBAction func handlePanDown(_ sender: Any) {
-        if panGestureRecognizer.velocity(in: self.view).y > 750 {
-            self.dismiss(animated: true, completion: nil)
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cellPosition = (indexPath.section, indexPath.row)
+
+        switch (cellPosition) {
+        case (0, 0):
+            tryToChooseFromContacts()
+
+        default: break
         }
     }
+    
+}
 
-    func fillContactInformation() {
+
+
+
+//MARK: - Handle the Selection of Contact(s) using ContactsUI
+
+extension NewPassViewController: CNContactPickerDelegate {
+    
+    //The only link to the UI on this page
+    @IBAction func chooseContactPressed(_ sender: Any) {
+        tryToChooseFromContacts()
+    }
+    
+    //Authorize CheckIn if not authorized
+    func tryToChooseFromContacts() {
+        
+        if CNContactStore.authorizationStatus(for: CNEntityType.contacts) != .authorized {
+            let contacts = CNContactStore()
+            
+            contacts.requestAccess(for: CNEntityType.contacts, completionHandler: {success, error in
+                if success {
+                    self.presentContactPicker()
+                }
+            })
+        } else {
+            presentContactPicker()
+        }
+    }
+    
+    //Present the ContactPicker
+    func presentContactPicker() {
         
         let contactsVC = CNContactPickerViewController()
         contactsVC.delegate = self
