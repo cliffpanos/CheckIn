@@ -1,5 +1,5 @@
 //
-//  C.swift
+//  AppFramework.swift
 //  CheckIn
 //
 //  Created by Cliff Panos on 4/1/17.

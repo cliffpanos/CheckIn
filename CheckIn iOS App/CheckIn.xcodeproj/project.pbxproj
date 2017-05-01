@@ -19,6 +19,7 @@
 		916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF11E8F6CB700911417 /* Assets.xcassets */; };
 		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
+		917FDA041EB7D90500616173 /* CIPLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* CIPLocationManager.swift */; };
 		9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
 		9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -37,7 +38,7 @@
 		918BDCCE1EB6970B00DBAB4C /* ManagedUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
 		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
-		91989DA61E90095E00F83E1C /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* C.swift */; };
+		91989DA61E90095E00F83E1C /* AppFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* AppFramework.swift */; };
 		91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA71E901B0C00F83E1C /* SettingsViewController.swift */; };
 		91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA91E904AA100F83E1C /* PassDetailViewController.swift */; };
 		91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAB1E9053B300F83E1C /* NewPassViewController.swift */; };
@@ -104,6 +105,7 @@
 		916E0EF61E8F6CB700911417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		917FDA031EB7D90500616173 /* CIPLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIPLocationManager.swift; sourceTree = "<group>"; };
 		9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInWatchKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		9187E3B71EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedUIViewController.swift; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
-		91989DA51E90095E00F83E1C /* C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
+		91989DA51E90095E00F83E1C /* AppFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFramework.swift; sourceTree = "<group>"; };
 		91989DA71E901B0C00F83E1C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		91989DA91E904AA100F83E1C /* PassDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailViewController.swift; sourceTree = "<group>"; };
 		91989DAB1E9053B300F83E1C /* NewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPassViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +169,8 @@
 				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
 				910134571EB521EE006D11AD /* WCSessionManager.swift */,
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
-				91989DA51E90095E00F83E1C /* C.swift */,
+				91989DA51E90095E00F83E1C /* AppFramework.swift */,
+				917FDA031EB7D90500616173 /* CIPLocationManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -518,10 +521,11 @@
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* CheckIn.xcdatamodeld in Sources */,
 				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
-				91989DA61E90095E00F83E1C /* C.swift in Sources */,
+				91989DA61E90095E00F83E1C /* AppFramework.swift in Sources */,
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
 				910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */,
 				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
+				917FDA041EB7D90500616173 /* CIPLocationManager.swift in Sources */,
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 			);

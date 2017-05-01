@@ -49,9 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
     var window: UIWindow?
     var tabBarController: UITabBarController!
-    var launchedShortcutItem: UIApplicationShortcutItem?
-    var viewControllerStack: [UIViewController] = []
-    var changeRoot: Bool = false
     var session: WCSession? {
         return C.session
     }
@@ -64,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         if WCSession.isSupported() {
             C.session = WCSession.default()
             C.session?.delegate = self
+            
             C.session?.activate()
             
             print("session \(String(describing: C.session)) activated on iPhone")
@@ -152,6 +150,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     }
     
     
+    var changeRoot: Bool = false
+    var launchedShortcutItem: UIApplicationShortcutItem?
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
@@ -211,85 +211,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        let _ = self.saveContext()
     }
     
-    
-    // MARK: - Handle 3D-Touch Home Screen Quick Actions
-
-    func handleQuickAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
-        
-        var handled: Bool = false;
-        
-        guard C.userIsLoggedIn else {
-            return handled
-        }
-        
-        if (changeRoot) {
-            print("NEW ROOT")
-            let newRootViewController = C.storyboard.instantiateInitialViewController()
-            self.window?.rootViewController = newRootViewController
-            self.tabBarController = newRootViewController as! UITabBarController
-        }
-        
-        /*var current = window?.visibleViewController
-        
-        print(current ?? "NO CURRENT VIEW CONTROLLER")
-        //var cont: Bool = true
-        
-        print("Navigation: \(current is UINavigationController)")
-        var identifier = current?.navigationController?.restorationIdentifier
-        print(identifier == "primaryNavigationController" || identifier == "secondaryNavigationController")
-        
-        while (identifier != "primaryNavigationController" && identifier != "secondaryNavigationController") {
-            
-            print(current!)
-                if let navController = current?.navigationController {
-                    navController.popToRootViewController(animated: false)
-                    current!.dismiss(animated: false, completion: nil)
-
-                } else {
-                    current!.dismiss(animated: false, completion: nil)
-                }
-
-            current = window?.visibleViewController
-            identifier = current?.navigationController?.restorationIdentifier
-            print(identifier ?? "NO IDENTIFIER")
-        }*/
-        
-        
-        handled = true
-        
-        print("Switching on: \(shortcutItem.type)")
-        switch (shortcutItem.type) {
-        
-
-        case "showUserPass" :
-            C.appDelegate.tabBarController.selectedIndex = 1
-            let controller = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
-            C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
-
-        case "newGuestPass" :
-            C.appDelegate.tabBarController.selectedIndex = 0
-            let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
-            C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
-
-        
-        case "checkInNow" :
-            C.appDelegate.tabBarController.selectedIndex = 1
-
-            let controller = C.storyboard.instantiateViewController(withIdentifier: "mapViewController")
-            let nav = C.appDelegate.tabBarController.selectedViewController as! UINavigationController
-            nav.pushViewController(controller, animated: false)
-        
-        default: break //should never be executed
-        }
-        
-        return handled
-    }
-
-    
-    
+       
     
     
     // MARK: - Core Data stack
@@ -325,41 +250,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() -> Bool {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
+                
             } catch {
                 
                 // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
+                
+                return false //Save unsuccessful
             }
         }
-    }
-
-}
-
-
-
-public extension UIWindow {
-    public var visibleViewController: UIViewController? {
-        return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
-    }
+        
+        return true //Save was successful
     
-    public static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
-        if let nc = vc as? UINavigationController {
-            return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)
-        } else if let tc = vc as? UITabBarController {
-            return UIWindow.getVisibleViewControllerFrom(tc.selectedViewController)
-        } else {
-            if let pvc = vc?.presentedViewController {
-                return UIWindow.getVisibleViewControllerFrom(pvc)
-            } else {
-                return vc
-            }
-        }
     }
+
 }
