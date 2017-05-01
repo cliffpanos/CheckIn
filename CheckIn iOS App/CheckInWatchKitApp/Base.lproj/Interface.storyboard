@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
         <!--checkInPassInterfaceController-->
         <scene sceneID="kqL-gz-rC2">
             <objects>
-                <controller identifier="checkInPassInterfaceController" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp_Extension">
+                <controller identifier="checkInPassInterfaceController" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
                         <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,8 +92,8 @@
                     <menu key="menu" id="S67-Ut-jQ6">
                         <items>
                             <menuItem title="Menu Item" icon="accept" id="7Xu-te-GMo"/>
-                            <menuItem title="Menu Item" id="88k-sJ-xzX"/>
-                            <menuItem title="Menu Item" id="pAm-ZD-IDp"/>
+                            <menuItem title="Menu Item" icon="info" id="88k-sJ-xzX"/>
+                            <menuItem title="Menu Item" image="QRQuickAction" id="pAm-ZD-IDp"/>
                         </items>
                     </menu>
                     <connections>
@@ -131,7 +131,7 @@
         <!--Location-->
         <scene sceneID="aG1-74-GAe">
             <objects>
-                <controller identifier="mapInterfaceController" title="Location" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp_Extension">
+                <controller identifier="mapInterfaceController" title="Location" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
                         <map width="1" height="1" alignment="left" id="39F-78-fWq"/>
                     </items>
@@ -152,6 +152,7 @@
                         </label>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
@@ -163,7 +164,12 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="CheckInWatchKitApp" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="left" text="Checked into &lt;Location&gt;" textAlignment="center" numberOfLines="2" id="mHg-Xd-2F4"/>
+                    </items>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </controller>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>

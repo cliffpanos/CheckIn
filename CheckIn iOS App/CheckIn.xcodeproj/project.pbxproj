@@ -213,7 +213,7 @@
 				918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */,
 				916E0EE61E8F6CB700911417 /* CheckIn */,
 				9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */,
-				9187E3C21EA2F3700085E415 /* CheckInWatchKitApp Extension */,
+				9187E3C21EA2F3700085E415 /* CheckInWatchKitAppExtension */,
 				916E0EE51E8F6CB700911417 /* Products */,
 				9E79CA9B8E858BB0B0ABB5E0 /* Pods */,
 				95260616F8D44D890B15213F /* Frameworks */,
@@ -258,7 +258,7 @@
 			path = CheckInWatchKitApp;
 			sourceTree = "<group>";
 		};
-		9187E3C21EA2F3700085E415 /* CheckInWatchKitApp Extension */ = {
+		9187E3C21EA2F3700085E415 /* CheckInWatchKitAppExtension */ = {
 			isa = PBXGroup;
 			children = (
 				918BDCC91EB6930C00DBAB4C /* Managers */,
@@ -267,6 +267,7 @@
 				9187E3CF1EA2F3700085E415 /* Info.plist */,
 				9187E3C31EA2F3700085E415 /* Supporting Files */,
 			);
+			name = CheckInWatchKitAppExtension;
 			path = "CheckInWatchKitApp Extension";
 			sourceTree = "<group>";
 		};

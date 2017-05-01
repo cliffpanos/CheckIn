@@ -12,7 +12,7 @@
 		<key>Pods-CheckIn.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>QRCodeReader.xcscheme</key>
 		<dict>

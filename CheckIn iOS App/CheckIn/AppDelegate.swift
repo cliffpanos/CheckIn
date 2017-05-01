@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
                 let rect = CGRect(x: 0, y: 0, width: image.size.width * 0.05, height: image.size.height * 0.05)
                 image.draw(in: rect)
                 let img = UIGraphicsGetImageFromCurrentImageContext()
-                let imgData = UIImageJPEGRepresentation(img!, 0.2)
+                _ = UIImageJPEGRepresentation(img!, 0.2)
                 UIGraphicsEndImageContext()
                 
                 let dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"]) //TODO add "image" key

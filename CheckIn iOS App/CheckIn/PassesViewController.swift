@@ -153,23 +153,3 @@ class PassCell: UITableViewCell {
         contactView.image = UIImage(named: imageName)
     }
 }
-
-
-//MARK: - UIImage class extension --------------------------------------------
-
-extension UIImage {
-    
-    func resize(_ image: UIImage, toFrame newFrame: CGRect) -> UIImage {
-        
-        UIGraphicsBeginImageContextWithOptions(newFrame.size, false, scale)
-        image.draw(in: newFrame)
-        
-        defer { UIGraphicsEndImageContext() }
-        guard let cgImage = cgImage?.cropping(to: newFrame) else { return image }
-        //UIBezierPath(ovalIn: newFrame).addClip()
-        //UIImage(cgImage: cgImage).draw(in: newFrame)
-        return UIGraphicsGetImageFromCurrentImageContext()!
-        
-    }
-
-}

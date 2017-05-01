@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import WatchConnectivity
 import QRCoder
-import CoreLocation
 
 
 class C {
@@ -19,6 +18,18 @@ class C {
     static var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     static var session: WCSession?
     
+    
+    static var nameOfUser: String = "Clifford Panos"
+    static var emailOfUser: String = "cliffpanos@gmail.com"
+    static var locationName: String = "iOS Club 2017 Demo Day"
+    
+    
+    static var passesActive: Bool = true
+    
+    static var automaticCheckIn: Bool = true
+    
+    static var checkInLocations = [Pin]()
+
     static var passes: [Pass] {
         get {
             let managedContext = C.appDelegate.persistentContainer.viewContext
@@ -37,21 +48,6 @@ class C {
         }
     }
     
-    
-    
-    
-    
-    static var nameOfUser: String = "Clifford Panos"
-    static var emailOfUser: String = "cliffpanos@gmail.com"
-    static var locationName: String = "iOS Club 2017 Demo Day"
-    
-    
-    static var passesActive: Bool = true
-    
-    static var automaticCheckIn: Bool = true
-    
-    static var checkInLocations = [Pin]()
-
     
     
     static var userIsLoggedIn: Bool {

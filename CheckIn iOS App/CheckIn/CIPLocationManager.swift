@@ -6,7 +6,9 @@
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreLocation
+
 
 class CIPLocationManager {
     
