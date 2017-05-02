@@ -1,8 +1,8 @@
 //
-//  PassDetailInterfaceController.swift
+//  ManagedInterfaceController.swift
 //  CheckIn
 //
-//  Created by Cliff Panos on 4/18/17.
+//  Created by Cliff Panos on 5/2/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class PassDetailInterfaceController: ManagedInterfaceController {
+class ManagedInterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -21,6 +21,9 @@ class PassDetailInterfaceController: ManagedInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        WC.currentlyPresenting = self
+
     }
 
     override func didDeactivate() {

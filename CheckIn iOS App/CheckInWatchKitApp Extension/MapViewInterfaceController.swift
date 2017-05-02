@@ -11,7 +11,7 @@ import Foundation
 import CoreLocation
 
 
-class MapViewInterfaceController: WKInterfaceController, CLLocationManagerDelegate {
+class MapViewInterfaceController: ManagedInterfaceController, CLLocationManagerDelegate {
 
     @IBOutlet var mapView: WKInterfaceMap!
     var checkInLocations = [CLLocationCoordinate2D]()
@@ -49,7 +49,7 @@ class MapViewInterfaceController: WKInterfaceController, CLLocationManagerDelega
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        WC.currentlyPresenting = self
+
         if checkInLocations.count == 0 {
             getCoreLocations()
         }

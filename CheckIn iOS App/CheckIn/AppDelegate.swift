@@ -43,6 +43,7 @@ import UIKit
 import CoreData
 import WatchConnectivity
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationControllerDelegate, WCSessionDelegate {
@@ -58,12 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     var launchedShortcutItem: UIApplicationShortcutItem?
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FIRApp.configure()
         C.appDelegate = self
+    
         
         if WCSession.isSupported() {
             C.session = WCSession.default()
@@ -143,6 +144,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         // Saves changes in the application's managed object context before the application terminates.
         let _ = self.saveContext()
     }
+    
+    
+    
+    
+    
+    
     
        
     

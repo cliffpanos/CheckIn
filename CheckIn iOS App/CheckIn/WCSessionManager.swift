@@ -39,7 +39,8 @@ extension AppDelegate {
             let coordinate = C.checkInLocations[0].coordinate
             replyHandler(["Activity" : "MapReply", "latitude" : coordinate.latitude, "longitude" :coordinate.longitude])
         case "PassesRequest" :
-            for pass in C.passes {
+            //for pass in C.passes {
+            let pass = C.passes[0]
                 guard let imageData = pass.image as Data? else {
                     return
                 }
@@ -47,12 +48,12 @@ extension AppDelegate {
                     return
                 }
                 
-                UIGraphicsBeginImageContext(image.size)
+                /*UIGraphicsBeginImageContext(image.size)
                 let rect = CGRect(x: 0, y: 0, width: image.size.width * 0.05, height: image.size.height * 0.05)
                 image.draw(in: rect)
                 let img = UIGraphicsGetImageFromCurrentImageContext()
                 _ = UIImageJPEGRepresentation(img!, 0.2)
-                UIGraphicsEndImageContext()
+                UIGraphicsEndImageContext()*/
                 
                 let dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"]) //TODO add "image" key
                 
@@ -60,12 +61,10 @@ extension AppDelegate {
                 
                 print("Should be sending pass message")
                 let data = NSKeyedArchiver.archivedData(withRootObject: dictionary)
-                C.session?.sendMessage(["Activity" : "PassesReply", "Payload" : data], replyHandler: { _ in
-                    replyHandler([:])
-                    
-                }) {error in print(error) }
-            }
-        default: print("no message handled")
+                replyHandler(["Activity" : "PassesReply", "Payload" : data])
+            
+        //}
+        default: print("no message handled with key: \(message["Activity"] ?? "NILL")")
         }
         print("iOS App did receive message")
         

@@ -23,19 +23,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         print("WATCH Session is reachable: \(String(describing: WC.session?.isReachable))")
         
     }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-    
-        switch (message["Activity"] as? String ?? "") {
-        case "PassesReply":
-            let data = message["Payload"] as! Data
-            let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
-            print("RECEIVED PASSES REPLY FROM REQUEST")
-            WC.addPass(from: dictionary as! Dictionary<String, Any>)
-        default: print("no message handled")
-        }
-        print("Watch App did receive message")
-    }
+
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
@@ -61,45 +49,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
     }
-    
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        ExtensionDelegate.session?.sendMessage(["Activity" : "Session Activated"], replyHandler: nil, errorHandler: {
-            error in print(error)
-        })
-        print("Activation complete")
-        WC.getQRCodeImageUsingWC()
-        WC.requestPassesFromiOS()
 
-    }
-    
-    func sessionReachabilityDidChange(_ session: WCSession) {
-        print("Reachability state did change-----------")
-        WC.getQRCodeImageUsingWC()
-    }
-    
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        
-        for (key, value) in applicationContext {
-        
-            if key == "signInStatus" {
-                print("DID RECEIVE APPLICATION CONTEXT")
-                let loggedIn = value as! Bool
-                if loggedIn {
-                    WC.switchToSignInScreen()
-                } else {
-                    WC.switchUserNowLoggedIn()
-                }
-            }
-            
-        }
-    }
-    
-    
-    
-    
-    
-    
     
     
     

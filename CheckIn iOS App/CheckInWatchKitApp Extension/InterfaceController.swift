@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: ManagedInterfaceController {
     
     @IBOutlet var interfaceTable: WKInterfaceTable!
     static var staticTable: WKInterfaceTable?
@@ -56,10 +56,9 @@ class InterfaceController: WKInterfaceController {
                 }
             }
         }
-        
+
         InterfaceController.updatetable()
 
-        WC.currentlyPresenting = self
     }
 
     
@@ -68,6 +67,15 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+}
+
+
+//Mark: - Handle Notifications
+extension InterfaceController {
+    
+    //override func handleAction
+    
+    
 }
 
 class PassCell: NSObject {

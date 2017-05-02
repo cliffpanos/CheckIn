@@ -60,13 +60,18 @@ class WC: NSObject {
         }, errorHandler: { error in print(error) })
     
     }
-        
+    
+    
     //MARK: - Handle pass retrieval and storage
     static var passes = [Pass]()
     static func requestPassesFromiOS() {
-        ExtensionDelegate.session?.sendMessage(["Activity" : "PassesRequest"], replyHandler: { _ in
+        ExtensionDelegate.session?.sendMessage(["Activity" : "PassesRequest"], replyHandler: { message in
+            let data = message["Payload"] as! Data
+            let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
+            print("RECEIVED PASS REPLY FROM REQUEST")
+            WC.addPass(from: dictionary as! Dictionary<String, Any>)
             InterfaceController.updatetable()
-            print("Should be updating table")
+
         }, errorHandler: {error in print(error); print("Pass request failed")})
     }
     static func addPass(from message: Dictionary<String, Any>) {
@@ -96,7 +101,7 @@ class WC: NSObject {
     }
     
     static func switchUserNowLoggedIn() {
-        WC.currentlyPresenting?.popToRootController()
+        WC.currentlyPresenting?.dismiss()
     }
     
 

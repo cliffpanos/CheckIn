@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class CheckInPassInterfaceController: WKInterfaceController {
+class CheckInPassInterfaceController: ManagedInterfaceController {
 
     @IBOutlet var imageView: WKInterfaceImage!
     @IBOutlet var panGestureRecognizer: WKPanGestureRecognizer!
@@ -20,17 +20,14 @@ class CheckInPassInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        self.setTitle("Done")
         WC.getQRCodeImageUsingWC()
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        WC.currentlyPresenting = self
         
         self.imageView.setImage(WC.checkInPassImage)
-        print("IMAGE SET")
         
         if WC.checkInPassImage != nil { retrievingPassLabel.setHidden(true)
         }

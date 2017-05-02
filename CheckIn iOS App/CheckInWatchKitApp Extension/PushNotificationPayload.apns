@@ -1,10 +1,10 @@
 {
     "aps": {
         "alert": {
-            "body": "Automatically via Geofence",
+            "body": "via Geofence",
             "title": "Checked In ✓"
         },
-        "category": "myCategory"
+        "category": "CheckedIn"
     },
     
     "WatchKit Simulator Actions": [

@@ -22,6 +22,7 @@
 		917FDA041EB7D90500616173 /* CIPLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* CIPLocationManager.swift */; };
 		917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917FDA061EB816BB00616173 /* CloudKit.framework */; };
 		917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA081EB8313800616173 /* Pin+Annotation.swift */; };
+		917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */; };
 		9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
 		9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -111,6 +112,7 @@
 		917FDA051EB816A700616173 /* CheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckIn.entitlements; sourceTree = "<group>"; };
 		917FDA061EB816BB00616173 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		917FDA081EB8313800616173 /* Pin+Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pin+Annotation.swift"; sourceTree = "<group>"; };
+		917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedInterfaceController.swift; sourceTree = "<group>"; };
 		9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInWatchKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		9187E3B71EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */,
 				918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */,
 				9187E3DB1EA3400A0085E415 /* WC.swift */,
+				917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -303,9 +306,9 @@
 				9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */,
 				9187E3C51EA2F3700085E415 /* InterfaceController.swift */,
 				9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */,
+				911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */,
 				9187E3C91EA2F3700085E415 /* NotificationController.swift */,
 				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
-				911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
 				918BDCC81EB68C9E00DBAB4C /* CIPSharedConstants.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
+				917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
-        <!--checkInPassInterfaceController-->
+        <!--Done-->
         <scene sceneID="kqL-gz-rC2">
             <objects>
-                <controller identifier="checkInPassInterfaceController" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="checkInPassInterfaceController" title="Done" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
                         <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,7 +58,7 @@
                         <separator width="0.97999999999999998" alignment="center" id="sn4-tO-sHl">
                             <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </separator>
-                        <table alignment="center" spacing="4" pagingScroll="YES" id="zgS-No-NKi">
+                        <table alignment="center" spacing="4" id="zgS-No-NKi">
                             <items>
                                 <tableRow identifier="passCell" id="8Dz-6V-GKF" customClass="PassCell" customModule="CheckInWatchKitApp_Extension">
                                     <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="qlq-0f-swz">
@@ -111,11 +111,34 @@
             <objects>
                 <controller title="My Info" id="UDT-uv-SMq">
                     <items>
-                        <group alignment="left" id="QSJ-25-rrl">
+                        <group width="1" height="1" alignment="left" layout="vertical" spacing="6" id="MHK-88-zcO">
                             <items>
-                                <imageView width="0.5" alignment="left" id="z1C-xh-1Bp"/>
-                                <label alignment="left" text="ME" id="2I7-Wk-dWw"/>
+                                <group width="1" alignment="left" spacing="4" id="QSJ-25-rrl">
+                                    <items>
+                                        <imageView width="35" height="35" alignment="left" image="clearIcon" contentMode="scaleAspectFill" id="z1C-xh-1Bp"/>
+                                        <label width="0.69999999999999996" alignment="center" verticalAlignment="center" text="Me" textAlignment="center" id="d1J-37-Vjl">
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="20"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="3" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                                <separator width="0.94999999999999996" alignment="center" id="UGP-4d-7Nf">
+                                    <color key="color" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </separator>
+                                <label width="1" alignment="left" text=" 3 Locations" textAlignment="left" id="LfA-Av-eAA">
+                                    <color key="textColor" red="0.9211836457" green="0.29899889229999999" blue="0.2352358252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </label>
+                                <switch width="1" height="25" alignment="left" value="YES" title="Geofence" id="yOi-09-4fN">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                    <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </switch>
+                                <switch width="1" height="25" alignment="left" value="YES" title="Guests" id="ayd-n4-0mt">
+                                    <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </switch>
                             </items>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
                         </group>
                     </items>
                     <connections>
@@ -125,16 +148,17 @@
             </objects>
             <point key="canvasLocation" x="217" y="-479"/>
         </scene>
-        <!--Done-->
+        <!--Close-->
         <scene sceneID="qgw-9v-2fv">
             <objects>
-                <controller title="Done" id="Gfe-By-bMv">
+                <controller title="Close" id="Gfe-By-bMv">
                     <items>
                         <group width="1" alignment="left" layout="vertical" spacing="13" id="VUw-iV-BMH">
                             <items>
-                                <label width="1" alignment="left" text="GuestFirstName GuestLastName" textAlignment="left" numberOfLines="2" id="Zgo-yS-vk5">
+                                <label width="1" alignment="left" text="GuestFirstName GuestLastName" textAlignment="center" numberOfLines="2" id="Zgo-yS-vk5">
                                     <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </label>
+                                <separator alignment="left" id="Upy-9L-gzE"/>
                                 <group width="1" alignment="left" layout="vertical" spacing="0.0" id="K48-FX-NRc">
                                     <items>
                                         <dateLabel width="1" alignment="left" textAlignment="left" id="Htc-O3-EDF">
@@ -160,14 +184,14 @@
             </objects>
             <point key="canvasLocation" x="468" y="301"/>
         </scene>
-        <!--Signed Out-->
+        <!--signInRequiredController-->
         <scene sceneID="Gh1-dr-gTs">
             <objects>
-                <controller identifier="signInRequiredController" title="Signed Out" id="yi5-29-Av8">
+                <controller identifier="signInRequiredController" id="yi5-29-Av8" customClass="ManagedInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
-                        <label width="0.75" height="1" alignment="center" verticalAlignment="center" text="Sign in to CheckIn on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
-                            <color key="textColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <fontDescription key="font" type="system" pointSize="14"/>
+                        <label width="0.75" height="1" alignment="center" verticalAlignment="center" text="Sign into CheckIn on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
                         </label>
                     </items>
                 </controller>
@@ -181,7 +205,7 @@
                     <items>
                         <map width="1" height="0.84999999999999998" alignment="left" id="39F-78-fWq"/>
                         <label width="1" height="0.14999999999999999" alignment="left" text="iOS Club Location" textAlignment="center" id="nct-kO-Hwr">
-                            <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textColor" red="0.47863343359999999" green="0.83529186249999998" blue="0.46663740279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </label>
                     </items>
                     <connections>

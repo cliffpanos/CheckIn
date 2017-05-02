@@ -40,4 +40,9 @@ class NotificationController: WKUserNotificationInterfaceController {
         completionHandler(.custom)
     }
     
+    
+    override func didReceiveRemoteNotification(_ remoteNotification: [AnyHashable : Any], withCompletion completionHandler: @escaping (WKUserNotificationInterfaceType) -> Void) {
+        //
+    }
+    
 }
