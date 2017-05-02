@@ -13,13 +13,15 @@
 		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
 		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
 		916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE71E8F6CB700911417 /* AppDelegate.swift */; };
-		916E0EEA1E8F6CB700911417 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE91E8F6CB700911417 /* MainViewController.swift */; };
+		916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE91E8F6CB700911417 /* RootViewController.swift */; };
 		916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EEB1E8F6CB700911417 /* Main.storyboard */; };
 		916E0EF01E8F6CB700911417 /* CheckIn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EEE1E8F6CB700911417 /* CheckIn.xcdatamodeld */; };
 		916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF11E8F6CB700911417 /* Assets.xcassets */; };
 		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
 		917FDA041EB7D90500616173 /* CIPLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* CIPLocationManager.swift */; };
+		917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917FDA061EB816BB00616173 /* CloudKit.framework */; };
+		917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA081EB8313800616173 /* Pin+Annotation.swift */; };
 		9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
 		9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -32,8 +34,8 @@
 		9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */; };
 		9187E3E11EA343490085E415 /* CheckInPassInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */; };
 		9187E3E21EA344490085E415 /* WC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3DB1EA3400A0085E415 /* WC.swift */; };
-		918BDCC71EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */; };
-		918BDCC81EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */; };
+		918BDCC71EB68C9E00DBAB4C /* CIPSharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CIPSharedConstants.swift */; };
+		918BDCC81EB68C9E00DBAB4C /* CIPSharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CIPSharedConstants.swift */; };
 		918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */; };
 		918BDCCE1EB6970B00DBAB4C /* ManagedUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
@@ -97,7 +99,7 @@
 		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		916E0EE41E8F6CB700911417 /* CheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E0EE71E8F6CB700911417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		916E0EE91E8F6CB700911417 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		916E0EE91E8F6CB700911417 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		916E0EEC1E8F6CB700911417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		916E0EEF1E8F6CB700911417 /* CheckIn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheckIn.xcdatamodel; sourceTree = "<group>"; };
 		916E0EF11E8F6CB700911417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +108,9 @@
 		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		917FDA031EB7D90500616173 /* CIPLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIPLocationManager.swift; sourceTree = "<group>"; };
+		917FDA051EB816A700616173 /* CheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckIn.entitlements; sourceTree = "<group>"; };
+		917FDA061EB816BB00616173 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		917FDA081EB8313800616173 /* Pin+Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pin+Annotation.swift"; sourceTree = "<group>"; };
 		9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInWatchKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		9187E3B71EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,7 +126,7 @@
 		9187E3DB1EA3400A0085E415 /* WC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WC.swift; path = ../CheckInWatchKitApp/WC.swift; sourceTree = "<group>"; };
 		9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewInterfaceController.swift; sourceTree = "<group>"; };
 		9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPassInterfaceController.swift; sourceTree = "<group>"; };
-		918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivity.swift; sourceTree = "<group>"; };
+		918BDCC61EB68C9E00DBAB4C /* CIPSharedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIPSharedConstants.swift; sourceTree = "<group>"; };
 		918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
 		918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedUIViewController.swift; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */,
+				917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +175,8 @@
 				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
 				910134571EB521EE006D11AD /* WCSessionManager.swift */,
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
-				91989DA51E90095E00F83E1C /* AppFramework.swift */,
 				917FDA031EB7D90500616173 /* CIPLocationManager.swift */,
+				91989DA51E90095E00F83E1C /* AppFramework.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 			children = (
 				918BDCCD1EB6970B00DBAB4C /* ManagedUIViewController.swift */,
 				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
+				917FDA081EB8313800616173 /* Pin+Annotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -187,7 +194,7 @@
 		9169EE1A1EB2FAF10018C434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				916E0EE91E8F6CB700911417 /* MainViewController.swift */,
+				916E0EE91E8F6CB700911417 /* RootViewController.swift */,
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
 				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
 				91989DA31E90024800F83E1C /* PassesViewController.swift */,
@@ -210,7 +217,7 @@
 		916E0EDB1E8F6CB700911417 = {
 			isa = PBXGroup;
 			children = (
-				918BDCC61EB68C9E00DBAB4C /* WatchConnectivity.swift */,
+				918BDCC61EB68C9E00DBAB4C /* CIPSharedConstants.swift */,
 				916E0EE61E8F6CB700911417 /* CheckIn */,
 				9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */,
 				9187E3C21EA2F3700085E415 /* CheckInWatchKitAppExtension */,
@@ -233,6 +240,7 @@
 		916E0EE61E8F6CB700911417 /* CheckIn */ = {
 			isa = PBXGroup;
 			children = (
+				917FDA051EB816A700616173 /* CheckIn.entitlements */,
 				910134591EB521F8006D11AD /* Managers */,
 				9169EE191EB2FAD20018C434 /* Models */,
 				9169EE1A1EB2FAF10018C434 /* Controllers */,
@@ -305,6 +313,7 @@
 		95260616F8D44D890B15213F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				917FDA061EB816BB00616173 /* CloudKit.framework */,
 				E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */,
 			);
 			name = Frameworks;
@@ -394,6 +403,17 @@
 						DevelopmentTeam = V7HL83ZN6U;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					9187E3B11EA2F3700085E415 = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -514,9 +534,9 @@
 				91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */,
 				916E0F011E8F705400911417 /* LoginViewController.swift in Sources */,
 				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
-				916E0EEA1E8F6CB700911417 /* MainViewController.swift in Sources */,
+				916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */,
 				91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */,
-				918BDCC71EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */,
+				918BDCC71EB68C9E00DBAB4C /* CIPSharedConstants.swift in Sources */,
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
 				918BDCCE1EB6970B00DBAB4C /* ManagedUIViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
@@ -529,6 +549,7 @@
 				917FDA041EB7D90500616173 /* CIPLocationManager.swift in Sources */,
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
+				917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,7 +565,7 @@
 				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
 				911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */,
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
-				918BDCC81EB68C9E00DBAB4C /* WatchConnectivity.swift in Sources */,
+				918BDCC81EB68C9E00DBAB4C /* CIPSharedConstants.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,6 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CheckIn/CheckIn.entitlements;
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				INFOPLIST_FILE = CheckIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -711,6 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CheckIn/CheckIn.entitlements;
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				INFOPLIST_FILE = CheckIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

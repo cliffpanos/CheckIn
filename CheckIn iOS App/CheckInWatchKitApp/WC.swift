@@ -28,7 +28,16 @@ class WC: NSObject {
     
     
     //MARK: - Handle the QR Code image logic
-    static var checkInPassImage: UIImage?
+    static var checkInPassImage: UIImage? {
+        
+        didSet {
+            if let presented = WC.currentlyPresenting as? CheckInPassInterfaceController {
+                print("Currently presenting the CheckInPassVC")
+                presented.imageView.setImage(checkInPassImage)
+                presented.retrievingPassLabel.setHidden(true)
+            }
+        }
+    }
     
     static func getQRCodeImageUsingWC() {
         
@@ -36,7 +45,9 @@ class WC: NSObject {
             return
         }
         
-        ExtensionDelegate.session?.sendMessage(["Activity" : "NeedCheckInPass"], replyHandler: { message in
+        ExtensionDelegate.session?.sendMessage(["Activity" : "NeedCheckInPass"], replyHandler: {
+            
+            message in
         
             print("Did receive replyhandler for QRImage")
             guard let imageData = message["CheckInPass"] as? Data else {
@@ -76,11 +87,12 @@ class WC: NSObject {
     //MARK: - Sign In Alert View Navigation
     
     static func switchToSignInScreen() {
-        if !(WC.currentlyPresenting is InterfaceController) {
+        WC.currentlyPresenting?.presentController(withName: "signInRequiredController", context: nil)
+        /*if !(WC.currentlyPresenting is InterfaceController) {
             print("Should be popping to root controller")
             WC.currentlyPresenting?.popToRootController()
             WC.initialViewController?.presentController(withName: "signInNecessaryController", context: nil)
-        }
+        }*/
     }
     
     static func switchUserNowLoggedIn() {

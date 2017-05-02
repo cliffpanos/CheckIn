@@ -15,6 +15,9 @@ class CheckInPassInterfaceController: WKInterfaceController {
     @IBOutlet var imageView: WKInterfaceImage!
     @IBOutlet var panGestureRecognizer: WKPanGestureRecognizer!
     
+    @IBOutlet var retrievingPassLabel: WKInterfaceLabel!
+    
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         self.setTitle("Done")
@@ -28,6 +31,9 @@ class CheckInPassInterfaceController: WKInterfaceController {
         
         self.imageView.setImage(WC.checkInPassImage)
         print("IMAGE SET")
+        
+        if WC.checkInPassImage != nil { retrievingPassLabel.setHidden(true)
+        }
 
     }
         

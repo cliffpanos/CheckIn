@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RootViewController.swift
 //  CheckIn
 //
 //  Created by Cliff Panos on 4/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UITabBarController {
+class RootViewController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

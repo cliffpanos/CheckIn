@@ -14,6 +14,15 @@ extension AppDelegate {
     // MARK: - Handle 3D-Touch Home Screen Quick Actions
     
     
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        //Handles the 3D Touch Quick Actions from the home screen
+        let handledShortcutItem: Bool = handleQuickAction(for: shortcutItem)
+        
+        completionHandler(handledShortcutItem)
+        
+    }
+    
     func handleQuickAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
         
         var handled: Bool = false;
@@ -22,7 +31,7 @@ extension AppDelegate {
             return handled
         }
         
-        if (changeRoot) {
+        if (resetRoot) {
             print("NEW ROOT")
             let newRootViewController = C.storyboard.instantiateInitialViewController()
             self.window?.rootViewController = newRootViewController

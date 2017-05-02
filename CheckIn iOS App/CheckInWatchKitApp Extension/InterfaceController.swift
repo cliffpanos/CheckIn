@@ -15,21 +15,11 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var interfaceTable: WKInterfaceTable!
     static var staticTable: WKInterfaceTable?
     
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         WC.initialViewController = self
         InterfaceController.staticTable = interfaceTable
-        
-        if let loggedIn = UserDefaults.standard.value(forKey: "userIsLoggedIn") as? Bool {
-            print("Logged in status considered")
-            if !loggedIn {
-                self.presentController(withName: "signInNeeded", context: nil)
-            } else {
-                if !(WC.currentlyPresenting is InterfaceController) {
-                    WC.currentlyPresenting?.popToRootController()
-                }
-            }
-        }
         
         if WC.passes.count == 0 {
             WC.requestPassesFromiOS()
@@ -55,8 +45,21 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        WC.currentlyPresenting = self
+        
+        if let loggedIn = Shared.defaults?.value(forKey: "userIsLoggedIn") as? Bool {
+            print("Logged in status considered")
+            if !loggedIn {
+                self.presentController(withName: "signInNeeded", context: nil)
+            } else {
+                if !(WC.currentlyPresenting is InterfaceController) {
+                    WC.currentlyPresenting?.popToRootController()
+                }
+            }
+        }
+        
         InterfaceController.updatetable()
+
+        WC.currentlyPresenting = self
     }
 
     

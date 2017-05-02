@@ -17,6 +17,10 @@
                         <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
+                        <label width="1" alignment="left" verticalAlignment="center" text="Retrieving Pass" textAlignment="center" id="QWJ-i0-JOI">
+                            <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <imageView alignment="center" verticalAlignment="center" id="6mw-tI-a3l">
                             <gestureRecognizers>
                                 <panGestureRecognizer id="ydv-on-Vaj">
@@ -33,38 +37,33 @@
                     <connections>
                         <outlet property="imageView" destination="6mw-tI-a3l" id="QVZ-Rh-9lc"/>
                         <outlet property="panGestureRecognizer" destination="ydv-on-Vaj" id="NXn-vp-9bv"/>
+                        <outlet property="retrievingPassLabel" destination="QWJ-i0-JOI" id="yCv-66-7vu"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="217" y="-232"/>
+            <point key="canvasLocation" x="468" y="-102"/>
         </scene>
         <!--CheckIn-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="mainInterfaceController" title="CheckIn" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="mainInterfaceController" title="CheckIn" animationDuration="1" spacing="4" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
-                        <button width="1" height="30" alignment="left" title="CheckIn Pass" id="dSY-Ne-5LL">
+                        <button width="1" height="32" alignment="left" title="My CheckIn Pass" id="dSY-Ne-5LL">
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
                                 <segue destination="JHT-We-vg0" kind="modal" id="pPS-dc-PUT"/>
                             </connections>
                         </button>
-                        <button width="1" height="30" alignment="left" title="My Location" id="qyJ-tg-9yd">
-                            <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <segue destination="tW1-ye-p6k" kind="push" id="3Vz-rb-aVV"/>
-                            </connections>
-                        </button>
-                        <separator alignment="left" id="sn4-tO-sHl">
-                            <color key="color" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <separator width="0.97999999999999998" alignment="center" id="sn4-tO-sHl">
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </separator>
-                        <table alignment="left" id="zgS-No-NKi">
+                        <table alignment="center" spacing="4" pagingScroll="YES" id="zgS-No-NKi">
                             <items>
                                 <tableRow identifier="passCell" id="8Dz-6V-GKF" customClass="PassCell" customModule="CheckInWatchKitApp_Extension">
                                     <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="qlq-0f-swz">
                                         <items>
-                                            <group width="1" height="1" alignment="left" contentMode="center" spacing="7" id="JGi-UC-B6h">
+                                            <group width="1" height="1" alignment="left" contentMode="center" spacing="8" id="JGi-UC-B6h">
                                                 <items>
                                                     <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="OnE-UB-mZR">
                                                         <items>
@@ -72,22 +71,25 @@
                                                         </items>
                                                     </group>
                                                     <label height="40" alignment="left" text="Guest Name" textAlignment="left" id="3P3-xD-IYA">
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="font" type="system" pointSize="13"/>
                                                     </label>
                                                 </items>
                                             </group>
                                         </items>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.19530306235830261" green="0.21379127799768596" blue="0.26065358519554138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </group>
                                     <connections>
                                         <outlet property="guestName" destination="3P3-xD-IYA" id="36c-y3-osF"/>
                                         <outlet property="imageView" destination="GfI-pr-Ux2" id="Im6-WQ-cl0"/>
-                                        <segue destination="Gfe-By-bMv" kind="push" id="xKC-lr-cBl"/>
+                                        <segue destination="Gfe-By-bMv" kind="modal" id="obH-kq-FCF"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
+                        <button alignment="center" verticalAlignment="bottom" id="lj6-JM-9jI">
+                            <group key="contentGroup" width="1" height="7" alignment="left" id="09D-TB-mOa"/>
+                        </button>
                     </items>
                     <menu key="menu" id="S67-Ut-jQ6">
                         <items>
@@ -98,49 +100,96 @@
                     </menu>
                     <connections>
                         <outlet property="interfaceTable" destination="zgS-No-NKi" id="Ala-8j-DHE"/>
+                        <segue destination="UDT-uv-SMq" kind="relationship" relationship="nextPage" id="0xZ-L6-DFN"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="217" y="59"/>
+            <point key="canvasLocation" x="217" y="-102"/>
         </scene>
-        <!--Guest Pass-->
-        <scene sceneID="qgw-9v-2fv">
+        <!--My Info-->
+        <scene sceneID="qJv-7B-2iB">
             <objects>
-                <controller title="Guest Pass" id="Gfe-By-bMv">
+                <controller title="My Info" id="UDT-uv-SMq">
                     <items>
-                        <label width="1" alignment="left" text="Guest Name" textAlignment="center" id="Zgo-yS-vk5"/>
+                        <group alignment="left" id="QSJ-25-rrl">
+                            <items>
+                                <imageView width="0.5" alignment="left" id="z1C-xh-1Bp"/>
+                                <label alignment="left" text="ME" id="2I7-Wk-dWw"/>
+                            </items>
+                        </group>
                     </items>
+                    <connections>
+                        <segue destination="tW1-ye-p6k" kind="relationship" relationship="nextPage" id="IKz-lz-tiP"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="523" y="59"/>
+            <point key="canvasLocation" x="217" y="-479"/>
         </scene>
-        <!--signInNecessaryController-->
+        <!--Done-->
+        <scene sceneID="qgw-9v-2fv">
+            <objects>
+                <controller title="Done" id="Gfe-By-bMv">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" spacing="13" id="VUw-iV-BMH">
+                            <items>
+                                <label width="1" alignment="left" text="GuestFirstName GuestLastName" textAlignment="left" numberOfLines="2" id="Zgo-yS-vk5">
+                                    <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </label>
+                                <group width="1" alignment="left" layout="vertical" spacing="0.0" id="K48-FX-NRc">
+                                    <items>
+                                        <dateLabel width="1" alignment="left" textAlignment="left" id="Htc-O3-EDF">
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <dateFormatterStyle key="dateStyle" short="YES"/>
+                                            <dateFormatterStyle key="timeStyle" short="YES"/>
+                                        </dateLabel>
+                                        <dateLabel width="1" alignment="left" textAlignment="right" id="zY4-DW-30j">
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <dateFormatterStyle key="dateStyle" short="YES"/>
+                                            <dateFormatterStyle key="timeStyle" short="YES"/>
+                                        </dateLabel>
+                                    </items>
+                                </group>
+                                <label width="1" alignment="left" text="Not Checked In @ LocationName" textAlignment="center" numberOfLines="2" id="dMK-1n-zzq">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="1" right="1" top="3" bottom="0.0"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="301"/>
+        </scene>
+        <!--Signed Out-->
         <scene sceneID="Gh1-dr-gTs">
             <objects>
-                <controller identifier="signInNecessaryController" id="yi5-29-Av8">
+                <controller identifier="signInRequiredController" title="Signed Out" id="yi5-29-Av8">
                     <items>
-                        <label width="1" height="1" alignment="center" verticalAlignment="center" text="Sign in to CheckIn on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
+                        <label width="0.75" height="1" alignment="center" verticalAlignment="center" text="Sign in to CheckIn on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
                             <color key="textColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <fontDescription key="font" type="system" pointSize="25"/>
+                            <fontDescription key="font" type="system" pointSize="14"/>
                         </label>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="217" y="351"/>
+            <point key="canvasLocation" x="468" y="-479"/>
         </scene>
-        <!--Location-->
+        <!--Nearby-->
         <scene sceneID="aG1-74-GAe">
             <objects>
-                <controller identifier="mapInterfaceController" title="Location" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="mapInterfaceController" title="Nearby" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
-                        <map width="1" height="1" alignment="left" id="39F-78-fWq"/>
+                        <map width="1" height="0.84999999999999998" alignment="left" id="39F-78-fWq"/>
+                        <label width="1" height="0.14999999999999999" alignment="left" text="iOS Club Location" textAlignment="center" id="nct-kO-Hwr">
+                            <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="mapView" destination="39F-78-fWq" id="aT6-Pp-jkK"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="523" y="-232"/>
+            <point key="canvasLocation" x="220" y="301"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -166,7 +215,7 @@
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="CheckInWatchKitApp" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" text="Checked into &lt;Location&gt;" textAlignment="center" numberOfLines="2" id="mHg-Xd-2F4"/>
+                        <label width="1" alignment="left" text="Checked into &lt;CIPLocation&gt;" textAlignment="center" numberOfLines="2" id="mHg-Xd-2F4"/>
                     </items>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </controller>

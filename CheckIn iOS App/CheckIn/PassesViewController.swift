@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PassesViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class PassesViewController: ManagedUIViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
     
