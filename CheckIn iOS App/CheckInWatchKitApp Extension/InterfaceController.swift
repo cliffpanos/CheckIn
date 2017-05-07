@@ -22,7 +22,8 @@ class InterfaceController: ManagedInterfaceController {
         InterfaceController.staticTable = interfaceTable
         
         if WC.passes.count == 0 {
-            WC.requestPassesFromiOS()
+            print("Interface Controller awake is requesting passes")
+            WC.requestPassesFromiOS(forIndex: 0) //Begins the recursive pass request calls
         }
         
     }
@@ -42,20 +43,14 @@ class InterfaceController: ManagedInterfaceController {
         
     }
     
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        print("PUSH")
+        self.presentController(withName: "passDetailController", context: WC.passes[rowIndex])
+    }
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-        if let loggedIn = Shared.defaults?.value(forKey: "userIsLoggedIn") as? Bool {
-            print("Logged in status considered")
-            if !loggedIn {
-                self.presentController(withName: "signInNeeded", context: nil)
-            } else {
-                if !(WC.currentlyPresenting is InterfaceController) {
-                    WC.currentlyPresenting?.popToRootController()
-                }
-            }
-        }
 
         InterfaceController.updatetable()
 
@@ -89,9 +84,9 @@ class PassCell: NSObject {
             let image = UIImage(data: imageData)
             self.imageView.setImage(image)
         } else {
-            let image = UIImage(named: "clearIcon")
-            self.imageView.setImage(image)
+            self.imageView.setImage(#imageLiteral(resourceName: "clearIcon"))
         }
+        
         let components = pass.name.components(separatedBy: " ")
         if components.count > 0 {
             guestName.setText("\(components[0]) \(components[1][0]).")
@@ -100,10 +95,4 @@ class PassCell: NSObject {
         }
     }
     
-}
-
-extension String {
-    subscript (i: Int) -> String {
-        return String(self[self.index(self.startIndex, offsetBy: String.IndexDistance(i))])
-    }
 }

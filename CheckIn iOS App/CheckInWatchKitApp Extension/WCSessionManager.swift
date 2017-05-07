@@ -31,7 +31,7 @@ extension ExtensionDelegate {
         })
         print("Activation complete")
         WC.getQRCodeImageUsingWC()
-        WC.requestPassesFromiOS()
+        WC.requestPassesFromiOS(forIndex: 0)
         
     }
     
@@ -46,12 +46,8 @@ extension ExtensionDelegate {
             
             if key == "signInStatus" {
                 print("DID RECEIVE APPLICATION CONTEXT ABOUT SIGN IN STATUS")
-                let loggedIn = value as! Bool
-                if !loggedIn {
-                    WC.switchToSignInScreen()
-                } else {
-                    WC.switchUserNowLoggedIn()
-                }
+                WC.userIsLoggedIn = value as! Bool
+                
             }
             
         }

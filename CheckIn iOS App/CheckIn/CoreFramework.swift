@@ -1,5 +1,5 @@
 //
-//  AppFramework.swift
+//  CoreFramework.swift
 //  CheckIn
 //
 //  Created by Cliff Panos on 4/1/17.
@@ -52,14 +52,15 @@ class C {
     
     static var userIsLoggedIn: Bool {
         get {
-            if let loggedIn = Shared.defaults?.value(forKey: "userIsLoggedIn") as? Bool {
+            if let loggedIn = Shared.defaults.value(forKey: "userIsLoggedIn") as? Bool {
                 return loggedIn
             }
             return false
         }
         set {
             print("User is logging \(newValue ? "in" : "out")---------------")
-            Shared.defaults?.setValue(newValue, forKey: "userIsLoggedIn")
+            Shared.defaults.setValue(newValue, forKey: "userIsLoggedIn")
+            Shared.defaults.synchronize()
             try? C.session?.updateApplicationContext(["signInStatus" : newValue])
         }
     }

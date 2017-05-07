@@ -1,5 +1,5 @@
 //
-//  WC.swift
+//  WatchFramework.swift
 //  CheckIn
 //
 //  Created by Cliff Panos on 4/16/17.
@@ -25,6 +25,32 @@ class WC: NSObject {
         }
         return theSession.isReachable && theSession.activationState == .activated
     }
+    
+    
+    static var userIsLoggedIn: Bool {
+        get {
+            if let loggedIn = Shared.defaults.value(forKey: "userIsLoggedIn") as? Bool {
+                return loggedIn
+            }
+            return false
+        }
+        set {
+            print("WatchOS User is logging \(newValue ? "in" : "out")---------------")
+            Shared.defaults.setValue(newValue, forKey: "userIsLoggedIn")
+            Shared.defaults.synchronize()
+            
+            if !newValue { //If not logged in
+                WC.currentlyPresenting?.presentController(withName: "signInRequiredController", context: nil)
+
+            } else {
+                debugPrint(WC.currentlyPresenting ?? "No currently presenting")
+                WC.currentlyPresenting?.dismiss()
+
+            }
+        }
+
+    }
+
     
     
     //MARK: - Handle the QR Code image logic
@@ -64,13 +90,21 @@ class WC: NSObject {
     
     //MARK: - Handle pass retrieval and storage
     static var passes = [Pass]()
-    static func requestPassesFromiOS() {
-        ExtensionDelegate.session?.sendMessage(["Activity" : "PassesRequest"], replyHandler: { message in
-            let data = message["Payload"] as! Data
+    static func requestPassesFromiOS(forIndex index: Int) {
+        ExtensionDelegate.session?.sendMessage(["Activity" : "PassesRequest", "PassIndex" : index], replyHandler: { message in
+            guard let data = message["Payload"] as? Data else {
+                return //Meaning no passes were receieved
+            }
             let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
-            print("RECEIVED PASS REPLY FROM REQUEST")
+            print("RECEIVED PASS REPLY FROM REQUEST from WC.swift")
             WC.addPass(from: dictionary as! Dictionary<String, Any>)
+            
+            let nextPassIndex = message["NextPassIndex"] as! Int
+            if (nextPassIndex) != -1 {
+                WC.requestPassesFromiOS(forIndex: nextPassIndex)
+            }
             InterfaceController.updatetable()
+
 
         }, errorHandler: {error in print(error); print("Pass request failed")})
     }
@@ -78,30 +112,13 @@ class WC: NSObject {
         let pass = Pass()
         pass.name = message["name"] as! String
         pass.email = message["email"] as! String?
-        //pass.image = message["image"] as! Data
+        pass.image = message["image"] as? Data
         pass.timeStart = message["timeStart"] as! String
         pass.timeEnd = message["timeEnd"] as! String
         if !WC.passes.contains(pass) {
             WC.passes.append(pass)
             print("Pass added to Passes!")
         }
-    }
-    
-    
-    
-    //MARK: - Sign In Alert View Navigation
-    
-    static func switchToSignInScreen() {
-        WC.currentlyPresenting?.presentController(withName: "signInRequiredController", context: nil)
-        /*if !(WC.currentlyPresenting is InterfaceController) {
-            print("Should be popping to root controller")
-            WC.currentlyPresenting?.popToRootController()
-            WC.initialViewController?.presentController(withName: "signInNecessaryController", context: nil)
-        }*/
-    }
-    
-    static func switchUserNowLoggedIn() {
-        WC.currentlyPresenting?.dismiss()
     }
     
 

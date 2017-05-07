@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PassesViewController: ManagedUIViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -50,6 +50,7 @@ class PassesViewController: ManagedUIViewController, UISearchBarDelegate, UISear
         tableView.reloadData()
     
     }
+    
     
     
     //MARK: - Navigation-related items
@@ -114,14 +115,14 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
     //Segue preparation for when a TableViewCell is pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        searchDisplay.dismiss(animated: true, completion: nil)
-        searchBar.text = ""
-        
-        if let cell = sender as? UITableViewCell, let destination = segue.destination as? PassDetailViewController {
-            //let index = tableView.indexPath(for: cell)?.row
+        if let cell = sender as? PassCell, let destination = segue.destination as? PassDetailViewController {
             let index = tableView.indexPathForRow(at: cell.center)!.row
             destination.pass = isSearching() ? filtered[index] : C.passes[index]
         }
+        
+        searchDisplay.dismiss(animated: true, completion: nil)
+        searchBar.text = ""
+
         
     }
     

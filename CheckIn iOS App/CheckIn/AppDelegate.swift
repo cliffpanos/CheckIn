@@ -31,6 +31,11 @@
  Change editableBound on Login screen textFields to move with the animation
  Organize code into the Managers and file structure
  Create Swift package thingy (like a Pod? for some of the IB designables and functions)
+ Login screen!!
+	- Create account, login with Facebook, login with Google, Create CheckIn Location
+	- Double screen part: first screen is how to log in
+	- Animate in and out
+	- Show checkin icon but with an alpha < 1
  */
 
 

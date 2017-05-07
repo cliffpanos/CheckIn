@@ -30,10 +30,11 @@ extension UIScreen {
 
 
 public extension UIWindow {
-    public var visibleViewController: UIViewController? {
-        return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
-    }
     
+    public class presented {
+        static var viewController: UIViewController!
+
+    }
     public static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
         if let nc = vc as? UINavigationController {
             return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)

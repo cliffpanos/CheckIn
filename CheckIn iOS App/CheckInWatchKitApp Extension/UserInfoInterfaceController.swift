@@ -1,8 +1,8 @@
 //
-//  PassDetailInterfaceController.swift
+//  UserInfoInterfaceController.swift
 //  CheckIn
 //
-//  Created by Cliff Panos on 4/18/17.
+//  Created by Cliff Panos on 5/4/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
@@ -10,19 +10,14 @@ import WatchKit
 import Foundation
 
 
-class PassDetailInterfaceController: ManagedInterfaceController {
+class UserInfoInterfaceController: ManagedInterfaceController {
 
-    @IBOutlet var nameLabel: WKInterfaceLabel!
+    @IBOutlet var userProfileImage: WKInterfaceImage!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        guard let pass = context as? Pass else { return }
-        
-        nameLabel.setText(pass.name)
-        
-        
-        
+        userProfileImage.setImage(#imageLiteral(resourceName: "clearIcon"))
         // Configure interface objects here.
     }
 

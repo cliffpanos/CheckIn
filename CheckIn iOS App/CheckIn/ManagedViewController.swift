@@ -1,5 +1,5 @@
 //
-//  ManagedUIViewController.swift
+//  ManagedViewController.swift
 //  CheckIn
 //
 //  Created by Cliff Panos on 4/30/17.
@@ -8,11 +8,9 @@
 
 import UIKit
 
-class ManagedUIViewController: UIViewController {
-
-    class Presented {
-        static var presented: ManagedUIViewController?
-    }
+class ManagedViewController: UIViewController {
+    
+    //See Extensions.swift for UIWindow's static variable 'presentedViewController'
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +22,20 @@ class ManagedUIViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("View WILL APPEAR")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("View DID APPEAR")
+        
+        UIWindow.presented.viewController = self     //Core purpose of this custom class
     }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("Presented View Controller did recieve memory warnings")
+        print("Presented View Controller did recieve memory warnings!")
     }
     
     

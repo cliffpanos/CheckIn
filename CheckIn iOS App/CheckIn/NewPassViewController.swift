@@ -23,10 +23,6 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     let datePicker = UIDatePicker()
     
     
-    let textInputAccessories = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
-        UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
-    ]
-    
     var imageData: Data?
     
     override func viewDidLoad() {
@@ -36,11 +32,16 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
             let numberToolbar: UIToolbar = UIToolbar()
             numberToolbar.barStyle = UIBarStyle.default
             
+            let textInputAccessories = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
+                UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
+            ]
+            
             numberToolbar.items = textInputAccessories
             
             numberToolbar.sizeToFit()
             
             textField?.inputAccessoryView = numberToolbar
+            textField?.tintColor = UIColor.clear
         
         } //End for loop
         
@@ -52,6 +53,14 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
         datePicker.addTarget(self, action: #selector(fillDateField), for: .valueChanged)
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //This class does not subclass ManagedViewController, so its functionality must be done here
+        UIWindow.presented.viewController = self
+    }
+    
     
     func fillDateField() {
         let fieldToFill = startPickerTextField

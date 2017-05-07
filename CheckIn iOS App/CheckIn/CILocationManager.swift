@@ -1,5 +1,5 @@
 //
-//  CIPLocationManager.swift
+//  CILocationManager.swift
 //  CheckIn
 //
 //  Created by Cliff Panos on 5/1/17.
@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class CIPLocationManager {
+class CILocationManager {
     
     
     

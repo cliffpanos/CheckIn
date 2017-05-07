@@ -30,11 +30,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         setSession()
         WC.ext = self
         
-        for name in ["Clifford Panos", "Kate Allport", "Joe Torraca", "Madelyn Hightower"] {
-            let pass = Pass()
-            pass.name = name
-            WC.passes.append(pass)
-        }
     }
     
     func applicationDidEnterBackground() {

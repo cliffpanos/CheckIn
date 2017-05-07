@@ -10,12 +10,13 @@
     <entity name="Pass" representedClassName="Pass" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStart" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pass" positionX="-54" positionY="0" width="128" height="120"/>
         <element name="CIPLocation" positionX="97" positionY="-3" width="128" height="120"/>
+        <element name="Pass" positionX="-54" positionY="0" width="128" height="135"/>
     </elements>
 </model>
