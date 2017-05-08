@@ -27,6 +27,30 @@ extension UIScreen {
 }
 
 
+extension UIImage {
+    
+    func drawInRectAspectFill(rect: CGRect) -> UIImage {
+        let targetSize = rect.size
+
+        let widthRatio = targetSize.width  / self.size.width
+        let heightRatio = targetSize.height / self.size.height
+        let scalingFactor = max(widthRatio, heightRatio)
+        let newSize = CGSize(width: self.size.width * scalingFactor, height: self.size.height * scalingFactor)
+        
+        print("Target: \(targetSize)")
+        UIGraphicsBeginImageContext(targetSize)
+        let origin = CGPoint(x: (targetSize.width  - newSize.width)  / 2, y: (targetSize.height - newSize.height) / 2)
+        self.draw(in: CGRect(origin: origin, size: newSize))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        scaledImage?.draw(in: rect)
+        
+        return scaledImage!
+    }
+
+}
+
+
 
 
 public extension UIWindow {

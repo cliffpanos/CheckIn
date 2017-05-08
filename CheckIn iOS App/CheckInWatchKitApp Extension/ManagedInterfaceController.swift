@@ -27,7 +27,6 @@ class ManagedInterfaceController: WKInterfaceController {
     }
     
     override func didAppear() {
-        print("Checking for login status")
         
         if let current = WC.currentlyPresenting, current is SignInController { return }
         

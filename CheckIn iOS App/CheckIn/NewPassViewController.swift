@@ -41,9 +41,11 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
             numberToolbar.sizeToFit()
             
             textField?.inputAccessoryView = numberToolbar
-            textField?.tintColor = UIColor.clear
         
         } //End for loop
+        
+        startPickerTextField.tintColor = UIColor.clear
+
         
         startPickerTextField.placeholder = C.format(date: Date())
         datePicker.minimumDate = Date()

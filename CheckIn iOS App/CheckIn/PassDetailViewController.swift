@@ -35,7 +35,6 @@ class PassDetailViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.cornerRadius = 17.5
         imageView.isOpaque = true
-        print(imageView)
         
         if let imageData = pass.image {
             let image = UIImage(data: imageData as Data)

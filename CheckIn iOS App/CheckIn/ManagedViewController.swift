@@ -29,7 +29,8 @@ class ManagedViewController: UIViewController {
         super.viewDidAppear(animated)
         print("View DID APPEAR")
         
-        UIWindow.presented.viewController = self     //Core purpose of this custom class
+        UIWindow.presented.viewController = self
+        //Core purpose of this custom class
     }
     
 

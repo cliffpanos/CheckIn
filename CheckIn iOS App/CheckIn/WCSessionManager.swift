@@ -16,7 +16,8 @@ extension AppDelegate {
         print("Should be sending QR Image")
         let image = C.userQRCodePass(withSize: nil)
         let imageData = UIImagePNGRepresentation(image)!
-        self.session!.sendMessage(["CheckInPass" : imageData], replyHandler: nil, errorHandler: nil)
+        
+        //TODO self.session!.sendMessage(["CheckInPass" : imageData], replyHandler: nil, errorHandler: nil)
         
     }
     
@@ -45,20 +46,18 @@ extension AppDelegate {
                 return
             }
             
-            var passIndex = message["PassIndex"] as! Int
+            let passIndex = message["PassIndex"] as! Int
             let pass = C.passes[passIndex]
                 
             var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"])
         
             if let imageData = pass.image as Data?, let image = UIImage(data: imageData) {
                 
-                UIGraphicsBeginImageContext(CGSize(width: 30.0, height: 30.0))
-                image.draw(in: CGRect(x: 0, y: 0, width: 30.0, height: 30.0))
-                
-                let newImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                
-                let reducedData = UIImagePNGRepresentation(newImage!)
+                let res = 120.0
+            
+                let resizedImage = image.drawInRectAspectFill(rect: CGRect(x: 0, y: 0, width: res, height: res))
+
+                let reducedData = UIImagePNGRepresentation(resizedImage)
                 print("Contact Image Message Size: \(reducedData?.count ?? 0)")
                 
                 dictionary["image"] = reducedData

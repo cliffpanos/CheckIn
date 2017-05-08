@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckInWatchKitApp Extension/InterfaceController.swift"
-            timestampString = "515839240.800042"
+            timestampString = "515917188.346909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "PassCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -275,11 +275,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckIn/NewPassViewController.swift"
-            timestampString = "515834114.59434"
+            timestampString = "515914472.510873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "NewPassViewController"
             landmarkType = "4">
          </BreakpointContent>
@@ -291,12 +291,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckIn/Extensions.swift"
-            timestampString = "515478632.354604"
+            timestampString = "515914747.980765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "Presented"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "presented"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>

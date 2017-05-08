@@ -14,8 +14,8 @@ class CheckInPassViewController: UIViewController {
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
-    static var initialScreenBrightness: CGFloat!
-    static var targetBrightness: CGFloat!
+    static var initialScreenBrightness: CGFloat = UIScreen.main.brightness
+    static var targetBrightness: CGFloat = UIScreen.main.brightness
     static var presented: Bool = false
 
     

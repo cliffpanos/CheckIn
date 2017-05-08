@@ -21,11 +21,6 @@ class InterfaceController: ManagedInterfaceController {
         WC.initialViewController = self
         InterfaceController.staticTable = interfaceTable
         
-        if WC.passes.count == 0 {
-            print("Interface Controller awake is requesting passes")
-            WC.requestPassesFromiOS(forIndex: 0) //Begins the recursive pass request calls
-        }
-        
     }
     
     static func updatetable() {
@@ -44,7 +39,6 @@ class InterfaceController: ManagedInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        print("PUSH")
         self.presentController(withName: "passDetailController", context: WC.passes[rowIndex])
     }
     
@@ -52,7 +46,11 @@ class InterfaceController: ManagedInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
 
-        InterfaceController.updatetable()
+        if WC.passes.count == 0 {
+            print("Interface Controller awake is requesting passes")
+            WC.requestPassesFromiOS(forIndex: 0) //Begins the recursive pass request calls
+        }
+        //InterfaceController.updatetable()
 
     }
 
@@ -87,6 +85,7 @@ class PassCell: NSObject {
             self.imageView.setImage(#imageLiteral(resourceName: "clearIcon"))
         }
         
+
         let components = pass.name.components(separatedBy: " ")
         if components.count > 0 {
             guestName.setText("\(components[0]) \(components[1][0]).")

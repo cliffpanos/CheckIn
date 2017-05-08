@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             
             C.session?.activate()
             
-            print("session \(String(describing: C.session)) activated on iPhone")
+            print("WCSession activated on iPhone!")
             
         }
         
