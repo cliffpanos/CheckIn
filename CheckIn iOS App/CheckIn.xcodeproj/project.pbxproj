@@ -793,7 +793,7 @@
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				IBSC_MODULE = CheckInWatchKitApp_Extension;
 				INFOPLIST_FILE = CheckInWatchKitApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.TruePass.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -811,7 +811,7 @@
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				IBSC_MODULE = CheckInWatchKitApp_Extension;
 				INFOPLIST_FILE = CheckInWatchKitApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.TruePass.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -829,7 +829,7 @@
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				INFOPLIST_FILE = "CheckInWatchKitApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.TruePass.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -847,7 +847,7 @@
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				INFOPLIST_FILE = "CheckInWatchKitApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.CheckIn.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliffpanos.TruePass.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
