@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "916E0EE31E8F6CB700911417"
-               BuildableName = "CheckIn.app"
-               BlueprintName = "CheckIn"
-               ReferencedContainer = "container:CheckIn.xcodeproj">
+               BuildableName = "True Pass.app"
+               BlueprintName = "True Pass"
+               ReferencedContainer = "container:True Pass.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "916E0EE31E8F6CB700911417"
-            BuildableName = "CheckIn.app"
-            BlueprintName = "CheckIn"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True Pass.app"
+            BlueprintName = "True Pass"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,24 +56,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "916E0EE31E8F6CB700911417"
-            BuildableName = "CheckIn.app"
-            BlueprintName = "CheckIn"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True Pass.app"
+            BlueprintName = "True Pass"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-FIRDebugDisabled"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "CG_CONTEXT_SHOW_BACKTRACE"
-            value = ""
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -88,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "916E0EE31E8F6CB700911417"
-            BuildableName = "CheckIn.app"
-            BlueprintName = "CheckIn"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True Pass.app"
+            BlueprintName = "True Pass"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

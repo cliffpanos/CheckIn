@@ -1,6 +1,6 @@
 //
 //  WCSessionManager.swift
-//  CheckIn
+//  True Pass
 //
 //  Created by Cliff Panos on 4/29/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
@@ -37,7 +37,7 @@ extension AppDelegate {
             let imageData = UIImagePNGRepresentation(image)!
             replyHandler(["Activity" : "CheckInPassReply", "CheckInPass" : imageData])
         case "MapRequest" :
-            let coordinate = C.checkInLocations[0].coordinate
+            let coordinate = C.truePassLocations[0].coordinate
             replyHandler(["Activity" : "MapReply", "latitude" : coordinate.latitude, "longitude" :coordinate.longitude])
         case "PassesRequest" :
             

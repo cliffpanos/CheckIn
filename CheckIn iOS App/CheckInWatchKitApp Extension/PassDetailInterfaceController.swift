@@ -1,6 +1,6 @@
 //
 //  PassDetailInterfaceController.swift
-//  CheckIn
+//  TruePassWatchKitApp Extension
 //
 //  Created by Cliff Panos on 4/18/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.

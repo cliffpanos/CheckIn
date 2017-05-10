@@ -1,6 +1,6 @@
 //
 //  CoreFramework.swift
-//  CheckIn
+//  True Pass
 //
 //  Created by Cliff Panos on 4/1/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
@@ -28,7 +28,7 @@ class C {
     
     static var automaticCheckIn: Bool = true
     
-    static var checkInLocations = [Pin]()
+    static var truePassLocations = [Pin]()
 
     static var passes: [Pass] {
         get {

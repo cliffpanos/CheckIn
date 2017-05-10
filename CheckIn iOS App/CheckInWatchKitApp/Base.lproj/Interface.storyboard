@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
@@ -12,7 +11,7 @@
         <!--Done-->
         <scene sceneID="kqL-gz-rC2">
             <objects>
-                <controller identifier="checkInPassInterfaceController" title="Done" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="checkInPassInterfaceController" title="Done" id="JHT-We-vg0" customClass="CheckInPassInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,11 +45,11 @@
         <!--CheckIn-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="mainInterfaceController" title="CheckIn" animationDuration="1" spacing="4" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="mainInterfaceController" title="CheckIn" animationDuration="1" spacing="4" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="6tt-qE-rgi">
                             <items>
-                                <button width="1" height="32" alignment="left" title="My CheckIn Pass" id="dSY-Ne-5LL">
+                                <button width="1" height="32" alignment="left" title="My True Pass" id="dSY-Ne-5LL">
                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="15"/>
                                     <connections>
@@ -112,7 +111,7 @@
         <!--My Info-->
         <scene sceneID="qJv-7B-2iB">
             <objects>
-                <controller identifier="userInfoController" title="My Info" id="UDT-uv-SMq" customClass="UserInfoInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="userInfoController" title="My Info" id="UDT-uv-SMq" customClass="UserInfoInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" spacing="6" id="MHK-88-zcO">
                             <items>
@@ -155,7 +154,7 @@
         <!--Close-->
         <scene sceneID="qgw-9v-2fv">
             <objects>
-                <controller identifier="passDetailController" title="Close" id="Gfe-By-bMv" customClass="PassDetailInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="passDetailController" title="Close" id="Gfe-By-bMv" customClass="PassDetailInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" spacing="13" id="VUw-iV-BMH">
                             <items>
@@ -194,14 +193,14 @@
         <!-- -->
         <scene sceneID="Gh1-dr-gTs">
             <objects>
-                <controller identifier="signInRequiredController" title=" " id="yi5-29-Av8" customClass="SignInController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="signInRequiredController" title=" " id="yi5-29-Av8" customClass="SignInController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" spacing="10" id="JYq-lY-fPx">
                             <items>
                                 <imageView alignment="center" verticalAlignment="center" image="clearIcon" id="Omr-dv-TjD">
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </imageView>
-                                <label width="0.75" alignment="center" verticalAlignment="center" text="Sign into CheckIn on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
+                                <label width="0.59999999999999998" alignment="center" verticalAlignment="center" text="Sign into True Pass on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" pointSize="15"/>
                                 </label>
@@ -219,7 +218,7 @@
         <!--Nearby-->
         <scene sceneID="aG1-74-GAe">
             <objects>
-                <controller identifier="mapInterfaceController" title="Nearby" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller identifier="mapInterfaceController" title="Nearby" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <map width="1" height="0.84999999999999998" alignment="left" id="39F-78-fWq"/>
                         <label width="1" height="0.14999999999999999" alignment="left" text="iOS Club Location" textAlignment="center" id="nct-kO-Hwr">
@@ -255,7 +254,7 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="CheckInWatchKitApp" customModuleProvider="target">
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <label width="1" alignment="left" text="Checked into &lt;CIPLocation&gt;" textAlignment="center" numberOfLines="2" id="mHg-Xd-2F4"/>
                     </items>

@@ -1,6 +1,6 @@
 //
 //  MapViewController.swift
-//  CheckIn
+//  True Pass
 //
 //  Created by Cliff Panos on 4/2/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
@@ -28,7 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsUserLocation = true
         mapView.mapType = .standard
         
-        for pin in C.checkInLocations {
+        for pin in C.truePassLocations {
             mapView.addAnnotation(pin as MKAnnotation)
             let circle = MKCircle(center: pin.coordinate, radius: 0.05 as CLLocationDistance)
             self.mapView.add(circle)
@@ -60,7 +60,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func zoomToCheckInLocation() {
-        let checkInLocation = C.checkInLocations[0].coordinate
+        let checkInLocation = C.truePassLocations[0].coordinate
         zoom(to: checkInLocation, withViewSize: 0.005)
     }
     

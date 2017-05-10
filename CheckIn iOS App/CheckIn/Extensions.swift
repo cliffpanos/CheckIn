@@ -1,6 +1,6 @@
 //
 //  Extensions.swift
-//  CheckIn
+//  True Pass
 //
 //  Created by Cliff Panos on 4/24/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.

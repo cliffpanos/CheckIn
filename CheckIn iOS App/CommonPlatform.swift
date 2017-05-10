@@ -1,6 +1,6 @@
 //
-//  CISharedPlatform.swift
-//  CheckIn
+//  CommonPlatform.swift
+//  True Pass
 //
 //  Created by Cliff Panos on 4/30/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CICommonPlatform {
+class CommonPlatform {
     
     static var dictionary: Dictionary<String, Any?>!
     

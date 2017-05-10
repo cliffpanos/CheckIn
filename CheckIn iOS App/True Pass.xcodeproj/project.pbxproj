@@ -21,24 +21,24 @@
 		916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF11E8F6CB700911417 /* Assets.xcassets */; };
 		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
-		917FDA041EB7D90500616173 /* CILocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* CILocationManager.swift */; };
+		917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* GeoLocationManager.swift */; };
 		917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917FDA061EB816BB00616173 /* CloudKit.framework */; };
 		917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA081EB8313800616173 /* Pin+Annotation.swift */; };
 		917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */; };
 		9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
-		9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9187E3BF1EA2F3700085E415 /* True PassWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C51EA2F3700085E415 /* InterfaceController.swift */; };
 		9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */; };
 		9187E3CA1EA2F3700085E415 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C91EA2F3700085E415 /* NotificationController.swift */; };
 		9187E3CC1EA2F3700085E415 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3CB1EA2F3700085E415 /* ComplicationController.swift */; };
 		9187E3CE1EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3CD1EA2F3700085E415 /* Assets.xcassets */; };
-		9187E3D21EA2F3700085E415 /* CheckInWatchKitApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */; };
+		9187E3D21EA2F3700085E415 /* True PassWatchKitApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9187E3B21EA2F3700085E415 /* True PassWatchKitApp.app */; };
 		9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */; };
 		9187E3E11EA343490085E415 /* CheckInPassInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */; };
 		9187E3E21EA344490085E415 /* WatchFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3DB1EA3400A0085E415 /* WatchFramework.swift */; };
-		918BDCC71EB68C9E00DBAB4C /* CICommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CICommonPlatform.swift */; };
-		918BDCC81EB68C9E00DBAB4C /* CICommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CICommonPlatform.swift */; };
+		918BDCC71EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */; };
+		918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */; };
 		918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */; };
 		918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
@@ -76,7 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9187E3BF1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex in Embed App Extensions */,
+				9187E3BF1EA2F3700085E415 /* True PassWatchKitApp Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +87,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				9187E3D21EA2F3700085E415 /* CheckInWatchKitApp.app in Embed Watch Content */,
+				9187E3D21EA2F3700085E415 /* True PassWatchKitApp.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,7 +104,7 @@
 		9139BA6B1EBC00D700F365EF /* CheckInWatchKitApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckInWatchKitApp.entitlements; sourceTree = "<group>"; };
 		9139BA6C1EBC011900F365EF /* CheckInWatchKitApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "CheckInWatchKitApp Extension.entitlements"; path = "CheckInWatchKitApp Extension/CheckInWatchKitApp Extension.entitlements"; sourceTree = "<group>"; };
 		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		916E0EE41E8F6CB700911417 /* CheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		916E0EE41E8F6CB700911417 /* True Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "True Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E0EE71E8F6CB700911417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916E0EE91E8F6CB700911417 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		916E0EEC1E8F6CB700911417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,16 +114,16 @@
 		916E0EF61E8F6CB700911417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
-		917FDA031EB7D90500616173 /* CILocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CILocationManager.swift; sourceTree = "<group>"; };
+		917FDA031EB7D90500616173 /* GeoLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationManager.swift; sourceTree = "<group>"; };
 		917FDA051EB816A700616173 /* CheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckIn.entitlements; sourceTree = "<group>"; };
 		917FDA061EB816BB00616173 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		917FDA081EB8313800616173 /* Pin+Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pin+Annotation.swift"; sourceTree = "<group>"; };
 		917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedInterfaceController.swift; sourceTree = "<group>"; };
-		9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInWatchKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9187E3B21EA2F3700085E415 /* True PassWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "True PassWatchKitApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		9187E3B71EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9187E3B91EA2F3700085E415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CheckInWatchKitApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "True PassWatchKitApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3C41EA2F3700085E415 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		9187E3C51EA2F3700085E415 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		9187E3DB1EA3400A0085E415 /* WatchFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchFramework.swift; path = ../CheckInWatchKitApp/WatchFramework.swift; sourceTree = "<group>"; };
 		9187E3DD1EA341090085E415 /* MapViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewInterfaceController.swift; sourceTree = "<group>"; };
 		9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPassInterfaceController.swift; sourceTree = "<group>"; };
-		918BDCC61EB68C9E00DBAB4C /* CICommonPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CICommonPlatform.swift; sourceTree = "<group>"; };
+		918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPlatform.swift; sourceTree = "<group>"; };
 		918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
 		918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedViewController.swift; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
 				910134571EB521EE006D11AD /* WCSessionManager.swift */,
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
-				917FDA031EB7D90500616173 /* CILocationManager.swift */,
+				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
 				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 			);
 			name = Managers;
@@ -235,10 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				9139BA6C1EBC011900F365EF /* CheckInWatchKitApp Extension.entitlements */,
-				918BDCC61EB68C9E00DBAB4C /* CICommonPlatform.swift */,
-				916E0EE61E8F6CB700911417 /* CheckIn */,
-				9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */,
-				9187E3C21EA2F3700085E415 /* CheckInWatchKitAppExtension */,
+				918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */,
+				916E0EE61E8F6CB700911417 /* True Pass */,
+				9187E3B31EA2F3700085E415 /* TruePassWatchKitApp */,
+				9187E3C21EA2F3700085E415 /* TruePassWatchKitAppExtension */,
 				916E0EE51E8F6CB700911417 /* Products */,
 				9E79CA9B8E858BB0B0ABB5E0 /* Pods */,
 				95260616F8D44D890B15213F /* Frameworks */,
@@ -248,14 +248,14 @@
 		916E0EE51E8F6CB700911417 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				916E0EE41E8F6CB700911417 /* CheckIn.app */,
-				9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */,
-				9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */,
+				916E0EE41E8F6CB700911417 /* True Pass.app */,
+				9187E3B21EA2F3700085E415 /* True PassWatchKitApp.app */,
+				9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		916E0EE61E8F6CB700911417 /* CheckIn */ = {
+		916E0EE61E8F6CB700911417 /* True Pass */ = {
 			isa = PBXGroup;
 			children = (
 				917FDA051EB816A700616173 /* CheckIn.entitlements */,
@@ -271,10 +271,11 @@
 				916E0EEE1E8F6CB700911417 /* CheckIn.xcdatamodeld */,
 				916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */,
 			);
+			name = "True Pass";
 			path = CheckIn;
 			sourceTree = "<group>";
 		};
-		9187E3B31EA2F3700085E415 /* CheckInWatchKitApp */ = {
+		9187E3B31EA2F3700085E415 /* TruePassWatchKitApp */ = {
 			isa = PBXGroup;
 			children = (
 				9139BA6B1EBC00D700F365EF /* CheckInWatchKitApp.entitlements */,
@@ -282,10 +283,11 @@
 				9187E3B71EA2F3700085E415 /* Assets.xcassets */,
 				9187E3B91EA2F3700085E415 /* Info.plist */,
 			);
+			name = TruePassWatchKitApp;
 			path = CheckInWatchKitApp;
 			sourceTree = "<group>";
 		};
-		9187E3C21EA2F3700085E415 /* CheckInWatchKitAppExtension */ = {
+		9187E3C21EA2F3700085E415 /* TruePassWatchKitAppExtension */ = {
 			isa = PBXGroup;
 			children = (
 				918BDCC91EB6930C00DBAB4C /* Managers */,
@@ -295,7 +297,7 @@
 				9187E3CF1EA2F3700085E415 /* Info.plist */,
 				9187E3C31EA2F3700085E415 /* Supporting Files */,
 			);
-			name = CheckInWatchKitAppExtension;
+			name = TruePassWatchKitAppExtension;
 			path = "CheckInWatchKitApp Extension";
 			sourceTree = "<group>";
 		};
@@ -353,9 +355,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		916E0EE31E8F6CB700911417 /* CheckIn */ = {
+		916E0EE31E8F6CB700911417 /* True Pass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 916E0EF91E8F6CB700911417 /* Build configuration list for PBXNativeTarget "CheckIn" */;
+			buildConfigurationList = 916E0EF91E8F6CB700911417 /* Build configuration list for PBXNativeTarget "True Pass" */;
 			buildPhases = (
 				B6914B3809FF96EFF62326D3 /* [CP] Check Pods Manifest.lock */,
 				916E0EE01E8F6CB700911417 /* Sources */,
@@ -370,14 +372,14 @@
 			dependencies = (
 				9187E3D11EA2F3700085E415 /* PBXTargetDependency */,
 			);
-			name = CheckIn;
+			name = "True Pass";
 			productName = CheckIn;
-			productReference = 916E0EE41E8F6CB700911417 /* CheckIn.app */;
+			productReference = 916E0EE41E8F6CB700911417 /* True Pass.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9187E3B11EA2F3700085E415 /* CheckInWatchKitApp */ = {
+		9187E3B11EA2F3700085E415 /* True PassWatchKitApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9187E3D91EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp" */;
+			buildConfigurationList = 9187E3D91EA2F3700085E415 /* Build configuration list for PBXNativeTarget "True PassWatchKitApp" */;
 			buildPhases = (
 				9187E3B01EA2F3700085E415 /* Resources */,
 				9187E3D81EA2F3700085E415 /* Embed App Extensions */,
@@ -388,14 +390,14 @@
 			dependencies = (
 				9187E3C11EA2F3700085E415 /* PBXTargetDependency */,
 			);
-			name = CheckInWatchKitApp;
+			name = "True PassWatchKitApp";
 			productName = CheckInWatchKitApp;
-			productReference = 9187E3B21EA2F3700085E415 /* CheckInWatchKitApp.app */;
+			productReference = 9187E3B21EA2F3700085E415 /* True PassWatchKitApp.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		9187E3BD1EA2F3700085E415 /* CheckInWatchKitApp Extension */ = {
+		9187E3BD1EA2F3700085E415 /* True PassWatchKitApp Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9187E3D71EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp Extension" */;
+			buildConfigurationList = 9187E3D71EA2F3700085E415 /* Build configuration list for PBXNativeTarget "True PassWatchKitApp Extension" */;
 			buildPhases = (
 				9187E3BA1EA2F3700085E415 /* Sources */,
 				9187E3BB1EA2F3700085E415 /* Frameworks */,
@@ -405,9 +407,9 @@
 			);
 			dependencies = (
 			);
-			name = "CheckInWatchKitApp Extension";
+			name = "True PassWatchKitApp Extension";
 			productName = "CheckInWatchKitApp Extension";
-			productReference = 9187E3BE1EA2F3700085E415 /* CheckInWatchKitApp Extension.appex */;
+			productReference = 9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -465,7 +467,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 916E0EDF1E8F6CB700911417 /* Build configuration list for PBXProject "CheckIn" */;
+			buildConfigurationList = 916E0EDF1E8F6CB700911417 /* Build configuration list for PBXProject "True Pass" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -478,9 +480,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				916E0EE31E8F6CB700911417 /* CheckIn */,
-				9187E3B11EA2F3700085E415 /* CheckInWatchKitApp */,
-				9187E3BD1EA2F3700085E415 /* CheckInWatchKitApp Extension */,
+				916E0EE31E8F6CB700911417 /* True Pass */,
+				9187E3B11EA2F3700085E415 /* True PassWatchKitApp */,
+				9187E3BD1EA2F3700085E415 /* True PassWatchKitApp Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -574,7 +576,7 @@
 				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
 				916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */,
 				91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */,
-				918BDCC71EB68C9E00DBAB4C /* CICommonPlatform.swift in Sources */,
+				918BDCC71EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
 				918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
@@ -584,7 +586,7 @@
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
 				910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */,
 				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
-				917FDA041EB7D90500616173 /* CILocationManager.swift in Sources */,
+				917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */,
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 				917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */,
@@ -604,7 +606,7 @@
 				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
 				911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */,
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
-				918BDCC81EB68C9E00DBAB4C /* CICommonPlatform.swift in Sources */,
+				918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 				917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */,
 			);
@@ -615,12 +617,12 @@
 /* Begin PBXTargetDependency section */
 		9187E3C11EA2F3700085E415 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9187E3BD1EA2F3700085E415 /* CheckInWatchKitApp Extension */;
+			target = 9187E3BD1EA2F3700085E415 /* True PassWatchKitApp Extension */;
 			targetProxy = 9187E3C01EA2F3700085E415 /* PBXContainerItemProxy */;
 		};
 		9187E3D11EA2F3700085E415 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9187E3B11EA2F3700085E415 /* CheckInWatchKitApp */;
+			target = 9187E3B11EA2F3700085E415 /* True PassWatchKitApp */;
 			targetProxy = 9187E3D01EA2F3700085E415 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -676,6 +678,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -727,6 +730,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -799,7 +803,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -817,7 +821,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -835,7 +839,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -853,14 +857,14 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		916E0EDF1E8F6CB700911417 /* Build configuration list for PBXProject "CheckIn" */ = {
+		916E0EDF1E8F6CB700911417 /* Build configuration list for PBXProject "True Pass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				916E0EF71E8F6CB700911417 /* Debug */,
@@ -869,7 +873,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		916E0EF91E8F6CB700911417 /* Build configuration list for PBXNativeTarget "CheckIn" */ = {
+		916E0EF91E8F6CB700911417 /* Build configuration list for PBXNativeTarget "True Pass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				916E0EFA1E8F6CB700911417 /* Debug */,
@@ -878,7 +882,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9187E3D71EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp Extension" */ = {
+		9187E3D71EA2F3700085E415 /* Build configuration list for PBXNativeTarget "True PassWatchKitApp Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9187E3D51EA2F3700085E415 /* Debug */,
@@ -887,7 +891,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9187E3D91EA2F3700085E415 /* Build configuration list for PBXNativeTarget "CheckInWatchKitApp" */ = {
+		9187E3D91EA2F3700085E415 /* Build configuration list for PBXNativeTarget "True PassWatchKitApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9187E3D31EA2F3700085E415 /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CheckIn
+//  True Pass
 //
 //  Created by Cliff Panos on 4/1/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
@@ -10,17 +10,17 @@
 
 
 
-/* Finish geofences and CheckIn notifications
+/* Finish geofences and check-in notifications
  CloudKit + other kits
  Fix 3D Touch quick actions
  other peek & commit interaction
  login screen for admins with QR scanner
  hash?
  multiple contacts
- allow for multiple checkin locations
+ allow for multiple check-in locations
  action menu on ipads
  QR code encryption via hashing and identifier?
- Make map zoom to checkin location, not user location
+ Make map zoom to check-in location, not user location
  Scroll views?
  iPad optimization with action sheet so that it doesn't crash
  WATCH APP
@@ -31,10 +31,10 @@
  Organize code into the Managers and file structure
  Create Swift package thingy (like a Pod? for some of the IB designables and functions)
  Login screen!!
-	- Create account, login with Facebook, login with Google, Create CheckIn Location
+	- Create account, login with Facebook, login with Google, Create Check-in Location
 	- Double screen part: first screen is how to log in
 	- Animate in and out
-	- Show checkin icon but with an alpha < 1
+	- Show True Pass icon but with an alpha < 1
  */
 
 
@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         //load pins
         let hackGSU = Pin(name: "HackGSU",latitude: 33.7563920891773, longitude: -84.3890242522629)
         let iOSClub = Pin(name: "iOS Club",latitude: 33.776732102728, longitude: -84.3958815877988)
-        C.checkInLocations = [iOSClub, hackGSU]
+        C.truePassLocations = [iOSClub, hackGSU]
         
         
         return true
@@ -163,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "CheckIn")
+        let container = NSPersistentContainer(name: "True Pass")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

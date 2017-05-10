@@ -1,6 +1,6 @@
 //
 //  ManagedInterfaceController.swift
-//  CheckIn
+//  TruePassWatchKitApp Extension
 //
 //  Created by Cliff Panos on 5/2/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.

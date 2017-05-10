@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>CheckIn</string>
+	<string>True Pass</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,20 +23,20 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>CheckIn would like to be able to scan Pass QR Codes</string>
+	<string>True Pass would like to be able to scan other True Pass QR Codes</string>
 	<key>NSContactsUsageDescription</key>
-	<string>CheckIn would like to ease the Guest Pass authorization process</string>
+	<string>True Pass would like to ease the Guest Pass creation process</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>CheckIn wants to check you in automatically when you enter a geofence</string>
+	<string>True Pass would like to check you in automatically when you enter a geofence</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>CheckIn would like to be able to save Passes to your Photo Library</string>
+	<string>True Pass would like to be able to save Passes to your Photo Library</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>QRQuickAction</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Show CheckIn Pass</string>
+			<string>Show My True Pass</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>showUserPass</string>
 		</dict>
@@ -52,7 +52,7 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeLocation</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>CheckIn Now</string>
+			<string>Check-In Now</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>checkInNow</string>
 		</dict>

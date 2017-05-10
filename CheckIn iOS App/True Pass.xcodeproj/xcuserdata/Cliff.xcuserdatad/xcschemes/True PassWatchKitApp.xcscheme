@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9187E3B11EA2F3700085E415"
-               BuildableName = "CheckInWatchKitApp.app"
-               BlueprintName = "CheckInWatchKitApp"
-               ReferencedContainer = "container:CheckIn.xcodeproj">
+               BuildableName = "True PassWatchKitApp.app"
+               BlueprintName = "True PassWatchKitApp"
+               ReferencedContainer = "container:True Pass.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "916E0EE31E8F6CB700911417"
-               BuildableName = "CheckIn.app"
-               BlueprintName = "CheckIn"
-               ReferencedContainer = "container:CheckIn.xcodeproj">
+               BuildableName = "True Pass.app"
+               BlueprintName = "True Pass"
+               ReferencedContainer = "container:True Pass.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9187E3B11EA2F3700085E415"
-            BuildableName = "CheckInWatchKitApp.app"
-            BlueprintName = "CheckInWatchKitApp"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True PassWatchKitApp.app"
+            BlueprintName = "True PassWatchKitApp"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,27 +64,26 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      notificationPayloadFile = "CheckInWatchKitApp Extension/PushNotificationPayload.apns">
+      allowLocationSimulation = "YES">
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/CheckIn">
+         RemotePath = "/True Pass">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9187E3B11EA2F3700085E415"
-            BuildableName = "CheckInWatchKitApp.app"
-            BlueprintName = "CheckInWatchKitApp"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True PassWatchKitApp.app"
+            BlueprintName = "True PassWatchKitApp"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9187E3B11EA2F3700085E415"
-            BuildableName = "CheckInWatchKitApp.app"
-            BlueprintName = "CheckInWatchKitApp"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True PassWatchKitApp.app"
+            BlueprintName = "True PassWatchKitApp"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -99,22 +98,22 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/CheckIn">
+         RemotePath = "/True Pass">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9187E3B11EA2F3700085E415"
-            BuildableName = "CheckInWatchKitApp.app"
-            BlueprintName = "CheckInWatchKitApp"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True PassWatchKitApp.app"
+            BlueprintName = "True PassWatchKitApp"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9187E3B11EA2F3700085E415"
-            BuildableName = "CheckInWatchKitApp.app"
-            BlueprintName = "CheckInWatchKitApp"
-            ReferencedContainer = "container:CheckIn.xcodeproj">
+            BuildableName = "True PassWatchKitApp.app"
+            BlueprintName = "True PassWatchKitApp"
+            ReferencedContainer = "container:True Pass.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

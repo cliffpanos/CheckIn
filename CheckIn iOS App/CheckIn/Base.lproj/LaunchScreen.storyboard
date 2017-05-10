@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TCL-Aa-twH">
-                                <rect key="frame" x="97" y="303.5" width="177" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TCL-Aa-twH">
+                                <rect key="frame" x="86" y="303" width="197.5" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkInLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-TE-xFf">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -31,8 +31,8 @@
                                             <constraint firstAttribute="height" constant="60" id="qVV-nr-F4a"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckIn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-Nc-xUQ">
-                                        <rect key="frame" x="70" y="12" width="107" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="True Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-Nc-xUQ">
+                                        <rect key="frame" x="72" y="12" width="125.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TCL-Aa-twH" firstAttribute="centerX" secondItem="xCh-UY-wTv" secondAttribute="centerX" constant="-2" id="Swy-Cz-mw3"/>
+                            <constraint firstItem="TCL-Aa-twH" firstAttribute="centerX" secondItem="xCh-UY-wTv" secondAttribute="centerX" constant="-3" id="Swy-Cz-mw3"/>
                             <constraint firstItem="TCL-Aa-twH" firstAttribute="centerY" secondItem="xCh-UY-wTv" secondAttribute="centerY" id="osv-Uq-6kJ"/>
                         </constraints>
                     </view>

@@ -14,7 +14,7 @@
         <!--New Pass View Controller-->
         <scene sceneID="CC1-EG-QCM">
             <objects>
-                <viewController id="g21-cy-4fY" customClass="NewPassViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g21-cy-4fY" customClass="NewPassViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mc8-LE-KqZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ryp-aN-r0V"/>
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-eT-Qwa" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-eT-Qwa" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                 <rect key="frame" x="31" y="35" width="313" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -45,7 +45,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-rQ-AVl" userLabel="Button Stack View">
                                 <rect key="frame" x="31" y="597" width="313" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-qz-BQv" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUa-qz-BQv" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="149" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="76U-bT-oPl"/>
@@ -69,7 +69,7 @@
                                             <action selector="onCancelPressed:" destination="g21-cy-4fY" eventType="touchUpInside" id="Pu8-pg-4G0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0n-Nr-m77" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0n-Nr-m77" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                         <rect key="frame" x="164" y="0.0" width="149" height="45"/>
                                         <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -207,7 +207,7 @@
         <!--New Guest Pass-->
         <scene sceneID="a9q-XP-1Uq">
             <objects>
-                <tableViewController id="vqT-FB-eFo" customClass="NewPassViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="vqT-FB-eFo" customClass="NewPassViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="3pR-IO-ELk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -434,7 +434,7 @@
         <!--Information-->
         <scene sceneID="Ibt-UQ-yBh">
             <objects>
-                <viewController id="K7k-Fg-uFx" customClass="SettingsViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="K7k-Fg-uFx" customClass="SettingsViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="car-wz-6jD"/>
                         <viewControllerLayoutGuide type="bottom" id="ztB-pE-Y7H"/>
@@ -479,14 +479,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-ZM-TVL" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dZ-ZM-TVL" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                 <rect key="frame" x="26" y="543" width="323" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Aux-8h-H0Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                <state key="normal" title="Show Check-In Pass">
+                                <state key="normal" title="Show My True Pass">
                                     <color key="titleColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -630,7 +630,7 @@
         <!--Check In Pass View Controller-->
         <scene sceneID="TPC-S5-f0O">
             <objects>
-                <viewController storyboardIdentifier="checkInPassViewController" id="98K-LJ-ubf" customClass="CheckInPassViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkInPassViewController" id="98K-LJ-ubf" customClass="CheckInPassViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t5q-qg-mYG"/>
                         <viewControllerLayoutGuide type="bottom" id="DwZ-iv-yNP"/>
@@ -646,7 +646,7 @@
                                     <constraint firstAttribute="height" constant="300" id="DAF-pg-9jC"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3do-Jg-BH0" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3do-Jg-BH0" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                 <rect key="frame" x="31" y="587" width="313" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -671,7 +671,7 @@
                                     <action selector="onDonePressed:" destination="98K-LJ-ubf" eventType="touchUpInside" id="6yc-5a-ieU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner's Pass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T11-2Z-ocu" customClass="BorderedLabel" customModule="CheckIn" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner's Pass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T11-2Z-ocu" customClass="BorderedLabel" customModule="True_Pass" customModuleProvider="target">
                                 <rect key="frame" x="31" y="45" width="313" height="45"/>
                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -746,7 +746,7 @@
         <!--Map View Controller-->
         <scene sceneID="EDM-GE-sb7">
             <objects>
-                <viewController storyboardIdentifier="mapViewController" id="wK2-hf-Sn1" customClass="MapViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" id="wK2-hf-Sn1" customClass="MapViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YyD-lD-utG"/>
                         <viewControllerLayoutGuide type="bottom" id="jSa-Cv-OkF"/>
@@ -801,7 +801,7 @@
         <!--Guest Passes-->
         <scene sceneID="oLh-EW-0uy">
             <objects>
-                <viewController storyboardIdentifier="passesViewController" id="ehR-IU-aNc" customClass="PassesViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="passesViewController" id="ehR-IU-aNc" customClass="PassesViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7KF-cP-kPA"/>
                         <viewControllerLayoutGuide type="bottom" id="D3f-aw-DIG"/>
@@ -815,7 +815,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="95" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="passCell" rowHeight="105" id="MCl-D3-TF1" customClass="PassCell" customModule="CheckIn" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="passCell" rowHeight="105" id="MCl-D3-TF1" customClass="PassCell" customModule="True_Pass" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCl-D3-TF1" id="o5l-aT-zVf">
@@ -825,7 +825,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" distribution="fillProportionally" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
                                                     <rect key="frame" x="18" y="22" width="316" height="60"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI" customClass="RoundedImageView" customModule="CheckIn" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI" customClass="RoundedImageView" customModule="True_Pass" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="Lyd-d5-ksg"/>
@@ -913,7 +913,7 @@
         <!--Pass Detail View Controller-->
         <scene sceneID="dOw-ls-iAi">
             <objects>
-                <viewController storyboardIdentifier="passDetailViewController" id="3tQ-IF-YKG" customClass="PassDetailViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="passDetailViewController" id="3tQ-IF-YKG" customClass="PassDetailViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YwI-Dt-llR"/>
                         <viewControllerLayoutGuide type="bottom" id="DiA-vG-cMw"/>
@@ -950,7 +950,7 @@
                                     <constraint firstItem="rbk-YD-xci" firstAttribute="top" secondItem="d7g-DZ-3XX" secondAttribute="bottom" constant="15" id="o4I-cE-ZZs"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                 <rect key="frame" x="26" y="543" width="323" height="45"/>
                                 <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -978,7 +978,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="Or9-vA-wLt">
                                 <rect key="frame" x="26" y="258.5" width="323" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pass Active Between:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-rw-Jab">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="True Pass Active Between:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-rw-Jab">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="87.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1054,7 +1054,7 @@
         <!--Root View Controller-->
         <scene sceneID="g0I-iE-hDA">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xu8-PM-eTo" customClass="RootViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xu8-PM-eTo" customClass="RootViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZFS-lx-Y4M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -1120,7 +1120,7 @@
         <!--Login View Controller-->
         <scene sceneID="QTL-MD-Xr6">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="ogE-8H-CWG" customClass="LoginViewController" customModule="CheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="ogE-8H-CWG" customClass="LoginViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ckV-S6-3fX"/>
                         <viewControllerLayoutGuide type="bottom" id="hSN-8t-JOJ"/>
@@ -1168,7 +1168,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BwN-zx-m22">
                                                 <rect key="frame" x="0.0" y="114.5" width="205" height="37.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-OO-AvY" customClass="BorderedButton" customModule="CheckIn" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-OO-AvY" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="37.5"/>
                                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>

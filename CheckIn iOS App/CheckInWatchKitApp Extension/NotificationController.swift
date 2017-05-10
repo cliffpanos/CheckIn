@@ -1,6 +1,6 @@
 //
 //  NotificationController.swift
-//  CheckInWatchKitApp Extension
+//  TruePassWatchKitApp Extension
 //
 //  Created by Cliff Panos on 4/15/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.

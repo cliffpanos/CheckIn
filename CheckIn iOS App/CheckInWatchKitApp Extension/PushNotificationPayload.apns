@@ -9,7 +9,7 @@
     
     "WatchKit Simulator Actions": [
         {
-            "title": "Show Pass",
+            "title": "Show My Pass",
             "identifier": "showPassAction"
         }, {
             "title": "Check Out",

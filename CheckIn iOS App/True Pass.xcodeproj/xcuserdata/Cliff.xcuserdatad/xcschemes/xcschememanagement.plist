@@ -4,25 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CheckIn.xcscheme</key>
+		<key>True Pass.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>CheckInWatchKitApp (Complication).xcscheme</key>
+		<key>True PassWatchKitApp (Complication).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>3</integer>
 		</dict>
-		<key>CheckInWatchKitApp (Notification).xcscheme</key>
+		<key>True PassWatchKitApp (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>2</integer>
 		</dict>
-		<key>CheckInWatchKitApp.xcscheme</key>
+		<key>True PassWatchKitApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
