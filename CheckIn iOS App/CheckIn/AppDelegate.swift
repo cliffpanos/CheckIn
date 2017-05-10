@@ -19,13 +19,12 @@
  multiple contacts
  allow for multiple checkin locations
  action menu on ipads
- QR code encryption via hashing?
+ QR code encryption via hashing and identifier?
  Make map zoom to checkin location, not user location
  Scroll views?
  iPad optimization with action sheet so that it doesn't crash
- WATCH APP!!
- WIDGET
- implement search bar functionality & FIX IT since it currently selects the wrong option
+ WATCH APP
+ WIDGET (Today View Extension)
  Add 3D Touch menu actions to watch app. Work on communication and core data things
  Write extension for screen class that manages brightness
  Change editableBound on Login screen textFields to move with the animation
@@ -103,8 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
-        CheckInPassViewController.targetBrightness = CheckInPassViewController.initialScreenBrightness
-        CheckInPassViewController.updateScreenBrightness()
+        UIScreen.appLeftPrimaryView() //Update brightness
+        print("APP RESIGNED ACTIVE")
 
     }
 
@@ -112,21 +111,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        CheckInPassViewController.targetBrightness = CheckInPassViewController.initialScreenBrightness
-        CheckInPassViewController.updateScreenBrightness()
+        UIScreen.appLeftPrimaryView() //Update brightness
+        print("APP ENTERED BACKGROUND")
         
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
        
-        if CheckInPassViewController.presented {
-            CheckInPassViewController.targetBrightness = 1.0
-            CheckInPassViewController.updateScreenBrightness()
-        }
+        UIScreen.appCameIntoView()
+        print("APP ENTERED FOREGROUND+")
     
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
@@ -137,10 +134,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         launchedShortcutItem = nil
         self.resetRoot = true
         
-        if CheckInPassViewController.presented {
-            CheckInPassViewController.targetBrightness = 1.0
-            CheckInPassViewController.updateScreenBrightness()
-        }
+        UIScreen.appCameIntoView()
+        print("APP BECAME ACTIVE+")
     
     }
 

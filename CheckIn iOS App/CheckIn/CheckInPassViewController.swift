@@ -14,10 +14,26 @@ class CheckInPassViewController: UIViewController {
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
-    static var initialScreenBrightness: CGFloat = UIScreen.main.brightness
-    static var targetBrightness: CGFloat = UIScreen.main.brightness
-    static var presented: Bool = false
+    static var initialScreenBrightness: CGFloat = UIScreen.main.brightness {
+        
+        didSet {
+            print("Initial B changed to: \(CheckInPassViewController.initialScreenBrightness)")
+        }
+    }
+    static var targetBrightness: CGFloat = CheckInPassViewController.initialScreenBrightness {
+        didSet {
+            print("TARGET B changed to: \(CheckInPassViewController.targetBrightness)")
+        }
+    }
+    static var presented: Bool = false {
+        didSet {
+            print("Presented changed to: \(CheckInPassViewController.presented)")
+        }
+    }
 
+    
+    //SEE Extensions.swift FOR UIScreen EXTENSION
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

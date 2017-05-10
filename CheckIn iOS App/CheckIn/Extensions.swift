@@ -22,7 +22,36 @@ extension UIColor {
 
 extension UIScreen {
     
-    //TODO deal with brightness
+    class state {
+        //The brightness whenever the app comes into the foreground
+        static var launchBrightness: CGFloat!
+        
+        //The brightness of the screen BEFORE the brightness-changing ViewController is presented
+        static var onPresentBrightness: CGFloat?
+        
+        //The computed target brightness to change to
+        static var targetBrightness: CGFloat?
+        
+        //Whether or not the controller is currently presented
+        static var controllerPresented: Bool = false
+        
+        //Whether or not the app is in the foreground / active to the user
+        static var appIsActive: Bool = false
+    }
+    
+    static func appLeftPrimaryView() {
+        CheckInPassViewController.targetBrightness = CheckInPassViewController.initialScreenBrightness
+        CheckInPassViewController.updateScreenBrightness()
+    }
+    
+    static func appCameIntoView() {
+        if CheckInPassViewController.presented {
+            CheckInPassViewController.targetBrightness = 1.0
+            CheckInPassViewController.updateScreenBrightness()
+        }
+    }
+    
+    
 
 }
 

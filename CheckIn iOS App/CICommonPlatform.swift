@@ -16,7 +16,7 @@ class CICommonPlatform {
 
 //Mark: - Enumerate all possible WatchConnectivity message key types
 //Ex: add the statement message[CIMType.KEY: CIM.<type>] to the transferred dictionary
-enum CIM: String {
+enum WCD: String {
     
     case KEY = "Activity"
     

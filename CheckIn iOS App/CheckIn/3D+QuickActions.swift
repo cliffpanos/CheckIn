@@ -40,13 +40,14 @@ extension AppDelegate {
         
         
         handled = true
-        
+        print("Dynamic Actions: \(String(describing: UIApplication.shared.shortcutItems))")
         print("Switching on: \(shortcutItem.type)")
         switch (shortcutItem.type) {
             
             
         case "showUserPass" :
             C.appDelegate.tabBarController.selectedIndex = 1
+            CheckInPassViewController.initialScreenBrightness = UIScreen.main.brightness
             let controller = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
             C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
             
