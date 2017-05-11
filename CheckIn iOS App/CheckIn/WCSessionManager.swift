@@ -13,12 +13,6 @@ extension AppDelegate {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
-        print("Should be sending QR Image")
-        let image = C.userQRCodePass(withSize: nil)
-        let imageData = UIImagePNGRepresentation(image)!
-        
-        //TODO self.session!.sendMessage(["CheckInPass" : imageData], replyHandler: nil, errorHandler: nil)
-        
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
