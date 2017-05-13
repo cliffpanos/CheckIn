@@ -12,7 +12,6 @@
 
 /* Finish geofences and check-in notifications
  CloudKit + other kits
- Fix 3D Touch quick actions
  other peek & commit interaction
  login screen for admins with QR scanner
  hash?
@@ -20,15 +19,15 @@
  allow for multiple check-in locations
  action menu on ipads
  QR code encryption via hashing and identifier?
- Make map zoom to check-in location, not user location
  Scroll views?
  iPad optimization with action sheet so that it doesn't crash
  WATCH APP
+    Fix issue with signInController coming up twice when the user hasn't logged in before
+ Keep track of all user defaults stored so that they can be deleted upon logout
  WIDGET (Today View Extension)
  Add 3D Touch menu actions to watch app. Work on communication and core data things
  Write extension for screen class that manages brightness
  Change editableBound on Login screen textFields to move with the animation
- Organize code into the Managers and file structure
  Create Swift package thingy (like a Pod? for some of the IB designables and functions)
  Login screen!!
 	- Create account, login with Facebook, login with Google, Create Check-in Location
@@ -54,37 +53,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
     var window: UIWindow?
     var tabBarController: UITabBarController!
-    var session: WCSession? {
-        return C.session
-    }
     
-    //3D-Touch Quick Action variables
-    var resetRoot: Bool = false
-    var launchedShortcutItem: UIApplicationShortcutItem?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FIRApp.configure()
         C.appDelegate = self
-    
-        
-        if WCSession.isSupported() {
-            C.session = WCSession.default()
-            C.session?.delegate = self
-            
-            C.session?.activate()
-            
-            print("WCSession activated on iPhone!")
-            
-        }
+        WCActivator.set(&C.session, for: self)
         
         tabBarController = window?.rootViewController as! UITabBarController
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem]
             as? UIApplicationShortcutItem {
-            launchedShortcutItem = shortcutItem
+            AppDelegate.QuickActionTrackers.launchedShortcutItem = shortcutItem
         }
         
         
@@ -127,12 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        guard let shortcutItem = launchedShortcutItem else { return }
+        guard let shortcutItem = AppDelegate.QuickActionTrackers.launchedShortcutItem else { return }
         //guard unwraps launchedShortcutItem and checks if it is not null
         
         let _ = handleQuickAction(for: shortcutItem)
-        launchedShortcutItem = nil
-        self.resetRoot = true
+        AppDelegate.QuickActionTrackers.launchedShortcutItem = nil
+        AppDelegate.QuickActionTrackers.resetRoot = true
         
         UIScreen.appCameIntoView()
         print("APP BECAME ACTIVE+")
@@ -144,9 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         // Saves changes in the application's managed object context before the application terminates.
         let _ = self.saveContext()
     }
-    
-    
-    
     
     
     

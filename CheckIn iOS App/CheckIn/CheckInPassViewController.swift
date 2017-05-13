@@ -44,7 +44,8 @@ class CheckInPassViewController: UIViewController {
         
         qrCodeImageView.image = image
         
-        ownerLabel.text = "\(C.nameOfUser)'s Pass"
+        let sLetter = C.nameOfUser[C.nameOfUser.characters.count - 1] == "s" ? " " : "s"
+        ownerLabel.text = "\(C.nameOfUser)'\(sLetter) Pass"
         
     }
     

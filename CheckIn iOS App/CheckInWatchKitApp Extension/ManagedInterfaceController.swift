@@ -14,8 +14,10 @@ class ManagedInterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
         // Configure interface objects here.
+
+        self.addMenuItem(with: #imageLiteral(resourceName: "QRQuickAction"), title: "My Pass", action: #selector(showUserCheckInPass))
+        self.addMenuItem(with: .info, title: "Map", action: #selector(showMapInterfaceController))
     }
 
     override func willActivate() {
@@ -44,6 +46,16 @@ class ManagedInterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    //Menu Item selector functions below:
+    func showUserCheckInPass() {
+        guard !(WC.currentlyPresenting is CheckInPassInterfaceController) else { return }
+        self.presentController(withName: "checkInPassInterfaceController", context: nil)
+    }
+    func showMapInterfaceController() {
+        guard !(WC.currentlyPresenting is MapViewInterfaceController) else { return }
+        MapViewInterfaceController.instance?.becomeCurrentPage()
     }
 
 }

@@ -17,6 +17,13 @@ extension UIColor {
         
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
+    
+    enum TrueColors {
+        static let softRed = UIColor.color(fromHex: 0xFF0033)
+        static let blue = UIColor.color(fromHex: 0x0066FF)
+        static let green = UIColor.color(fromHex: 0x33CC33)
+        static let medGray = UIColor.color(fromHex: 0x666666)
+    }
 }
 
 

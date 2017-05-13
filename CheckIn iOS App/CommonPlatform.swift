@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 class CommonPlatform {
     
@@ -14,22 +15,46 @@ class CommonPlatform {
     
 }
 
-//Mark: - Enumerate all possible WatchConnectivity message key types
-//Ex: add the statement message[CIMType.KEY: CIM.<type>] to the transferred dictionary
-enum WCD: String {
-    
-    case KEY = "Activity"
-    
-    case signInStatus = "signInStatus"
-    case allPassesRequest = "allPassesRequest"
-    case singlePassRequest = "singlePassRequest"
-    
-}
-
 class Shared {
     static var defaults = UserDefaults(suiteName: "group.com.cliffpanos.CheckIn")!
 }
 
+//Mark: - Enumerate all possible WatchConnectivity message key types
+//Ex: add the statement message[CIMType.KEY: CIM.<type>] to the transferred dictionary
+enum WCD {
+    
+    static let KEY = "Activity"
+    
+    //Bidirectional
+    static let sessionActivated = "sessionActivated"
+    static let checkInPassRequest = "checkInPassRequest"
+    static let mapLocationsRequest = "mapLocationsRequest"
+    static let settingsUserDefault = "settingsUserDefault"
+    
+    //From watchOS to iOS
+    static let allPassesRequest = "allPassesRequest"
+    
+    //From iOS to watchOS
+    static let signInStatus = "signInStatus"
+    static let singleNewPass = "singleNewPass"
+    static let deletePass = "deletePass"
+    
+    static let passPayload = "passPayload"
+    static let nextPassIndex = "nextPassIndex"
+    
+    
+}
+
+class WCActivator {
+    static func set(_ session: inout WCSession?, for delegate: WCSessionDelegate) {
+        if WCSession.isSupported() {
+            session = WCSession.default()
+            session?.delegate = delegate
+            session?.activate()
+            print("WCSession activated by WCActivator!")
+        }
+    }
+}
 
 extension String {
     subscript (i: Int) -> String {

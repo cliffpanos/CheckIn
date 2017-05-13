@@ -16,7 +16,7 @@
                         <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <label width="1" alignment="left" verticalAlignment="center" text="Retrieving Pass" textAlignment="center" id="QWJ-i0-JOI">
+                        <label width="1" height="100" alignment="left" verticalAlignment="center" text="Retrieving Pass" textAlignment="center" id="QWJ-i0-JOI">
                             <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
@@ -34,7 +34,7 @@
                         </separator>
                     </items>
                     <connections>
-                        <outlet property="imageView" destination="6mw-tI-a3l" id="QVZ-Rh-9lc"/>
+                        <outlet property="imageView" destination="6mw-tI-a3l" id="4mc-he-9hC"/>
                         <outlet property="panGestureRecognizer" destination="ydv-on-Vaj" id="NXn-vp-9bv"/>
                         <outlet property="retrievingPassLabel" destination="QWJ-i0-JOI" id="yCv-66-7vu"/>
                     </connections>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="468" y="-102"/>
         </scene>
-        <!--CheckIn-->
+        <!--Passes-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="mainInterfaceController" title="CheckIn" animationDuration="1" spacing="4" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="True_PassWatchKitApp_Extension">
+                <controller identifier="mainInterfaceController" title="Passes" animationDuration="1" spacing="4" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="6tt-qE-rgi">
                             <items>
@@ -61,12 +61,12 @@
                                 </separator>
                                 <table alignment="center" spacing="4" pagingScroll="YES" id="zgS-No-NKi">
                                     <items>
-                                        <tableRow identifier="passCell" id="8Dz-6V-GKF" customClass="PassCell" customModule="CheckInWatchKitApp_Extension">
+                                        <tableRow identifier="passCell" id="8Dz-6V-GKF" customClass="PassCell" customModule="True_PassWatchKitApp_Extension">
                                             <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="qlq-0f-swz">
                                                 <items>
                                                     <group width="1" height="1" alignment="left" contentMode="center" spacing="8" id="JGi-UC-B6h">
                                                         <items>
-                                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="e4r-zB-VKE">
+                                                            <separator height="1" heightAdjustment="-5" alignment="left" verticalAlignment="center" id="e4r-zB-VKE">
                                                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </separator>
                                                             <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="OnE-UB-mZR">
@@ -92,16 +92,18 @@
                                 </table>
                             </items>
                         </group>
+                        <label width="1" alignment="left" text=" — Guest Passes —" textAlignment="center" id="aCc-aL-Y3N">
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <fontDescription key="font" type="system" weight="light" pointSize="13"/>
+                        </label>
+                        <label width="1" alignment="left" text="Create True Passes for Guests on iPhone" textAlignment="center" numberOfLines="4" id="xTD-71-ec0">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" weight="light" pointSize="13"/>
+                        </label>
                     </items>
-                    <menu key="menu" id="S67-Ut-jQ6">
-                        <items>
-                            <menuItem title="Menu Item" icon="accept" id="7Xu-te-GMo"/>
-                            <menuItem title="Menu Item" icon="info" id="88k-sJ-xzX"/>
-                            <menuItem title="Menu Item" image="QRQuickAction" id="pAm-ZD-IDp"/>
-                        </items>
-                    </menu>
                     <connections>
                         <outlet property="interfaceTable" destination="zgS-No-NKi" id="Ala-8j-DHE"/>
+                        <outlet property="noPassesLabel" destination="xTD-71-ec0" id="yOB-Z3-P07"/>
                         <segue destination="UDT-uv-SMq" kind="relationship" relationship="nextPage" id="0xZ-L6-DFN"/>
                     </connections>
                 </controller>
@@ -118,9 +120,9 @@
                                 <group width="1" alignment="left" spacing="4" id="QSJ-25-rrl">
                                     <items>
                                         <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="clearIcon" contentMode="scaleAspectFill" id="z1C-xh-1Bp"/>
-                                        <label width="0.69999999999999996" alignment="center" verticalAlignment="center" text="Me" textAlignment="center" id="d1J-37-Vjl">
+                                        <label width="0.69999999999999996" alignment="center" verticalAlignment="center" text="CLIFF" textAlignment="center" id="d1J-37-Vjl">
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="font" type="system" pointSize="20"/>
+                                            <fontDescription key="font" type="system" weight="light" pointSize="20"/>
                                         </label>
                                     </items>
                                     <edgeInsets key="margins" left="3" right="0.0" top="0.0" bottom="0.0"/>
@@ -156,21 +158,22 @@
             <objects>
                 <controller identifier="passDetailController" title="Close" id="Gfe-By-bMv" customClass="PassDetailInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" spacing="13" id="VUw-iV-BMH">
+                        <group width="1" alignment="left" layout="vertical" radius="7" spacing="13" id="VUw-iV-BMH">
                             <items>
                                 <label width="1" alignment="left" text="GuestFirstName GuestLastName" textAlignment="center" numberOfLines="2" id="Zgo-yS-vk5">
-                                    <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
                                 <separator alignment="left" id="Upy-9L-gzE"/>
                                 <group width="1" alignment="left" layout="vertical" spacing="0.0" id="K48-FX-NRc">
                                     <items>
                                         <dateLabel width="1" alignment="left" textAlignment="left" id="Htc-O3-EDF">
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <dateFormatterStyle key="dateStyle" short="YES"/>
                                             <dateFormatterStyle key="timeStyle" short="YES"/>
                                         </dateLabel>
                                         <dateLabel width="1" alignment="left" textAlignment="right" id="zY4-DW-30j">
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <dateFormatterStyle key="dateStyle" short="YES"/>
                                             <dateFormatterStyle key="timeStyle" short="YES"/>
                                         </dateLabel>
@@ -178,8 +181,11 @@
                                 </group>
                                 <label width="1" alignment="left" text="Not Checked In @ LocationName" textAlignment="center" numberOfLines="2" id="dMK-1n-zzq">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                 </label>
                             </items>
+                            <color key="backgroundColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <edgeInsets key="margins" left="3" right="3" top="1" bottom="2"/>
                         </group>
                     </items>
                     <edgeInsets key="margins" left="1" right="1" top="3" bottom="0.0"/>
@@ -193,7 +199,7 @@
         <!-- -->
         <scene sceneID="Gh1-dr-gTs">
             <objects>
-                <controller identifier="signInRequiredController" title=" " id="yi5-29-Av8" customClass="SignInController" customModule="True_PassWatchKitApp_Extension">
+                <controller identifier="signInRequiredController" title=" " id="yi5-29-Av8" customClass="SignInController" customModule="True_PassWatchKitApp">
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" spacing="10" id="JYq-lY-fPx">
                             <items>
@@ -202,7 +208,7 @@
                                 </imageView>
                                 <label width="0.59999999999999998" alignment="center" verticalAlignment="center" text="Sign into True Pass on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="system" pointSize="15"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="15"/>
                                 </label>
                             </items>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -221,9 +227,15 @@
                 <controller identifier="mapInterfaceController" title="Nearby" id="tW1-ye-p6k" customClass="MapViewInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <map width="1" height="0.84999999999999998" alignment="left" id="39F-78-fWq"/>
-                        <label width="1" height="0.14999999999999999" alignment="left" text="iOS Club Location" textAlignment="center" id="nct-kO-Hwr">
-                            <color key="textColor" red="0.47863343359999999" green="0.83529186249999998" blue="0.46663740279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </label>
+                        <group width="1" height="0.14999999999999999" alignment="left" id="9rm-2C-dIY">
+                            <items>
+                                <label width="1" alignment="left" verticalAlignment="center" text="iOS Club Location" textAlignment="center" numberOfLines="2" id="nct-kO-Hwr">
+                                    <color key="textColor" red="0.47863343359999999" green="0.83529186249999998" blue="0.46663740279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="15"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="mapView" destination="39F-78-fWq" id="aT6-Pp-jkK"/>

@@ -13,23 +13,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
     static var session: WCSession?
     
-    func setSession() {
-        if WCSession.isSupported() {
-            ExtensionDelegate.session = WCSession.default()
-            ExtensionDelegate.session?.delegate = self
-            ExtensionDelegate.session?.activate()
-            ExtensionDelegate.session = WC.session
-        }
-        print("WATCH Session is reachable: \(String(describing: WC.session?.isReachable))")
-        
-    }
-
-    
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
-        setSession()
-        WC.ext = self
-        
+        // Perform any final initialization of the application.
+        WCActivator.set(&ExtensionDelegate.session, for: self)
+        WC.ext = self        
     }
     
     func applicationDidEnterBackground() {
@@ -44,8 +31,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
     }
-
-    
     
     
     

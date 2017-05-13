@@ -12,7 +12,7 @@ import WatchConnectivity
 import QRCoder
 
 
-class C {
+class C: WCActivator {
     
     static var appDelegate: AppDelegate!
     static var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -40,12 +40,12 @@ class C {
             }
             return [Pass]()
         }
-        set (newPasses) {
+        /*set (newPasses) {
             let managedContext = C.appDelegate.persistentContainer.viewContext
             if ((try? managedContext.save()) != nil) {
                 self.passes = newPasses
             }
-        }
+        }*/
     }
     
     
@@ -61,7 +61,7 @@ class C {
             print("User is logging \(newValue ? "in" : "out")---------------")
             Shared.defaults.setValue(newValue, forKey: "userIsLoggedIn")
             Shared.defaults.synchronize()
-            try? C.session?.updateApplicationContext(["signInStatus" : newValue])
+            try? C.session?.updateApplicationContext([WCD.signInStatus : newValue])
         }
     }
 
@@ -84,16 +84,50 @@ class C {
             pass.image = data as NSData
         }
         
-        return (try? managedContext.save()) != nil
+        defer {
+            let data = C.preparedData(forPass: pass, includingImage: true)
+            let newPassInfo = [WCD.KEY: WCD.singleNewPass, WCD.passPayload: data] as [String : Any]
+            C.session?.transferUserInfo(newPassInfo)
+        }
+        
+        return C.appDelegate.saveContext()
         
     }
     
     static func delete(pass: Pass) -> Bool {
         
+        let data = C.preparedData(forPass: pass, includingImage: false)   //Do NOT include image
+        let deletePassInfo = [WCD.KEY: WCD.deletePass, WCD.passPayload: data] as [String : Any]
+        C.session?.transferUserInfo(deletePassInfo)
+    
         let managedContext = C.appDelegate.persistentContainer.viewContext
         managedContext.delete(pass)
+    
+        return C.appDelegate.saveContext()
         
-        return (try? managedContext.save()) != nil
+    }
+    
+    static func preparedData(forPass pass: Pass, includingImage: Bool) -> Data {
+        
+        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"])
+        
+        if includingImage, let imageData = pass.image as Data?, let image = UIImage(data: imageData) {
+            
+            let res = 120.0
+            let resizedImage = image.drawInRectAspectFill(rect: CGRect(x: 0, y: 0, width: res, height: res))
+            let reducedData = UIImagePNGRepresentation(resizedImage)
+            
+            print("Contact Image Message Size: \(reducedData?.count ?? 0)")
+            dictionary["image"] = reducedData
+            
+        } else if includingImage {
+            let image = #imageLiteral(resourceName: "greenContactIcon")     //Default Contact Image
+            dictionary["image"] = UIImagePNGRepresentation(image)
+        } else {
+            dictionary["image"] = nil
+        }
+        
+        return NSKeyedArchiver.archivedData(withRootObject: dictionary)   //Binary data
         
     }
     

@@ -12,14 +12,16 @@ extension AppDelegate {
     
     
     // MARK: - Handle 3D-Touch Home Screen Quick Actions
-    
+    struct QuickActionTrackers {
+        static var resetRoot: Bool = false
+        static var launchedShortcutItem: UIApplicationShortcutItem?
+    }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
         //Handles the 3D Touch Quick Actions from the home screen
-        let handledShortcutItem: Bool = handleQuickAction(for: shortcutItem)
         
-        completionHandler(handledShortcutItem)
+        completionHandler(handleQuickAction(for: shortcutItem))
         
     }
     
@@ -31,7 +33,7 @@ extension AppDelegate {
             return handled
         }
         
-        if (resetRoot) {
+        if (AppDelegate.QuickActionTrackers.resetRoot) {
             print("NEW ROOT")
             let newRootViewController = C.storyboard.instantiateInitialViewController()
             self.window?.rootViewController = newRootViewController
@@ -71,7 +73,27 @@ extension AppDelegate {
     }
     
     
-    
+    //ADDITIONAL NECESSARY CODE IN MAIN APPDELEGATE CLASS:
+    /*
+     application(:didFinishLaunchingWithOptions:)
+        //...
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem]
+        as? UIApplicationShortcutItem {
+        AppDelegate.QuickActionTrackers.launchedShortcutItem = shortcutItem
+        //...
+     }
+     */
+    /*
+     applicationDidBecomeActive(:)
+        //...
+        guard let shortcutItem = AppDelegate.QuickActionTrackers.launchedShortcutItem else { return }
+        //guard unwraps launchedShortcutItem and checks if it is not null
+         
+        let _ = handleQuickAction(for: shortcutItem)
+        AppDelegate.QuickActionTrackers.launchedShortcutItem = nil
+        AppDelegate.QuickActionTrackers.resetRoot = true
+        //...
+     */
     
     
 }

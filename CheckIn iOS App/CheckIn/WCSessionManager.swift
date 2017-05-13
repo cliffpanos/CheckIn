@@ -25,50 +25,36 @@ extension AppDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         
-        switch (message["Activity"] as! String) {
-        case "NeedCheckInPass" :
+        switch (message[WCD.KEY] as! String) {
+        
+        case WCD.checkInPassRequest :
             let image = C.userQRCodePass(withSize: nil)
             let imageData = UIImagePNGRepresentation(image)!
-            replyHandler(["Activity" : "CheckInPassReply", "CheckInPass" : imageData])
-        case "MapRequest" :
+            replyHandler([WCD.KEY : WCD.checkInPassRequest, WCD.checkInPassRequest : imageData])
+        
+        case WCD.mapLocationsRequest :
             let coordinate = C.truePassLocations[0].coordinate
-            replyHandler(["Activity" : "MapReply", "latitude" : coordinate.latitude, "longitude" :coordinate.longitude])
-        case "PassesRequest" :
+            replyHandler([WCD.KEY : WCD.mapLocationsRequest, "latitude" : coordinate.latitude, "longitude" :coordinate.longitude])
+        
+        case WCD.allPassesRequest :
             
             guard C.passes.count > 0 else {
-                replyHandler(["Activity" : "PassesReply", "Payload" : 0])
+                replyHandler([WCD.KEY : WCD.allPassesRequest, WCD.passPayload : 0])
                 return
             }
             
-            let passIndex = message["PassIndex"] as! Int
+            let passIndex = message[WCD.nextPassIndex] as! Int
             let pass = C.passes[passIndex]
-                
-            var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"])
-        
-            if let imageData = pass.image as Data?, let image = UIImage(data: imageData) {
-                
-                let res = 120.0
-            
-                let resizedImage = image.drawInRectAspectFill(rect: CGRect(x: 0, y: 0, width: res, height: res))
+            let data = C.preparedData(forPass: pass, includingImage: true)
 
-                let reducedData = UIImagePNGRepresentation(resizedImage)
-                print("Contact Image Message Size: \(reducedData?.count ?? 0)")
-                
-                dictionary["image"] = reducedData
-
-            } else {
-                
-                let image = #imageLiteral(resourceName: "greenContactIcon")
-                dictionary["image"] = UIImagePNGRepresentation(image)
-            }
-            
             print("Should be sending pass message")
-            let data = NSKeyedArchiver.archivedData(withRootObject: dictionary)
             let nextPassIndex = (passIndex + 1 < C.passes.count) ? passIndex + 1 : -1
-            replyHandler(["Activity" : "PassesReply", "Payload" : data, "NextPassIndex" : nextPassIndex])
+            replyHandler([WCD.KEY : WCD.allPassesRequest, WCD.passPayload : data, WCD.nextPassIndex : nextPassIndex])
         
-        //}
-        default: print("no message handled with key: \(message["Activity"] ?? "NILL")")
+        case WCD.sessionActivated:
+            print("watchOS WCSession did successfully activate")
+        
+        default: print("no message handled with key: \(message[WCD.KEY] ?? "NILL")")
         }
         print("iOS App did receive message")
         

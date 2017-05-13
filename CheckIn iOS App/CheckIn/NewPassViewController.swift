@@ -13,22 +13,30 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var startDatePicker: UITextField!
+    @IBOutlet weak var endDatePicker: UITextField!
     
-    @IBOutlet weak var startDatePicker: UIDatePicker!
-    @IBOutlet weak var endDatePicker: UIDatePicker!
+    var startDate: Date = Date() {
+        didSet {
+            startDatePicker.text = C.format(date: startDate)
+        }
+    }
+    var endDate: Date = Date() {
+        didSet {
+            endDatePicker.text = C.format(date: endDate)
+        }
+    }
     
-    
-    @IBOutlet weak var startPickerTextField: UITextField!
-    
-    let datePicker = UIDatePicker()
-    
+    let datePicker = UIDatePicker() //Shared DatePicker object used by both TextFields
     
     var imageData: Data?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for textField in [nameTextField, emailTextField, startPickerTextField] {
+        for textField in [nameTextField, emailTextField, startDatePicker, endDatePicker] {
             let numberToolbar: UIToolbar = UIToolbar()
             numberToolbar.barStyle = UIBarStyle.default
             
@@ -37,22 +45,24 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
             ]
             
             numberToolbar.items = textInputAccessories
-            
             numberToolbar.sizeToFit()
-            
             textField?.inputAccessoryView = numberToolbar
         
-        } //End for loop
+        } //End for loop for setting up the "Done" toolbars
         
-        startPickerTextField.tintColor = UIColor.clear
-
+        startDatePicker.tintColor = UIColor.clear
+        endDatePicker.tintColor = UIColor.clear
         
-        startPickerTextField.placeholder = C.format(date: Date())
         datePicker.minimumDate = Date()
         datePicker.datePickerMode = .dateAndTime
-        startPickerTextField.inputView = datePicker
         datePicker.backgroundColor = UIColor.white
-        datePicker.addTarget(self, action: #selector(fillDateField), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(updateDate), for: .valueChanged)
+        
+        //The start & end TextFields are really just conduits for the date picker
+        startDatePicker.inputView = datePicker
+        endDatePicker.inputView = datePicker
+        startDatePicker.text = C.format(date: Date())
+        endDatePicker.placeholder = C.format(date: Date())
     
     }
     
@@ -64,18 +74,36 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-    func fillDateField() {
-        let fieldToFill = startPickerTextField
-        
-        fieldToFill?.text = C.format(date: datePicker.date)
+    func updateDate() {
+        if startDatePicker.isEditing {
+            startDate = datePicker.date
+        } else {
+            endDate = datePicker.date
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch (textField) {
         case nameTextField: emailTextField.becomeFirstResponder()
+        case emailTextField: startDatePicker.becomeFirstResponder()
+            let indexPath = IndexPath(row: 0, section: 2)
+            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         default: dismissKeyboard()
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        guard textField == startDatePicker || textField == endDatePicker else { return }
+        
+        textField.textColor = UIColor.TrueColors.blue
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard textField == startDatePicker || textField == endDatePicker else { return }
+        textField.textColor = UIColor.black
     }
     
     func dismissKeyboard() {
@@ -100,18 +128,16 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
     }
     
-    @IBAction func sendPassPressed(_ sender: Any) {
-        
+    func authorizePassPressed() {
         if nameTextField.text == "" {
             let alert = UIAlertController(title: "Insufficient Information", message: "Please enter at minimum a name", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         
-        } else if endDatePicker.date <= startDatePicker.date {
-            let alert = UIAlertController(title: "Inordered Dates", message: "The start date must precede the end date", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action)
+        } else if endDate <= startDate {
+            let alert = UIAlertController(title: "Dates not in order", message: "The start date must precede the end date", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         
         } else {
@@ -123,11 +149,11 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     func createAndSavePass() {
         
         let name = nameTextField.text ?? ""
-        let email = emailTextField.text == "" ? "No email provided" : emailTextField.text ?? ""
-        let startDate = startDatePicker.date
-        let endDate = endDatePicker.date
+        let email = emailTextField.text == "" ? "no email provided" : emailTextField.text ?? ""
+        let start = self.startDate
+        let end = self.endDate
         
-        let success = C.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: startDate, to: endDate)
+        let success = C.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: start, to: end)
         
         if success {
             self.dismiss(animated: true, completion: nil)
@@ -145,9 +171,16 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
         switch (cellPosition) {
         case (0, 0):
-            tryToChooseFromContacts()
-
-        default: break
+            tryToChooseFromContacts() //See CNContactPickerDelegate extension below
+        case (2, 0):
+            startDatePicker.becomeFirstResponder()
+        case (2, 1):
+            endDatePicker.becomeFirstResponder()
+        case (3, 0): //The authorize button
+            tableView.deselectRow(at: indexPath, animated: true)
+            authorizePassPressed()
+        default:
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
@@ -160,10 +193,6 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
 extension NewPassViewController: CNContactPickerDelegate {
     
-    //The only link to the UI on this page
-    @IBAction func chooseContactPressed(_ sender: Any) {
-        tryToChooseFromContacts()
-    }
     
     //Authorize CheckIn if not authorized
     func tryToChooseFromContacts() {
@@ -192,9 +221,9 @@ extension NewPassViewController: CNContactPickerDelegate {
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         
-        nameTextField.text = (contact.givenName as String) + " " + contact.familyName
+        nameTextField.text = contact.givenName as String + " " + contact.familyName + " " + contact.nameSuffix
         emailTextField.text = (contact.emailAddresses.count > 0) ? contact.emailAddresses[0].value as String : ""
-        imageData = contact.imageDataAvailable ? contact.imageData : nil
+        imageData = contact.thumbnailImageData
 
     }
     

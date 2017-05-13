@@ -14,11 +14,13 @@ import CoreLocation
 class MapViewInterfaceController: ManagedInterfaceController, CLLocationManagerDelegate {
 
     @IBOutlet var mapView: WKInterfaceMap!
+    static var instance: MapViewInterfaceController?
     var checkInLocations = [CLLocationCoordinate2D]()
     var locationManager: CLLocationManager!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        MapViewInterfaceController.instance = self
         
         // Configure interface objects here.
         locationManager = CLLocationManager()
@@ -29,9 +31,9 @@ class MapViewInterfaceController: ManagedInterfaceController, CLLocationManagerD
     }
     
     func getCoreLocations() {
-        ExtensionDelegate.session?.sendMessage(["Activity" : "MapRequest"], replyHandler: {
+        ExtensionDelegate.session?.sendMessage([WCD.KEY : WCD.mapLocationsRequest], replyHandler: {
             message in
-            guard message["Activity"] as? String == "MapReply", let latitude = message["latitude"], let longitude = message["longitude"] else {
+            guard message[WCD.KEY] as? String == WCD.mapLocationsRequest, let latitude = message["latitude"], let longitude = message["longitude"] else {
                 return
             }
             

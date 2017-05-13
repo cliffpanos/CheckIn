@@ -29,8 +29,7 @@ class CheckInPassInterfaceController: ManagedInterfaceController {
         
         self.imageView.setImage(WC.checkInPassImage)
         
-        if WC.checkInPassImage != nil { retrievingPassLabel.setHidden(true)
-        }
+        retrievingPassLabel.setHidden(WC.checkInPassImage != nil)
 
     }
         

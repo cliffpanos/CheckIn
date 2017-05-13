@@ -13,13 +13,17 @@ import Foundation
 class InterfaceController: ManagedInterfaceController {
     
     @IBOutlet var interfaceTable: WKInterfaceTable!
+    @IBOutlet var noPassesLabel: WKInterfaceLabel!
+    
     static var staticTable: WKInterfaceTable?
+    static var staticNoPassesLabel: WKInterfaceLabel?
     
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         WC.initialViewController = self
         InterfaceController.staticTable = interfaceTable
+        InterfaceController.staticNoPassesLabel = noPassesLabel
         
     }
     
@@ -30,11 +34,11 @@ class InterfaceController: ManagedInterfaceController {
         
         print("Actually updating table")
         table.setNumberOfRows(WC.passes.count, withRowType: "passCell")
-        for i in 0..<WC.passes.count {
-            let cell = table.rowController(at: i) as! PassCell
-            cell.decorate(for: WC.passes[i])
+        for index in 0..<WC.passes.count {
+            let cell = table.rowController(at: index) as! PassCell
+            cell.decorate(for: WC.passes[index])
         }
-        
+        staticNoPassesLabel?.setHidden(table.numberOfRows > 0)
         
     }
     
@@ -48,9 +52,11 @@ class InterfaceController: ManagedInterfaceController {
 
         if WC.passes.count == 0 {
             print("Interface Controller awake is requesting passes")
+            noPassesLabel.setHidden(false)
             WC.requestPassesFromiOS(forIndex: 0) //Begins the recursive pass request calls
+        } else {
+            noPassesLabel.setHidden(true)
         }
-        //InterfaceController.updatetable()
 
     }
 
@@ -87,7 +93,7 @@ class PassCell: NSObject {
         
 
         let components = pass.name.components(separatedBy: " ")
-        if components.count > 0 {
+        if components.count > 1 {
             guestName.setText("\(components[0]) \(components[1][0]).")
         } else {
             guestName.setText(pass.name)

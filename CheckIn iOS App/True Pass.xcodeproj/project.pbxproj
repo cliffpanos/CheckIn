@@ -10,6 +10,10 @@
 		910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910134571EB521EE006D11AD /* WCSessionManager.swift */; };
 		9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101345A1EB52902006D11AD /* 3D+QuickActions.swift */; };
 		9106AB601E9455C100CEBD7A /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106AB5F1E9455C100CEBD7A /* Designables.swift */; };
+		910FD5CF1EC6784C0058FF5C /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910FD5CD1EC678450058FF5C /* Pass.swift */; };
+		910FD5D01EC678520058FF5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
+		910FD5D11EC678C80058FF5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
+		910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */; };
 		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
 		9139BA671EBBFC2D00F365EF /* UserInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139BA661EBBFC2D00F365EF /* UserInfoInterfaceController.swift */; };
 		9139BA6A1EBC007700F365EF /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9139BA691EBC007700F365EF /* PassKit.framework */; };
@@ -25,7 +29,6 @@
 		917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917FDA061EB816BB00616173 /* CloudKit.framework */; };
 		917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA081EB8313800616173 /* Pin+Annotation.swift */; };
 		917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */; };
-		9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
 		9187E3BF1EA2F3700085E415 /* True PassWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C51EA2F3700085E415 /* InterfaceController.swift */; };
@@ -98,6 +101,8 @@
 		910134571EB521EE006D11AD /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
 		9101345A1EB52902006D11AD /* 3D+QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "3D+QuickActions.swift"; sourceTree = "<group>"; };
 		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
+		910FD5CD1EC678450058FF5C /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
 		9139BA661EBBFC2D00F365EF /* UserInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInterfaceController.swift; sourceTree = "<group>"; };
 		9139BA691EBC007700F365EF /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -185,6 +190,7 @@
 				910134571EB521EE006D11AD /* WCSessionManager.swift */,
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
 				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
+				910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */,
 				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 			);
 			name = Managers;
@@ -194,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */,
+				910FD5CD1EC678450058FF5C /* Pass.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -503,8 +510,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910FD5D11EC678C80058FF5C /* Interface.storyboard in Resources */,
 				9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */,
-				9187E3B61EA2F3700085E415 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +519,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910FD5D01EC678520058FF5C /* Interface.storyboard in Resources */,
 				9187E3CE1EA2F3700085E415 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +591,7 @@
 				916E0EF01E8F6CB700911417 /* True Pass.xcdatamodeld in Sources */,
 				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
 				91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */,
+				910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */,
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
 				910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */,
 				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
@@ -598,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9139BA671EBBFC2D00F365EF /* UserInfoInterfaceController.swift in Sources */,
+				910FD5CF1EC6784C0058FF5C /* Pass.swift in Sources */,
 				9187E3E11EA343490085E415 /* CheckInPassInterfaceController.swift in Sources */,
 				9187E3CA1EA2F3700085E415 /* NotificationController.swift in Sources */,
 				918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */,

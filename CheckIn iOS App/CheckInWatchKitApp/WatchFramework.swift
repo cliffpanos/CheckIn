@@ -67,21 +67,21 @@ class WC: NSObject {
     
     static func getQRCodeImageUsingWC() {
         
-        guard WC.checkInPassImage == nil else {
+        guard WC.checkInPassImage == nil && iPhoneIsAvailable else {
             return
         }
         
-        ExtensionDelegate.session?.sendMessage(["Activity" : "NeedCheckInPass"], replyHandler: {
+        ExtensionDelegate.session?.sendMessage([WCD.KEY : WCD.checkInPassRequest], replyHandler: {
             
             message in
         
             print("Did receive replyhandler for QRImage")
-            guard let imageData = message["CheckInPass"] as? Data else {
+            guard let imageData = message[WCD.checkInPassRequest] as? Data else {
                 print("WATCH MESSAGE HANDLER for QR CODE FAIL")
                 return
             }
             WC.checkInPassImage = UIImage(data: imageData)
-            print("IMAGE SETTING SUCCESS")
+            print("IMAGE SETTING FROM WC SUCCESS")
         
         }, errorHandler: { error in print(error) })
     
@@ -89,54 +89,45 @@ class WC: NSObject {
     
     
     //MARK: - Handle pass retrieval and storage
-    static var passes = [Pass]()
+    static var passes: [Pass] = []
     static func requestPassesFromiOS(forIndex index: Int) {
-        ExtensionDelegate.session?.sendMessage(["Activity" : "PassesRequest", "PassIndex" : index], replyHandler: { message in
-            guard let data = message["Payload"] as? Data else {
+        
+        guard iPhoneIsAvailable else { return }
+        
+        ExtensionDelegate.session?.sendMessage([WCD.KEY : WCD.allPassesRequest, WCD.nextPassIndex : index], replyHandler: { message in
+            guard let data = message[WCD.passPayload] as? Data else {
                 return //Meaning no passes were receieved
             }
             let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
             print("RECEIVED PASS REPLY FROM REQUEST from WC.swift")
-            WC.addPass(from: dictionary as! Dictionary<String, Any>)
+            WC.addPass(fromMessage: dictionary as! Dictionary<String, Any>)
             
-            let nextPassIndex = message["NextPassIndex"] as! Int
+            let nextPassIndex = message[WCD.nextPassIndex] as! Int
             if (nextPassIndex) != -1 {
                 WC.requestPassesFromiOS(forIndex: nextPassIndex)
             }
-            InterfaceController.updatetable()
-
 
         }, errorHandler: {error in print(error); print("Pass request failed")})
     }
-    static func addPass(from message: Dictionary<String, Any>) {
-        let pass = Pass()
-        pass.name = message["name"] as! String
-        pass.email = message["email"] as! String?
-        pass.image = message["image"] as? Data
-        pass.timeStart = message["timeStart"] as! String
-        pass.timeEnd = message["timeEnd"] as! String
+    static func addPass(fromMessage message: Dictionary<String, Any>) {
+        
+        let pass = constructPass(forDictionaryData: message)
         if !WC.passes.contains(pass) {
             WC.passes.append(pass)
             print("Pass added to Passes!")
+            InterfaceController.updatetable()
         }
     }
     
-
-}
-
-
-class Pass: Equatable {
-    var name: String!
-    var email: String?
-    var image: Data!
-    var timeEnd: String!
-    var timeStart: String!
-    
-    static func == (o1: Pass, o2: Pass) -> Bool {
-        
-        //TODO account for same times
-        let condition = o1.name == o2.name && o1.email == o2.email && o1.image == o2.image
-        return condition
+    static func constructPass(forDictionaryData dictionary: [String : Any]) -> Pass {
+        let pass = Pass()
+        pass.name = dictionary["name"] as! String
+        pass.email = dictionary["email"] as! String?
+        pass.image = dictionary["image"] as? Data
+        pass.timeStart = dictionary["timeStart"] as! String
+        pass.timeEnd = dictionary["timeEnd"] as! String
+        return pass
     }
     
+
 }
