@@ -13,16 +13,22 @@
 /* Finish geofences and check-in notifications
  CloudKit + other kits
  other peek & commit interaction
+
+ How to save Date data to database? And images? **********
+
  login screen for admins with QR scanner
- hash?
+ hash the QR code for security.
+ Use an identifier with each pass which is the hash of the pass info
+ Create the time travel and complication update functionality for the watch
  multiple contacts
  allow for multiple check-in locations
  action menu on ipads
  QR code encryption via hashing and identifier?
  Scroll views?
  iPad optimization with action sheet so that it doesn't crash
- WATCH APP
+ WATCH APP: Menu actions, settings updating, pass deletion, page becomeCurrentPage()
     Fix issue with signInController coming up twice when the user hasn't logged in before
+    Perfect 3D Menu Items on each interface controller and add a refresh button to the Passes InterfaceController
  Keep track of all user defaults stored so that they can be deleted upon logout
  WIDGET (Today View Extension)
  Add 3D Touch menu actions to watch app. Work on communication and core data things
@@ -34,6 +40,14 @@
 	- Double screen part: first screen is how to log in
 	- Animate in and out
 	- Show True Pass icon but with an alpha < 1
+ Add UserInfo keys to the 3D touch Quick Actions that represent their version / build number - DONE
+
+Find out why I can't rename my CheckIn directories to something else lol
+Create the CILocation class and maybe rename this to TRULocation
+Override hashCode for each guest pass
+Give each pass a unique identifier using its hashCode, and override hashCode for the Pass class - perhaps put the hashCode function into another class and make both the Core Data Pass class and the WatchKit app's Pass class subclass this new class that has the hash function?
+
+Implement a HashMap in swift and use it to store the passes based on their identifiers 
  */
 
 

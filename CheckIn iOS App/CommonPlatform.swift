@@ -31,6 +31,8 @@ enum WCD {
     static let mapLocationsRequest = "mapLocationsRequest"
     static let settingsUserDefault = "settingsUserDefault"
     
+    static let correctNumberOfPasses = "correctNumberOfPasses"
+    
     //From watchOS to iOS
     static let allPassesRequest = "allPassesRequest"
     
@@ -38,6 +40,7 @@ enum WCD {
     static let signInStatus = "signInStatus"
     static let singleNewPass = "singleNewPass"
     static let deletePass = "deletePass"
+    static let passDeletionSuccessStatus = "passDeletionSuccessStatus"
     
     static let passPayload = "passPayload"
     static let nextPassIndex = "nextPassIndex"

@@ -36,7 +36,7 @@ extension ExtensionDelegate {
             if let removalIndex = WC.passes.index(of: pass) {
                 WC.passes.remove(at: removalIndex)
                 print("DELETING A PASS")
-                InterfaceController.updatetable()
+                InterfaceController.removeTableItem(atIndex: removalIndex)
             }
             
         default: break
@@ -68,7 +68,7 @@ extension ExtensionDelegate {
         })
         print("Activation complete on watchOS")
         WC.getQRCodeImageUsingWC()
-        WC.requestPassesFromiOS(forIndex: 0)
+        WC.requestPassesFromiOS()
         
     }
     

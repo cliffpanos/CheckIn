@@ -16,8 +16,12 @@ class ManagedInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         // Configure interface objects here.
 
-        self.addMenuItem(with: #imageLiteral(resourceName: "QRQuickAction"), title: "My Pass", action: #selector(showUserCheckInPass))
-        self.addMenuItem(with: .info, title: "Map", action: #selector(showMapInterfaceController))
+        if !(self is CheckInPassInterfaceController) {
+            self.addMenuItem(with: #imageLiteral(resourceName: "QRQuickAction"), title: "My Pass", action: #selector(showUserCheckInPass))
+        }
+        if !(self is MapViewInterfaceController) {
+            self.addMenuItem(with: .info, title: "Map", action: #selector(showMapInterfaceController))
+        }
     }
 
     override func willActivate() {
@@ -29,6 +33,8 @@ class ManagedInterfaceController: WKInterfaceController {
     }
     
     override func didAppear() {
+        
+        //TODO fix double presenting of SignInController
         
         if let current = WC.currentlyPresenting, current is SignInController { return }
         
@@ -50,18 +56,17 @@ class ManagedInterfaceController: WKInterfaceController {
     
     //Menu Item selector functions below:
     func showUserCheckInPass() {
-        guard !(WC.currentlyPresenting is CheckInPassInterfaceController) else { return }
         self.presentController(withName: "checkInPassInterfaceController", context: nil)
     }
     func showMapInterfaceController() {
-        guard !(WC.currentlyPresenting is MapViewInterfaceController) else { return }
+        if (self is CheckInPassInterfaceController) { self.dismiss() }
         MapViewInterfaceController.instance?.becomeCurrentPage()
     }
 
 }
 
 
-class SignInController: ManagedInterfaceController {
+class SignInController: WKInterfaceController {
     
     @IBOutlet var checkInIcon: WKInterfaceImage!
     
@@ -69,5 +74,9 @@ class SignInController: ManagedInterfaceController {
         super.awake(withContext: context)
         checkInIcon.setImage(#imageLiteral(resourceName: "clearIcon"))
         checkInIcon.setTintColor(UIColor.white)
+    }
+    
+    override func didAppear() {
+        WC.currentlyPresenting = self   //Since this does not subclass ManagedInterfaceController
     }
 }

@@ -32,7 +32,7 @@ class CheckInPassViewController: UIViewController {
     }
 
     
-    //SEE Extensions.swift FOR UIScreen EXTENSION
+    //SEE Extensions.swift FOR UIScreen extension
     
     
     override func viewDidLoad() {

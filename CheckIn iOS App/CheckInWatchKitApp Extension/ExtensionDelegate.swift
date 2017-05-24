@@ -16,7 +16,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     func applicationDidFinishLaunching() {
         // Perform any final initialization of the application.
         WCActivator.set(&ExtensionDelegate.session, for: self)
-        WC.ext = self        
     }
     
     func applicationDidEnterBackground() {

@@ -8,12 +8,20 @@
 
 import Foundation
 
-class Pass: Equatable {
+class Pass: Equatable, Hashable {
     var name: String!
-    var email: String?
+    var email: String!
     var image: Data!
-    var timeEnd: String!
     var timeStart: String!
+    var timeEnd: String!
+    
+    var checkedIn: Bool?
+    var locationName: String?
+    
+    
+    var hashValue: Int {
+        return 1 //TODO
+    }
     
     static func == (p1: Pass, p2: Pass) -> Bool {
         

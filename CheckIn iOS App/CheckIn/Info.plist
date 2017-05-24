@@ -39,6 +39,11 @@
 			<string>Show My True Pass</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>showUserPass</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>version</key>
+				<real>1</real>
+			</dict>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
@@ -47,6 +52,11 @@
 			<string>New Guest Pass</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>newGuestPass</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>version</key>
+				<real>1</real>
+			</dict>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
@@ -55,6 +65,11 @@
 			<string>Check-In Now</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>checkInNow</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>version</key>
+				<real>1</real>
+			</dict>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>

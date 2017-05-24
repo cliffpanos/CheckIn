@@ -25,12 +25,12 @@ class InterfaceController: ManagedInterfaceController {
         InterfaceController.staticTable = interfaceTable
         InterfaceController.staticNoPassesLabel = noPassesLabel
         
+        self.addMenuItem(with: .repeat, title: "Refresh", action: #selector(refreshAllPasses))
+        
     }
     
     static func updatetable() {
-        guard let table = InterfaceController.staticTable else {
-            return
-        }
+        guard let table = InterfaceController.staticTable else { return }
         
         print("Actually updating table")
         table.setNumberOfRows(WC.passes.count, withRowType: "passCell")
@@ -40,6 +40,19 @@ class InterfaceController: ManagedInterfaceController {
         }
         staticNoPassesLabel?.setHidden(table.numberOfRows > 0)
         
+    }
+    
+    static func removeTableItem(atIndex index: Int) {
+        guard let table = InterfaceController.staticTable else { return }
+        let indexSet = IndexSet(integer: index)
+        if table.rowController(at: index) != nil {
+            table.removeRows(at: indexSet)
+        } //else the index is not valid
+    }
+    
+    func refreshAllPasses() {
+        WC.passes = []    //Necessary?
+        WC.requestPassesFromiOS()
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
@@ -53,7 +66,7 @@ class InterfaceController: ManagedInterfaceController {
         if WC.passes.count == 0 {
             print("Interface Controller awake is requesting passes")
             noPassesLabel.setHidden(false)
-            WC.requestPassesFromiOS(forIndex: 0) //Begins the recursive pass request calls
+            WC.requestPassesFromiOS() //Begins the recursive pass request calls
         } else {
             noPassesLabel.setHidden(true)
         }

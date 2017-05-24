@@ -13,7 +13,6 @@ class WC: NSObject {
     
     static var initialViewController: InterfaceController?
     static var currentlyPresenting: WKInterfaceController?
-    static var ext: WKExtensionDelegate?
     
     static var session: WCSession? {
         return ExtensionDelegate.session
@@ -90,7 +89,7 @@ class WC: NSObject {
     
     //MARK: - Handle pass retrieval and storage
     static var passes: [Pass] = []
-    static func requestPassesFromiOS(forIndex index: Int) {
+    static func requestPassesFromiOS(forIndex index: Int = 0) { //index = 0 means start the request from the beginning; a complete refresh
         
         guard iPhoneIsAvailable else { return }
         
@@ -100,6 +99,7 @@ class WC: NSObject {
             }
             let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
             print("RECEIVED PASS REPLY FROM REQUEST from WC.swift")
+            
             WC.addPass(fromMessage: dictionary as! Dictionary<String, Any>)
             
             let nextPassIndex = message[WCD.nextPassIndex] as! Int

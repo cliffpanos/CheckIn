@@ -52,6 +52,8 @@
 		91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAB1E9053B300F83E1C /* NewPassViewController.swift */; };
 		91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */; };
 		91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAF1E90DDDB00F83E1C /* MapViewController.swift */; };
+		919DF2791ED4EF0300D7D219 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919DF2781ED4EF0300D7D219 /* ContactView.xib */; };
+		919DF27B1ED4F21D00D7D219 /* ContactUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DF27A1ED4F21D00D7D219 /* ContactUIView.swift */; };
 		B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +152,8 @@
 		91989DAB1E9053B300F83E1C /* NewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPassViewController.swift; sourceTree = "<group>"; };
 		91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPassViewController.swift; sourceTree = "<group>"; };
 		91989DAF1E90DDDB00F83E1C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		919DF2781ED4EF0300D7D219 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactView.xib; sourceTree = "<group>"; };
+		919DF27A1ED4F21D00D7D219 /* ContactUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUIView.swift; sourceTree = "<group>"; };
 		BA47C6F0CB7D51770650959E /* Pods-CheckIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.debug.xcconfig"; sourceTree = "<group>"; };
 		BA900332F619702613FF1B96 /* Pods-CheckIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.release.xcconfig"; sourceTree = "<group>"; };
 		E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +237,8 @@
 		9169EE1B1EB2FB100018C434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				919DF2781ED4EF0300D7D219 /* ContactView.xib */,
+				919DF27A1ED4F21D00D7D219 /* ContactUIView.swift */,
 				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
 			);
 			name = Views;
@@ -499,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919DF2791ED4EF0300D7D219 /* ContactView.xib in Resources */,
 				916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */,
 				916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */,
 				91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */,
@@ -588,6 +595,7 @@
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
 				918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
+				919DF27B1ED4F21D00D7D219 /* ContactUIView.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* True Pass.xcdatamodeld in Sources */,
 				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
 				91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */,

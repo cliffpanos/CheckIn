@@ -67,7 +67,7 @@ class PassDetailViewController: UIViewController {
     func shareQRCode() {
         let qrCodeImage = C.generateQRCode(forMessage:
             "\(self.nameLabel.text!)|" +
-            "\(self.emailLabel.text ?? "No email provided")|" +
+            "\(self.emailLabel.text!)|" +
             "\(self.startTimeLabel.text!)|" +
             "\(self.endTimeLabel.text!)|" +
             "\(C.locationName)|"

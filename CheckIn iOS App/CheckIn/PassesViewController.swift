@@ -130,12 +130,17 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
 
 class PassCell: UITableViewCell {
     
+    var pass: Pass!
+    
     @IBOutlet weak var nameTitle: UILabel!
     @IBOutlet weak var contactView: UIImageView!
     @IBOutlet weak var startTime: UILabel!
     
     func decorate(for pass: Pass) {
-        self.nameTitle.text = pass.name ?? "Contact Name"
+        
+        self.pass = pass
+        
+        self.nameTitle.text = pass.name ?? "Contact Name Unknown"
         
         if let text = pass.timeStart {
             let components = text.components(separatedBy: ",")

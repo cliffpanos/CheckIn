@@ -65,3 +65,34 @@ class RoundedImageView: UIImageView {
     }
     
 }
+
+
+@IBDesignable
+class RoundedView: UIView {
+    
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        
+        didSet {
+            self.layer.cornerRadius = self.cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
+        
+        didSet {
+            self.layer.borderWidth = borderWidth
+            self.layer.masksToBounds = true
+        }
+        
+    }
+    
+    @IBInspectable var borderColor: UIColor = .black {
+        
+        didSet {
+            self.layer.borderColor = self.borderColor.cgColor
+            self.layer.masksToBounds = true
+        }
+    }
+    
+}

@@ -85,7 +85,7 @@ class C: WCActivator {
         }
         
         defer {
-            let data = C.preparedData(forPass: pass, includingImage: true)
+            let data = C.preparedData(forPass: pass)
             let newPassInfo = [WCD.KEY: WCD.singleNewPass, WCD.passPayload: data] as [String : Any]
             C.session?.transferUserInfo(newPassInfo)
         }
@@ -94,26 +94,29 @@ class C: WCActivator {
         
     }
     
-    static func delete(pass: Pass) -> Bool {
+    static func delete(pass: Pass, andInformWatchKitApp sendMessage: Bool = true) -> Bool {
         
         let data = C.preparedData(forPass: pass, includingImage: false)   //Do NOT include image
-        let deletePassInfo = [WCD.KEY: WCD.deletePass, WCD.passPayload: data] as [String : Any]
-        C.session?.transferUserInfo(deletePassInfo)
-    
+        
         let managedContext = C.appDelegate.persistentContainer.viewContext
         managedContext.delete(pass)
+        
+        if sendMessage {
+            let deletePassInfo = [WCD.KEY: WCD.deletePass, WCD.passPayload: data] as [String : Any]
+            C.session?.transferUserInfo(deletePassInfo)
+        }
     
         return C.appDelegate.saveContext()
         
     }
     
-    static func preparedData(forPass pass: Pass, includingImage: Bool) -> Data {
+    static func preparedData(forPass pass: Pass, includingImage: Bool = true) -> Data {
         
-        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeEnd", "timeStart"])
+        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeStart", "timeEnd"])
         
         if includingImage, let imageData = pass.image as Data?, let image = UIImage(data: imageData) {
             
-            let res = 120.0
+            let res = 60.0
             let resizedImage = image.drawInRectAspectFill(rect: CGRect(x: 0, y: 0, width: res, height: res))
             let reducedData = UIImagePNGRepresentation(resizedImage)
             

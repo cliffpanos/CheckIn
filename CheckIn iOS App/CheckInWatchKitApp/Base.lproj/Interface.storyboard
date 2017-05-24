@@ -199,7 +199,7 @@
         <!-- -->
         <scene sceneID="Gh1-dr-gTs">
             <objects>
-                <controller identifier="signInRequiredController" title=" " id="yi5-29-Av8" customClass="SignInController" customModule="True_PassWatchKitApp">
+                <controller identifier="signInRequiredController" title=" " id="yi5-29-Av8" customClass="SignInController" customModule="True_PassWatchKitApp_Extension">
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" spacing="10" id="JYq-lY-fPx">
                             <items>
