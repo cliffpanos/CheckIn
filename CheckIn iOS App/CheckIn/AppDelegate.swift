@@ -14,7 +14,8 @@
  CloudKit + other kits
  other peek & commit interaction
 
- How to save Date data to database? And images? **********
+ How to save Date data to database? CHANGE XCDATAMODEL to DATE!
+    And images? **********
 
  login screen for admins with QR scanner
  hash the QR code for security.
@@ -29,6 +30,7 @@
  WATCH APP: Menu actions, settings updating, pass deletion, page becomeCurrentPage()
     Fix issue with signInController coming up twice when the user hasn't logged in before
     Perfect 3D Menu Items on each interface controller and add a refresh button to the Passes InterfaceController
+ Implement handoff functionality between watch and iPhone
  Keep track of all user defaults stored so that they can be deleted upon logout
  WIDGET (Today View Extension)
  Add 3D Touch menu actions to watch app. Work on communication and core data things

@@ -629,21 +629,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" distribution="fillProportionally" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
+                                                <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Mk-Beq">
                                                     <rect key="frame" x="18" y="22" width="316" height="60"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenContactIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-DE-djI" customClass="RoundedImageView" customModule="True_Pass" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fDl-qp-eu8" customClass="ContactView" customModule="True_Pass" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="60" id="Lyd-d5-ksg"/>
-                                                                <constraint firstAttribute="width" constant="60" id="utx-5t-DcJ"/>
+                                                                <constraint firstAttribute="width" constant="60" id="TZn-Vr-wIy"/>
+                                                                <constraint firstAttribute="height" constant="60" id="qSn-Zb-uEV"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="30"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
+                                                        </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-4c-o63">
                                                             <rect key="frame" x="77" y="0.0" width="239" height="60"/>
                                                             <subviews>
@@ -664,7 +660,6 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="2de-JA-4xB"/>
-                                                        <constraint firstItem="yqU-DE-djI" firstAttribute="centerY" secondItem="ZPW-Mk-Beq" secondAttribute="centerY" id="sGq-Yy-HUA"/>
                                                         <constraint firstAttribute="trailing" secondItem="jgd-4c-o63" secondAttribute="trailing" id="vUy-D1-Ldz"/>
                                                         <constraint firstItem="jgd-4c-o63" firstAttribute="centerY" secondItem="ZPW-Mk-Beq" secondAttribute="centerY" id="y1m-4r-WrU"/>
                                                     </constraints>
@@ -678,7 +673,7 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outlet property="contactView" destination="yqU-DE-djI" id="3Ey-9Z-lLZ"/>
+                                            <outlet property="fullContactView" destination="fDl-qp-eu8" id="U5j-iK-O70"/>
                                             <outlet property="nameTitle" destination="saO-TA-7cA" id="I8x-Dv-Jgh"/>
                                             <outlet property="startTime" destination="Hln-1g-giH" id="TC4-ax-K94"/>
                                             <segue destination="3tQ-IF-YKG" kind="showDetail" identifier="pushToPresDetail" action="showViewController:sender:" id="9K0-40-2HE">
@@ -1067,7 +1062,6 @@
     </scenes>
     <resources>
         <image name="contactsIcon" width="24" height="24"/>
-        <image name="greenContactIcon" width="85" height="85"/>
         <image name="logout" width="24" height="22"/>
         <image name="vines" width="336" height="455"/>
     </resources>

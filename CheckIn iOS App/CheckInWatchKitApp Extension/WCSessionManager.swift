@@ -23,17 +23,19 @@ extension ExtensionDelegate {
     
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         switch (userInfo[WCD.KEY] as! String) {
+        
         case WCD.singleNewPass:
             let passData = userInfo[WCD.passPayload] as! Data
             let dictionary = NSKeyedUnarchiver.unarchiveObject(with: passData)
             print("RECEIVED SINGLE NEW PASS FROM REQUEST")
             WC.addPass(fromMessage: dictionary as! [String : Any])
-            InterfaceController.updatetable()
+        
         case WCD.deletePass:
             let passData = userInfo[WCD.passPayload] as! Data
             let dictionary = NSKeyedUnarchiver.unarchiveObject(with: passData)
-            let pass = WC.constructPass(forDictionaryData: dictionary as! [String : Any])
-            if let removalIndex = WC.passes.index(of: pass) {
+            if let pass = WC.constructPass(forDictionaryData: dictionary as! [String : Any]),
+                let removalIndex = WC.passes.index(of: pass) {
+                
                 WC.passes.remove(at: removalIndex)
                 print("DELETING A PASS")
                 InterfaceController.removeTableItem(atIndex: removalIndex)

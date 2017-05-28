@@ -21,7 +21,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
             startDatePicker.text = C.format(date: startDate)
         }
     }
-    var endDate: Date = Date() {
+    var endDate: Date = Date(timeInterval: (24 * 60 * 60), since: Date()) {
         didSet {
             endDatePicker.text = C.format(date: endDate)
         }
@@ -61,8 +61,8 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
         //The start & end TextFields are really just conduits for the date picker
         startDatePicker.inputView = datePicker
         endDatePicker.inputView = datePicker
-        startDatePicker.text = C.format(date: Date())
-        endDatePicker.placeholder = C.format(date: Date())
+        startDatePicker.text = C.format(date: startDate)
+        endDatePicker.placeholder = C.format(date: endDate)
     
     }
     
@@ -129,7 +129,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func authorizePassPressed() {
-        if nameTextField.text == "" {
+        if nameTextField.text == "" || nameTextField.text == " " {
             let alert = UIAlertController(title: "Insufficient Information", message: "Please enter at minimum a name", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
@@ -148,7 +148,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     
     func createAndSavePass() {
         
-        let name = nameTextField.text ?? ""
+        let name = nameTextField.text ?? "No Name"
         let email = emailTextField.text == "" ? "no email provided" : emailTextField.text ?? ""
         let start = self.startDate
         let end = self.endDate
@@ -222,6 +222,8 @@ extension NewPassViewController: CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         
         nameTextField.text = contact.givenName as String + " " + contact.familyName + " " + contact.nameSuffix
+        if nameTextField.text!.isEmptyOrWhitespace() { nameTextField.text = "Contact Name Unknown" }
+
         emailTextField.text = (contact.emailAddresses.count > 0) ? contact.emailAddresses[0].value as String : ""
         imageData = contact.thumbnailImageData
 

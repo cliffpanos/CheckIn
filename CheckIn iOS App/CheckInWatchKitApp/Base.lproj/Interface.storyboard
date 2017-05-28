@@ -64,7 +64,7 @@
                                         <tableRow identifier="passCell" id="8Dz-6V-GKF" customClass="PassCell" customModule="True_PassWatchKitApp_Extension">
                                             <group key="rootItem" width="1" height="40" alignment="left" spacing="0.0" id="qlq-0f-swz">
                                                 <items>
-                                                    <group width="1" height="1" alignment="left" contentMode="center" spacing="8" id="JGi-UC-B6h">
+                                                    <group width="1" height="1" alignment="left" contentMode="center" spacing="7" id="JGi-UC-B6h">
                                                         <items>
                                                             <separator height="1" heightAdjustment="-5" alignment="left" verticalAlignment="center" id="e4r-zB-VKE">
                                                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,11 +115,11 @@
             <objects>
                 <controller identifier="userInfoController" title="My Info" id="UDT-uv-SMq" customClass="UserInfoInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" spacing="6" id="MHK-88-zcO">
+                        <group width="1" height="1" alignment="left" layout="vertical" spacing="7" id="MHK-88-zcO">
                             <items>
                                 <group width="1" alignment="left" spacing="4" id="QSJ-25-rrl">
                                     <items>
-                                        <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="clearIcon" contentMode="scaleAspectFill" id="z1C-xh-1Bp"/>
+                                        <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="TruePassIcon" contentMode="scaleAspectFill" id="z1C-xh-1Bp"/>
                                         <label width="0.69999999999999996" alignment="center" verticalAlignment="center" text="CLIFF" textAlignment="center" id="d1J-37-Vjl">
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" type="system" weight="light" pointSize="20"/>
@@ -156,24 +156,44 @@
         <!--Close-->
         <scene sceneID="qgw-9v-2fv">
             <objects>
-                <controller identifier="passDetailController" title="Close" id="Gfe-By-bMv" customClass="PassDetailInterfaceController" customModule="True_PassWatchKitApp_Extension">
+                <controller identifier="passDetailController" title="Close" spacing="3" id="Gfe-By-bMv" customClass="PassDetailInterfaceController" customModule="True_PassWatchKitApp_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" radius="7" spacing="13" id="VUw-iV-BMH">
+                        <group width="1" height="42" alignment="left" layout="vertical" radius="7" spacing="13" id="VUw-iV-BMH">
                             <items>
-                                <label width="1" alignment="left" text="GuestFirstName GuestLastName" textAlignment="center" numberOfLines="2" id="Zgo-yS-vk5">
-                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                </label>
-                                <separator alignment="left" id="Upy-9L-gzE"/>
+                                <group width="1" alignment="left" verticalAlignment="center" spacing="5" id="VhK-kS-gSX">
+                                    <items>
+                                        <separator height="35" alignment="left" verticalAlignment="center" id="EYe-wN-b9b">
+                                            <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </separator>
+                                        <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="ZGV-kV-TXm">
+                                            <items>
+                                                <imageView width="30" height="30" alignment="left" image="clearIcon" id="40o-aH-UF1"/>
+                                            </items>
+                                        </group>
+                                        <label width="0.71999999999999997" alignment="left" verticalAlignment="center" text="FirstName LastName" textAlignment="left" numberOfLines="2" minimumScaleFactor="0.80000000000000004" id="Zgo-yS-vk5">
+                                            <color key="textColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <edgeInsets key="margins" left="5" right="3" top="0.0" bottom="0.0"/>
+                        </group>
+                        <group width="1" height="0.69999999999999996" alignment="left" layout="vertical" spacing="8" id="eLa-dM-7s1">
+                            <items>
                                 <group width="1" alignment="left" layout="vertical" spacing="0.0" id="K48-FX-NRc">
                                     <items>
-                                        <dateLabel width="1" alignment="left" textAlignment="left" id="Htc-O3-EDF">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <dateLabel width="1" alignment="left" textAlignment="center" id="Htc-O3-EDF">
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <dateFormatterStyle key="dateStyle" short="YES"/>
                                             <dateFormatterStyle key="timeStyle" short="YES"/>
+                                            <date key="previewedDate" timeIntervalSinceReferenceDate="431248020">
+                                                <!--2014-09-01 07:07:00 +0000-->
+                                            </date>
                                         </dateLabel>
-                                        <dateLabel width="1" alignment="left" textAlignment="right" id="zY4-DW-30j">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <dateLabel width="1" alignment="left" textAlignment="center" id="zY4-DW-30j">
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <dateFormatterStyle key="dateStyle" short="YES"/>
                                             <dateFormatterStyle key="timeStyle" short="YES"/>
                                         </dateLabel>
@@ -185,11 +205,12 @@
                                 </label>
                             </items>
                             <color key="backgroundColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <edgeInsets key="margins" left="3" right="3" top="1" bottom="2"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="7" bottom="4"/>
                         </group>
                     </items>
                     <edgeInsets key="margins" left="1" right="1" top="3" bottom="0.0"/>
                     <connections>
+                        <outlet property="imageView" destination="40o-aH-UF1" id="UQf-Cp-FMA"/>
                         <outlet property="nameLabel" destination="Zgo-yS-vk5" id="bDr-3l-eao"/>
                     </connections>
                 </controller>
@@ -203,9 +224,13 @@
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" spacing="10" id="JYq-lY-fPx">
                             <items>
-                                <imageView alignment="center" verticalAlignment="center" image="clearIcon" id="Omr-dv-TjD">
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </imageView>
+                                <group width="35" height="35" alignment="center" verticalAlignment="center" layout="vertical" radius="6" id="vYy-zM-eqA">
+                                    <items>
+                                        <imageView alignment="center" verticalAlignment="center" image="TruePassIcon" id="Omr-dv-TjD">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                    </items>
+                                </group>
                                 <label width="0.59999999999999998" alignment="center" verticalAlignment="center" text="Sign into True Pass on iPhone" textAlignment="center" numberOfLines="4" id="cgT-82-zT8">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="light" pointSize="15"/>

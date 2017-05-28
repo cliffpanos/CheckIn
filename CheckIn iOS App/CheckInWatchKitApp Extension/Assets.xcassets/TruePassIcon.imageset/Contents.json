@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "clearIcon.png",
+      "filename" : "TruePassIcon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "clearIcon@2x.png",
+      "filename" : "TruePassIcon@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "clearIcon@3x.png",
+      "filename" : "TruePassIcon@3x.png",
       "scale" : "3x"
     }
   ],

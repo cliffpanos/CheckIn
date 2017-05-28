@@ -22,7 +22,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         super.viewDidLoad()
         
         searchBar = searchDisplay.searchBar
-        searchBar.placeholder = "Search by contact"
+        searchBar.placeholder = "Search guest passes"
         searchBar.autocapitalizationType = .words
         searchBar.delegate = self
         searchDisplay.dimsBackgroundDuringPresentation = false
@@ -30,6 +30,8 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         
         
         tableView.tableHeaderView = searchDisplay.searchBar
+        
+        //Hide the search bar on initial launch
         let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
         tableView.setContentOffset(offset, animated: true)
         
@@ -131,10 +133,12 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
 class PassCell: UITableViewCell {
     
     var pass: Pass!
+    var contactTextView = ContactView()
+
     
     @IBOutlet weak var nameTitle: UILabel!
-    @IBOutlet weak var contactView: UIImageView!
     @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var fullContactView: ContactView!
     
     func decorate(for pass: Pass) {
         
@@ -148,14 +152,8 @@ class PassCell: UITableViewCell {
         } else {
             self.startTime.text = pass.timeStart ?? "No Start Date & Time"
         }
+
+        fullContactView.setupContactView(forData: pass.image as Data?, andName: pass.name!)
         
-        if let imageData = pass.image {
-            let image = UIImage(data: imageData as Data)
-            contactView.image = image
-            return
-        }
-        
-        let imageName = C.passesActive ? "greenContactIcon" : "contactIcon"
-        contactView.image = UIImage(named: imageName)
     }
 }

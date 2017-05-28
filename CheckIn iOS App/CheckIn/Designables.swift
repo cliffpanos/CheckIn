@@ -77,14 +77,13 @@ class RoundedView: UIView {
             self.layer.masksToBounds = true
         }
     }
-    
+        
     @IBInspectable var borderWidth: CGFloat = 0.0 {
         
         didSet {
             self.layer.borderWidth = borderWidth
             self.layer.masksToBounds = true
         }
-        
     }
     
     @IBInspectable var borderColor: UIColor = .black {
@@ -95,4 +94,16 @@ class RoundedView: UIView {
         }
     }
     
+}
+
+@IBDesignable
+class CircularView: RoundedView {
+    
+    override func layoutSubviews() { //Maintain circular roundness
+        super.layoutSubviews()
+        
+        let radius: CGFloat = self.bounds.size.width / 2.0
+        
+        self.cornerRadius = radius
+    }
 }

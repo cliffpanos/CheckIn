@@ -42,12 +42,29 @@ class InterfaceController: ManagedInterfaceController {
         
     }
     
+    //By default will add the item to the bottom of the table
+    static func addTableItem(atIndex index: Int = staticTable?.numberOfRows ?? 0) {
+        
+        guard let table = InterfaceController.staticTable else { return }
+        
+        let indexSet = IndexSet(integer: index)
+        table.insertRows(at: indexSet, withRowType: "passCell")
+        let cell = table.rowController(at: index) as! PassCell
+        cell.decorate(for: WC.passes[index])
+        
+        staticNoPassesLabel?.setHidden(table.numberOfRows > 0)
+
+    }
+    
     static func removeTableItem(atIndex index: Int) {
         guard let table = InterfaceController.staticTable else { return }
         let indexSet = IndexSet(integer: index)
         if table.rowController(at: index) != nil {
             table.removeRows(at: indexSet)
         } //else the index is not valid
+        
+        staticNoPassesLabel?.setHidden(table.numberOfRows > 0)
+
     }
     
     func refreshAllPasses() {
@@ -106,7 +123,7 @@ class PassCell: NSObject {
         
 
         let components = pass.name.components(separatedBy: " ")
-        if components.count > 1 {
+        if components.count > 1 && !components[1].isEmptyOrWhitespace() {
             guestName.setText("\(components[0]) \(components[1][0]).")
         } else {
             guestName.setText(pass.name)

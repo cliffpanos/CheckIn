@@ -13,6 +13,8 @@ import Foundation
 class PassDetailInterfaceController: ManagedInterfaceController {
 
     @IBOutlet var nameLabel: WKInterfaceLabel!
+    @IBOutlet var imageView: WKInterfaceImage!
+    
     var pass: Pass?
     
     override func awake(withContext context: Any?) {
@@ -22,6 +24,13 @@ class PassDetailInterfaceController: ManagedInterfaceController {
         self.pass = pass
         
         nameLabel.setText(pass.name)
+        
+        if let imageData = pass.image {
+            let image = UIImage(data: imageData)
+            self.imageView.setImage(image)
+        } else {
+            self.imageView.setImage(#imageLiteral(resourceName: "clearIcon"))
+        }
         
         
         self.addMenuItem(with: .trash, title: "Revoke", action: #selector(requestDeletionOfPass))

@@ -8,12 +8,14 @@
 
 import UIKit
 
+//An extension for the String class exists in CommonPlatform.swift
+
 extension UIColor {
     
-    static func color(fromHex rgbValue: UInt32) ->UIColor {
-        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/255.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/255.0
-        let blue = CGFloat(rgbValue & 0xFF)/255.0
+    static func color(fromHex hex: UInt32) ->UIColor {
+        let red = CGFloat((hex & 0xFF0000) >> 16)/255.0
+        let green = CGFloat((hex & 0xFF00) >> 8)/255.0
+        let blue = CGFloat(hex & 0xFF)/255.0
         
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
@@ -21,6 +23,7 @@ extension UIColor {
     enum TrueColors {
         static let softRed = UIColor.color(fromHex: 0xFF0033)
         static let blue = UIColor.color(fromHex: 0x0066FF)
+        static let lightBlue = UIColor.color(fromHex: 0x0191FF)
         static let green = UIColor.color(fromHex: 0x33CC33)
         static let medGray = UIColor.color(fromHex: 0x666666)
     }
@@ -65,7 +68,7 @@ extension UIScreen {
 
 extension UIImage {
     
-    func drawInRectAspectFill(rect: CGRect) -> UIImage {
+    func drawAspectFill(in rect: CGRect) -> UIImage {
         let targetSize = rect.size
 
         let widthRatio = targetSize.width  / self.size.width

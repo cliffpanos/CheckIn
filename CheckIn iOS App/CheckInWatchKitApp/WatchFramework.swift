@@ -91,7 +91,10 @@ class WC: NSObject {
     static var passes: [Pass] = []
     static func requestPassesFromiOS(forIndex index: Int = 0) { //index = 0 means start the request from the beginning; a complete refresh
         
-        guard iPhoneIsAvailable else { return }
+        guard iPhoneIsAvailable else {
+            WC.currentlyPresenting?.presentAlert(withTitle: "Connectivity Issue", message: "Watch App unable to retrieve True Passes from iOS App", preferredStyle: .alert, actions: [])
+            return
+        }
         
         ExtensionDelegate.session?.sendMessage([WCD.KEY : WCD.allPassesRequest, WCD.nextPassIndex : index], replyHandler: { message in
             guard let data = message[WCD.passPayload] as? Data else {
@@ -109,19 +112,24 @@ class WC: NSObject {
 
         }, errorHandler: {error in print(error); print("Pass request failed")})
     }
+    
     static func addPass(fromMessage message: Dictionary<String, Any>) {
         
-        let pass = constructPass(forDictionaryData: message)
+        guard let pass = constructPass(forDictionaryData: message) else { return }
+        
         if !WC.passes.contains(pass) {
             WC.passes.append(pass)
             print("Pass added to Passes!")
-            InterfaceController.updatetable()
+            InterfaceController.addTableItem() //default adds new Pass to back
         }
     }
     
-    static func constructPass(forDictionaryData dictionary: [String : Any]) -> Pass {
+    static func constructPass(forDictionaryData dictionary: [String : Any]) -> Pass? {
         let pass = Pass()
-        pass.name = dictionary["name"] as! String
+
+        guard let passName = dictionary["name"] as? String else { return nil }
+        
+        pass.name = passName
         pass.email = dictionary["email"] as! String?
         pass.image = dictionary["image"] as? Data
         pass.timeStart = dictionary["timeStart"] as! String

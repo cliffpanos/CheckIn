@@ -60,7 +60,18 @@ class WCActivator {
 }
 
 extension String {
+    
     subscript (i: Int) -> String {
+        if self.isEmptyOrWhitespace() { return "" }
         return String(self[self.index(self.startIndex, offsetBy: String.IndexDistance(i))])
+    }
+    
+    func isEmptyOrWhitespace() -> Bool {
+        
+        if(self.isEmpty) {
+            return true
+        }
+        
+        return (trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)
     }
 }

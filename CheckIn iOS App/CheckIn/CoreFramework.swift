@@ -38,6 +38,7 @@ class C: WCActivator {
             if let passes = try? managedContext.fetch(fetchRequest) {
                 return passes
             }
+
             return [Pass]()
         }
         /*set (newPasses) {
@@ -80,13 +81,18 @@ class C: WCActivator {
         pass.timeStart = C.format(date: startTime)
         pass.timeEnd = C.format(date: endTime)
         
-        if let data = imageData {
+        if let data = imageData, let image = UIImage(data: data) {
+            print("OLD IMAGE SIZE: \(data.count)")
+            let resizedImage = image.drawAspectFill(in: CGRect(x: 0, y: 0, width: 240, height: 240))
+            let reducedData = UIImagePNGRepresentation(resizedImage)
+            print("NEW IMAGE SIZE: \(reducedData!.count)")
+
             pass.image = data as NSData
         }
         
         defer {
-            let data = C.preparedData(forPass: pass)
-            let newPassInfo = [WCD.KEY: WCD.singleNewPass, WCD.passPayload: data] as [String : Any]
+            let passData = C.preparedData(forPass: pass)
+            let newPassInfo = [WCD.KEY: WCD.singleNewPass, WCD.passPayload: passData] as [String : Any]
             C.session?.transferUserInfo(newPassInfo)
         }
         
@@ -101,9 +107,15 @@ class C: WCActivator {
         let managedContext = C.appDelegate.persistentContainer.viewContext
         managedContext.delete(pass)
         
+        defer {
         if sendMessage {
             let deletePassInfo = [WCD.KEY: WCD.deletePass, WCD.passPayload: data] as [String : Any]
             C.session?.transferUserInfo(deletePassInfo)
+        }
+        }
+        
+        if let vc = UIWindow.presented.viewController as? PassDetailViewController {
+            vc.navigationController?.popViewController(animated: true)
         }
     
         return C.appDelegate.saveContext()
@@ -117,7 +129,7 @@ class C: WCActivator {
         if includingImage, let imageData = pass.image as Data?, let image = UIImage(data: imageData) {
             
             let res = 60.0
-            let resizedImage = image.drawInRectAspectFill(rect: CGRect(x: 0, y: 0, width: res, height: res))
+            let resizedImage = image.drawAspectFill(in: CGRect(x: 0, y: 0, width: res, height: res))
             let reducedData = UIImagePNGRepresentation(resizedImage)
             
             print("Contact Image Message Size: \(reducedData?.count ?? 0)")

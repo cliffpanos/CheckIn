@@ -59,7 +59,7 @@ class ManagedInterfaceController: WKInterfaceController {
         self.presentController(withName: "checkInPassInterfaceController", context: nil)
     }
     func showMapInterfaceController() {
-        if (self is CheckInPassInterfaceController) { self.dismiss() }
+        if (self is CheckInPassInterfaceController || self is PassDetailInterfaceController) { self.dismiss() }
         MapViewInterfaceController.instance?.becomeCurrentPage()
     }
 
@@ -72,7 +72,7 @@ class SignInController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        checkInIcon.setImage(#imageLiteral(resourceName: "clearIcon"))
+        checkInIcon.setImage(#imageLiteral(resourceName: "TruePassIcon"))
         checkInIcon.setTintColor(UIColor.white)
     }
     

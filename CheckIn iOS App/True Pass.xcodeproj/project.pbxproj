@@ -53,7 +53,8 @@
 		91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */; };
 		91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAF1E90DDDB00F83E1C /* MapViewController.swift */; };
 		919DF2791ED4EF0300D7D219 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919DF2781ED4EF0300D7D219 /* ContactView.xib */; };
-		919DF27B1ED4F21D00D7D219 /* ContactUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DF27A1ED4F21D00D7D219 /* ContactUIView.swift */; };
+		919DF27B1ED4F21D00D7D219 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DF27A1ED4F21D00D7D219 /* ContactView.swift */; };
+		91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D517BA1ED7908E00E6B452 /* PassKitManager.swift */; };
 		B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +154,8 @@
 		91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPassViewController.swift; sourceTree = "<group>"; };
 		91989DAF1E90DDDB00F83E1C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		919DF2781ED4EF0300D7D219 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactView.xib; sourceTree = "<group>"; };
-		919DF27A1ED4F21D00D7D219 /* ContactUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUIView.swift; sourceTree = "<group>"; };
+		919DF27A1ED4F21D00D7D219 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		91D517BA1ED7908E00E6B452 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassKitManager.swift; sourceTree = "<group>"; };
 		BA47C6F0CB7D51770650959E /* Pods-CheckIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.debug.xcconfig"; sourceTree = "<group>"; };
 		BA900332F619702613FF1B96 /* Pods-CheckIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.release.xcconfig"; sourceTree = "<group>"; };
 		E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
 				910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */,
 				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
+				91D517B91ED7906800E6B452 /* PassKitService */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -222,14 +225,14 @@
 		9169EE1A1EB2FAF10018C434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				916E0EE91E8F6CB700911417 /* RootViewController.swift */,
+				91989DA31E90024800F83E1C /* PassesViewController.swift */,
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
 				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
-				91989DA31E90024800F83E1C /* PassesViewController.swift */,
 				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
 				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
 				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
 				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
+				916E0EE91E8F6CB700911417 /* RootViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -238,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				919DF2781ED4EF0300D7D219 /* ContactView.xib */,
-				919DF27A1ED4F21D00D7D219 /* ContactUIView.swift */,
+				919DF27A1ED4F21D00D7D219 /* ContactView.swift */,
 				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
 			);
 			name = Views;
@@ -249,6 +252,7 @@
 			children = (
 				9139BA6C1EBC011900F365EF /* True PassWatchKitApp Extension.entitlements */,
 				918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */,
+				916E0EEE1E8F6CB700911417 /* True Pass.xcdatamodeld */,
 				916E0EE61E8F6CB700911417 /* True Pass */,
 				9187E3B31EA2F3700085E415 /* TruePassWatchKitApp */,
 				9187E3C21EA2F3700085E415 /* TruePassWatchKitAppExtension */,
@@ -281,7 +285,6 @@
 				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
 				916E0EF61E8F6CB700911417 /* Info.plist */,
 				91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */,
-				916E0EEE1E8F6CB700911417 /* True Pass.xcdatamodeld */,
 				916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */,
 			);
 			name = "True Pass";
@@ -344,6 +347,14 @@
 				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		91D517B91ED7906800E6B452 /* PassKitService */ = {
+			isa = PBXGroup;
+			children = (
+				91D517BA1ED7908E00E6B452 /* PassKitManager.swift */,
+			);
+			name = PassKitService;
 			sourceTree = "<group>";
 		};
 		95260616F8D44D890B15213F /* Frameworks */ = {
@@ -595,8 +606,9 @@
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
 				918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
-				919DF27B1ED4F21D00D7D219 /* ContactUIView.swift in Sources */,
+				919DF27B1ED4F21D00D7D219 /* ContactView.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* True Pass.xcdatamodeld in Sources */,
+				91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */,
 				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
 				91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */,
 				910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */,
@@ -927,7 +939,8 @@
 				916E0EEF1E8F6CB700911417 /* True Pass.xcdatamodel */,
 			);
 			currentVersion = 916E0EEF1E8F6CB700911417 /* True Pass.xcdatamodel */;
-			path = "True Pass.xcdatamodeld";
+			name = "True Pass.xcdatamodeld";
+			path = "CheckIn/True Pass.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

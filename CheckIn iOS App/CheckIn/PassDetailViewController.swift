@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PassDetailViewController: UIViewController {
+class PassDetailViewController: ManagedViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -40,6 +40,7 @@ class PassDetailViewController: UIViewController {
             let image = UIImage(data: imageData as Data)
                 imageView.image = image
         }
+        
 
         navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         navigationItem.titleView?.addSubview(imageView)
@@ -79,6 +80,10 @@ class PassDetailViewController: UIViewController {
     @IBAction func revokeAccessPressed(_ sender: Any) {
         
         C.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, withStyle: .actionSheet) { _ in
+            
+            //All passes MUST have a name, so if the name is nil, then the pass no longer exists in CoreData
+            guard self.pass.name != nil else { return }
+            
             let success = C.delete(pass: self.pass)
             
             if success {

@@ -17,7 +17,7 @@ class UserInfoInterfaceController: ManagedInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        userProfileImage.setImage(#imageLiteral(resourceName: "clearIcon"))
+        userProfileImage.setImage(#imageLiteral(resourceName: "TruePassIcon"))
         // Configure interface objects here.
     }
 
