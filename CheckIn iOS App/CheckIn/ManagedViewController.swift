@@ -27,7 +27,7 @@ class ManagedViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View DID APPEAR")
+        print("View DID APPEAR and is Presented")
         
         UIWindow.presented.viewController = self
         //Core purpose of this custom class

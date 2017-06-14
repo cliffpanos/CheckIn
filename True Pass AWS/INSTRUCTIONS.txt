@@ -1,0 +1,19 @@
+Things to note:
+Go to: https://www.nginx.com/blog/setting-up-nginx/
+
+- All NGINX stuff is in the root directory
+	must begin with /
+- the main directories are:
+	 /etc/nginx
+	 /public_html
+	 /data
+
+- within data is images
+
+Whenever dealing with root folders and files, you must use sudo
+	To avoid this, go to where the directory is and type:
+	sudo chown ec2-user directory_name
+
+
+TO CHANGE THE DEFAULT WEBPAGE back to the original:
+	go to /etc/nginx/conf.d and change the virtual… file to be virtual.conf

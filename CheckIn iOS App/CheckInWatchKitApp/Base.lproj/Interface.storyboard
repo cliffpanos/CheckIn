@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,8 +16,8 @@
                         <separator width="1" alignment="center" verticalAlignment="center" id="Isw-Vm-IXR">
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <label width="1" height="100" alignment="left" verticalAlignment="center" text="Retrieving Pass" textAlignment="center" id="QWJ-i0-JOI">
-                            <color key="textColor" red="0.91350960729999997" green="0.26529294250000002" blue="0.35295885799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <label width="1" height="100" alignment="left" verticalAlignment="center" text="Retrieving Pass" textAlignment="center" numberOfLines="2" id="QWJ-i0-JOI">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <imageView alignment="center" verticalAlignment="center" id="6mw-tI-a3l">
@@ -71,7 +71,7 @@
                                                             </separator>
                                                             <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="OnE-UB-mZR">
                                                                 <items>
-                                                                    <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="clearIcon" contentMode="scaleAspectFill" id="GfI-pr-Ux2"/>
+                                                                    <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="ModernContactEmpty" contentMode="scaleAspectFill" id="GfI-pr-Ux2"/>
                                                                 </items>
                                                             </group>
                                                             <label height="40" alignment="left" text="Guest Name" textAlignment="left" id="3P3-xD-IYA">
@@ -108,7 +108,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="217" y="-102"/>
+            <point key="canvasLocation" x="220" y="-508"/>
         </scene>
         <!--My Info-->
         <scene sceneID="qJv-7B-2iB">
@@ -151,7 +151,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="217" y="-479"/>
+            <point key="canvasLocation" x="220" y="-104"/>
         </scene>
         <!--Close-->
         <scene sceneID="qgw-9v-2fv">
@@ -167,7 +167,7 @@
                                         </separator>
                                         <group alignment="left" verticalAlignment="center" layout="vertical" radius="15" id="ZGV-kV-TXm">
                                             <items>
-                                                <imageView width="30" height="30" alignment="left" image="clearIcon" id="40o-aH-UF1"/>
+                                                <imageView width="30" height="30" alignment="left" image="ModernContactEmpty" id="40o-aH-UF1"/>
                                             </items>
                                         </group>
                                         <label width="0.71999999999999997" alignment="left" verticalAlignment="center" text="FirstName LastName" textAlignment="left" numberOfLines="2" minimumScaleFactor="0.80000000000000004" id="Zgo-yS-vk5">
@@ -215,7 +215,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="301"/>
+            <point key="canvasLocation" x="468" y="264"/>
         </scene>
         <!-- -->
         <scene sceneID="Gh1-dr-gTs">
@@ -244,7 +244,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="-479"/>
+            <point key="canvasLocation" x="468" y="-508"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="aG1-74-GAe">
@@ -255,7 +255,7 @@
                         <group width="1" height="0.14999999999999999" alignment="left" id="9rm-2C-dIY">
                             <items>
                                 <label width="1" alignment="left" verticalAlignment="center" text="iOS Club Location" textAlignment="center" numberOfLines="2" id="nct-kO-Hwr">
-                                    <color key="textColor" red="0.47863343359999999" green="0.83529186249999998" blue="0.46663740279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" weight="light" pointSize="15"/>
                                 </label>
                             </items>
@@ -267,7 +267,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="301"/>
+            <point key="canvasLocation" x="220" y="265"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -25,7 +25,7 @@ class InterfaceController: ManagedInterfaceController {
         InterfaceController.staticTable = interfaceTable
         InterfaceController.staticNoPassesLabel = noPassesLabel
         
-        self.addMenuItem(with: .repeat, title: "Refresh", action: #selector(refreshAllPasses))
+        self.addMenuItem(with: .resume, title: "Refresh", action: #selector(refreshAllPasses))
         
     }
     
@@ -88,12 +88,6 @@ class InterfaceController: ManagedInterfaceController {
             noPassesLabel.setHidden(true)
         }
 
-    }
-
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 
 }

@@ -39,6 +39,9 @@ extension ExtensionDelegate {
                 WC.passes.remove(at: removalIndex)
                 print("DELETING A PASS")
                 InterfaceController.removeTableItem(atIndex: removalIndex)
+                if let vc = WC.currentlyPresenting as? PassDetailInterfaceController, vc.pass == pass {
+                    vc.dismiss()
+                }
             }
             
         default: break
@@ -81,6 +84,7 @@ extension ExtensionDelegate {
             WC.session?.activate()
         }
         WC.getQRCodeImageUsingWC()
+        if WC.passes.count == 0 { WC.requestPassesFromiOS() }
     }
 
 }

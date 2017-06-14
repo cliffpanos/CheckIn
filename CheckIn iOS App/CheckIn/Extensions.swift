@@ -10,24 +10,8 @@ import UIKit
 
 //An extension for the String class exists in CommonPlatform.swift
 
-extension UIColor {
-    
-    static func color(fromHex hex: UInt32) ->UIColor {
-        let red = CGFloat((hex & 0xFF0000) >> 16)/255.0
-        let green = CGFloat((hex & 0xFF00) >> 8)/255.0
-        let blue = CGFloat(hex & 0xFF)/255.0
-        
-        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-    }
-    
-    enum TrueColors {
-        static let softRed = UIColor.color(fromHex: 0xFF0033)
-        static let blue = UIColor.color(fromHex: 0x0066FF)
-        static let lightBlue = UIColor.color(fromHex: 0x0191FF)
-        static let green = UIColor.color(fromHex: 0x33CC33)
-        static let medGray = UIColor.color(fromHex: 0x666666)
-    }
-}
+//An extension for the UIColor class exists in CommonPlatform.swift
+
 
 
 extension UIScreen {
@@ -61,10 +45,29 @@ extension UIScreen {
         }
     }
     
-    
-
 }
 
+
+extension String {
+    func toBool() -> Bool? {
+        switch self {
+        case "True", "true", "yes", "1":
+            print("toBool function called")
+            return true
+        case "False", "false", "no", "0":
+            print("toBool function called")
+            return false
+        default:
+            return nil
+        }
+    }
+}
+
+extension UIDevice {
+    public var isVertical: Bool {
+        return self.orientation.isPortrait || (self.orientation.isFlat && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width)
+    }
+}
 
 extension UIImage {
     

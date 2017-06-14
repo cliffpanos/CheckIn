@@ -24,8 +24,9 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         searchBar = searchDisplay.searchBar
         searchBar.placeholder = "Search guest passes"
         searchBar.autocapitalizationType = .words
+        searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
-        searchDisplay.dimsBackgroundDuringPresentation = false
+        searchDisplay.obscuresBackgroundDuringPresentation = false
         self.searchDisplay.searchResultsUpdater = self
         
         
@@ -35,32 +36,32 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
         tableView.setContentOffset(offset, animated: true)
         
-        /*Setup ToolBar associated with keyboard
-        let toolbar = UIToolbar()
-        toolbar.barStyle = .default
-        let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dismissKeyboard))
-        toolbar.items = [flex, done]
-        toolbar.sizeToFit()
-        searchBar.inputAccessoryView = toolbar*/
+        //Make the tableView editable from the Navigation Bar
+        navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        //3D Touch Peek & Pop
+        if self.traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: self.view)
+        }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationItem.leftBarButtonItem?.isEnabled = tableView.visibleCells.count != 0
         tableView.reloadData()
     
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.tableView.setEditing(editing, animated: animated)
     }
     
     
     
     //MARK: - Navigation-related items
-    
-    @IBAction func newPassPressed(_ sender: Any) {
-        let controller = C.storyboard.instantiateViewController(withIdentifier: "newPassViewController")
-        self.tabBarController?.present(controller, animated: true, completion: nil)
-    }
     
     func dismissKeyboard() {
         self.view.endEditing(true)
@@ -83,6 +84,8 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         
         print("FILTERING FROM FUNCTION CALLED!!")
         tableView.reloadData()
+        
+        print("Filter count: \(filtered.count)")
     
     }
     
@@ -113,6 +116,51 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         return false
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        self.navigationController?.setEditing(true, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        self.navigationController?.setEditing(false, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let revokeAction = UITableViewRowAction(style: .destructive, title: "Revoke") { _, indexPath in
+            self.tableView(self.tableView, commit: .delete, forRowAt: indexPath)
+        }
+        return [revokeAction]
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        switch editingStyle {
+        case .delete:
+            C.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
+        
+                let pass = C.passes[indexPath.row]
+                if C.delete(pass: pass) {
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            })
+            
+        default: return
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
+        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
+        searchDisplay.dismiss(animated: true)
+
+        self.navigationController?.pushViewController(pdvc, animated: true)
+    }
+    
     
     //Segue preparation for when a TableViewCell is pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,8 +171,6 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         searchDisplay.dismiss(animated: true, completion: nil)
-        searchBar.text = ""
-
         
     }
     
@@ -146,8 +192,10 @@ class PassCell: UITableViewCell {
         
         self.nameTitle.text = pass.name ?? "Contact Name Unknown"
         
-        if let text = pass.timeStart {
-            let components = text.components(separatedBy: ",")
+        let text = pass.timeStart ?? ""
+        let components = text.components(separatedBy: ",")
+        
+        if components.count >= 3 {
             self.startTime.text = "\(components[0]) at\(components[2])"
         } else {
             self.startTime.text = pass.timeStart ?? "No Start Date & Time"
@@ -157,3 +205,46 @@ class PassCell: UITableViewCell {
         
     }
 }
+
+
+//MARK: - 3D Touch Peek & Pop Implementation
+
+extension PassesViewController: UIViewControllerPreviewingDelegate {
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let cellPosition = tableView.convert(location, from: self.view)
+        guard let indexPath = tableView.indexPathForRow(at: cellPosition) else { return nil }
+        
+        print("Previewing")
+        let rect = self.view.convert(tableView.cellForRow(at: indexPath)!.frame, from: self.tableView)
+
+        previewingContext.sourceRect = rect
+        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
+        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
+        
+        return pdvc
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+        //searchDisplay.dismiss(animated: true)
+        self.navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

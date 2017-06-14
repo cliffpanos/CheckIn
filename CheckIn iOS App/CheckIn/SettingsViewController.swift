@@ -40,7 +40,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
-        C.showDestructiveAlert(withTitle: "Confirm Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self, withStyle: .alert) { action in
+        C.showDestructiveAlert(withTitle: "Confirm Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self, popoverSetup: nil, withStyle: .alert) { action in
             let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
             self.present(controller, animated: true, completion: nil)
             C.userIsLoggedIn = false

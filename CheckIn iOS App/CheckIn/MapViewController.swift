@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapTypeController: UISegmentedControl!
     
     let locationManager = CLLocationManager()
+    let locationCollectionViewSpace = (UIDevice.current.isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.55
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,43 +26,48 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             locationManager.requestAlwaysAuthorization()
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(considerOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        
         mapView.showsUserLocation = true
         mapView.mapType = .standard
         
-        for pin in C.truePassLocations {
-            mapView.addAnnotation(pin as MKAnnotation)
-            let circle = MKCircle(center: pin.coordinate, radius: 0.05 as CLLocationDistance)
+        for location in C.truePassLocations {
+            mapView.addAnnotation(location)
+            let circle = MKCircle(center: location.coordinate, radius: 0.05 as CLLocationDistance)
             self.mapView.add(circle)
         }
-        
-        let userbutton = UIBarButtonItem(image: #imageLiteral(resourceName: "CurrentLocation"), style: .done, target: self, action: #selector(zoomToUserLocation))
-        let checkInButton = UIBarButtonItem(image: #imageLiteral(resourceName: "checkInMapIcon"), style: .plain, target: self, action: #selector(zoomToCheckInLocation))
-        navigationItem.rightBarButtonItems = [
-            checkInButton, userbutton
-        ]
         
         zoomToCheckInLocation()
         //https://www.raywenderlich.com/136165/core-location-geofencing-tutorial
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.tabBarController?.tabBar.isHidden = true
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        considerOrientation()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.tabBarController?.tabBar.isHidden = false
+    func considerOrientation() {
+        guard UIDevice.current.userInterfaceIdiom == .phone else { return }
+        self.mapView.isScrollEnabled = UIDevice.current.isVertical
     }
+    
     
     @IBAction func mapTypeSelected(_ sender: Any) {
         let mapTypes: [MKMapType] = [.standard, .satellite, .hybrid]
         mapView.mapType = mapTypes[mapTypeController.selectedSegmentIndex]
     }
     
+    @IBAction func zoomButtonPressed(_ sender: Any) {
+        zoomToUserLocation()
+    }
+    
     func zoomToCheckInLocation() {
-        let checkInLocation = C.truePassLocations[0].coordinate
-        zoom(to: checkInLocation, withViewSize: 0.005)
+        if C.truePassLocations.count > 0 {
+            let truePassLocation = C.truePassLocations[0].coordinate
+            zoom(to: truePassLocation, withViewSize: 0.005)
+        }
     }
     
     func zoomToUserLocation() {
@@ -86,6 +92,117 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         return MKOverlayRenderer(overlay: overlay)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
 
 }
+
+
+//MARK: - Handle TableViewController Delegation
+extension MapViewController {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let heightSpace = UIScreen.main.bounds.size.height - 95 - 49
+        let locationSpace = locationCollectionViewSpace 
+        
+        if !UIApplication.shared.isStatusBarHidden && UIDevice.current.userInterfaceIdiom != .pad {
+            //heightSpace -= 20
+        }
+        
+        let scaledHeights: (forVertical: CGFloat, forHorizontal: CGFloat)
+        
+        switch (indexPath.row) {
+        case 0 : scaledHeights = (95, 80)
+        case 1: scaledHeights = (heightSpace - locationSpace, heightSpace)
+        case 2: scaledHeights = (locationSpace, locationSpace)
+        case 3: scaledHeights = (44.5, 44.5)
+        default: scaledHeights = (200, 100)
+        }
+        return UIDevice.current.isVertical ? scaledHeights.forVertical : scaledHeights.forHorizontal
+    }
+    
+    
+    
+    
+}
+
+
+
+
+extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return C.truePassLocations.count + 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell: UICollectionViewCell
+        switch (indexPath.row) {
+        case 0 :
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "truePassCell", for: indexPath) as! LocationCell
+        case 1..<C.truePassLocations.count + 1 :
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath)
+            (cell as! LocationCell).decorate(for: C.truePassLocations[indexPath.row - 1])
+        default :
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addLocationCell", for: indexPath)
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionSize = collectionView.frame.size
+        let cellHeight = collectionSize.height
+        let cellWidth = cellHeight - 32.5
+        
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+        
+    }
+
+}
+
+
+@IBDesignable
+class LocationCell: UICollectionViewCell {
+    
+    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var locationIcon: UIImageView!
+    @IBOutlet weak var locationTypeLabel: UILabel!
+
+    var location: TPLocation!
+    func decorate(for location: TPLocation) {
+        
+        self.location = location
+        
+        locationTypeLabel.text = location.locationType ?? "Location"
+        titleLabel.text = location.shortTitle
+        
+        let typeDetails = TPLocationType.Details[location.type]!
+        locationIcon.image = UIImage(named: typeDetails.iconName)
+        gradientView.topColor = typeDetails.colorA
+        gradientView.bottomColor = typeDetails.colorB
+        
+        
+    }
+    
+}
+
+
+
+
+
+
+
 

@@ -7,452 +7,625 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09DA755A7A893E8DA4FCADC2CAD43322 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87ACF980472087B6F4C523A72105399 /* UIKit.framework */; };
-		2A678CA11B4453BA4FB103AB367D12EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A410571F48F75FB09014E4F232C8B1D /* Foundation.framework */; };
-		3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A410571F48F75FB09014E4F232C8B1D /* Foundation.framework */; };
-		388E446AC3C5AC23E201345D156EC8F7 /* QRCoder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DE0AB786AB89C4A54342427702D1FF /* QRCoder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		478719AA2EBD0DDF32B2710CC2E7539B /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F0EB4BFFEA48BA549C6F1B49D6498A /* QRCodeGenerator.swift */; };
-		51DDF8994083E58B7E2CD633DEC292C9 /* QRCodeReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C47662FD8C7D75444A479297BE2B057D /* QRCodeReader-dummy.m */; };
-		53AB73AE8076F1C30477F5AE3B45DFDF /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 258C106D6D3D0F1DA3391C8A4B4FE2F1 /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 78696DD62034CF462D732F9FE6AAAB78 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F8D4BC76ABC0009969952FD6C4B7C5B /* Pods-CheckIn-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F37869CA6B3B4F42A3CAC33916BD894 /* Pods-CheckIn-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61243A70FCCEAB2B1DF1A72E8CE9525F /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31419EF7B1379CBA1C1AD6A858C5152 /* QRCodeScannerViewController.swift */; };
-		7BE62FF995EB15134D5ED40302D8AB77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A410571F48F75FB09014E4F232C8B1D /* Foundation.framework */; };
-		7D0955BEDF98AE6F96897EBFEB408FCC /* QRCoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 365D8FDBC3F2FAE5A0DFBC8C777BC6E5 /* QRCoder-dummy.m */; };
-		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CAB78B6D6E20546783AB94B8C6E5410 /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A30082D8890D74793ED7B9B05DA1A23 /* QRCodeReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E1D3D60F0386D66BC78C3EA6836DDDE /* QRCodeReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92165F11B813DEEF43FC74084B953D00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3218BD3E03FC9D1B18D50459C0A195F /* QuartzCore.framework */; };
-		A8B93629D836107DBB0997E534736F78 /* Pods-CheckIn-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD12BA840BC42F0D9413B831987EB0D3 /* Pods-CheckIn-dummy.m */; };
-		ABF23AAF7B3B0D200F50AD9A316ECA8B /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB3765A085DCA58FFE8B1B7287F26C3 /* QRCodeReaderViewController.swift */; };
-		C11A3D0ED73A136068700EAD1B30B39C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5485C01E6A6707700C774241ED9A76B8 /* AVFoundation.framework */; };
-		C465491BBF179F1CD50FDA876F3A340A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A410571F48F75FB09014E4F232C8B1D /* Foundation.framework */; };
-		DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 26F2F643C49ED104E18562166A385E46 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD7D488046B4A747F37F211A0A342B6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87ACF980472087B6F4C523A72105399 /* UIKit.framework */; };
-		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 030B1992E00ACF11F5B984AE36761ADA /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1616482200DB3232B7A0D6B382D7BBBA /* GoogleToolboxForMac-dummy.m */; };
+		07340F15BACBA601736DBB2ABF1ABC35 /* GTMSessionFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F16AF3A45C803C8E5A25FAB5CC92007 /* GTMSessionFetcherLogging.m */; };
+		0749EC40D3519957D43A1040F9662F71 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7898B61A986EAA3BC9BA4504887A43BF /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08EB41D88F9D72C11C8BC294F612B761 /* Pods-True Pass-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 302D93854AEDB79437CF8A93D731B408 /* Pods-True Pass-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		090F91AE506ADCD78979904BB60E41D0 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 656009C09BB344E7F23F9035491486FD /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FC904565376B8B1E44756649F4887EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADE0FA5F24400A6C7271584F003AF54 /* UIKit.framework */; };
+		11F0D0CB930604B4DAAE93FEA3904826 /* GTMNSDictionary+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = D566800091FEA4ECD896162F74DC9C33 /* GTMNSDictionary+URLArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1ED67707C258751E7888DAC2AB3D8501 /* GTMSessionFetcherLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 617EA229A08F43DA334D8D61C2E9C6A4 /* GTMSessionFetcherLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EFC826FB30ECD27C98CE7F3707E9012 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D11C12B623B09FB63835E36B09D4A5 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		32CF9BB4493C89CB01FFADD6DB754927 /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BAADD652A0890FB98B9CC99C4354AE03 /* GoogleToolboxForMac-dummy.m */; };
+		35B420204BE302E765718C04A7E904F2 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25372BB2A0E34E224CAA4CADB8D5BD /* QRCodeGenerator.swift */; };
+		3617833BA76614CDB2F2EA137A977BC8 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357F5B52755D33BA06822F2C0E7224C2 /* QRCodeScannerViewController.swift */; };
+		3636B8AA32276B189BA6463F8E921057 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */; };
+		3880157A7FEEF21451FD713214C15EA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */; };
+		489D78D23E5453BB8AD4C2C04D9FB177 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */; };
+		4F2AB5BFF7D9DE66B8B242ACE69AE0D9 /* GTMDebugThreadValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 873CA84E5E3B8384136451720B9F573C /* GTMDebugThreadValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5282F1EB19292468232F0DFEE951B5A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19590C15CF38D41B784F34CA96FD9B81 /* AVFoundation.framework */; };
+		5B92D1D5ECFEBA99F4C67864E1397A6D /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD0BBD4A9EBECEC61340F94AFE264C7 /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		64F31B70A6E5E6963518A01C285B435F /* GTMSessionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B8449FE819827F0B4562306A18AE208D /* GTMSessionFetcher.m */; };
+		6EA6DFC4473A9B2DB6B8A42EA986BA5B /* GTMSessionFetcher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E220F749D978DFAAF8E8E395CEA8174 /* GTMSessionFetcher-dummy.m */; };
+		852D66D28511C25BB9130EBA13FA58D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4EEA5BD122C227556804CA88A71D97 /* QuartzCore.framework */; };
+		8852FD9AFC242520924D98BE9C4E2477 /* GTMSessionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA9006F86B74BE4D8B67B07490EB4A4 /* GTMSessionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9024F4774BD8DDE03700B223CF7F8164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */; };
+		9065E98FE6E3EA8735129EE1A0826D2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADE0FA5F24400A6C7271584F003AF54 /* UIKit.framework */; };
+		95C69447F517DB81437EDE0003486963 /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 852EE13DE22CCC8959DF1B29ADAE6614 /* GTMSessionFetcherService.m */; };
+		9626E5979EE015EBB03C7F23D0F7DBBD /* Pods-True Pass-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D520923F23F018D6FF90CFDFDC18856 /* Pods-True Pass-dummy.m */; };
+		9DA28C3544749A7DB9AB129BEC773550 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD538072323DA5F6499E3DE55000626 /* Security.framework */; };
+		B05C496A6F67CE9F60DC711F402AB20A /* GTMDebugSelectorValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9549FDEB26515E930B9E7DA30F866B7B /* GTMDebugSelectorValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3F6F8E09D8EBF655EF3AE1A4C5E737C /* QRCoder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FACFDB8A49F985461B10DEB57AF226 /* QRCoder-dummy.m */; };
+		B9A04CBBF007CB8AAF75D61C5EF4D81F /* GTMMethodCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = D31234366F902451E80134F476E1FFEA /* GTMMethodCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C32790781962489B4B49BA5DD45474B5 /* QRCodeReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3984F8A6D1712938F8173D84D0EC883 /* QRCodeReader-dummy.m */; };
+		C34E24520624B382515A0F58185E6926 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 0818C7BD9455E231EBF473FD21E60333 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4A1A63A4C67D9828DF94807BC2C3002 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */; };
+		CB6719178796BA5DBCD3DC22FACCD923 /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E1BAADBA81F6997DB41B07661339A /* QRCodeReaderViewController.swift */; };
+		D0AB5E52C9C134125301027C352F6A4F /* QRCoder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C96166C35A2C9E22148DA3990EFDDC4 /* QRCoder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D28734EDC84B2A7FBC4D5DCF95177BF8 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = B64CE2F4979A3940BD91A8762121E734 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F381B45ADFDDE51CA31F1E141236CA /* GTMSessionFetcher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA6D204AD7457D29C4A28A0453BA24BF /* GTMSessionFetcher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA2F5A299DC9A8ECC5F73A66172E64BC /* GTMNSString+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = C8107F2145DF070AC746202396F393CE /* GTMNSString+URLArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF9559C3822E3C6119BE43E4EDFD7EEE /* GTMSessionFetcherService.h in Headers */ = {isa = PBXBuildFile; fileRef = 08A39A144F5DD964682FEE11EC6CEC31 /* GTMSessionFetcherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7D23D2F163A34BEC60FD54BCCC22C76 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9A1E1D491B05B5CBE04B73582CC5AB /* GTMNSDictionary+URLArguments.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EC4D31D8C3176DB381A5F293CEED3574 /* QRCodeReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F72C2FFC162F335EEF316814C7BE03EE /* QRCodeReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F09EDD53B94234F5F8DAC4DCD5CD969E /* GTMSessionUploadFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BAEE7788FCB98EF04102C40095A2942 /* GTMSessionUploadFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4E294C07EE32FFCDCF7FF4D71D850BD /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C55A60853CDBE42347E15DE4535B7B38 /* GTMSessionUploadFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		40F9E2B7F23EEE95A85029D8EBE94C40 /* PBXContainerItemProxy */ = {
+		10980A009886C246AB32E0B608F2DE74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 39CCC3A809A9433C5A9E53CEE21001B5;
+			remoteGlobalIDString = C052BEBFBD0AB5218CC64BA3450F6547;
+			remoteInfo = GTMSessionFetcher;
+		};
+		17BEB172291851F5411E61D13A8CC75A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DE566E6CCAE992AA195CADC0F980014;
 			remoteInfo = QRCodeReader;
 		};
-		502D121F850DE9FCF63E94A30255F365 /* PBXContainerItemProxy */ = {
+		F8101D5313AA11FD0D9C592E9383CACC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A6A2633AA32A5B0AA3624A54284A5F6C;
-			remoteInfo = QRCoder;
-		};
-		A91FFB1998C28D88FC18B303C070434A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
+			remoteGlobalIDString = 107A9565F9DF88517DFD3E28C05B2B96;
 			remoteInfo = GoogleToolboxForMac;
+		};
+		F9796D887BD8ED718984C433A58B0109 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B04E93C409E17213FBFEA70CB6904AD;
+			remoteInfo = QRCoder;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		010CC6200653DCD669CE2D0EA68218FD /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QRCodeReader.framework; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		030B1992E00ACF11F5B984AE36761ADA /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
-		04DFDD7761E8A707F2FB3B909EA5568E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0500198CBFC536F7BD487E76CC228E96 /* QRCodeReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = QRCodeReader.modulemap; sourceTree = "<group>"; };
-		08EC849462536AF451F3255E46E2E691 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
-		0CAB78B6D6E20546783AB94B8C6E5410 /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
-		10F1BDA2E5C39E80165CE6EFD63A9E03 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		1616482200DB3232B7A0D6B382D7BBBA /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
-		1E1D3D60F0386D66BC78C3EA6836DDDE /* QRCodeReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader-umbrella.h"; sourceTree = "<group>"; };
-		1E9C075EE9FF5A72C3B73A959E028F2C /* Pods-CheckIn-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckIn-frameworks.sh"; sourceTree = "<group>"; };
-		21676CEFA87D7356AB4EE07EFAD5AC86 /* Pods-CheckIn-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckIn-resources.sh"; sourceTree = "<group>"; };
-		24BFE4A583FF196BF6EA74F4C38FFF97 /* QRCoder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = QRCoder.modulemap; sourceTree = "<group>"; };
-		258C106D6D3D0F1DA3391C8A4B4FE2F1 /* QRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
-		26F2F643C49ED104E18562166A385E46 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
-		2F37869CA6B3B4F42A3CAC33916BD894 /* Pods-CheckIn-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CheckIn-umbrella.h"; sourceTree = "<group>"; };
-		365D8FDBC3F2FAE5A0DFBC8C777BC6E5 /* QRCoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCoder-dummy.m"; sourceTree = "<group>"; };
-		442BAE7476BE6991448B6EC255C7603D /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
-		4BC13D05948D8801B2F7EA725AF838A3 /* QRCodeReader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader-prefix.pch"; sourceTree = "<group>"; };
-		4ECADB21F0A3CEDD48CA99A400D597E8 /* Pods-CheckIn-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CheckIn-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5485C01E6A6707700C774241ED9A76B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		59F0EB4BFFEA48BA549C6F1B49D6498A /* QRCodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeGenerator.swift; path = Pod/Classes/QRCodeGenerator.swift; sourceTree = "<group>"; };
-		617A854762C6EE4C512A9E295AE491E5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65DE0AB786AB89C4A54342427702D1FF /* QRCoder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCoder-umbrella.h"; sourceTree = "<group>"; };
-		74A4BEBB8B497380EA6F3887C9C20714 /* Pods-CheckIn-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CheckIn-acknowledgements.plist"; sourceTree = "<group>"; };
-		78696DD62034CF462D732F9FE6AAAB78 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		7F670D7A03236C61DFD92DF1ADA12ED0 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		80BEB8FE4729225F85A33223C692932D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A410571F48F75FB09014E4F232C8B1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		912DD7B84D562550F83E888212FBE225 /* QRCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QRCoder.framework; path = QRCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0818C7BD9455E231EBF473FD21E60333 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
+		089E72B2E4FA1D282709929266D54946 /* GTMSessionFetcher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMSessionFetcher.xcconfig; sourceTree = "<group>"; };
+		08A39A144F5DD964682FEE11EC6CEC31 /* GTMSessionFetcherService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherService.h; path = Source/GTMSessionFetcherService.h; sourceTree = "<group>"; };
+		0959F23954FBD38278B1BD2B705335D5 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
+		0F16AF3A45C803C8E5A25FAB5CC92007 /* GTMSessionFetcherLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherLogging.m; path = Source/GTMSessionFetcherLogging.m; sourceTree = "<group>"; };
+		1867803340E60D96FD5D2B86E40E6583 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
+		190C4CFA39EAD0DB7B6D8453AA8574AB /* QRCoder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = QRCoder.modulemap; sourceTree = "<group>"; };
+		19590C15CF38D41B784F34CA96FD9B81 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		1D7E1BAADBA81F6997DB41B07661339A /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		21A6AFE3F78955AD01D2D8B866D3F74C /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
+		21FACFDB8A49F985461B10DEB57AF226 /* QRCoder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCoder-dummy.m"; sourceTree = "<group>"; };
+		22F73CFFD048BDE76F1B8575ACD34348 /* QRCodeReader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader-prefix.pch"; sourceTree = "<group>"; };
+		2E4EEA5BD122C227556804CA88A71D97 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		2F1043B8282AD545712ADECC2ACBB18C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		302D93854AEDB79437CF8A93D731B408 /* Pods-True Pass-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-True Pass-umbrella.h"; sourceTree = "<group>"; };
+		357F5B52755D33BA06822F2C0E7224C2 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeScannerViewController.swift; path = Pod/Classes/QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		3938B0F197939EDDC7A1B24A05B53409 /* Pods-True Pass-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-True Pass-resources.sh"; sourceTree = "<group>"; };
+		3ADE0FA5F24400A6C7271584F003AF54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		4D520923F23F018D6FF90CFDFDC18856 /* Pods-True Pass-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-True Pass-dummy.m"; sourceTree = "<group>"; };
+		4E220F749D978DFAAF8E8E395CEA8174 /* GTMSessionFetcher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTMSessionFetcher-dummy.m"; sourceTree = "<group>"; };
+		4F81C7E321572C20F837D49473C51218 /* Pods-True Pass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-True Pass.release.xcconfig"; sourceTree = "<group>"; };
+		56AF5446D1D281C8AB9A00DFF0AA78B5 /* Pods_True_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_True_Pass.framework; path = "Pods-True Pass.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF7B13D499A8EC09E3D94120940E8B8 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		5FA122EEB198633907F75D1E34DCB178 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		617EA229A08F43DA334D8D61C2E9C6A4 /* GTMSessionFetcherLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherLogging.h; path = Source/GTMSessionFetcherLogging.h; sourceTree = "<group>"; };
+		656009C09BB344E7F23F9035491486FD /* QRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
+		687B474BEECAA5B8A7CB19097B83C9F5 /* QRCoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCoder.xcconfig; sourceTree = "<group>"; };
+		77F46BD7CE99321E9E80499673C6E754 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
+		78723D82E9A3849C0C5E48C280411D25 /* QRCoder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCoder-prefix.pch"; sourceTree = "<group>"; };
+		7898B61A986EAA3BC9BA4504887A43BF /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
+		7B9A1E1D491B05B5CBE04B73582CC5AB /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSDictionary+URLArguments.m"; path = "Foundation/GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
+		7BAEE7788FCB98EF04102C40095A2942 /* GTMSessionUploadFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionUploadFetcher.h; path = Source/GTMSessionUploadFetcher.h; sourceTree = "<group>"; };
+		7CA9006F86B74BE4D8B67B07490EB4A4 /* GTMSessionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcher.h; path = Source/GTMSessionFetcher.h; sourceTree = "<group>"; };
+		7CD0BBD4A9EBECEC61340F94AFE264C7 /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+URLArguments.m"; path = "Foundation/GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
+		7E25372BB2A0E34E224CAA4CADB8D5BD /* QRCodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeGenerator.swift; path = Pod/Classes/QRCodeGenerator.swift; sourceTree = "<group>"; };
+		7EE2BCAA076201EBB504D9D75838782C /* QRCodeReader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReader.xcconfig; sourceTree = "<group>"; };
+		7F457A2B7FE78FC03993F25AB9CFABCB /* QRCodeReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = QRCodeReader.modulemap; sourceTree = "<group>"; };
+		803F24949B5E06C1656205B98E0C15B1 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		827B60937A8CED5BDD5DB317F5913BAC /* QRCoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QRCoder.framework; path = QRCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		852EE13DE22CCC8959DF1B29ADAE6614 /* GTMSessionFetcherService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherService.m; path = Source/GTMSessionFetcherService.m; sourceTree = "<group>"; };
+		873CA84E5E3B8384136451720B9F573C /* GTMDebugThreadValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDebugThreadValidation.h; path = DebugUtils/GTMDebugThreadValidation.h; sourceTree = "<group>"; };
+		8C96166C35A2C9E22148DA3990EFDDC4 /* QRCoder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCoder-umbrella.h"; sourceTree = "<group>"; };
+		8CD538072323DA5F6499E3DE55000626 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		9120CCF836659B7424B9A6ED035E3418 /* Pods-True Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-True Pass.debug.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9AB3765A085DCA58FFE8B1B7287F26C3 /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
-		A0273A3E9758022EB1A26B9076A0DDE9 /* Pods-CheckIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckIn.release.xcconfig"; sourceTree = "<group>"; };
-		A31419EF7B1379CBA1C1AD6A858C5152 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeScannerViewController.swift; path = Pod/Classes/QRCodeScannerViewController.swift; sourceTree = "<group>"; };
-		AD12BA840BC42F0D9413B831987EB0D3 /* Pods-CheckIn-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CheckIn-dummy.m"; sourceTree = "<group>"; };
-		B7014D7FB4A8A590693B2F3732A36303 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAE0ACCB4BD458CBB9ECAC2C5BA192F9 /* QRCoder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCoder-prefix.pch"; sourceTree = "<group>"; };
-		BCA8B7ADECE6582559BF183E174B6CB4 /* Pods_CheckIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CheckIn.framework; path = "Pods-CheckIn.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C47662FD8C7D75444A479297BE2B057D /* QRCodeReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReader-dummy.m"; sourceTree = "<group>"; };
-		CF3A62281FF720D82C5F8B9885D51038 /* QRCodeReader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReader.xcconfig; sourceTree = "<group>"; };
-		D3218BD3E03FC9D1B18D50459C0A195F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		DEE55FB8DC7D0D6D13CC1465558B7E3D /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
-		E3377BB6A6EB68B7A669C955837479D3 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		E36F3C755DE09CE8C3B5C4290AD11331 /* Pods-CheckIn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CheckIn.modulemap"; sourceTree = "<group>"; };
-		EB885D8682286D41A71450E06FAA4F21 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
-		EEADAA961053F0917B0868C01E04F2B8 /* QRCoder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCoder.xcconfig; sourceTree = "<group>"; };
-		F87ACF980472087B6F4C523A72105399 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		FA38ED10E1C6DF5637C46776E8A7A8B2 /* Pods-CheckIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckIn.debug.xcconfig"; sourceTree = "<group>"; };
-		FE3D77372F9145AAE1BE732CC36716B5 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		9549FDEB26515E930B9E7DA30F866B7B /* GTMDebugSelectorValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDebugSelectorValidation.h; path = DebugUtils/GTMDebugSelectorValidation.h; sourceTree = "<group>"; };
+		96CFF95505251178DE1CBC9BDA3D54C7 /* Pods-True Pass-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-True Pass-acknowledgements.plist"; sourceTree = "<group>"; };
+		9FE905485C206486554A298C1FEB93A9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A048EF312E545F212EE330B832307D43 /* Pods-True Pass-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-True Pass-frameworks.sh"; sourceTree = "<group>"; };
+		A455C281E02B088BA4583D6AC79F1AC9 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		B3984F8A6D1712938F8173D84D0EC883 /* QRCodeReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReader-dummy.m"; sourceTree = "<group>"; };
+		B64CE2F4979A3940BD91A8762121E734 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		B8449FE819827F0B4562306A18AE208D /* GTMSessionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcher.m; path = Source/GTMSessionFetcher.m; sourceTree = "<group>"; };
+		B89B78AB93175B542754203F9E6ECD3C /* Pods-True Pass.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-True Pass.modulemap"; sourceTree = "<group>"; };
+		BAADD652A0890FB98B9CC99C4354AE03 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
+		BBF6F73120CF0F259FE285AEF83DF5DB /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = Frameworks/FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		C55A60853CDBE42347E15DE4535B7B38 /* GTMSessionUploadFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionUploadFetcher.m; path = Source/GTMSessionUploadFetcher.m; sourceTree = "<group>"; };
+		C773B9BADE6E8CA225D4E3F80993DDAD /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		C8107F2145DF070AC746202396F393CE /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "Foundation/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		D31234366F902451E80134F476E1FFEA /* GTMMethodCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = DebugUtils/GTMMethodCheck.h; sourceTree = "<group>"; };
+		D566800091FEA4ECD896162F74DC9C33 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "Foundation/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
+		E2D11C12B623B09FB63835E36B09D4A5 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
+		E8AC5052C587B036780B1BAE9D330C5E /* GTMSessionFetcher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-prefix.pch"; sourceTree = "<group>"; };
+		E9D286AE64663DE508BDBB0780CE185B /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Frameworks/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		EA6D204AD7457D29C4A28A0453BA24BF /* GTMSessionFetcher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-umbrella.h"; sourceTree = "<group>"; };
+		EDB451417D71EB1C6D14D74F3D5E04B9 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDEA428ADB1C76F3013CD1C21A3B458F /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMSessionFetcher.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1BA17E3B0E2710693E8A891E755D32 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F03A63381B7D6F4EE510360AAB64D6F6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E10F1C7A08F8EDF6C2608D17191DD5 /* Pods-True Pass-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-True Pass-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F52FCD44F939040C5532E13305FE2C9C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72C2FFC162F335EEF316814C7BE03EE /* QRCodeReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReader-umbrella.h"; sourceTree = "<group>"; };
+		F8FF46AF6029A2788D65A53B9983BA80 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QRCodeReader.framework; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFE456E49398A1FB0B17BF7392696C79 /* GTMSessionFetcher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GTMSessionFetcher.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4F3E05905EC2135D9A567AA92DC1227F /* Frameworks */ = {
+		42C6128DF75118F398CF0C9550D20D2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A678CA11B4453BA4FB103AB367D12EE /* Foundation.framework in Frameworks */,
-				92165F11B813DEEF43FC74084B953D00 /* QuartzCore.framework in Frameworks */,
-				09DA755A7A893E8DA4FCADC2CAD43322 /* UIKit.framework in Frameworks */,
+				489D78D23E5453BB8AD4C2C04D9FB177 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82A2A067F83791953628EFA9C2F4E35D /* Frameworks */ = {
+		6AE88E96161DE195EAAF0A3B6375EA50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C11A3D0ED73A136068700EAD1B30B39C /* AVFoundation.framework in Frameworks */,
-				C465491BBF179F1CD50FDA876F3A340A /* Foundation.framework in Frameworks */,
-				DD7D488046B4A747F37F211A0A342B6F /* UIKit.framework in Frameworks */,
+				9024F4774BD8DDE03700B223CF7F8164 /* Foundation.framework in Frameworks */,
+				9DA28C3544749A7DB9AB129BEC773550 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2449A02AA67CBDFD1A43445361F892D /* Frameworks */ = {
+		7DA75218C8114A24DD0CD92256F13294 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BE62FF995EB15134D5ED40302D8AB77 /* Foundation.framework in Frameworks */,
+				5282F1EB19292468232F0DFEE951B5A1 /* AVFoundation.framework in Frameworks */,
+				3636B8AA32276B189BA6463F8E921057 /* Foundation.framework in Frameworks */,
+				0FC904565376B8B1E44756649F4887EC /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9BC43EEAF05BCB201B3D28C244AA7E1 /* Frameworks */ = {
+		9DB2FD04E98E8D08B812CFAD3603A106 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */,
+				C4A1A63A4C67D9828DF94807BC2C3002 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E618E7DF8A77B297B3C8AA1B9E62E4A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3880157A7FEEF21451FD713214C15EA9 /* Foundation.framework in Frameworks */,
+				852D66D28511C25BB9130EBA13FA58D4 /* QuartzCore.framework in Frameworks */,
+				9065E98FE6E3EA8735129EE1A0826D2B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
+		052401AFE9D0949364C00DF3E394CB7A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				78A9DE78EA18030C2649E5C0990127FB /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1F95433AFF39A367A0528A59A37FAC7B /* FirebaseAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				B21E7EDC374C64F2EFC30AE36039A502 /* Frameworks */,
-			);
-			name = FirebaseAnalytics;
-			path = FirebaseAnalytics;
-			sourceTree = "<group>";
-		};
-		32D416B5D88FC5837BA9B01AABFB6CE3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FE3D77372F9145AAE1BE732CC36716B5 /* FirebaseCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		397B00168A6E6FEB85810670CE9CB0A8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				80BEB8FE4729225F85A33223C692932D /* Info.plist */,
-				24BFE4A583FF196BF6EA74F4C38FFF97 /* QRCoder.modulemap */,
-				EEADAA961053F0917B0868C01E04F2B8 /* QRCoder.xcconfig */,
-				365D8FDBC3F2FAE5A0DFBC8C777BC6E5 /* QRCoder-dummy.m */,
-				BAE0ACCB4BD458CBB9ECAC2C5BA192F9 /* QRCoder-prefix.pch */,
-				65DE0AB786AB89C4A54342427702D1FF /* QRCoder-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/QRCoder";
-			sourceTree = "<group>";
-		};
-		4BB6CE770822E73A2E97891B6D8F08A7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				99643AAD6684DD8172893A8F9F72A2A9 /* Firebase */,
-				1F95433AFF39A367A0528A59A37FAC7B /* FirebaseAnalytics */,
-				4D87829313A0B252DBC9B3463DCDED65 /* FirebaseCore */,
-				5F9B4374000FC7157364660F9548F910 /* FirebaseInstanceID */,
-				FCF9D09E6BE8E0E1A414211E710F798A /* GoogleToolboxForMac */,
-				624A4DAC8FAB2A4879F6876B645A50C9 /* QRCoder */,
-				A20C86400BE6FFB8BD7ACFC76AD7758D /* QRCodeReader */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		4D87829313A0B252DBC9B3463DCDED65 /* FirebaseCore */ = {
-			isa = PBXGroup;
-			children = (
-				32D416B5D88FC5837BA9B01AABFB6CE3 /* Frameworks */,
-			);
-			name = FirebaseCore;
-			path = FirebaseCore;
-			sourceTree = "<group>";
-		};
-		5D18089F3F2C0E6D7860E98588ABF0CD /* NSData+zlib */ = {
-			isa = PBXGroup;
-			children = (
-				26F2F643C49ED104E18562166A385E46 /* GTMNSData+zlib.h */,
-				030B1992E00ACF11F5B984AE36761ADA /* GTMNSData+zlib.m */,
-			);
-			name = "NSData+zlib";
-			sourceTree = "<group>";
-		};
-		5F9B4374000FC7157364660F9548F910 /* FirebaseInstanceID */ = {
-			isa = PBXGroup;
-			children = (
-				DCF7471EA23C70629FD8DDC699F9036E /* Frameworks */,
-			);
-			name = FirebaseInstanceID;
-			path = FirebaseInstanceID;
-			sourceTree = "<group>";
-		};
-		624A4DAC8FAB2A4879F6876B645A50C9 /* QRCoder */ = {
-			isa = PBXGroup;
-			children = (
-				59F0EB4BFFEA48BA549C6F1B49D6498A /* QRCodeGenerator.swift */,
-				A31419EF7B1379CBA1C1AD6A858C5152 /* QRCodeScannerViewController.swift */,
-				397B00168A6E6FEB85810670CE9CB0A8 /* Support Files */,
-			);
-			name = QRCoder;
-			path = QRCoder;
-			sourceTree = "<group>";
-		};
-		6966256B209AA6E24A55A5FD65E06266 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				08EC849462536AF451F3255E46E2E691 /* GoogleToolboxForMac.modulemap */,
-				DEE55FB8DC7D0D6D13CC1465558B7E3D /* GoogleToolboxForMac.xcconfig */,
-				1616482200DB3232B7A0D6B382D7BBBA /* GoogleToolboxForMac-dummy.m */,
-				EB885D8682286D41A71450E06FAA4F21 /* GoogleToolboxForMac-prefix.pch */,
-				0CAB78B6D6E20546783AB94B8C6E5410 /* GoogleToolboxForMac-umbrella.h */,
-				B7014D7FB4A8A590693B2F3732A36303 /* Info.plist */,
+				77F46BD7CE99321E9E80499673C6E754 /* GoogleToolboxForMac.modulemap */,
+				21A6AFE3F78955AD01D2D8B866D3F74C /* GoogleToolboxForMac.xcconfig */,
+				BAADD652A0890FB98B9CC99C4354AE03 /* GoogleToolboxForMac-dummy.m */,
+				1867803340E60D96FD5D2B86E40E6583 /* GoogleToolboxForMac-prefix.pch */,
+				7898B61A986EAA3BC9BA4504887A43BF /* GoogleToolboxForMac-umbrella.h */,
+				F52FCD44F939040C5532E13305FE2C9C /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/GoogleToolboxForMac";
 			sourceTree = "<group>";
 		};
-		69800ECD588626B89017E3DF807B25C6 /* Pods-CheckIn */ = {
+		0A1672F2E117E4E48409DE5E8D83F6A8 /* DebugUtils */ = {
 			isa = PBXGroup;
 			children = (
-				617A854762C6EE4C512A9E295AE491E5 /* Info.plist */,
-				E36F3C755DE09CE8C3B5C4290AD11331 /* Pods-CheckIn.modulemap */,
-				4ECADB21F0A3CEDD48CA99A400D597E8 /* Pods-CheckIn-acknowledgements.markdown */,
-				74A4BEBB8B497380EA6F3887C9C20714 /* Pods-CheckIn-acknowledgements.plist */,
-				AD12BA840BC42F0D9413B831987EB0D3 /* Pods-CheckIn-dummy.m */,
-				1E9C075EE9FF5A72C3B73A959E028F2C /* Pods-CheckIn-frameworks.sh */,
-				21676CEFA87D7356AB4EE07EFAD5AC86 /* Pods-CheckIn-resources.sh */,
-				2F37869CA6B3B4F42A3CAC33916BD894 /* Pods-CheckIn-umbrella.h */,
-				FA38ED10E1C6DF5637C46776E8A7A8B2 /* Pods-CheckIn.debug.xcconfig */,
-				A0273A3E9758022EB1A26B9076A0DDE9 /* Pods-CheckIn.release.xcconfig */,
+				9549FDEB26515E930B9E7DA30F866B7B /* GTMDebugSelectorValidation.h */,
+				873CA84E5E3B8384136451720B9F573C /* GTMDebugThreadValidation.h */,
+				D31234366F902451E80134F476E1FFEA /* GTMMethodCheck.h */,
 			);
-			name = "Pods-CheckIn";
-			path = "Target Support Files/Pods-CheckIn";
+			name = DebugUtils;
 			sourceTree = "<group>";
 		};
-		6C5AFAB64A88EE7CFDE8C683A3FBE8DB /* Targets Support Files */ = {
+		0E7DB2F80BDD194F8F4C8A8E7AD3BD7A /* NSString+URLArguments */ = {
 			isa = PBXGroup;
 			children = (
-				69800ECD588626B89017E3DF807B25C6 /* Pods-CheckIn */,
+				C8107F2145DF070AC746202396F393CE /* GTMNSString+URLArguments.h */,
+				7CD0BBD4A9EBECEC61340F94AFE264C7 /* GTMNSString+URLArguments.m */,
+			);
+			name = "NSString+URLArguments";
+			sourceTree = "<group>";
+		};
+		11068A784107276FAF9276B7B8F3708E /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				EA119BC3CE8351E446CA10E629841224 /* Frameworks */,
+			);
+			name = FirebaseAuth;
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDB6672183FAB858C1DCE6952E09615F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2295B4365C5B26B672699278F7797784 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4E43C16975875E0300025AF42C081A0 /* Firebase */,
+				9912D59844A2292E43153A5A434DFDAF /* FirebaseAnalytics */,
+				11068A784107276FAF9276B7B8F3708E /* FirebaseAuth */,
+				BF9F1B8CD1FA1A430E40ECDAB97C1228 /* FirebaseCore */,
+				4E317131A0328B3AB616A24C1737F5C8 /* FirebaseDatabase */,
+				69BC623ADCDD43CFE6A71324F1DCA4DB /* FirebaseInstanceID */,
+				BFFF4D71F57E59DE720A8BB5B184BE5F /* GoogleToolboxForMac */,
+				2DD3ED8F30DAE94939CD437E2E22783A /* GTMSessionFetcher */,
+				7AD6AF0C3CD71EA8B37EB96ACF4F3AC6 /* QRCoder */,
+				3E7F8A00AD29FBB4FBB40F1C5BBC3657 /* QRCodeReader */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2DD3ED8F30DAE94939CD437E2E22783A /* GTMSessionFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				9867EB85E6E88CB07E176C5C6E5922F1 /* Core */,
+				F57916B29EC60E1A696F9BAB05F3BE8E /* Support Files */,
+			);
+			name = GTMSessionFetcher;
+			path = GTMSessionFetcher;
+			sourceTree = "<group>";
+		};
+		3E7F8A00AD29FBB4FBB40F1C5BBC3657 /* QRCodeReader */ = {
+			isa = PBXGroup;
+			children = (
+				656009C09BB344E7F23F9035491486FD /* QRCodeReader.h */,
+				1D7E1BAADBA81F6997DB41B07661339A /* QRCodeReaderViewController.swift */,
+				8E87CB1B86A2F89AA7D7A34BAF3CC9A0 /* Support Files */,
+			);
+			name = QRCodeReader;
+			path = QRCodeReader;
+			sourceTree = "<group>";
+		};
+		461FD4E365CD7475CCC9595A42A83E7B /* Pods-True Pass */ = {
+			isa = PBXGroup;
+			children = (
+				5FA122EEB198633907F75D1E34DCB178 /* Info.plist */,
+				B89B78AB93175B542754203F9E6ECD3C /* Pods-True Pass.modulemap */,
+				F2E10F1C7A08F8EDF6C2608D17191DD5 /* Pods-True Pass-acknowledgements.markdown */,
+				96CFF95505251178DE1CBC9BDA3D54C7 /* Pods-True Pass-acknowledgements.plist */,
+				4D520923F23F018D6FF90CFDFDC18856 /* Pods-True Pass-dummy.m */,
+				A048EF312E545F212EE330B832307D43 /* Pods-True Pass-frameworks.sh */,
+				3938B0F197939EDDC7A1B24A05B53409 /* Pods-True Pass-resources.sh */,
+				302D93854AEDB79437CF8A93D731B408 /* Pods-True Pass-umbrella.h */,
+				9120CCF836659B7424B9A6ED035E3418 /* Pods-True Pass.debug.xcconfig */,
+				4F81C7E321572C20F837D49473C51218 /* Pods-True Pass.release.xcconfig */,
+			);
+			name = "Pods-True Pass";
+			path = "Target Support Files/Pods-True Pass";
+			sourceTree = "<group>";
+		};
+		4E317131A0328B3AB616A24C1737F5C8 /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				670AB82F660D0F04727E0C31E8791B5A /* Frameworks */,
+			);
+			name = FirebaseDatabase;
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		670AB82F660D0F04727E0C31E8791B5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C773B9BADE6E8CA225D4E3F80993DDAD /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67792DEB7AEB1044D0D2CD86122F3957 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				803F24949B5E06C1656205B98E0C15B1 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67C9C83A296ABB7072D7044E5CC249A9 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				B64CE2F4979A3940BD91A8762121E734 /* GTMDefines.h */,
+			);
+			name = Defines;
+			sourceTree = "<group>";
+		};
+		69BC623ADCDD43CFE6A71324F1DCA4DB /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				EC450D79F37023838935B23A870FCBF0 /* Frameworks */,
+			);
+			name = FirebaseInstanceID;
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		6CEF22D07B21B94CEA100F7170B733B6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				461FD4E365CD7475CCC9595A42A83E7B /* Pods-True Pass */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		78A9DE78EA18030C2649E5C0990127FB /* iOS */ = {
+		77E0642B7A79674A405C879B4D48CD2A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5485C01E6A6707700C774241ED9A76B8 /* AVFoundation.framework */,
-				8A410571F48F75FB09014E4F232C8B1D /* Foundation.framework */,
-				D3218BD3E03FC9D1B18D50459C0A195F /* QuartzCore.framework */,
-				F87ACF980472087B6F4C523A72105399 /* UIKit.framework */,
+				EDB451417D71EB1C6D14D74F3D5E04B9 /* GoogleToolboxForMac.framework */,
+				EDEA428ADB1C76F3013CD1C21A3B458F /* GTMSessionFetcher.framework */,
+				56AF5446D1D281C8AB9A00DFF0AA78B5 /* Pods_True_Pass.framework */,
+				827B60937A8CED5BDD5DB317F5913BAC /* QRCoder.framework */,
+				F8FF46AF6029A2788D65A53B9983BA80 /* QRCodeReader.framework */,
 			);
-			name = iOS;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AD6AF0C3CD71EA8B37EB96ACF4F3AC6 /* QRCoder */ = {
+			isa = PBXGroup;
+			children = (
+				7E25372BB2A0E34E224CAA4CADB8D5BD /* QRCodeGenerator.swift */,
+				357F5B52755D33BA06822F2C0E7224C2 /* QRCodeScannerViewController.swift */,
+				AB2A49BC34F8BE661F173E5F44D4500F /* Support Files */,
+			);
+			name = QRCoder;
+			path = QRCoder;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
-				4BB6CE770822E73A2E97891B6D8F08A7 /* Pods */,
-				E343ACB36B25179730AD1D1EF4F5ED28 /* Products */,
-				6C5AFAB64A88EE7CFDE8C683A3FBE8DB /* Targets Support Files */,
+				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
+				2295B4365C5B26B672699278F7797784 /* Pods */,
+				77E0642B7A79674A405C879B4D48CD2A /* Products */,
+				6CEF22D07B21B94CEA100F7170B733B6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		99643AAD6684DD8172893A8F9F72A2A9 /* Firebase */ = {
+		8E87CB1B86A2F89AA7D7A34BAF3CC9A0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FC8A3ED0F2F90D9B6E212CD8DB1525B2 /* Core */,
-			);
-			name = Firebase;
-			path = Firebase;
-			sourceTree = "<group>";
-		};
-		A20C86400BE6FFB8BD7ACFC76AD7758D /* QRCodeReader */ = {
-			isa = PBXGroup;
-			children = (
-				258C106D6D3D0F1DA3391C8A4B4FE2F1 /* QRCodeReader.h */,
-				9AB3765A085DCA58FFE8B1B7287F26C3 /* QRCodeReaderViewController.swift */,
-				FDA6E37F3E07C51D829691113D0EE6B2 /* Support Files */,
-			);
-			name = QRCodeReader;
-			path = QRCodeReader;
-			sourceTree = "<group>";
-		};
-		B21E7EDC374C64F2EFC30AE36039A502 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E3377BB6A6EB68B7A669C955837479D3 /* FirebaseAnalytics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DCF7471EA23C70629FD8DDC699F9036E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				10F1BDA2E5C39E80165CE6EFD63A9E03 /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E343ACB36B25179730AD1D1EF4F5ED28 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7F670D7A03236C61DFD92DF1ADA12ED0 /* GoogleToolboxForMac.framework */,
-				BCA8B7ADECE6582559BF183E174B6CB4 /* Pods_CheckIn.framework */,
-				912DD7B84D562550F83E888212FBE225 /* QRCoder.framework */,
-				010CC6200653DCD669CE2D0EA68218FD /* QRCodeReader.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F0B20EDB3EBA213D5DCC2A22C2FF0BF8 /* Defines */ = {
-			isa = PBXGroup;
-			children = (
-				78696DD62034CF462D732F9FE6AAAB78 /* GTMDefines.h */,
-			);
-			name = Defines;
-			sourceTree = "<group>";
-		};
-		FC8A3ED0F2F90D9B6E212CD8DB1525B2 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				442BAE7476BE6991448B6EC255C7603D /* Firebase.h */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		FCF9D09E6BE8E0E1A414211E710F798A /* GoogleToolboxForMac */ = {
-			isa = PBXGroup;
-			children = (
-				F0B20EDB3EBA213D5DCC2A22C2FF0BF8 /* Defines */,
-				5D18089F3F2C0E6D7860E98588ABF0CD /* NSData+zlib */,
-				6966256B209AA6E24A55A5FD65E06266 /* Support Files */,
-			);
-			name = GoogleToolboxForMac;
-			path = GoogleToolboxForMac;
-			sourceTree = "<group>";
-		};
-		FDA6E37F3E07C51D829691113D0EE6B2 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				04DFDD7761E8A707F2FB3B909EA5568E /* Info.plist */,
-				0500198CBFC536F7BD487E76CC228E96 /* QRCodeReader.modulemap */,
-				CF3A62281FF720D82C5F8B9885D51038 /* QRCodeReader.xcconfig */,
-				C47662FD8C7D75444A479297BE2B057D /* QRCodeReader-dummy.m */,
-				4BC13D05948D8801B2F7EA725AF838A3 /* QRCodeReader-prefix.pch */,
-				1E1D3D60F0386D66BC78C3EA6836DDDE /* QRCodeReader-umbrella.h */,
+				9FE905485C206486554A298C1FEB93A9 /* Info.plist */,
+				7F457A2B7FE78FC03993F25AB9CFABCB /* QRCodeReader.modulemap */,
+				7EE2BCAA076201EBB504D9D75838782C /* QRCodeReader.xcconfig */,
+				B3984F8A6D1712938F8173D84D0EC883 /* QRCodeReader-dummy.m */,
+				22F73CFFD048BDE76F1B8575ACD34348 /* QRCodeReader-prefix.pch */,
+				F72C2FFC162F335EEF316814C7BE03EE /* QRCodeReader-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/QRCodeReader";
 			sourceTree = "<group>";
 		};
+		9867EB85E6E88CB07E176C5C6E5922F1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7CA9006F86B74BE4D8B67B07490EB4A4 /* GTMSessionFetcher.h */,
+				B8449FE819827F0B4562306A18AE208D /* GTMSessionFetcher.m */,
+				617EA229A08F43DA334D8D61C2E9C6A4 /* GTMSessionFetcherLogging.h */,
+				0F16AF3A45C803C8E5A25FAB5CC92007 /* GTMSessionFetcherLogging.m */,
+				08A39A144F5DD964682FEE11EC6CEC31 /* GTMSessionFetcherService.h */,
+				852EE13DE22CCC8959DF1B29ADAE6614 /* GTMSessionFetcherService.m */,
+				7BAEE7788FCB98EF04102C40095A2942 /* GTMSessionUploadFetcher.h */,
+				C55A60853CDBE42347E15DE4535B7B38 /* GTMSessionUploadFetcher.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		9912D59844A2292E43153A5A434DFDAF /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				67792DEB7AEB1044D0D2CD86122F3957 /* Frameworks */,
+			);
+			name = FirebaseAnalytics;
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		A4E43C16975875E0300025AF42C081A0 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E557F963F7B933A69B933A5A818912CD /* Core */,
+			);
+			name = Firebase;
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		AB2A49BC34F8BE661F173E5F44D4500F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF1BA17E3B0E2710693E8A891E755D32 /* Info.plist */,
+				190C4CFA39EAD0DB7B6D8453AA8574AB /* QRCoder.modulemap */,
+				687B474BEECAA5B8A7CB19097B83C9F5 /* QRCoder.xcconfig */,
+				21FACFDB8A49F985461B10DEB57AF226 /* QRCoder-dummy.m */,
+				78723D82E9A3849C0C5E48C280411D25 /* QRCoder-prefix.pch */,
+				8C96166C35A2C9E22148DA3990EFDDC4 /* QRCoder-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/QRCoder";
+			sourceTree = "<group>";
+		};
+		BDB6672183FAB858C1DCE6952E09615F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				19590C15CF38D41B784F34CA96FD9B81 /* AVFoundation.framework */,
+				8381211FBA26297DBDF0A3B8458A768E /* Foundation.framework */,
+				2E4EEA5BD122C227556804CA88A71D97 /* QuartzCore.framework */,
+				8CD538072323DA5F6499E3DE55000626 /* Security.framework */,
+				3ADE0FA5F24400A6C7271584F003AF54 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		BF9F1B8CD1FA1A430E40ECDAB97C1228 /* FirebaseCore */ = {
+			isa = PBXGroup;
+			children = (
+				EBA74A24D485C7564CAD8F575827CF6B /* Frameworks */,
+			);
+			name = FirebaseCore;
+			path = FirebaseCore;
+			sourceTree = "<group>";
+		};
+		BFFF4D71F57E59DE720A8BB5B184BE5F /* GoogleToolboxForMac */ = {
+			isa = PBXGroup;
+			children = (
+				0A1672F2E117E4E48409DE5E8D83F6A8 /* DebugUtils */,
+				67C9C83A296ABB7072D7044E5CC249A9 /* Defines */,
+				C51453D003B63CA987D00F19AAFF7063 /* NSData+zlib */,
+				FF79536ACD1BD9E583BD917F4EC205ED /* NSDictionary+URLArguments */,
+				0E7DB2F80BDD194F8F4C8A8E7AD3BD7A /* NSString+URLArguments */,
+				052401AFE9D0949364C00DF3E394CB7A /* Support Files */,
+			);
+			name = GoogleToolboxForMac;
+			path = GoogleToolboxForMac;
+			sourceTree = "<group>";
+		};
+		C51453D003B63CA987D00F19AAFF7063 /* NSData+zlib */ = {
+			isa = PBXGroup;
+			children = (
+				0818C7BD9455E231EBF473FD21E60333 /* GTMNSData+zlib.h */,
+				E2D11C12B623B09FB63835E36B09D4A5 /* GTMNSData+zlib.m */,
+			);
+			name = "NSData+zlib";
+			sourceTree = "<group>";
+		};
+		E557F963F7B933A69B933A5A818912CD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0959F23954FBD38278B1BD2B705335D5 /* Firebase.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		EA119BC3CE8351E446CA10E629841224 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A455C281E02B088BA4583D6AC79F1AC9 /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBA74A24D485C7564CAD8F575827CF6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AF7B13D499A8EC09E3D94120940E8B8 /* FirebaseCore.framework */,
+				E9D286AE64663DE508BDBB0780CE185B /* FirebaseCoreDiagnostics.framework */,
+				BBF6F73120CF0F259FE285AEF83DF5DB /* FirebaseNanoPB.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC450D79F37023838935B23A870FCBF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F1043B8282AD545712ADECC2ACBB18C /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F57916B29EC60E1A696F9BAB05F3BE8E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFE456E49398A1FB0B17BF7392696C79 /* GTMSessionFetcher.modulemap */,
+				089E72B2E4FA1D282709929266D54946 /* GTMSessionFetcher.xcconfig */,
+				4E220F749D978DFAAF8E8E395CEA8174 /* GTMSessionFetcher-dummy.m */,
+				E8AC5052C587B036780B1BAE9D330C5E /* GTMSessionFetcher-prefix.pch */,
+				EA6D204AD7457D29C4A28A0453BA24BF /* GTMSessionFetcher-umbrella.h */,
+				F03A63381B7D6F4EE510360AAB64D6F6 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GTMSessionFetcher";
+			sourceTree = "<group>";
+		};
+		FF79536ACD1BD9E583BD917F4EC205ED /* NSDictionary+URLArguments */ = {
+			isa = PBXGroup;
+			children = (
+				D566800091FEA4ECD896162F74DC9C33 /* GTMNSDictionary+URLArguments.h */,
+				7B9A1E1D491B05B5CBE04B73582CC5AB /* GTMNSDictionary+URLArguments.m */,
+			);
+			name = "NSDictionary+URLArguments";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		58AAABC9B276039291351D37C2B2A297 /* Headers */ = {
+		6959EDF31368821683DEF02A840B7876 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				388E446AC3C5AC23E201345D156EC8F7 /* QRCoder-umbrella.h in Headers */,
+				EC4D31D8C3176DB381A5F293CEED3574 /* QRCodeReader-umbrella.h in Headers */,
+				090F91AE506ADCD78979904BB60E41D0 /* QRCodeReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		620B09DEA329AF432036644C708F09BA /* Headers */ = {
+		776363E57E36C93E1D9CF9112D30944D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8D4BC76ABC0009969952FD6C4B7C5B /* Pods-CheckIn-umbrella.h in Headers */,
+				08EB41D88F9D72C11C8BC294F612B761 /* Pods-True Pass-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F26641E57E6515B630633BE67240BBCC /* Headers */ = {
+		82D993B88C10479096F17ADDEAB85D94 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A30082D8890D74793ED7B9B05DA1A23 /* QRCodeReader-umbrella.h in Headers */,
-				53AB73AE8076F1C30477F5AE3B45DFDF /* QRCodeReader.h in Headers */,
+				D3F381B45ADFDDE51CA31F1E141236CA /* GTMSessionFetcher-umbrella.h in Headers */,
+				8852FD9AFC242520924D98BE9C4E2477 /* GTMSessionFetcher.h in Headers */,
+				1ED67707C258751E7888DAC2AB3D8501 /* GTMSessionFetcherLogging.h in Headers */,
+				DF9559C3822E3C6119BE43E4EDFD7EEE /* GTMSessionFetcherService.h in Headers */,
+				F09EDD53B94234F5F8DAC4DCD5CD969E /* GTMSessionUploadFetcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDA600FDC48ED17BA03DA2D85D4EDA97 /* Headers */ = {
+		BB0A1DF130E97C4755B09863D7F1AD5F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */,
-				541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */,
-				DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */,
+				0749EC40D3519957D43A1040F9662F71 /* GoogleToolboxForMac-umbrella.h in Headers */,
+				B05C496A6F67CE9F60DC711F402AB20A /* GTMDebugSelectorValidation.h in Headers */,
+				4F2AB5BFF7D9DE66B8B242ACE69AE0D9 /* GTMDebugThreadValidation.h in Headers */,
+				D28734EDC84B2A7FBC4D5DCF95177BF8 /* GTMDefines.h in Headers */,
+				B9A04CBBF007CB8AAF75D61C5EF4D81F /* GTMMethodCheck.h in Headers */,
+				C34E24520624B382515A0F58185E6926 /* GTMNSData+zlib.h in Headers */,
+				11F0D0CB930604B4DAAE93FEA3904826 /* GTMNSDictionary+URLArguments.h in Headers */,
+				DA2F5A299DC9A8ECC5F73A66172E64BC /* GTMNSString+URLArguments.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB76C919A0B22D4F43CAE20F9A8B1C83 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AB5E52C9C134125301027C352F6A4F /* QRCoder-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */ = {
+		0DE566E6CCAE992AA195CADC0F980014 /* QRCodeReader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C43D9CA5106C6CCEF973B7EDF833947B /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
+			buildConfigurationList = 345C686FA24C086F7F8FD48F1F3A28EF /* Build configuration list for PBXNativeTarget "QRCodeReader" */;
 			buildPhases = (
-				63D7DA997053F6B5D01DE8CB5817CB51 /* Sources */,
-				F9BC43EEAF05BCB201B3D28C244AA7E1 /* Frameworks */,
-				FDA600FDC48ED17BA03DA2D85D4EDA97 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GoogleToolboxForMac;
-			productName = GoogleToolboxForMac;
-			productReference = 7F670D7A03236C61DFD92DF1ADA12ED0 /* GoogleToolboxForMac.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		39CCC3A809A9433C5A9E53CEE21001B5 /* QRCodeReader */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 33FA875731CE3B5AFF303226CAD9D57E /* Build configuration list for PBXNativeTarget "QRCodeReader" */;
-			buildPhases = (
-				8300A8CDC6D539B1B6EED62030248020 /* Sources */,
-				82A2A067F83791953628EFA9C2F4E35D /* Frameworks */,
-				F26641E57E6515B630633BE67240BBCC /* Headers */,
+				A28107BDED79F31FAF055F5E47AC13CE /* Sources */,
+				7DA75218C8114A24DD0CD92256F13294 /* Frameworks */,
+				6959EDF31368821683DEF02A840B7876 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -460,36 +633,54 @@
 			);
 			name = QRCodeReader;
 			productName = QRCodeReader;
-			productReference = 010CC6200653DCD669CE2D0EA68218FD /* QRCodeReader.framework */;
+			productReference = F8FF46AF6029A2788D65A53B9983BA80 /* QRCodeReader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6224897683C911ACB0140753B43939E7 /* Pods-CheckIn */ = {
+		107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AF45B0862571C4193955438F56A39DE /* Build configuration list for PBXNativeTarget "Pods-CheckIn" */;
+			buildConfigurationList = 3166596B665E06C4B76C8ABB6AB06824 /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
 			buildPhases = (
-				D6457B605F4C3FAFE32DA3A4DA971E87 /* Sources */,
-				B2449A02AA67CBDFD1A43445361F892D /* Frameworks */,
-				620B09DEA329AF432036644C708F09BA /* Headers */,
+				222F0DC2D2D238CAB82346DE258E5472 /* Sources */,
+				9DB2FD04E98E8D08B812CFAD3603A106 /* Frameworks */,
+				BB0A1DF130E97C4755B09863D7F1AD5F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D174EB2C3284F42FB247E218627AD481 /* PBXTargetDependency */,
-				A671830D7656B7D14A17BD49265419E7 /* PBXTargetDependency */,
-				97DF498E59059BEA775F02AEAF424CE0 /* PBXTargetDependency */,
 			);
-			name = "Pods-CheckIn";
-			productName = "Pods-CheckIn";
-			productReference = BCA8B7ADECE6582559BF183E174B6CB4 /* Pods_CheckIn.framework */;
+			name = GoogleToolboxForMac;
+			productName = GoogleToolboxForMac;
+			productReference = EDB451417D71EB1C6D14D74F3D5E04B9 /* GoogleToolboxForMac.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A6A2633AA32A5B0AA3624A54284A5F6C /* QRCoder */ = {
+		4C937B17B84CEC20290BF9718F159D7F /* Pods-True Pass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C7E561F847A0F27357060B193B25C21 /* Build configuration list for PBXNativeTarget "QRCoder" */;
+			buildConfigurationList = AEF4B782FF04999DBA4128980DE4C8D9 /* Build configuration list for PBXNativeTarget "Pods-True Pass" */;
 			buildPhases = (
-				0BDCBCEEAFD5B44BB3C7565C897AF196 /* Sources */,
-				4F3E05905EC2135D9A567AA92DC1227F /* Frameworks */,
-				58AAABC9B276039291351D37C2B2A297 /* Headers */,
+				49CFF724DD66263843451AB804CACFB6 /* Sources */,
+				42C6128DF75118F398CF0C9550D20D2F /* Frameworks */,
+				776363E57E36C93E1D9CF9112D30944D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B19CFF7959FAD10FBD374107B3F5E7DB /* PBXTargetDependency */,
+				D4FB07CED06E9B0E7BC222493DBE3000 /* PBXTargetDependency */,
+				C9A1219F7E86C86DCCA5F7DAEC2B0A58 /* PBXTargetDependency */,
+				58B38B87A10F17BD2FECACCCF7489E72 /* PBXTargetDependency */,
+			);
+			name = "Pods-True Pass";
+			productName = "Pods-True Pass";
+			productReference = 56AF5446D1D281C8AB9A00DFF0AA78B5 /* Pods_True_Pass.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9B04E93C409E17213FBFEA70CB6904AD /* QRCoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C3DE7B4AE35DC93A2598ABDC87C7B4 /* Build configuration list for PBXNativeTarget "QRCoder" */;
+			buildPhases = (
+				CBF60814034C80763DA790D883A05FB5 /* Sources */,
+				E618E7DF8A77B297B3C8AA1B9E62E4A7 /* Frameworks */,
+				EB76C919A0B22D4F43CAE20F9A8B1C83 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -497,7 +688,24 @@
 			);
 			name = QRCoder;
 			productName = QRCoder;
-			productReference = 912DD7B84D562550F83E888212FBE225 /* QRCoder.framework */;
+			productReference = 827B60937A8CED5BDD5DB317F5913BAC /* QRCoder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7CC8559AB6F51830204F1A9CE54BF3E /* Build configuration list for PBXNativeTarget "GTMSessionFetcher" */;
+			buildPhases = (
+				C5A309EC5A80A27DBD420C5176E2122A /* Sources */,
+				6AE88E96161DE195EAAF0A3B6375EA50 /* Frameworks */,
+				82D993B88C10479096F17ADDEAB85D94 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTMSessionFetcher;
+			productName = GTMSessionFetcher;
+			productReference = EDEA428ADB1C76F3013CD1C21A3B458F /* GTMSessionFetcher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -506,7 +714,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -517,83 +725,105 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E343ACB36B25179730AD1D1EF4F5ED28 /* Products */;
+			productRefGroup = 77E0642B7A79674A405C879B4D48CD2A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */,
-				6224897683C911ACB0140753B43939E7 /* Pods-CheckIn */,
-				A6A2633AA32A5B0AA3624A54284A5F6C /* QRCoder */,
-				39CCC3A809A9433C5A9E53CEE21001B5 /* QRCodeReader */,
+				107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */,
+				C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */,
+				4C937B17B84CEC20290BF9718F159D7F /* Pods-True Pass */,
+				9B04E93C409E17213FBFEA70CB6904AD /* QRCoder */,
+				0DE566E6CCAE992AA195CADC0F980014 /* QRCodeReader */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0BDCBCEEAFD5B44BB3C7565C897AF196 /* Sources */ = {
+		222F0DC2D2D238CAB82346DE258E5472 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				478719AA2EBD0DDF32B2710CC2E7539B /* QRCodeGenerator.swift in Sources */,
-				7D0955BEDF98AE6F96897EBFEB408FCC /* QRCoder-dummy.m in Sources */,
-				61243A70FCCEAB2B1DF1A72E8CE9525F /* QRCodeScannerViewController.swift in Sources */,
+				32CF9BB4493C89CB01FFADD6DB754927 /* GoogleToolboxForMac-dummy.m in Sources */,
+				2EFC826FB30ECD27C98CE7F3707E9012 /* GTMNSData+zlib.m in Sources */,
+				E7D23D2F163A34BEC60FD54BCCC22C76 /* GTMNSDictionary+URLArguments.m in Sources */,
+				5B92D1D5ECFEBA99F4C67864E1397A6D /* GTMNSString+URLArguments.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63D7DA997053F6B5D01DE8CB5817CB51 /* Sources */ = {
+		49CFF724DD66263843451AB804CACFB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */,
-				F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */,
+				9626E5979EE015EBB03C7F23D0F7DBBD /* Pods-True Pass-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8300A8CDC6D539B1B6EED62030248020 /* Sources */ = {
+		A28107BDED79F31FAF055F5E47AC13CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51DDF8994083E58B7E2CD633DEC292C9 /* QRCodeReader-dummy.m in Sources */,
-				ABF23AAF7B3B0D200F50AD9A316ECA8B /* QRCodeReaderViewController.swift in Sources */,
+				C32790781962489B4B49BA5DD45474B5 /* QRCodeReader-dummy.m in Sources */,
+				CB6719178796BA5DBCD3DC22FACCD923 /* QRCodeReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6457B605F4C3FAFE32DA3A4DA971E87 /* Sources */ = {
+		C5A309EC5A80A27DBD420C5176E2122A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8B93629D836107DBB0997E534736F78 /* Pods-CheckIn-dummy.m in Sources */,
+				6EA6DFC4473A9B2DB6B8A42EA986BA5B /* GTMSessionFetcher-dummy.m in Sources */,
+				64F31B70A6E5E6963518A01C285B435F /* GTMSessionFetcher.m in Sources */,
+				07340F15BACBA601736DBB2ABF1ABC35 /* GTMSessionFetcherLogging.m in Sources */,
+				95C69447F517DB81437EDE0003486963 /* GTMSessionFetcherService.m in Sources */,
+				F4E294C07EE32FFCDCF7FF4D71D850BD /* GTMSessionUploadFetcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBF60814034C80763DA790D883A05FB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35B420204BE302E765718C04A7E904F2 /* QRCodeGenerator.swift in Sources */,
+				B3F6F8E09D8EBF655EF3AE1A4C5E737C /* QRCoder-dummy.m in Sources */,
+				3617833BA76614CDB2F2EA137A977BC8 /* QRCodeScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		97DF498E59059BEA775F02AEAF424CE0 /* PBXTargetDependency */ = {
+		58B38B87A10F17BD2FECACCCF7489E72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = QRCoder;
-			target = A6A2633AA32A5B0AA3624A54284A5F6C /* QRCoder */;
-			targetProxy = 502D121F850DE9FCF63E94A30255F365 /* PBXContainerItemProxy */;
+			target = 9B04E93C409E17213FBFEA70CB6904AD /* QRCoder */;
+			targetProxy = F9796D887BD8ED718984C433A58B0109 /* PBXContainerItemProxy */;
 		};
-		A671830D7656B7D14A17BD49265419E7 /* PBXTargetDependency */ = {
+		B19CFF7959FAD10FBD374107B3F5E7DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */;
+			targetProxy = 10980A009886C246AB32E0B608F2DE74 /* PBXContainerItemProxy */;
+		};
+		C9A1219F7E86C86DCCA5F7DAEC2B0A58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = QRCodeReader;
-			target = 39CCC3A809A9433C5A9E53CEE21001B5 /* QRCodeReader */;
-			targetProxy = 40F9E2B7F23EEE95A85029D8EBE94C40 /* PBXContainerItemProxy */;
+			target = 0DE566E6CCAE992AA195CADC0F980014 /* QRCodeReader */;
+			targetProxy = 17BEB172291851F5411E61D13A8CC75A /* PBXContainerItemProxy */;
 		};
-		D174EB2C3284F42FB247E218627AD481 /* PBXTargetDependency */ = {
+		D4FB07CED06E9B0E7BC222493DBE3000 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleToolboxForMac;
-			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
-			targetProxy = A91FFB1998C28D88FC18B303C070434A /* PBXContainerItemProxy */;
+			target = 107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */;
+			targetProxy = F8101D5313AA11FD0D9C592E9383CACC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		06F60217314407F65657FCB27B23C8AD /* Debug */ = {
+		173EB991F4189BD0521FB9FF314C1A99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF3A62281FF720D82C5F8B9885D51038 /* QRCodeReader.xcconfig */;
+			baseConfigurationReference = 089E72B2E4FA1D282709929266D54946 /* GTMSessionFetcher.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -605,17 +835,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReader/QRCodeReader-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/QRCodeReader/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/QRCodeReader/QRCodeReader.modulemap";
+				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = QRCodeReader;
+				PRODUCT_NAME = GTMSessionFetcher;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -623,11 +852,79 @@
 			};
 			name = Debug;
 		};
-		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
+		548E59B46E0AE436DFF279FB9CA9BA95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 687B474BEECAA5B8A7CB19097B83C9F5 /* QRCoder.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QRCoder/QRCoder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QRCoder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/QRCoder/QRCoder.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = QRCoder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5EC9DDC590E000FC3BF93D2E1B5E2AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 089E72B2E4FA1D282709929266D54946 /* GTMSessionFetcher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = GTMSessionFetcher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		643C76AA582046977B7877822ED7A258 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -635,10 +932,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
@@ -667,79 +967,11 @@
 			};
 			name = Debug;
 		};
-		22E8880DD03E00C72828600BCE812806 /* Debug */ = {
+		6FD1A700C7F740CD692319CB364D3F6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEADAA961053F0917B0868C01E04F2B8 /* QRCoder.xcconfig */;
+			baseConfigurationReference = 7EE2BCAA076201EBB504D9D75838782C /* QRCodeReader.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/QRCoder/QRCoder-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/QRCoder/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/QRCoder/QRCoder.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = QRCoder;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		27025D7E8EE0A69E15CA2DC168598641 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA38ED10E1C6DF5637C46776E8A7A8B2 /* Pods-CheckIn.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-CheckIn/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CheckIn/Pods-CheckIn.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_CheckIn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2C2B2CED544B9C398E18787324133FBF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF3A62281FF720D82C5F8B9885D51038 /* QRCodeReader.xcconfig */;
-			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -761,6 +993,7 @@
 				PRODUCT_NAME = QRCodeReader;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -768,77 +1001,11 @@
 			};
 			name = Release;
 		};
-		6C9162C3946D65F7F843E675F5065326 /* Release */ = {
+		708153707D9E2ADA57CE479A228A0EFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEADAA961053F0917B0868C01E04F2B8 /* QRCoder.xcconfig */;
+			baseConfigurationReference = 21A6AFE3F78955AD01D2D8B866D3F74C /* GoogleToolboxForMac.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/QRCoder/QRCoder-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/QRCoder/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/QRCoder/QRCoder.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = QRCoder;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AA002FEFB6A166D4EDA7B709F8D3B7C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0273A3E9758022EB1A26B9076A0DDE9 /* Pods-CheckIn.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-CheckIn/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CheckIn/Pods-CheckIn.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_CheckIn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D60CD877A708870E2BE96B83BA32F883 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEE55FB8DC7D0D6D13CC1465558B7E3D /* GoogleToolboxForMac.xcconfig */;
-			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -867,11 +1034,50 @@
 			};
 			name = Debug;
 		};
-		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
+		B49E221F9C6DCBBF2D18BE7EA4BD7116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F81C7E321572C20F837D49473C51218 /* Pods-True Pass.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-True Pass/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-True Pass/Pods-True Pass.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_True_Pass;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C03B8870130C98D1B02B59D003687524 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -879,10 +1085,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
@@ -907,10 +1116,81 @@
 			};
 			name = Release;
 		};
-		F066921CBDBDB5F45795E50FBC5AC972 /* Release */ = {
+		C142ADE29D35714EF235310D83B395C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEE55FB8DC7D0D6D13CC1465558B7E3D /* GoogleToolboxForMac.xcconfig */;
+			baseConfigurationReference = 687B474BEECAA5B8A7CB19097B83C9F5 /* QRCoder.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QRCoder/QRCoder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QRCoder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/QRCoder/QRCoder.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = QRCoder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CF101BCF270694560225C322C7B4D1E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EE2BCAA076201EBB504D9D75838782C /* QRCodeReader.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReader/QRCodeReader-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QRCodeReader/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/QRCodeReader/QRCodeReader.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = QRCodeReader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DCE128090619EE9BA94A913CB57157F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21A6AFE3F78955AD01D2D8B866D3F74C /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -939,50 +1219,98 @@
 			};
 			name = Release;
 		};
+		E7AD5C5FB4805462876C83AACA662921 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9120CCF836659B7424B9A6ED035E3418 /* Pods-True Pass.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-True Pass/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-True Pass/Pods-True Pass.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_True_Pass;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C7E561F847A0F27357060B193B25C21 /* Build configuration list for PBXNativeTarget "QRCoder" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22E8880DD03E00C72828600BCE812806 /* Debug */,
-				6C9162C3946D65F7F843E675F5065326 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
-				E72E7977875C2D251FC62736BBDDC389 /* Release */,
+				643C76AA582046977B7877822ED7A258 /* Debug */,
+				C03B8870130C98D1B02B59D003687524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33FA875731CE3B5AFF303226CAD9D57E /* Build configuration list for PBXNativeTarget "QRCodeReader" */ = {
+		3166596B665E06C4B76C8ABB6AB06824 /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				06F60217314407F65657FCB27B23C8AD /* Debug */,
-				2C2B2CED544B9C398E18787324133FBF /* Release */,
+				708153707D9E2ADA57CE479A228A0EFA /* Debug */,
+				DCE128090619EE9BA94A913CB57157F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3AF45B0862571C4193955438F56A39DE /* Build configuration list for PBXNativeTarget "Pods-CheckIn" */ = {
+		345C686FA24C086F7F8FD48F1F3A28EF /* Build configuration list for PBXNativeTarget "QRCodeReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				27025D7E8EE0A69E15CA2DC168598641 /* Debug */,
-				AA002FEFB6A166D4EDA7B709F8D3B7C1 /* Release */,
+				CF101BCF270694560225C322C7B4D1E4 /* Debug */,
+				6FD1A700C7F740CD692319CB364D3F6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C43D9CA5106C6CCEF973B7EDF833947B /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
+		60C3DE7B4AE35DC93A2598ABDC87C7B4 /* Build configuration list for PBXNativeTarget "QRCoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D60CD877A708870E2BE96B83BA32F883 /* Debug */,
-				F066921CBDBDB5F45795E50FBC5AC972 /* Release */,
+				C142ADE29D35714EF235310D83B395C1 /* Debug */,
+				548E59B46E0AE436DFF279FB9CA9BA95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEF4B782FF04999DBA4128980DE4C8D9 /* Build configuration list for PBXNativeTarget "Pods-True Pass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7AD5C5FB4805462876C83AACA662921 /* Debug */,
+				B49E221F9C6DCBBF2D18BE7EA4BD7116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7CC8559AB6F51830204F1A9CE54BF3E /* Build configuration list for PBXNativeTarget "GTMSessionFetcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173EB991F4189BD0521FB9FF314C1A99 /* Debug */,
+				5EC9DDC590E000FC3BF93D2E1B5E2AFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03DB8D148D2E557705EFB4B8 /* Pods_True_Pass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */; };
 		910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910134571EB521EE006D11AD /* WCSessionManager.swift */; };
 		9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101345A1EB52902006D11AD /* 3D+QuickActions.swift */; };
 		9106AB601E9455C100CEBD7A /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106AB5F1E9455C100CEBD7A /* Designables.swift */; };
@@ -14,7 +15,12 @@
 		910FD5D01EC678520058FF5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		910FD5D11EC678C80058FF5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */; };
+		9112C6D11EF0086C00584D91 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9112C6D01EF0086C00584D91 /* PassKit.framework */; };
+		911B7E621EE76E150074D338 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B7E611EE76E150074D338 /* Testing.swift */; };
 		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
+		91273E821EDDEAB100FB4E25 /* FirebaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */; };
+		91273E831EDDEAB100FB4E25 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91273E801EDDEAB100FB4E25 /* FirebaseService.swift */; };
+		91273E841EDDEAB100FB4E25 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91273E811EDDEAB100FB4E25 /* UserAuthentication.swift */; };
 		9139BA671EBBFC2D00F365EF /* UserInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139BA661EBBFC2D00F365EF /* UserInfoInterfaceController.swift */; };
 		9139BA6A1EBC007700F365EF /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9139BA691EBC007700F365EF /* PassKit.framework */; };
 		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
@@ -27,7 +33,6 @@
 		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
 		917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* GeoLocationManager.swift */; };
 		917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917FDA061EB816BB00616173 /* CloudKit.framework */; };
-		917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA081EB8313800616173 /* Pin+Annotation.swift */; };
 		917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */; };
 		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
 		9187E3BF1EA2F3700085E415 /* True PassWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -54,8 +59,11 @@
 		91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAF1E90DDDB00F83E1C /* MapViewController.swift */; };
 		919DF2791ED4EF0300D7D219 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919DF2781ED4EF0300D7D219 /* ContactView.xib */; };
 		919DF27B1ED4F21D00D7D219 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DF27A1ED4F21D00D7D219 /* ContactView.swift */; };
+		91B801921EE81925003EB7AD /* CDInterfaceBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */; };
 		91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D517BA1ED7908E00E6B452 /* PassKitManager.swift */; };
-		B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */; };
+		91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
+		91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
+		91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,12 +109,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		202CC4100FC09559B7E1EC85 /* Pods-True Pass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-True Pass.release.xcconfig"; path = "Pods/Target Support Files/Pods-True Pass/Pods-True Pass.release.xcconfig"; sourceTree = "<group>"; };
+		5FAC440A24E209889042AF88 /* Pods-True Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-True Pass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-True Pass/Pods-True Pass.debug.xcconfig"; sourceTree = "<group>"; };
 		910134571EB521EE006D11AD /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
 		9101345A1EB52902006D11AD /* 3D+QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "3D+QuickActions.swift"; sourceTree = "<group>"; };
 		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		910FD5CD1EC678450058FF5C /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		9112C6D01EF0086C00584D91 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/PassKit.framework; sourceTree = DEVELOPER_DIR; };
+		911B7E611EE76E150074D338 /* Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
+		9120FD111EE8986100B107AB /* LocationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationTest.gpx; sourceTree = "<group>"; };
+		91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseObjects.swift; sourceTree = "<group>"; };
+		91273E801EDDEAB100FB4E25 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		91273E811EDDEAB100FB4E25 /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		9139BA661EBBFC2D00F365EF /* UserInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInterfaceController.swift; sourceTree = "<group>"; };
 		9139BA691EBC007700F365EF /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		9139BA6B1EBC00D700F365EF /* True PassWatchKitApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "True PassWatchKitApp.entitlements"; sourceTree = "<group>"; };
@@ -125,7 +141,6 @@
 		917FDA031EB7D90500616173 /* GeoLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationManager.swift; sourceTree = "<group>"; };
 		917FDA051EB816A700616173 /* True Pass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "True Pass.entitlements"; sourceTree = "<group>"; };
 		917FDA061EB816BB00616173 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		917FDA081EB8313800616173 /* Pin+Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pin+Annotation.swift"; sourceTree = "<group>"; };
 		917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedInterfaceController.swift; sourceTree = "<group>"; };
 		9187E3B21EA2F3700085E415 /* True PassWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "True PassWatchKitApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -155,10 +170,11 @@
 		91989DAF1E90DDDB00F83E1C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		919DF2781ED4EF0300D7D219 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactView.xib; sourceTree = "<group>"; };
 		919DF27A1ED4F21D00D7D219 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDInterfaceBuilderView.swift; sourceTree = "<group>"; };
 		91D517BA1ED7908E00E6B452 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassKitManager.swift; sourceTree = "<group>"; };
-		BA47C6F0CB7D51770650959E /* Pods-CheckIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.debug.xcconfig"; sourceTree = "<group>"; };
-		BA900332F619702613FF1B96 /* Pods-CheckIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn.release.xcconfig"; sourceTree = "<group>"; };
-		E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonDataModels.swift; path = ../CommonDataModels.swift; sourceTree = "<group>"; };
+		91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
+		AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_True_Pass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9139BA6A1EBC007700F365EF /* PassKit.framework in Frameworks */,
-				B7C16222A19A3BFED3004687 /* Pods_CheckIn.framework in Frameworks */,
 				917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */,
+				03DB8D148D2E557705EFB4B8 /* Pods_True_Pass.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9112C6D11EF0086C00584D91 /* PassKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +213,30 @@
 				910134571EB521EE006D11AD /* WCSessionManager.swift */,
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
 				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
-				910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */,
 				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
+				91273E7E1EDDEA6500FB4E25 /* DataServices */,
 				91D517B91ED7906800E6B452 /* PassKitService */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		911B7E5E1EE70C690074D338 /* Core Operations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Core Operations";
+			sourceTree = "<group>";
+		};
+		91273E7E1EDDEA6500FB4E25 /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */,
+				91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */,
+				91273E801EDDEAB100FB4E25 /* FirebaseService.swift */,
+				91273E811EDDEAB100FB4E25 /* UserAuthentication.swift */,
+				91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */,
+			);
+			name = DataServices;
 			sourceTree = "<group>";
 		};
 		9139BA681EBBFCD300F365EF /* Models */ = {
@@ -217,7 +253,6 @@
 			children = (
 				918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */,
 				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
-				917FDA081EB8313800616173 /* Pin+Annotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -225,13 +260,13 @@
 		9169EE1A1EB2FAF10018C434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
 				91989DA31E90024800F83E1C /* PassesViewController.swift */,
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
 				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
 				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
 				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
 				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
-				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
 				916E0EE91E8F6CB700911417 /* RootViewController.swift */,
 			);
 			name = Controllers;
@@ -242,6 +277,7 @@
 			children = (
 				919DF2781ED4EF0300D7D219 /* ContactView.xib */,
 				919DF27A1ED4F21D00D7D219 /* ContactView.swift */,
+				91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */,
 				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
 			);
 			name = Views;
@@ -251,8 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				9139BA6C1EBC011900F365EF /* True PassWatchKitApp Extension.entitlements */,
-				918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */,
 				916E0EEE1E8F6CB700911417 /* True Pass.xcdatamodeld */,
+				918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */,
 				916E0EE61E8F6CB700911417 /* True Pass */,
 				9187E3B31EA2F3700085E415 /* TruePassWatchKitApp */,
 				9187E3C21EA2F3700085E415 /* TruePassWatchKitAppExtension */,
@@ -276,10 +312,14 @@
 			isa = PBXGroup;
 			children = (
 				917FDA051EB816A700616173 /* True Pass.entitlements */,
+				911B7E611EE76E150074D338 /* Testing.swift */,
+				9120FD111EE8986100B107AB /* LocationTest.gpx */,
+				91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */,
 				910134591EB521F8006D11AD /* Managers */,
 				9169EE191EB2FAD20018C434 /* Models */,
 				9169EE1A1EB2FAF10018C434 /* Controllers */,
 				9169EE1B1EB2FB100018C434 /* Views */,
+				911B7E5E1EE70C690074D338 /* Core Operations */,
 				916E0EF11E8F6CB700911417 /* Assets.xcassets */,
 				916E0EEB1E8F6CB700911417 /* Main.storyboard */,
 				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
@@ -360,9 +400,10 @@
 		95260616F8D44D890B15213F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9112C6D01EF0086C00584D91 /* PassKit.framework */,
 				9139BA691EBC007700F365EF /* PassKit.framework */,
 				917FDA061EB816BB00616173 /* CloudKit.framework */,
-				E1502E7EBB4A6EC31ADB2C95 /* Pods_CheckIn.framework */,
+				AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,8 +411,8 @@
 		9E79CA9B8E858BB0B0ABB5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BA47C6F0CB7D51770650959E /* Pods-CheckIn.debug.xcconfig */,
-				BA900332F619702613FF1B96 /* Pods-CheckIn.release.xcconfig */,
+				5FAC440A24E209889042AF88 /* Pods-True Pass.debug.xcconfig */,
+				202CC4100FC09559B7E1EC85 /* Pods-True Pass.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -453,10 +494,16 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
 							};
 							com.apple.Wallet = {
 								enabled = 1;
@@ -472,7 +519,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -482,9 +529,12 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
 								enabled = 1;
 							};
 						};
@@ -557,7 +607,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-True Pass/Pods-True Pass-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		26D8A8538680BFE0F95F1607 /* [CP] Embed Pods Frameworks */ = {
@@ -572,7 +622,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckIn/Pods-CheckIn-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-True Pass/Pods-True Pass-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6914B3809FF96EFF62326D3 /* [CP] Check Pods Manifest.lock */ = {
@@ -587,7 +637,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -600,25 +650,31 @@
 				91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */,
 				916E0F011E8F705400911417 /* LoginViewController.swift in Sources */,
 				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
+				91B801921EE81925003EB7AD /* CDInterfaceBuilderView.swift in Sources */,
 				916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */,
 				91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */,
 				918BDCC71EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
+				91273E821EDDEAB100FB4E25 /* FirebaseObjects.swift in Sources */,
 				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
 				918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */,
 				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
+				91273E831EDDEAB100FB4E25 /* FirebaseService.swift in Sources */,
 				919DF27B1ED4F21D00D7D219 /* ContactView.swift in Sources */,
 				916E0EF01E8F6CB700911417 /* True Pass.xcdatamodeld in Sources */,
 				91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */,
 				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
 				91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */,
 				910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */,
+				91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */,
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
 				910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */,
 				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
 				917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */,
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
+				911B7E621EE76E150074D338 /* Testing.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
-				917FDA091EB8313800616173 /* Pin+Annotation.swift in Sources */,
+				91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
+				91273E841EDDEAB100FB4E25 /* UserAuthentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +692,7 @@
 				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
 				911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */,
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
+				91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 				917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */,
@@ -784,7 +841,7 @@
 		};
 		916E0EFA1E8F6CB700911417 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA47C6F0CB7D51770650959E /* Pods-CheckIn.debug.xcconfig */;
+			baseConfigurationReference = 5FAC440A24E209889042AF88 /* Pods-True Pass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -803,7 +860,7 @@
 		};
 		916E0EFB1E8F6CB700911417 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA900332F619702613FF1B96 /* Pods-CheckIn.release.xcconfig */;
+			baseConfigurationReference = 202CC4100FC09559B7E1EC85 /* Pods-True Pass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -824,6 +881,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CheckInWatchKitApp/True PassWatchKitApp.entitlements";
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				IBSC_MODULE = CheckInWatchKitApp_Extension;
 				INFOPLIST_FILE = CheckInWatchKitApp/Info.plist;
@@ -842,6 +900,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CheckInWatchKitApp/True PassWatchKitApp.entitlements";
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
 				IBSC_MODULE = CheckInWatchKitApp_Extension;
 				INFOPLIST_FILE = CheckInWatchKitApp/Info.plist;

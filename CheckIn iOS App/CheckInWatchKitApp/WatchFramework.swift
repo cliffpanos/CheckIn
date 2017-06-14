@@ -92,7 +92,9 @@ class WC: NSObject {
     static func requestPassesFromiOS(forIndex index: Int = 0) { //index = 0 means start the request from the beginning; a complete refresh
         
         guard iPhoneIsAvailable else {
-            WC.currentlyPresenting?.presentAlert(withTitle: "Connectivity Issue", message: "Watch App unable to retrieve True Passes from iOS App", preferredStyle: .alert, actions: [])
+            WC.currentlyPresenting?.presentAlert(withTitle: "Connectivity Issue", message: "Watch App unable to retrieve True Passes from iOS App", preferredStyle: .alert, actions: [
+                WKAlertAction(title: "OK", style: .default, handler: {})
+                ])
             return
         }
         
@@ -103,9 +105,11 @@ class WC: NSObject {
             let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data)
             print("RECEIVED PASS REPLY FROM REQUEST from WC.swift")
             
-            WC.addPass(fromMessage: dictionary as! Dictionary<String, Any>)
-            
             let nextPassIndex = message[WCD.nextPassIndex] as! Int
+            if nextPassIndex == 1 { InterfaceController.updatetable() } //Should be updated once only
+            
+            WC.addPass(fromMessage: dictionary as! Dictionary<String, Any>)
+
             if (nextPassIndex) != -1 {
                 WC.requestPassesFromiOS(forIndex: nextPassIndex)
             }

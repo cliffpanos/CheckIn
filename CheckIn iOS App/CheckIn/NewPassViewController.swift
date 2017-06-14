@@ -15,6 +15,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var startDatePicker: UITextField!
     @IBOutlet weak var endDatePicker: UITextField!
+    @IBOutlet weak var contactView: ContactView!
     
     var startDate: Date = Date() {
         didSet {
@@ -66,14 +67,6 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //This class does not subclass ManagedViewController, so its functionality must be done here
-        UIWindow.presented.viewController = self
-    }
-    
-    
     func updateDate() {
         if startDatePicker.isEditing {
             startDate = datePicker.date
@@ -115,7 +108,9 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func onCancelPressed(_ sender: Any) {
         if nameTextField.text != "" && emailTextField.text != "" {
             
-            C.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, withStyle: .actionSheet) { _ in
+            C.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, popoverSetup: {ppc in
+                    ppc.barButtonItem = self.navigationItem.leftBarButtonItem
+                }, withStyle: .actionSheet) { _ in
                 self.dismiss(animated: true, completion: nil)
             }
 
@@ -137,7 +132,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
         
         } else if endDate <= startDate {
             let alert = UIAlertController(title: "Dates not in order", message: "The start date must precede the end date", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         
         } else {
@@ -156,7 +151,11 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
         let success = C.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: start, to: end)
         
         if success {
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true) {
+                if let vc = UIWindow.presented.viewController as? PassesViewController {
+                    vc.tableView.reloadData()
+                }
+            }
         } else {
             let alert = UIAlertController(title: "Failed to save Pass", message: "The pass could not be saved at this time.", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -177,11 +176,14 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
         case (2, 1):
             endDatePicker.becomeFirstResponder()
         case (3, 0): //The authorize button
-            tableView.deselectRow(at: indexPath, animated: true)
             authorizePassPressed()
         default:
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
@@ -226,6 +228,9 @@ extension NewPassViewController: CNContactPickerDelegate {
 
         emailTextField.text = (contact.emailAddresses.count > 0) ? contact.emailAddresses[0].value as String : ""
         imageData = contact.thumbnailImageData
+        
+        contactView.setupContactView(forData: imageData, andName: nameTextField.text ?? "C N")
+        
 
     }
     

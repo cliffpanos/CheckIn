@@ -46,16 +46,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func keyboardWillShow(notification: NSNotification) {
-        if textFieldSelected {
-            return
-        }
+        
+        guard !textFieldSelected else { return }
+        
         print("moving up")
         
         UIView.animate(withDuration: 0.75, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
         
             self.primaryView.frame.origin.y -= 75
             
-        }, completion: nil)
+        })
         self.textFieldSelected = true
 
         

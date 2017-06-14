@@ -62,9 +62,9 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeLocation</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Check-In Now</string>
+			<string>Nearby</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>checkInNow</string>
+			<string>nearbyLocations</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>version</key>
@@ -84,6 +84,8 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

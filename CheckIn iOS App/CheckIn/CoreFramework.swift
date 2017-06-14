@@ -28,7 +28,17 @@ class C: WCActivator {
     
     static var automaticCheckIn: Bool = true
     
-    static var truePassLocations = [Pin]()
+    static var truePassLocations: [TPLocation] = [] /*{
+        get {
+            let managedContext = C.appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<TPLocation> = TPLocation.fetchRequest()
+            
+            if let locations = try? managedContext.fetch(fetchRequest) {
+                return locations
+            }
+            return [TPLocation]()
+        }
+    }*/
 
     static var passes: [Pass] {
         get {
@@ -41,12 +51,6 @@ class C: WCActivator {
 
             return [Pass]()
         }
-        /*set (newPasses) {
-            let managedContext = C.appDelegate.persistentContainer.viewContext
-            if ((try? managedContext.save()) != nil) {
-                self.passes = newPasses
-            }
-        }*/
     }
     
     
@@ -157,11 +161,16 @@ class C: WCActivator {
     
     //MARK: - QR Code handling
     
-    static func share(image: UIImage, in viewController: UIViewController) {
+    static func share(image: UIImage, in viewController: UIViewController, popoverSetup: @escaping (UIPopoverPresentationController) -> Void) {
         
         let shareItems: [Any] = [image]
         let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityType.print, UIActivityType.postToWeibo, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+        activityViewController.setValue("True Pass", forKey: "Subject")
+        //activityViewController.setValue("cliffpanos@gmail.com", forKey: "email")
+        
+        C.setupPopoverPresentation(for: activityViewController, popoverSetup: popoverSetup)
+        
         viewController.present(activityViewController, animated: true, completion: nil)
         
     }
@@ -186,7 +195,7 @@ class C: WCActivator {
     
     //MARK: - AlertController helper methods
     
-    static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, withStyle style: UIAlertControllerStyle, forDestruction completionHandler: @escaping (UIAlertAction) -> Void) {
+    static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, popoverSetup:((UIPopoverPresentationController) -> Void)?, withStyle style: UIAlertControllerStyle, forDestruction completionHandler: @escaping (UIAlertAction) -> Void) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -196,12 +205,18 @@ class C: WCActivator {
         alert.addAction(cancelAction)
         alert.addAction(destructiveAction)
         
-        //TODO: Handle iPad presentation style
-        if let presenter = alert.popoverPresentationController {
-            presenter.sourceView = viewController.view
-            presenter.sourceRect = viewController.view.bounds
-        }
+        C.setupPopoverPresentation(for: alert, popoverSetup: popoverSetup)
+
         viewController.present(alert, animated: true, completion: nil)
+    
+    }
+    
+    fileprivate static func setupPopoverPresentation(for popup: UIViewController, popoverSetup: ((UIPopoverPresentationController) -> Void)?) {
+        
+        if let presenter = popup.popoverPresentationController, let setup = popoverSetup {
+            print("PopoverPresentationController activated")
+            setup(presenter)
+        }
     
     }
     

@@ -25,7 +25,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
+        handler(nil) //The timelineEndDate should be NOW since True Pass does not look into the future
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -56,7 +56,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             //textTemplate.textProvider = CLKSimpleTextProvider(text: longText, shortText: shortText)
             let imageTemplate = CLKComplicationTemplateModularSmallSimpleImage()
             imageTemplate.imageProvider = CLKImageProvider(onePieceImage: #imageLiteral(resourceName: "clearIcon"))
-            imageTemplate.tintColor = UIColor(red: 0.0, green: 102.0/255.0, blue: 1.0, alpha: 1)
+            imageTemplate.tintColor = UIColor.TrueColors.lightBlue
             
             // Create the entry.
 

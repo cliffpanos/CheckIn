@@ -49,7 +49,9 @@ Create the CILocation class and maybe rename this to TRULocation
 Override hashCode for each guest pass
 Give each pass a unique identifier using its hashCode, and override hashCode for the Pass class - perhaps put the hashCode function into another class and make both the Core Data Pass class and the WatchKit app's Pass class subclass this new class that has the hash function?
 
-Implement a HashMap in swift and use it to store the passes based on their identifiers 
+Fix issue where constraints get messed up for MapViewController when the app is launched from a 3D touch quick action
+Implement some kind of superclass to UITableViewController that automatically manages the proportions of static table view cells
+Implement a HashMap in swift?
  */
 
 
@@ -69,14 +71,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
 
     var window: UIWindow?
     var tabBarController: UITabBarController!
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         C.appDelegate = self
         WCActivator.set(&C.session, for: self)
+        
+        Testing.setupForTesting()
         
         tabBarController = window?.rootViewController as! UITabBarController
         
@@ -84,13 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
             as? UIApplicationShortcutItem {
             AppDelegate.QuickActionTrackers.launchedShortcutItem = shortcutItem
         }
-        
-        
-        //load pins
-        let hackGSU = Pin(name: "HackGSU",latitude: 33.7563920891773, longitude: -84.3890242522629)
-        let iOSClub = Pin(name: "iOS Club",latitude: 33.776732102728, longitude: -84.3958815877988)
-        C.truePassLocations = [iOSClub, hackGSU]
-        
         
         return true
     }
@@ -125,10 +121,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        guard let shortcutItem = AppDelegate.QuickActionTrackers.launchedShortcutItem else { return }
-        //guard unwraps launchedShortcutItem and checks if it is not null
+        if let shortcutItem = AppDelegate.QuickActionTrackers.launchedShortcutItem {
+            let _ = handleQuickAction(for: shortcutItem)
+        }
         
-        let _ = handleQuickAction(for: shortcutItem)
         AppDelegate.QuickActionTrackers.launchedShortcutItem = nil
         AppDelegate.QuickActionTrackers.resetRoot = true
         
