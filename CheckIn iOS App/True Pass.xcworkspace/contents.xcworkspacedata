@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Cliff/Documents/Xcode &#xf8ff;/CheckIn/CheckIn iOS App/True Pass.xcodeproj">
+      location = "group:True Pass.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

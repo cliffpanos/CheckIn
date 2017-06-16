@@ -50,18 +50,20 @@ class PassDetailViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.hairlineisHidden = true
 
         nameLabel.text = pass.name
         startTimeLabel.text = pass.timeStart
         endTimeLabel.text = pass.timeEnd
         
         passActivityState.text = C.passesActive ? "Pass Active Between:" : "Pass Currently Inactive."
-        
-        /*if pass.image == nil {
-            let imageName = C.passesActive ? "greenContactIcon" : "contactIcon"
-            imageView.image = UIImage(named: imageName)
-        }*/
     
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.hairlineisHidden = false
     }
     
     func shareQRCode() {

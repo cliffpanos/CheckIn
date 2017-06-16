@@ -16,7 +16,11 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var mapTypeController: UISegmentedControl!
     
     let locationManager = CLLocationManager()
-    let locationCollectionViewSpace = (UIDevice.current.isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.55
+    var locationCollectionViewSpace: CGFloat {
+        debugPrint("Screen: \(UIScreen.main.bounds)")
+        print("Vertical? \(UIDevice.current.isVertical)")
+        return CGFloat(UIDevice.current.isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.28
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +118,6 @@ extension MapViewController {
         }
         
         let scaledHeights: (forVertical: CGFloat, forHorizontal: CGFloat)
-        
         switch (indexPath.row) {
         case 0 : scaledHeights = (95, 80)
         case 1: scaledHeights = (heightSpace - locationSpace, heightSpace)
@@ -186,7 +189,7 @@ class LocationCell: UICollectionViewCell {
         
         self.location = location
         
-        locationTypeLabel.text = location.locationType ?? "Location"
+        locationTypeLabel.text = (location.locationType ?? "Location").localizedUppercase
         titleLabel.text = location.shortTitle
         
         let typeDetails = TPLocationType.Details[location.type]!

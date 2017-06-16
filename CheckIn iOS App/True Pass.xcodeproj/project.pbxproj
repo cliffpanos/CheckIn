@@ -49,6 +49,7 @@
 		918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */; };
 		918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */; };
 		918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */; };
+		918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918DB6DE1EF436810093B86A /* CDExtensions.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
 		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
 		91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* CoreFramework.swift */; };
@@ -160,6 +161,7 @@
 		918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPlatform.swift; sourceTree = "<group>"; };
 		918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
 		918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedViewController.swift; sourceTree = "<group>"; };
+		918DB6DE1EF436810093B86A /* CDExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDExtensions.swift; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
 		91989DA51E90095E00F83E1C /* CoreFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreFramework.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
 				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 				91273E7E1EDDEA6500FB4E25 /* DataServices */,
+				918DB6DD1EF425070093B86A /* HomeKit Service */,
 				91D517B91ED7906800E6B452 /* PassKitService */,
 			);
 			name = Managers;
@@ -253,6 +256,7 @@
 			children = (
 				918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */,
 				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
+				918DB6DE1EF436810093B86A /* CDExtensions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -387,6 +391,13 @@
 				9187E3CB1EA2F3700085E415 /* ComplicationController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		918DB6DD1EF425070093B86A /* HomeKit Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "HomeKit Service";
 			sourceTree = "<group>";
 		};
 		91D517B91ED7906800E6B452 /* PassKitService */ = {
@@ -649,6 +660,7 @@
 			files = (
 				91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */,
 				916E0F011E8F705400911417 /* LoginViewController.swift in Sources */,
+				918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */,
 				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
 				91B801921EE81925003EB7AD /* CDInterfaceBuilderView.swift in Sources */,
 				916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */,
