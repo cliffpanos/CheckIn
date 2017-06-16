@@ -723,7 +723,7 @@
                                                                             <constraint firstAttribute="width" secondItem="R0T-WK-4Vj" secondAttribute="height" multiplier="1:1" id="Gy1-By-LdV"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceC-wr-LsF" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceC-wr-LsF">
                                                                         <rect key="frame" x="50" y="-16" width="30" height="30"/>
                                                                         <color key="backgroundColor" red="0.94590428579999997" green="0.94469209570000001" blue="0.96586603800000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
@@ -732,7 +732,7 @@
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="15"/>
+                                                                                <real key="value" value="19"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
@@ -1291,7 +1291,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brO-CE-TZr" customClass="BorderedButton" customModule="True_Pass" customModuleProvider="target">
                                                             <rect key="frame" x="177.5" y="0.0" width="165.5" height="47.5"/>
                                                             <color key="backgroundColor" red="0.97032368179999995" green="0.31497259649999998" blue="0.35228304030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1637,7 +1637,7 @@
         <image name="CardsTabBar" width="26" height="23"/>
         <image name="CurrentLocation" width="15" height="15"/>
         <image name="Email" width="26" height="20"/>
-        <image name="ModernContactEmpty" width="126" height="126"/>
+        <image name="ModernContactEmpty" width="251" height="252"/>
         <image name="TextMessage" width="26" height="20"/>
         <image name="WorkScene" width="800" height="600"/>
         <image name="WrappedLocation" width="23" height="23"/>
