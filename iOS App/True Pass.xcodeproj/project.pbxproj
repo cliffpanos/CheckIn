@@ -8,33 +8,55 @@
 
 /* Begin PBXBuildFile section */
 		03DB8D148D2E557705EFB4B8 /* Pods_True_Pass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */; };
-		910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910134571EB521EE006D11AD /* WCSessionManager.swift */; };
-		9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101345A1EB52902006D11AD /* 3D+QuickActions.swift */; };
-		9106AB601E9455C100CEBD7A /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9106AB5F1E9455C100CEBD7A /* Designables.swift */; };
 		910FD5CF1EC6784C0058FF5C /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910FD5CD1EC678450058FF5C /* Pass.swift */; };
 		910FD5D01EC678520058FF5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
 		910FD5D11EC678C80058FF5C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B41EA2F3700085E415 /* Interface.storyboard */; };
-		910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */; };
 		9112C6D11EF0086C00584D91 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9112C6D01EF0086C00584D91 /* PassKit.framework */; };
-		911B7E621EE76E150074D338 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911B7E611EE76E150074D338 /* Testing.swift */; };
 		911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */; };
-		91273E821EDDEAB100FB4E25 /* FirebaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */; };
-		91273E831EDDEAB100FB4E25 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91273E801EDDEAB100FB4E25 /* FirebaseService.swift */; };
-		91273E841EDDEAB100FB4E25 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91273E811EDDEAB100FB4E25 /* UserAuthentication.swift */; };
 		9139BA671EBBFC2D00F365EF /* UserInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9139BA661EBBFC2D00F365EF /* UserInfoInterfaceController.swift */; };
 		9139BA6A1EBC007700F365EF /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9139BA691EBC007700F365EF /* PassKit.framework */; };
-		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
-		916915D51EF45FE500B80920 /* True Pass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916915D31EF45FE500B80920 /* True Pass.xcdatamodeld */; };
-		916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE71E8F6CB700911417 /* AppDelegate.swift */; };
-		916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE91E8F6CB700911417 /* RootViewController.swift */; };
-		916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EEB1E8F6CB700911417 /* Main.storyboard */; };
-		916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF11E8F6CB700911417 /* Assets.xcassets */; };
-		916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */; };
-		916E0F011E8F705400911417 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0F001E8F705400911417 /* LoginViewController.swift */; };
-		917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA031EB7D90500616173 /* GeoLocationManager.swift */; };
+		916915E01EF467C400B80920 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 916915DF1EF467C400B80920 /* Info.plist */; };
+		916915E31EF467E800B80920 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915E11EF467E800B80920 /* CommonDataModels.swift */; };
+		916915E41EF467E800B80920 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915E21EF467E800B80920 /* LoginViewController.swift */; };
+		916916071EF467FD00B80920 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 916915E61EF467FD00B80920 /* Base.lproj */; };
+		916916081EF467FD00B80920 /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915E71EF467FD00B80920 /* ManagedViewController.swift */; };
+		916916091EF467FD00B80920 /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915E81EF467FD00B80920 /* PassesViewController.swift */; };
+		9169160A1EF467FD00B80920 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916915E91EF467FD00B80920 /* ContactView.xib */; };
+		9169160B1EF467FD00B80920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916915EA1EF467FD00B80920 /* Assets.xcassets */; };
+		9169160C1EF467FD00B80920 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915EB1EF467FD00B80920 /* MapViewController.swift */; };
+		9169160D1EF467FD00B80920 /* CDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915EC1EF467FD00B80920 /* CDExtensions.swift */; };
+		9169160E1EF467FD00B80920 /* PassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915ED1EF467FD00B80920 /* PassDetailViewController.swift */; };
+		9169160F1EF467FD00B80920 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915EE1EF467FD00B80920 /* UserAuthentication.swift */; };
+		916916101EF467FD00B80920 /* FirebaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915EF1EF467FD00B80920 /* FirebaseObjects.swift */; };
+		916916111EF467FD00B80920 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F01EF467FD00B80920 /* FirebaseService.swift */; };
+		916916121EF467FD00B80920 /* PassKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F11EF467FD00B80920 /* PassKitManager.swift */; };
+		916916131EF467FD00B80920 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F21EF467FD00B80920 /* Extensions.swift */; };
+		916916141EF467FD00B80920 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F31EF467FD00B80920 /* Designables.swift */; };
+		916916151EF467FD00B80920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F41EF467FD00B80920 /* AppDelegate.swift */; };
+		916916161EF467FD00B80920 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F51EF467FD00B80920 /* FirebaseStorage.swift */; };
+		916916171EF467FD00B80920 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F61EF467FD00B80920 /* ContactView.swift */; };
+		916916181EF467FD00B80920 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F71EF467FD00B80920 /* Testing.swift */; };
+		916916191EF467FD00B80920 /* CoreFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F81EF467FD00B80920 /* CoreFramework.swift */; };
+		9169161A1EF467FD00B80920 /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915F91EF467FD00B80920 /* WCSessionManager.swift */; };
+		9169161B1EF467FD00B80920 /* GeoLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915FA1EF467FD00B80920 /* GeoLocationManager.swift */; };
+		9169161C1EF467FD00B80920 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 916915FB1EF467FD00B80920 /* GoogleService-Info.plist */; };
+		9169161D1EF467FD00B80920 /* NewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915FC1EF467FD00B80920 /* NewPassViewController.swift */; };
+		9169161E1EF467FD00B80920 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915FD1EF467FD00B80920 /* SettingsViewController.swift */; };
+		9169161F1EF467FD00B80920 /* LocationTest.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 916915FE1EF467FD00B80920 /* LocationTest.gpx */; };
+		916916201EF467FD00B80920 /* 3D+QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916915FF1EF467FD00B80920 /* 3D+QuickActions.swift */; };
+		916916211EF467FD00B80920 /* CDInterfaceBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916916001EF467FD00B80920 /* CDInterfaceBuilderView.swift */; };
+		916916221EF467FD00B80920 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 916916011EF467FD00B80920 /* en.lproj */; };
+		916916231EF467FD00B80920 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916916021EF467FD00B80920 /* DatabaseManager.swift */; };
+		916916241EF467FD00B80920 /* CheckInPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916916031EF467FD00B80920 /* CheckInPassViewController.swift */; };
+		916916251EF467FD00B80920 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916916041EF467FD00B80920 /* RootViewController.swift */; };
+		9169162C1EF469F500B80920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916916281EF469F500B80920 /* Main.storyboard */; };
+		9169162D1EF469F500B80920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9169162A1EF469F500B80920 /* LaunchScreen.storyboard */; };
+		916916311EF46A9500B80920 /* True Pass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916916301EF46A9500B80920 /* True Pass.xcdatamodeld */; };
+		916916361EF46B4100B80920 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 916916331EF46B4100B80920 /* Base.lproj */; };
+		916916371EF46B4100B80920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916916341EF46B4100B80920 /* Assets.xcassets */; };
+		916916381EF46B4100B80920 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 916916351EF46B4100B80920 /* Info.plist */; };
 		917FDA071EB816BB00616173 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917FDA061EB816BB00616173 /* CloudKit.framework */; };
 		917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */; };
-		9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9187E3B71EA2F3700085E415 /* Assets.xcassets */; };
 		9187E3BF1EA2F3700085E415 /* True PassWatchKitApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C51EA2F3700085E415 /* InterfaceController.swift */; };
 		9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9187E3C71EA2F3700085E415 /* ExtensionDelegate.swift */; };
@@ -48,23 +70,6 @@
 		918BDCC71EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */; };
 		918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */; };
 		918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */; };
-		918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */; };
-		918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918DB6DE1EF436810093B86A /* CDExtensions.swift */; };
-		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
-		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
-		91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* CoreFramework.swift */; };
-		91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA71E901B0C00F83E1C /* SettingsViewController.swift */; };
-		91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA91E904AA100F83E1C /* PassDetailViewController.swift */; };
-		91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAB1E9053B300F83E1C /* NewPassViewController.swift */; };
-		91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */; };
-		91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DAF1E90DDDB00F83E1C /* MapViewController.swift */; };
-		919DF2791ED4EF0300D7D219 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919DF2781ED4EF0300D7D219 /* ContactView.xib */; };
-		919DF27B1ED4F21D00D7D219 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DF27A1ED4F21D00D7D219 /* ContactView.swift */; };
-		91B801921EE81925003EB7AD /* CDInterfaceBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */; };
-		91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D517BA1ED7908E00E6B452 /* PassKitManager.swift */; };
-		91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
-		91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
-		91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,41 +117,59 @@
 /* Begin PBXFileReference section */
 		202CC4100FC09559B7E1EC85 /* Pods-True Pass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-True Pass.release.xcconfig"; path = "Pods/Target Support Files/Pods-True Pass/Pods-True Pass.release.xcconfig"; sourceTree = "<group>"; };
 		5FAC440A24E209889042AF88 /* Pods-True Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-True Pass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-True Pass/Pods-True Pass.debug.xcconfig"; sourceTree = "<group>"; };
-		910134571EB521EE006D11AD /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WCSessionManager.swift; path = "True Pass/WCSessionManager.swift"; sourceTree = SOURCE_ROOT; };
-		9101345A1EB52902006D11AD /* 3D+QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "3D+QuickActions.swift"; path = "True Pass/3D+QuickActions.swift"; sourceTree = SOURCE_ROOT; };
-		9106AB5F1E9455C100CEBD7A /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Designables.swift; path = "True Pass/Designables.swift"; sourceTree = SOURCE_ROOT; };
 		910FD5CD1EC678450058FF5C /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
-		910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = "True Pass/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
 		9112C6D01EF0086C00584D91 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/PassKit.framework; sourceTree = DEVELOPER_DIR; };
-		911B7E611EE76E150074D338 /* Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Testing.swift; path = "True Pass/Testing.swift"; sourceTree = SOURCE_ROOT; };
 		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
-		9120FD111EE8986100B107AB /* LocationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = LocationTest.gpx; path = "True Pass/LocationTest.gpx"; sourceTree = SOURCE_ROOT; };
-		91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseObjects.swift; path = "True Pass/FirebaseObjects.swift"; sourceTree = SOURCE_ROOT; };
-		91273E801EDDEAB100FB4E25 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = "True Pass/FirebaseService.swift"; sourceTree = SOURCE_ROOT; };
-		91273E811EDDEAB100FB4E25 /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAuthentication.swift; path = "True Pass/UserAuthentication.swift"; sourceTree = SOURCE_ROOT; };
 		9139BA661EBBFC2D00F365EF /* UserInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInterfaceController.swift; sourceTree = "<group>"; };
 		9139BA691EBC007700F365EF /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
-		9139BA6B1EBC00D700F365EF /* True PassWatchKitApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "True PassWatchKitApp.entitlements"; sourceTree = "<group>"; };
 		9139BA6C1EBC011900F365EF /* True PassWatchKitApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "True PassWatchKitApp Extension.entitlements"; path = "CheckInWatchKitApp Extension/True PassWatchKitApp Extension.entitlements"; sourceTree = "<group>"; };
-		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "True Pass/Extensions.swift"; sourceTree = SOURCE_ROOT; };
-		916915D41EF45FE500B80920 /* True Pass.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "True Pass.xcdatamodel"; sourceTree = "<group>"; };
+		916915DE1EF4673A00B80920 /* True Pass.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = "True Pass.entitlements"; path = "True Pass/True Pass.entitlements"; sourceTree = SOURCE_ROOT; };
+		916915DF1EF467C400B80920 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "True Pass/Info.plist"; sourceTree = SOURCE_ROOT; };
+		916915E11EF467E800B80920 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDataModels.swift; sourceTree = SOURCE_ROOT; };
+		916915E21EF467E800B80920 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		916915E61EF467FD00B80920 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = "True Pass/Base.lproj"; sourceTree = SOURCE_ROOT; };
+		916915E71EF467FD00B80920 /* ManagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedViewController.swift; path = "True Pass/ManagedViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916915E81EF467FD00B80920 /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassesViewController.swift; path = "True Pass/PassesViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916915E91EF467FD00B80920 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactView.xib; path = "True Pass/ContactView.xib"; sourceTree = SOURCE_ROOT; };
+		916915EA1EF467FD00B80920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "True Pass/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		916915EB1EF467FD00B80920 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = "True Pass/MapViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916915EC1EF467FD00B80920 /* CDExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDExtensions.swift; path = "True Pass/CDExtensions.swift"; sourceTree = SOURCE_ROOT; };
+		916915ED1EF467FD00B80920 /* PassDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassDetailViewController.swift; path = "True Pass/PassDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916915EE1EF467FD00B80920 /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAuthentication.swift; path = "True Pass/UserAuthentication.swift"; sourceTree = SOURCE_ROOT; };
+		916915EF1EF467FD00B80920 /* FirebaseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseObjects.swift; path = "True Pass/FirebaseObjects.swift"; sourceTree = SOURCE_ROOT; };
+		916915F01EF467FD00B80920 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = "True Pass/FirebaseService.swift"; sourceTree = SOURCE_ROOT; };
+		916915F11EF467FD00B80920 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassKitManager.swift; path = "True Pass/PassKitManager.swift"; sourceTree = SOURCE_ROOT; };
+		916915F21EF467FD00B80920 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "True Pass/Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		916915F31EF467FD00B80920 /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Designables.swift; path = "True Pass/Designables.swift"; sourceTree = SOURCE_ROOT; };
+		916915F41EF467FD00B80920 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "True Pass/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		916915F51EF467FD00B80920 /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseStorage.swift; path = "True Pass/FirebaseStorage.swift"; sourceTree = SOURCE_ROOT; };
+		916915F61EF467FD00B80920 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactView.swift; path = "True Pass/ContactView.swift"; sourceTree = SOURCE_ROOT; };
+		916915F71EF467FD00B80920 /* Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Testing.swift; path = "True Pass/Testing.swift"; sourceTree = SOURCE_ROOT; };
+		916915F81EF467FD00B80920 /* CoreFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreFramework.swift; path = "True Pass/CoreFramework.swift"; sourceTree = SOURCE_ROOT; };
+		916915F91EF467FD00B80920 /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WCSessionManager.swift; path = "True Pass/WCSessionManager.swift"; sourceTree = SOURCE_ROOT; };
+		916915FA1EF467FD00B80920 /* GeoLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoLocationManager.swift; path = "True Pass/GeoLocationManager.swift"; sourceTree = SOURCE_ROOT; };
+		916915FB1EF467FD00B80920 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "True Pass/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		916915FC1EF467FD00B80920 /* NewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPassViewController.swift; path = "True Pass/NewPassViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916915FD1EF467FD00B80920 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "True Pass/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916915FE1EF467FD00B80920 /* LocationTest.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = LocationTest.gpx; path = "True Pass/LocationTest.gpx"; sourceTree = SOURCE_ROOT; };
+		916915FF1EF467FD00B80920 /* 3D+QuickActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "3D+QuickActions.swift"; path = "True Pass/3D+QuickActions.swift"; sourceTree = SOURCE_ROOT; };
+		916916001EF467FD00B80920 /* CDInterfaceBuilderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDInterfaceBuilderView.swift; path = "True Pass/CDInterfaceBuilderView.swift"; sourceTree = SOURCE_ROOT; };
+		916916011EF467FD00B80920 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = "True Pass/en.lproj"; sourceTree = SOURCE_ROOT; };
+		916916021EF467FD00B80920 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = "True Pass/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
+		916916031EF467FD00B80920 /* CheckInPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInPassViewController.swift; path = "True Pass/CheckInPassViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916916041EF467FD00B80920 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "True Pass/RootViewController.swift"; sourceTree = SOURCE_ROOT; };
+		916916051EF467FD00B80920 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CheckIn-Bridging-Header.h"; path = "True Pass/CheckIn-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		916916291EF469F500B80920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "True Pass/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		9169162B1EF469F500B80920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "True Pass/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		916916321EF46B4100B80920 /* True PassWatchKitApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "True PassWatchKitApp.entitlements"; sourceTree = "<group>"; };
+		916916331EF46B4100B80920 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		916916341EF46B4100B80920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		916916351EF46B4100B80920 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916E0EE41E8F6CB700911417 /* True Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "True Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		916E0EE71E8F6CB700911417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "True Pass/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		916E0EE91E8F6CB700911417 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "True Pass/RootViewController.swift"; sourceTree = SOURCE_ROOT; };
-		916E0EEC1E8F6CB700911417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		916E0EF11E8F6CB700911417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "True Pass/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
-		916E0EF41E8F6CB700911417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		916E0EF61E8F6CB700911417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "True Pass/Info.plist"; sourceTree = SOURCE_ROOT; };
-		916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CheckIn-Bridging-Header.h"; path = "True Pass/CheckIn-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		916E0F001E8F705400911417 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = SOURCE_ROOT; };
-		917FDA031EB7D90500616173 /* GeoLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoLocationManager.swift; path = "True Pass/GeoLocationManager.swift"; sourceTree = SOURCE_ROOT; };
-		917FDA051EB816A700616173 /* True Pass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "True Pass.entitlements"; path = "True Pass/True Pass.entitlements"; sourceTree = SOURCE_ROOT; };
 		917FDA061EB816BB00616173 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		917FDA0D1EB85C7F00616173 /* ManagedInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedInterfaceController.swift; sourceTree = "<group>"; };
 		9187E3B21EA2F3700085E415 /* True PassWatchKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "True PassWatchKitApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3B51EA2F3700085E415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		9187E3B71EA2F3700085E415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9187E3B91EA2F3700085E415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9187E3BE1EA2F3700085E415 /* True PassWatchKitApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "True PassWatchKitApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187E3C41EA2F3700085E415 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		9187E3C51EA2F3700085E415 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -160,22 +183,6 @@
 		9187E3E01EA343490085E415 /* CheckInPassInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInPassInterfaceController.swift; sourceTree = "<group>"; };
 		918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPlatform.swift; sourceTree = "<group>"; };
 		918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCSessionManager.swift; sourceTree = "<group>"; };
-		918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedViewController.swift; path = "True Pass/ManagedViewController.swift"; sourceTree = SOURCE_ROOT; };
-		918DB6DE1EF436810093B86A /* CDExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDExtensions.swift; path = "True Pass/CDExtensions.swift"; sourceTree = SOURCE_ROOT; };
-		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "True Pass/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassesViewController.swift; path = "True Pass/PassesViewController.swift"; sourceTree = SOURCE_ROOT; };
-		91989DA51E90095E00F83E1C /* CoreFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreFramework.swift; path = "True Pass/CoreFramework.swift"; sourceTree = SOURCE_ROOT; };
-		91989DA71E901B0C00F83E1C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "True Pass/SettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
-		91989DA91E904AA100F83E1C /* PassDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassDetailViewController.swift; path = "True Pass/PassDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
-		91989DAB1E9053B300F83E1C /* NewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewPassViewController.swift; path = "True Pass/NewPassViewController.swift"; sourceTree = SOURCE_ROOT; };
-		91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInPassViewController.swift; path = "True Pass/CheckInPassViewController.swift"; sourceTree = SOURCE_ROOT; };
-		91989DAF1E90DDDB00F83E1C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = "True Pass/MapViewController.swift"; sourceTree = SOURCE_ROOT; };
-		919DF2781ED4EF0300D7D219 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactView.xib; path = "True Pass/ContactView.xib"; sourceTree = SOURCE_ROOT; };
-		919DF27A1ED4F21D00D7D219 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactView.swift; path = "True Pass/ContactView.swift"; sourceTree = SOURCE_ROOT; };
-		91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDInterfaceBuilderView.swift; path = "True Pass/CDInterfaceBuilderView.swift"; sourceTree = SOURCE_ROOT; };
-		91D517BA1ED7908E00E6B452 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassKitManager.swift; path = "True Pass/PassKitManager.swift"; sourceTree = SOURCE_ROOT; };
-		91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDataModels.swift; sourceTree = SOURCE_ROOT; };
-		91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseStorage.swift; path = "True Pass/FirebaseStorage.swift"; sourceTree = SOURCE_ROOT; };
 		AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_True_Pass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,39 +218,26 @@
 		910134591EB521F8006D11AD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				916E0EE71E8F6CB700911417 /* AppDelegate.swift */,
-				910134571EB521EE006D11AD /* WCSessionManager.swift */,
-				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
-				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
-				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 				91273E7E1EDDEA6500FB4E25 /* DataServices */,
 				918DB6DD1EF425070093B86A /* HomeKit Service */,
 				91D517B91ED7906800E6B452 /* PassKitService */,
 			);
 			name = Managers;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		911B7E5E1EE70C690074D338 /* Core Operations */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "Core Operations";
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		91273E7E1EDDEA6500FB4E25 /* DataServices */ = {
 			isa = PBXGroup;
 			children = (
-				910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */,
-				91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */,
-				91273E801EDDEAB100FB4E25 /* FirebaseService.swift */,
-				91273E811EDDEAB100FB4E25 /* UserAuthentication.swift */,
-				91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */,
 			);
 			name = DataServices;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		9139BA681EBBFCD300F365EF /* Models */ = {
 			isa = PBXGroup;
@@ -257,45 +251,29 @@
 		9169EE191EB2FAD20018C434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */,
-				914F79CE1EADCD350095B0D6 /* Extensions.swift */,
-				918DB6DE1EF436810093B86A /* CDExtensions.swift */,
 			);
 			name = Models;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		9169EE1A1EB2FAF10018C434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
-				91989DA31E90024800F83E1C /* PassesViewController.swift */,
-				916E0F001E8F705400911417 /* LoginViewController.swift */,
-				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
-				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
-				91989DA71E901B0C00F83E1C /* SettingsViewController.swift */,
-				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
-				916E0EE91E8F6CB700911417 /* RootViewController.swift */,
 			);
 			name = Controllers;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		9169EE1B1EB2FB100018C434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				919DF2781ED4EF0300D7D219 /* ContactView.xib */,
-				919DF27A1ED4F21D00D7D219 /* ContactView.swift */,
-				91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */,
-				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
 			);
 			name = Views;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		916E0EDB1E8F6CB700911417 = {
 			isa = PBXGroup;
 			children = (
+				916916281EF469F500B80920 /* Main.storyboard */,
+				9169162A1EF469F500B80920 /* LaunchScreen.storyboard */,
 				9139BA6C1EBC011900F365EF /* True PassWatchKitApp Extension.entitlements */,
 				918BDCC61EB68C9E00DBAB4C /* CommonPlatform.swift */,
 				916E0EE61E8F6CB700911417 /* True Pass */,
@@ -320,33 +298,61 @@
 		916E0EE61E8F6CB700911417 /* True Pass */ = {
 			isa = PBXGroup;
 			children = (
-				917FDA051EB816A700616173 /* True Pass.entitlements */,
-				916915D31EF45FE500B80920 /* True Pass.xcdatamodeld */,
-				911B7E611EE76E150074D338 /* Testing.swift */,
-				9120FD111EE8986100B107AB /* LocationTest.gpx */,
-				91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */,
+				916915DE1EF4673A00B80920 /* True Pass.entitlements */,
 				910134591EB521F8006D11AD /* Managers */,
 				9169EE191EB2FAD20018C434 /* Models */,
 				9169EE1A1EB2FAF10018C434 /* Controllers */,
 				9169EE1B1EB2FB100018C434 /* Views */,
 				911B7E5E1EE70C690074D338 /* Core Operations */,
-				916E0EF11E8F6CB700911417 /* Assets.xcassets */,
-				916E0EEB1E8F6CB700911417 /* Main.storyboard */,
-				916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */,
-				916E0EF61E8F6CB700911417 /* Info.plist */,
-				91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */,
-				916E0EFC1E8F702D00911417 /* CheckIn-Bridging-Header.h */,
+				916915DF1EF467C400B80920 /* Info.plist */,
+				916916301EF46A9500B80920 /* True Pass.xcdatamodeld */,
+				916915E61EF467FD00B80920 /* Base.lproj */,
+				916915E71EF467FD00B80920 /* ManagedViewController.swift */,
+				916915E81EF467FD00B80920 /* PassesViewController.swift */,
+				916915E91EF467FD00B80920 /* ContactView.xib */,
+				916915EA1EF467FD00B80920 /* Assets.xcassets */,
+				916915EB1EF467FD00B80920 /* MapViewController.swift */,
+				916915EC1EF467FD00B80920 /* CDExtensions.swift */,
+				916915ED1EF467FD00B80920 /* PassDetailViewController.swift */,
+				916915EE1EF467FD00B80920 /* UserAuthentication.swift */,
+				916915EF1EF467FD00B80920 /* FirebaseObjects.swift */,
+				916915F01EF467FD00B80920 /* FirebaseService.swift */,
+				916915F11EF467FD00B80920 /* PassKitManager.swift */,
+				916915F21EF467FD00B80920 /* Extensions.swift */,
+				916915F31EF467FD00B80920 /* Designables.swift */,
+				916915F41EF467FD00B80920 /* AppDelegate.swift */,
+				916915F51EF467FD00B80920 /* FirebaseStorage.swift */,
+				916915F61EF467FD00B80920 /* ContactView.swift */,
+				916915F71EF467FD00B80920 /* Testing.swift */,
+				916915F81EF467FD00B80920 /* CoreFramework.swift */,
+				916915F91EF467FD00B80920 /* WCSessionManager.swift */,
+				916915FA1EF467FD00B80920 /* GeoLocationManager.swift */,
+				916915FB1EF467FD00B80920 /* GoogleService-Info.plist */,
+				916915FC1EF467FD00B80920 /* NewPassViewController.swift */,
+				916915FD1EF467FD00B80920 /* SettingsViewController.swift */,
+				916915FE1EF467FD00B80920 /* LocationTest.gpx */,
+				916915FF1EF467FD00B80920 /* 3D+QuickActions.swift */,
+				916916001EF467FD00B80920 /* CDInterfaceBuilderView.swift */,
+				916916011EF467FD00B80920 /* en.lproj */,
+				916916021EF467FD00B80920 /* DatabaseManager.swift */,
+				916916031EF467FD00B80920 /* CheckInPassViewController.swift */,
+				916916041EF467FD00B80920 /* RootViewController.swift */,
+				916916051EF467FD00B80920 /* CheckIn-Bridging-Header.h */,
+				916915E11EF467E800B80920 /* CommonDataModels.swift */,
+				916915E21EF467E800B80920 /* LoginViewController.swift */,
 			);
-			path = "True Pass";
+			name = "True Pass";
+			path = CheckIn;
 			sourceTree = "<group>";
 		};
 		9187E3B31EA2F3700085E415 /* TruePassWatchKitApp */ = {
 			isa = PBXGroup;
 			children = (
-				9139BA6B1EBC00D700F365EF /* True PassWatchKitApp.entitlements */,
+				916916321EF46B4100B80920 /* True PassWatchKitApp.entitlements */,
+				916916331EF46B4100B80920 /* Base.lproj */,
+				916916341EF46B4100B80920 /* Assets.xcassets */,
+				916916351EF46B4100B80920 /* Info.plist */,
 				9187E3B41EA2F3700085E415 /* Interface.storyboard */,
-				9187E3B71EA2F3700085E415 /* Assets.xcassets */,
-				9187E3B91EA2F3700085E415 /* Info.plist */,
 			);
 			name = TruePassWatchKitApp;
 			path = CheckInWatchKitApp;
@@ -403,17 +409,14 @@
 			children = (
 			);
 			name = "HomeKit Service";
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		91D517B91ED7906800E6B452 /* PassKitService */ = {
 			isa = PBXGroup;
 			children = (
-				91D517BA1ED7908E00E6B452 /* PassKitManager.swift */,
 			);
 			name = PassKitService;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		95260616F8D44D890B15213F /* Frameworks */ = {
 			isa = PBXGroup;
@@ -584,11 +587,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919DF2791ED4EF0300D7D219 /* ContactView.xib in Resources */,
-				916E0EF51E8F6CB700911417 /* LaunchScreen.storyboard in Resources */,
-				916E0EF21E8F6CB700911417 /* Assets.xcassets in Resources */,
-				91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */,
-				916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */,
+				9169161F1EF467FD00B80920 /* LocationTest.gpx in Resources */,
+				9169162C1EF469F500B80920 /* Main.storyboard in Resources */,
+				916916371EF46B4100B80920 /* Assets.xcassets in Resources */,
+				916916361EF46B4100B80920 /* Base.lproj in Resources */,
+				916916071EF467FD00B80920 /* Base.lproj in Resources */,
+				916916221EF467FD00B80920 /* en.lproj in Resources */,
+				916915E01EF467C400B80920 /* Info.plist in Resources */,
+				9169161C1EF467FD00B80920 /* GoogleService-Info.plist in Resources */,
+				916916381EF46B4100B80920 /* Info.plist in Resources */,
+				9169160B1EF467FD00B80920 /* Assets.xcassets in Resources */,
+				9169162D1EF469F500B80920 /* LaunchScreen.storyboard in Resources */,
+				9169160A1EF467FD00B80920 /* ContactView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +607,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				910FD5D11EC678C80058FF5C /* Interface.storyboard in Resources */,
-				9187E3B81EA2F3700085E415 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,35 +674,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */,
-				916E0F011E8F705400911417 /* LoginViewController.swift in Sources */,
-				918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */,
-				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
-				91B801921EE81925003EB7AD /* CDInterfaceBuilderView.swift in Sources */,
-				916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */,
-				91989DAA1E904AA100F83E1C /* PassDetailViewController.swift in Sources */,
+				916916151EF467FD00B80920 /* AppDelegate.swift in Sources */,
+				9169160D1EF467FD00B80920 /* CDExtensions.swift in Sources */,
+				916916251EF467FD00B80920 /* RootViewController.swift in Sources */,
+				916916211EF467FD00B80920 /* CDInterfaceBuilderView.swift in Sources */,
+				916916091EF467FD00B80920 /* PassesViewController.swift in Sources */,
+				916916191EF467FD00B80920 /* CoreFramework.swift in Sources */,
+				9169161A1EF467FD00B80920 /* WCSessionManager.swift in Sources */,
+				916916081EF467FD00B80920 /* ManagedViewController.swift in Sources */,
+				916916201EF467FD00B80920 /* 3D+QuickActions.swift in Sources */,
+				9169161D1EF467FD00B80920 /* NewPassViewController.swift in Sources */,
+				916916231EF467FD00B80920 /* DatabaseManager.swift in Sources */,
+				916916181EF467FD00B80920 /* Testing.swift in Sources */,
+				916916311EF46A9500B80920 /* True Pass.xcdatamodeld in Sources */,
+				916916121EF467FD00B80920 /* PassKitManager.swift in Sources */,
+				916916171EF467FD00B80920 /* ContactView.swift in Sources */,
 				918BDCC71EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
-				91273E821EDDEAB100FB4E25 /* FirebaseObjects.swift in Sources */,
-				91989DAE1E90846100F83E1C /* CheckInPassViewController.swift in Sources */,
-				918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */,
-				91989DA81E901B0C00F83E1C /* SettingsViewController.swift in Sources */,
-				916915D51EF45FE500B80920 /* True Pass.xcdatamodeld in Sources */,
-				91273E831EDDEAB100FB4E25 /* FirebaseService.swift in Sources */,
-				919DF27B1ED4F21D00D7D219 /* ContactView.swift in Sources */,
-				91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */,
-				914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */,
-				91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */,
-				910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */,
-				91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */,
-				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
-				910134581EB521EE006D11AD /* WCSessionManager.swift in Sources */,
-				91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */,
-				917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */,
-				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
-				911B7E621EE76E150074D338 /* Testing.swift in Sources */,
-				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
-				91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
-				91273E841EDDEAB100FB4E25 /* UserAuthentication.swift in Sources */,
+				916916131EF467FD00B80920 /* Extensions.swift in Sources */,
+				9169160E1EF467FD00B80920 /* PassDetailViewController.swift in Sources */,
+				9169161E1EF467FD00B80920 /* SettingsViewController.swift in Sources */,
+				9169160C1EF467FD00B80920 /* MapViewController.swift in Sources */,
+				916916241EF467FD00B80920 /* CheckInPassViewController.swift in Sources */,
+				916915E41EF467E800B80920 /* LoginViewController.swift in Sources */,
+				916916161EF467FD00B80920 /* FirebaseStorage.swift in Sources */,
+				916916101EF467FD00B80920 /* FirebaseObjects.swift in Sources */,
+				916916111EF467FD00B80920 /* FirebaseService.swift in Sources */,
+				916916141EF467FD00B80920 /* Designables.swift in Sources */,
+				9169161B1EF467FD00B80920 /* GeoLocationManager.swift in Sources */,
+				9169160F1EF467FD00B80920 /* UserAuthentication.swift in Sources */,
+				916915E31EF467E800B80920 /* CommonDataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,7 +720,6 @@
 				9187E3C81EA2F3700085E415 /* ExtensionDelegate.swift in Sources */,
 				911FC20D1EA6CBBD00B6936F /* PassDetailInterfaceController.swift in Sources */,
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
-				91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 				917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */,
@@ -734,19 +742,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		916E0EEB1E8F6CB700911417 /* Main.storyboard */ = {
+		916916281EF469F500B80920 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				916E0EEC1E8F6CB700911417 /* Base */,
+				916916291EF469F500B80920 /* Base */,
 			);
 			name = Main.storyboard;
-			path = "True Pass";
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
-		916E0EF31E8F6CB700911417 /* LaunchScreen.storyboard */ = {
+		9169162A1EF469F500B80920 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				916E0EF41E8F6CB700911417 /* Base */,
+				9169162B1EF469F500B80920 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -864,6 +871,7 @@
 			baseConfigurationReference = 5FAC440A24E209889042AF88 /* Pods-True Pass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "True Pass/True Pass.entitlements";
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
@@ -883,6 +891,7 @@
 			baseConfigurationReference = 202CC4100FC09559B7E1EC85 /* Pods-True Pass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "True Pass/True Pass.entitlements";
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
@@ -1012,13 +1021,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		916915D31EF45FE500B80920 /* True Pass.xcdatamodeld */ = {
+		916916301EF46A9500B80920 /* True Pass.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				916915D41EF45FE500B80920 /* True Pass.xcdatamodel */,
 			);
-			currentVersion = 916915D41EF45FE500B80920 /* True Pass.xcdatamodel */;
-			path = "True Pass.xcdatamodeld";
+			name = "True Pass.xcdatamodeld";
+			path = "../True Pass/True Pass.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
