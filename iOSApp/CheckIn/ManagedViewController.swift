@@ -21,7 +21,7 @@ class ManagedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("View WILL APPEAR")
+        //print("View WILL APPEAR")
         
     }
     
@@ -36,18 +36,18 @@ class ManagedViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("Presented View Controller did recieve memory warnings!")
+        //print("Presented View Controller did recieve memory warnings!")
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("View WILL DISAPPEAR")
+        //print("View WILL DISAPPEAR")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("View DID DISAPPEAR")
+        //print("View DID DISAPPEAR")
     }
 
 

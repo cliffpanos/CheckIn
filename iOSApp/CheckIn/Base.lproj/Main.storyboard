@@ -463,7 +463,7 @@
         <!--Page View Controller-->
         <scene sceneID="tMd-tT-hkK">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1ip-Fy-566" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="checkInPasses" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1ip-Fy-566" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4T-gZ-B7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1807" y="1157"/>
