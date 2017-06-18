@@ -1,0 +1,6 @@
+framework module Pods_True_Pass {
+  umbrella header "Pods-True Pass-umbrella.h"
+
+  export *
+  module * { export * }
+}
