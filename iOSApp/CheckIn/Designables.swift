@@ -42,7 +42,7 @@ class GradientView: UIView {
 }
 
 @IBDesignable
-class BorderedButton: UIButton {
+class CDButton: UIButton {
     
     @IBInspectable var borderWidth: CGFloat = 0 {
         
@@ -65,7 +65,14 @@ class BorderedButton: UIButton {
 
 
 @IBDesignable
-class BorderedLabel: UILabel {
+class CDLabel: UILabel {
+    
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
     
 }
 
@@ -76,15 +83,22 @@ class RoundedStackView: UIStackView {
 
 
 @IBDesignable
-class RoundedImageView: UIImageView {
+class CDImageView: UIImageView {
     
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
+
 }
 
 
 @IBDesignable
 extension UIView {
     
-    @IBInspectable var cornerRadius: CGFloat {
+    /*@IBInspectable var cornerRadius: CGFloat {
         get {
             return self.layer.cornerRadius
         }
@@ -92,14 +106,20 @@ extension UIView {
             self.layer.cornerRadius = newValue
             self.layer.masksToBounds = newValue > 0
         }
-    }
+    }*/
 }
 
 
 @IBDesignable
 class RoundedView: UIView {
     
-
+    
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
         
     @IBInspectable var borderWidth: CGFloat = 0.0 {
         

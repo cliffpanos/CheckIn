@@ -11,7 +11,8 @@ import ContactsUI
 
 class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var fNameTextField: UITextField!
+    @IBOutlet weak var lNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var startDatePicker: UITextField!
     @IBOutlet weak var endDatePicker: UITextField!
@@ -37,7 +38,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for textField in [nameTextField, emailTextField, startDatePicker, endDatePicker] {
+        for textField in [fNameTextField, lNameTextField, emailTextField, startDatePicker, endDatePicker] {
             let numberToolbar: UIToolbar = UIToolbar()
             numberToolbar.barStyle = UIBarStyle.default
             
@@ -77,7 +78,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch (textField) {
-        case nameTextField: emailTextField.becomeFirstResponder()
+        case fNameTextField: emailTextField.becomeFirstResponder()
         case emailTextField: startDatePicker.becomeFirstResponder()
             let indexPath = IndexPath(row: 0, section: 2)
             tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
@@ -106,7 +107,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
     
     @IBAction func onCancelPressed(_ sender: Any) {
-        if nameTextField.text != "" && emailTextField.text != "" {
+        if fNameTextField.text != "" && emailTextField.text != "" {
             
             C.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, popoverSetup: {ppc in
                     ppc.barButtonItem = self.navigationItem.leftBarButtonItem
@@ -124,7 +125,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func authorizePassPressed() {
-        if nameTextField.text == "" || nameTextField.text == " " {
+        if fNameTextField.text?.isEmptyOrWhitespace() ?? false {
             let alert = UIAlertController(title: "Insufficient Information", message: "Please enter at minimum a name", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
@@ -143,7 +144,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     
     func createAndSavePass() {
         
-        let name = nameTextField.text ?? "No Name"
+        let name = "\(fNameTextField.text ?? "No Name") \(lNameTextField.text ?? "")"
         let email = emailTextField.text == "" ? "no email provided" : emailTextField.text ?? ""
         let start = self.startDate
         let end = self.endDate
@@ -223,13 +224,14 @@ extension NewPassViewController: CNContactPickerDelegate {
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         
-        nameTextField.text = contact.givenName as String + " " + contact.familyName + " " + contact.nameSuffix
-        if nameTextField.text!.isEmptyOrWhitespace() { nameTextField.text = "Contact Name Unknown" }
+        fNameTextField.text = contact.givenName as String
+        lNameTextField.text = contact.familyName + " " + contact.nameSuffix
+        if fNameTextField.text!.isEmptyOrWhitespace() { fNameTextField.text = "Contact Name Unknown" }
 
         emailTextField.text = (contact.emailAddresses.count > 0) ? contact.emailAddresses[0].value as String : ""
         imageData = contact.thumbnailImageData
         
-        contactView.setupContactView(forData: imageData, andName: nameTextField.text ?? "C N")
+        contactView.setupContactView(forData: imageData, andName: fNameTextField.text ?? "C N")
         
 
     }

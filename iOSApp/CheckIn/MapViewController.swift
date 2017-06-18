@@ -17,8 +17,6 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
     
     let locationManager = CLLocationManager()
     var locationCollectionViewSpace: CGFloat {
-        debugPrint("Screen: \(UIScreen.main.bounds)")
-        print("Vertical? \(UIDevice.current.isVertical)")
         return CGFloat(UIDevice.current.isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.28
     }
     
@@ -179,11 +177,11 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
 @IBDesignable
 class LocationCell: UICollectionViewCell {
     
-    @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var locationTypeLabel: UILabel!
-
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     var location: TPLocation!
     func decorate(for location: TPLocation) {
         
@@ -194,9 +192,7 @@ class LocationCell: UICollectionViewCell {
         
         let typeDetails = TPLocationType.Details[location.type]!
         locationIcon.image = UIImage(named: typeDetails.iconName)
-        gradientView.topColor = typeDetails.colorA
-        gradientView.bottomColor = typeDetails.colorB
-        
+        backgroundImage.image = UIImage(named: "\(typeDetails.iconName)Scene")
         
     }
     

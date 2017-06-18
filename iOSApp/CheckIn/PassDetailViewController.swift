@@ -15,9 +15,9 @@ class PassDetailViewController: UITableViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var passActivityState: UILabel!
-    @IBOutlet weak var revokeButton: BorderedButton!
+    @IBOutlet weak var revokeButton: UIButton!
     
-    @IBOutlet var imageView: RoundedImageView!
+    @IBOutlet var imageView: CDImageView!
     var pass: Pass!
     
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ class PassDetailViewController: UITableViewController {
         startTimeLabel.text = pass.timeStart
         endTimeLabel.text = pass.timeEnd
         
-        passActivityState.text = C.passesActive ? "Pass Active Between:" : "Pass Currently Inactive."
+        passActivityState.text = C.passesActive ? "PASS ACTIVE BETWEEN:" : "PASS CURRENTLY INACTIVE"
     
     }
     
