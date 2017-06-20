@@ -26,7 +26,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-Pd-3x5" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWV-1V-W04" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWV-1V-W04" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
                             <rect key="frame" x="4" y="4" width="292" height="292"/>
                             <color key="backgroundColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>

@@ -14,9 +14,11 @@ class FTPUser: FirebaseObject {
     
     public var email = String()
     public var userIdentifier = String()
+    public var firstName = String()
+    public var lastName = String()
     
     override var dictionaryForm: [String: Any] {
-        return self.dictionaryWithValues(forKeys: ["email"])
+        return self.dictionaryWithValues(forKeys: ["email", "userIdentifier", "firstName", "lastName"])
     }
 }
 

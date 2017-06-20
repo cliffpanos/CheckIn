@@ -15,7 +15,7 @@ class RootViewController: UITabBarController {
 
         guard C.userIsLoggedIn else {
             let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            self.present(controller, animated: false, completion: nil)
+            self.present(controller, animated: false)
             
             return
         }

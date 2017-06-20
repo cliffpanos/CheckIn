@@ -61,6 +61,13 @@ class CDButton: UIButton {
         }
     }
     
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
+    
 }
 
 
@@ -96,23 +103,50 @@ class CDImageView: UIImageView {
 
 
 @IBDesignable
-extension UIView {
+class CDView: UIView {
     
-    /*@IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
+}
+
+protocol CoreDesignable {
+}
+
+extension CoreDesignable {
+    var cornerRadius: CGFloat {
         get {
-            return self.layer.cornerRadius
+            if let view = self as? UIView {
+                return view.layer.cornerRadius
+            }
+            return 0.0
         }
         set {
-            self.layer.cornerRadius = newValue
-            self.layer.masksToBounds = newValue > 0
+            if let view = self as? UIView {
+                view.layer.cornerRadius = newValue
+            }
         }
-    }*/
+    }
+    
+    func hi() {
+        
+    }
+}
+
+@IBDesignable
+class TestView: UIView, CoreDesignable {
+
+    func hello() {
+        //let s = self.cornerRadius
+    }
 }
 
 
 @IBDesignable
 class RoundedView: UIView {
-    
     
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {

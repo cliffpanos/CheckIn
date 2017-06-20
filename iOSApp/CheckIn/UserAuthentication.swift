@@ -32,8 +32,14 @@ class UserAuthentication {
     func standardRegister(withEmail email: String, password: String, completion: @escaping ((_ registrationSuccessful: Bool) -> Void)) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            print(error ?? "")
             completion(error == nil)
         }
+    }
+    
+    func sendConfirmationEmail(forUser user: User) {
+        user.sendEmailVerification(completion: { success in
+        })
     }
     
     func updateEmail(to newEmail: String) {

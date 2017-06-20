@@ -36,6 +36,8 @@ class PassDetailViewController: UITableViewController {
         imageView.cornerRadius = 17.5
         imageView.isOpaque = true
         */
+        
+        guard pass != nil else { return }
         if let imageData = pass.image {
             let image = UIImage(data: imageData as Data)
                 imageView.image = image
@@ -52,6 +54,7 @@ class PassDetailViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.hairlineisHidden = true
+        guard pass != nil else { return }
 
         nameLabel.text = pass.name
         startTimeLabel.text = pass.timeStart

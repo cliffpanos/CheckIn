@@ -44,6 +44,13 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
             registerForPreviewing(with: self, sourceView: self.view)
         }
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            print("Autoselecting row 0")
+            let indexZero = IndexPath(row: 0, section: 0)
+            tableView.selectRow(at: indexZero, animated: true, scrollPosition: .none)
+            self.performSegue(withIdentifier: "toPassDetail", sender: tableView.cellForRow(at: indexZero))
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,15 +161,16 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
-        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
-        searchDisplay.dismiss(animated: true)
-
-        self.navigationController?.pushViewController(pdvc, animated: true)
+//        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
+//        
+//        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
+//        searchDisplay.dismiss(animated: true)
+//
+//        self.navigationController?.pushViewController(pdvc, animated: true)
     }
     
     
-    //Segue preparation for when a TableViewCell is pressed
+    //Segue preparation for when a UITableViewCell is pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let cell = sender as? PassCell, let destination = segue.destination as? PassDetailViewController {

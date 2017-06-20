@@ -44,6 +44,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
 
     func keyboardWillShow(notification: NSNotification) {
         
@@ -119,12 +124,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.becomeFirstResponder()
     }
     
-    @IBAction func newAccountPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Create Account Online", message: "Create a new account at checkin.com", preferredStyle: .alert)
-        let alertaction = UIAlertAction(title: "Great", style: .default, handler: nil)
-        alert.addAction(alertaction)
-        self.present(alert, animated: true, completion: nil)
-    }
     
     func passwordMatchesEmail() -> Bool {
         
@@ -144,6 +143,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self)
     }
+    
+    @IBAction func newAccount(_ sender: Any) {
+        let vc = C.storyboard.instantiateViewController(withIdentifier: "newAccountViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func forgotPassword(_ sender: Any) {
+    }
+    
     
     
     //MARK: - Animations:
