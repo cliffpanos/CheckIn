@@ -1,5 +1,5 @@
 //
-//  CPTableTableViewController.swift
+//  CDTableTableViewController.swift
 //  True Pass
 //
 //  Created by Cliff Panos on 6/20/17.
@@ -8,7 +8,20 @@
 
 import UIKit
 
-class CPTableTableViewController: UITableViewController {
+
+enum CDTableViewLayoutType {
+    case fixed(Int)
+    case percentage(Double, Int) //Percentage of portrait and then minimum for landscape
+    case calculated(() -> Int)
+    
+}
+
+enum CDOrientation {
+    case portrait
+    case landscape
+}
+
+class CDTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,5 +104,9 @@ class CPTableTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tableView(_ tableView: UITableView, designForOrientation: ) {
+        <#code#>
+    }
 
 }

@@ -50,3 +50,15 @@ class SettingsViewController: UIViewController {
     
 
 }
+
+
+class SettingsTableViewController: UITableViewController {
+    
+    
+    
+    
+    
+    
+    
+    
+}

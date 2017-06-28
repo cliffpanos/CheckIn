@@ -1,5 +1,5 @@
 //
-//  TruePassPageViewController.swift
+//  TruePassesPageViewController.swift
 //  True Pass
 //
 //  Created by Cliff Panos on 6/19/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TruePassPageViewController: UIPageViewController {
+class TruePassesPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
