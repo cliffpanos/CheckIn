@@ -59,7 +59,7 @@ extension AppDelegate {
             C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
                 
         case "showUserPass" :
-            C.appDelegate.tabBarController.selectedIndex = 2
+            C.appDelegate.tabBarController.selectedIndex = 0
         
             //CheckInPassViewController.initialScreenBrightness = UIScreen.main.brightness
         

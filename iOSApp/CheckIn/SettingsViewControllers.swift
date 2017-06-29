@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  SettingsViewControllers.swift
 //  True Pass
 //
 //  Created by Cliff Panos on 4/1/17.
@@ -10,33 +10,23 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var passesActiveSwitch: UISwitch!
-    @IBOutlet weak var automaticCheckInSwitch: UISwitch!
-    
     @IBOutlet weak var ownerLabel: UILabel!
-    @IBOutlet weak var ownerEmailLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //TODO The three values below should be replaced with CoreData values
+        //TODO The values below should be replaced with CoreData values
         ownerLabel.text = C.nameOfUser
-        ownerEmailLabel.text = C.emailOfUser
-        locationLabel.text = C.locationName
-    }
-
-    @IBAction func passesSwitchChanged(_ sender: Any) {
-        C.passesActive = passesActiveSwitch.isOn
-    }
-    @IBAction func automaticCheckInChanged(_ sender: Any) {
-        C.automaticCheckIn = automaticCheckInSwitch.isOn
     }
     
-    @IBAction func showPass(_ sender: Any) {
-        let passController = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
-        self.present(passController, animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
@@ -54,9 +44,43 @@ class SettingsViewController: UIViewController {
 
 class SettingsTableViewController: UITableViewController {
     
+    @IBOutlet weak var ownerEmailLabel: UILabel!
+    @IBOutlet weak var locationAffiliationsLabel: UILabel!
+    @IBOutlet weak var administrationNumLabel: UILabel!
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //TODO The three values below should be replaced with CoreData values
+        ownerEmailLabel.text = C.emailOfUser
+
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let locationCount = C.truePassLocations.count
+        locationAffiliationsLabel.text = "You are affiliated with \(locationCount) location\(locationCount != 1 ? "s" : "")."
+        
+        let administrationCount = (Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 2) == 0 ? 0 : 1) //TODO: this is just random
+        administrationNumLabel.text = "You administer \(administrationCount) location\(administrationCount != 1 ? "s" : "")."
+        
+    }
+    
+
+
+    @IBAction func automaticCheckInChanged(_ sender: Any) {
+        if let switchButton = sender as? UISwitch {
+            C.automaticCheckIn = switchButton.isOn
+        }
+    }
+    
+    @IBAction func passesSwitchChanged(_ sender: Any) {
+        if let activeSwitch = sender as? UISwitch {
+            C.passesActive = activeSwitch.isOn
+        }
+    }
     
     
     

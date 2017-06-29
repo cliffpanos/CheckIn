@@ -44,10 +44,10 @@ class GradientView: UIView {
 @IBDesignable
 class CDButton: UIButton {
     
-    @IBInspectable var borderWidth: CGFloat = 0 {
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
         
         didSet {
-            self.layer.borderWidth = borderWidth
+            self.layer.borderWidth = self.borderWidth
             self.layer.masksToBounds = true
         }
     
@@ -63,7 +63,7 @@ class CDButton: UIButton {
     
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
-            self.layer.cornerRadius = cornerRadius
+            self.layer.cornerRadius = self.cornerRadius
             self.layer.masksToBounds = true
         }
     }
@@ -98,6 +98,35 @@ class CDImageView: UIImageView {
             self.layer.masksToBounds = true
         }
     }
+    
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
+        
+        didSet {
+            self.layer.borderWidth = self.borderWidth
+            self.layer.masksToBounds = true
+        }
+        
+    }
+    
+    @IBInspectable var borderColor: UIColor = .black {
+        
+        didSet {
+            self.layer.borderColor = self.borderColor.cgColor
+            self.layer.masksToBounds = true
+        }
+    }
+
+}
+
+class CDImageViewCircular: CDImageView {
+    
+    override func layoutSubviews() { //Maintain circular roundness
+        super.layoutSubviews()
+        
+        let radius: CGFloat = self.bounds.size.height / 2.0
+        
+        self.cornerRadius = radius
+    }
 
 }
 
@@ -107,7 +136,7 @@ class CDView: UIView {
     
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
-            self.layer.cornerRadius = cornerRadius
+            self.layer.cornerRadius = self.cornerRadius
             self.layer.masksToBounds = true
         }
     }

@@ -9,8 +9,14 @@
 import UIKit
 
 class CheckInPassViewController: UIViewController {
+    
+    var locationForPass: TPLocation? = GeoLocationManager.nearestLocation
 
     @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var locationTypeLabel: UILabel!
+    @IBOutlet weak var locationNameLabel: UILabel!
+    
+    
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
@@ -38,6 +44,8 @@ class CheckInPassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO if locationForPass is nil, present a view controller explaining that there are no passes or locations and whatnot
+        
         CheckInPassViewController.initialScreenBrightness = UIScreen.main.brightness
 
         let image = C.userQRCodePass(withSize: qrCodeImageView.frame.size)
@@ -46,6 +54,11 @@ class CheckInPassViewController: UIViewController {
         
         let sLetter = C.nameOfUser[C.nameOfUser.characters.count - 1] == "s" ? " " : "s"
         ownerLabel.text = "\(C.nameOfUser)'\(sLetter) Pass"
+        
+        if let location = locationForPass {
+            locationNameLabel.text = location.title
+            locationTypeLabel.text = location.type.rawValue.capitalized
+        }
         
     }
     

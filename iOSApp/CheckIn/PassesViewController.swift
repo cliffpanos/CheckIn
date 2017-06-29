@@ -95,6 +95,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         print("Filter count: \(filtered.count)")
     
     }
+
     
 }
 
@@ -102,7 +103,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
 //MARK: - TableView Delegation and Prototype Cell Implementation -----------------------------
 
 extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -164,7 +165,7 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
 //        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
 //        
 //        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
-//        searchDisplay.dismiss(animated: true)
+        //        searchDisplay.dismiss(animated: true)
 //
 //        self.navigationController?.pushViewController(pdvc, animated: true)
     }

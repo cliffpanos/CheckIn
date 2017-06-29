@@ -12,6 +12,12 @@ import CoreLocation
 
 class GeoLocationManager {
     
+    static var nearestLocation: TPLocation? {
+        if C.truePassLocations.isEmpty { return nil }
+        
+        return C.truePassLocations[0] //TODO create nearest algorithm
+    }
+    
     
     
 }

@@ -8,10 +8,12 @@
 
 import UIKit
 
-class TruePassesPageViewController: UIPageViewController {
+class TruePassesPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
+        self.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -20,6 +22,18 @@ class TruePassesPageViewController: UIPageViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+    
+//    override func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)?) {
+//        
+//    }
     
 
     /*

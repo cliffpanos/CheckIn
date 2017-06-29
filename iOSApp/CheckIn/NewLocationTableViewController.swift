@@ -1,87 +1,53 @@
 //
-//  CDTableViewController.swift
+//  NewLocationTableViewController.swift
 //  True Pass
 //
-//  Created by Cliff Panos on 6/20/17.
+//  Created by Cliff Panos on 6/28/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
 import UIKit
+import MapKit
 
-
-enum CDTableViewLayoutType {
-    case fixed(Int)
-    case percentage(Double, Int) //Percentage of portrait and then minimum for landscape
-    case calculated(() -> Int)
+class NewLocationTableViewController: UITableViewController {
     
-}
-
-enum CDOrientationType {
-    case portrait
-    case landscape
-}
-
-class CDTableViewController: UITableViewController {
-
-    var autoDetectControllerBars: Bool = true
-    var tableViewHeightSpace: CGFloat {
-        return CGFloat(orientation == .portrait ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width)
-    }
-    var orientation: CDOrientationType {
-        return UIDevice.current.orientation.isPortrait || (UIDevice.current.orientation.isFlat && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width) ? .portrait : .landscape
-    }
+    @IBOutlet weak var fullLocationTitleTextField: UITextField!
+    @IBOutlet weak var shortLocationTitleTextField: UITextField!
+    @IBOutlet weak var locationTypeTextField: UITextField!
+    @IBOutlet weak var accessCodeTextField: UITextField!
     
+    @IBOutlet weak var radiusSlider: UISlider!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        radiusSlider.minimumValue = 10
+        radiusSlider.maximumValue = 250
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let layout = self.tableView(self.tableView, heightLayoutForIndexPath: indexPath)
-        
-        //TODO this is in progress and must be modified so that percentage heights are calculated at the very end
-        
-        switch layout {
-        case let .calculated(heightCalculator):
-            return CGFloat(heightCalculator())
-        
-        case let .fixed(fixedHeight):
-            return CGFloat(fixedHeight)
-            
-        case let .percentage(percentage, minimumHeight):
-            let proportionalHeight = tableViewHeightSpace * CGFloat(percentage)
-            let maximumHeight = max(minimumHeight, Int(proportionalHeight))
-            return CGFloat(maximumHeight)
-        }
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, heightLayoutForIndexPath indexPath: IndexPath) -> CDTableViewLayoutType {
-        
-        let defaultHeight = Int(self.tableView.rowHeight)
-        
-        return CDTableViewLayoutType.fixed(defaultHeight)
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func cancelPressed(_ sender: Any) {
     }
+
+    @IBAction func geofenceRadiusChanged(_ sender: Any) {
+        
+        guard let slider = sender as? UISlider else { return }
+        let section = tableView.footerView(forSection: 1)
+        
+        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(slider.value) feet or closer."
+    
+    }
+    
+    
+    
 
     // MARK: - Table view data source
 
@@ -150,5 +116,4 @@ class CDTableViewController: UITableViewController {
     }
     */
     
-
 }

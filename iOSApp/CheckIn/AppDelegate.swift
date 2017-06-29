@@ -52,6 +52,8 @@ Give each pass a unique identifier using its hashCode, and override hashCode for
 Fix issue where constraints get messed up for MapViewController when the app is launched from a 3D touch quick action
 Implement some kind of superclass to UITableViewController that automatically manages the proportions of static table view cells
 Implement a HashMap in swift?
+ 
+ Handle SplitViewController things like when there are no passes and when the user deletes the pass of the current detail controller, auto-selecting the first row if it exists, etc.
  */
 
 

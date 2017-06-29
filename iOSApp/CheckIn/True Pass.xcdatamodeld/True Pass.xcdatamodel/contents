@@ -8,6 +8,12 @@
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="CheckInStamp" representedClassName="CheckInStamp" syncable="YES" codeGenerationType="class">
+        <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStampIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timeStampOut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Pass" representedClassName="Pass" syncable="YES" codeGenerationType="class">
         <attribute name="accessCodeQR" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,7 +48,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasAccess" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="isCheckedIn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isCheckedInTOWHICHLOCATIONTHO" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,5 +59,6 @@
         <element name="Pass" positionX="-180" positionY="-9" width="128" height="255"/>
         <element name="TPLocation" positionX="115" positionY="-3" width="128" height="210"/>
         <element name="TPUser" positionX="-18" positionY="63" width="128" height="180"/>
+        <element name="CheckInStamp" positionX="-36" positionY="99" width="128" height="105"/>
     </elements>
 </model>
