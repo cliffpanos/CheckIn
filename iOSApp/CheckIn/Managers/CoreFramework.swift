@@ -139,9 +139,6 @@ class C: WCActivator {
             print("Contact Image Message Size: \(reducedData?.count ?? 0)")
             dictionary["image"] = reducedData
             
-        } else if includingImage {
-            let image = #imageLiteral(resourceName: "greenContactIcon")     //Default Contact Image
-            dictionary["image"] = UIImagePNGRepresentation(image)
         } else {
             dictionary["image"] = nil
         }

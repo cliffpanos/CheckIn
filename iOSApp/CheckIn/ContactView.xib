@@ -20,24 +20,28 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxw-gg-MTC" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
+                    <color key="backgroundColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-Pd-3x5" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWV-1V-W04" customClass="CircularView" customModule="True_Pass" customModuleProvider="target">
-                            <rect key="frame" x="4" y="4" width="292" height="292"/>
+                            <rect key="frame" x="4" y="4" width="308" height="308"/>
                             <color key="backgroundColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9N-cd-w6u">
-                            <rect key="frame" x="5" y="5" width="290" height="290"/>
+                            <rect key="frame" x="5" y="5" width="306" height="306"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="140"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BE7-z6-nAb">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                            <rect key="frame" x="0.0" y="0.0" width="316" height="316"/>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -68,15 +72,19 @@
                 </view>
             </subviews>
             <constraints>
+                <constraint firstItem="Nxw-gg-MTC" firstAttribute="top" secondItem="EyG-Pd-3x5" secondAttribute="top" id="5e1-5q-JTK"/>
                 <constraint firstItem="EyG-Pd-3x5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CdY-iB-r4r"/>
                 <constraint firstItem="EyG-Pd-3x5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MXo-zz-e2C"/>
+                <constraint firstItem="Nxw-gg-MTC" firstAttribute="trailing" secondItem="EyG-Pd-3x5" secondAttribute="trailing" id="Tid-9l-Xwq"/>
                 <constraint firstItem="EyG-Pd-3x5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VWd-D4-EQE"/>
                 <constraint firstAttribute="bottom" secondItem="EyG-Pd-3x5" secondAttribute="bottom" id="XOk-LJ-xnR"/>
                 <constraint firstAttribute="trailing" secondItem="EyG-Pd-3x5" secondAttribute="trailing" id="aI9-IL-lr1"/>
                 <constraint firstItem="EyG-Pd-3x5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eqd-km-Ds0"/>
+                <constraint firstItem="Nxw-gg-MTC" firstAttribute="leading" secondItem="EyG-Pd-3x5" secondAttribute="leading" id="l6Y-Wd-WcJ"/>
+                <constraint firstItem="Nxw-gg-MTC" firstAttribute="bottom" secondItem="EyG-Pd-3x5" secondAttribute="bottom" id="wg7-DW-d8V"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="34" y="-171"/>
+            <point key="canvasLocation" x="42" y="-179"/>
         </view>
     </objects>
 </document>

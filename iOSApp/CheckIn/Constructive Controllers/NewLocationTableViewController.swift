@@ -27,6 +27,8 @@ class NewLocationTableViewController: UITableViewController {
 
         radiusSlider.minimumValue = 10
         radiusSlider.maximumValue = 250
+        
+        activityIndicator.isHidden = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,6 +37,7 @@ class NewLocationTableViewController: UITableViewController {
     }
 
     @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 
     @IBAction func geofenceRadiusChanged(_ sender: Any) {
@@ -42,24 +45,26 @@ class NewLocationTableViewController: UITableViewController {
         guard let slider = sender as? UISlider else { return }
         let section = tableView.footerView(forSection: 1)
         
-        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(slider.value) feet or closer."
+        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(Int(slider.value)) feet or closer."
     
     }
     
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

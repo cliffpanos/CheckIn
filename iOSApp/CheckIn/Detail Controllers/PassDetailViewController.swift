@@ -8,14 +8,17 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class PassDetailViewController: UITableViewController {
+class PassDetailViewController: UITableViewController, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var passActivityState: UILabel!
     @IBOutlet weak var revokeButton: UIButton!
+    @IBOutlet weak var locationTypeLabel: UILabel!
+    @IBOutlet weak var locationTitleLabel: UILabel!
     
     @IBOutlet var imageView: CDImageView!
     var pass: Pass!
@@ -42,7 +45,6 @@ class PassDetailViewController: UITableViewController {
             let image = UIImage(data: imageData as Data)
                 imageView.image = image
         }
-        
 
         //navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         //navigationItem.titleView?.addSubview(imageView)
@@ -59,9 +61,11 @@ class PassDetailViewController: UITableViewController {
         nameLabel.text = pass.name
         startTimeLabel.text = pass.timeStart
         endTimeLabel.text = pass.timeEnd
+        locationTypeLabel.text = "LOC TYPE" //TODO
+        locationTitleLabel.text = "Location Title"
         
         passActivityState.text = C.passesActive ? "PASS ACTIVE BETWEEN:" : "PASS CURRENTLY INACTIVE"
-    
+            
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,19 +73,62 @@ class PassDetailViewController: UITableViewController {
         self.navigationController?.navigationBar.hairlineisHidden = false
     }
     
-    func shareQRCode() {
-        let qrCodeImage = C.generateQRCode(forMessage:
+    func getQRCodeImage() -> UIImage {
+        
+        return C.generateQRCode(forMessage:
             "\(self.nameLabel.text!)|" +
-            "\(self.pass.email!)|" +
-            "\(self.startTimeLabel.text!)|" +
-            "\(self.endTimeLabel.text!)|" +
+                "\(self.pass.email!)|" +
+                "\(self.startTimeLabel.text!)|" +
+                "\(self.endTimeLabel.text!)|" +
             "\(C.locationName)|"
-
-        , withSize: nil)
+            
+            , withSize: nil)
+    }
+    
+    func shareQRCode() {
+        let qrCodeImage = getQRCodeImage()
         C.share(image: qrCodeImage, in: self, popoverSetup: {
             ppc in ppc.barButtonItem = self.navigationItem.rightBarButtonItem
         })
     }
+    
+    
+    @IBAction func shareViaMail(_ sender: Any) {
+
+        guard let recipient = pass.email, MFMailComposeViewController.canSendMail() else { return }
+
+        let mailController = MFMailComposeViewController()
+        mailController.mailComposeDelegate = self
+        mailController.setToRecipients([recipient])
+        mailController.setSubject("True Pass")
+        mailController.setMessageBody("Hi \(pass.name!), here is your True Pass", isHTML: false)
+        
+        let qrCode = getQRCodeImage()
+        if let imageData = UIImagePNGRepresentation(qrCode) {
+
+            mailController.addAttachmentData(imageData, mimeType: "image/png", fileName: "True Pass.png")
+            self.present(mailController, animated: true)
+        }
+
+    }
+    
+    @IBAction func shareViaMessages(_ sender: Any) {
+        let messageController = MFMessageComposeViewController()
+        messageController.messageComposeDelegate = self
+        
+        //message.recipients
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true)
+        
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+    }
+    
 
     @IBAction func revokeAccessPressed(_ sender: Any) {
         

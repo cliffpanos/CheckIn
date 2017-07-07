@@ -19,7 +19,11 @@ class RootViewController: UITabBarController {
             
             return
         }
-    
+        
+        //TODO
+        let _ = UITabBarItem(tabBarSystemItem: .more, tag: 3)
+        
+        //self.tabBar.setTabBarItems
     }
 
 }

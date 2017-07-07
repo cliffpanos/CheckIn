@@ -29,7 +29,7 @@ class PassDetailInterfaceController: ManagedInterfaceController {
             let image = UIImage(data: imageData)
             self.imageView.setImage(image)
         } else {
-            self.imageView.setImage(#imageLiteral(resourceName: "clearIcon"))
+            self.imageView.setImage(#imageLiteral(resourceName: "ModernContactEmpty"))
         }
         
         

@@ -61,6 +61,7 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         mapView.mapType = mapTypes[mapTypeController.selectedSegmentIndex]
     }
     
+    @IBOutlet weak var zoomToUserLocationButton: CDButton!
     @IBAction func zoomButtonPressed(_ sender: Any) {
         zoomToUserLocation()
     }
@@ -93,6 +94,10 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
             return circleRenderer
         }
         return MKOverlayRenderer(overlay: overlay)
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        zoomToUserLocationButton.tintColor = mapView.isUserLocationVisible ? UIColor.TrueColors.lightBlue : UIColor.TrueColors.trueBlue
     }
     
     deinit {

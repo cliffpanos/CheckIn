@@ -215,7 +215,7 @@ extension NewPassViewController: CNContactPickerDelegate {
     
     //Present the ContactPicker
     func presentContactPicker() {
-        
+
         let contactsVC = CNContactPickerViewController()
         contactsVC.delegate = self
         self.present(contactsVC, animated: true, completion: nil)
@@ -231,7 +231,7 @@ extension NewPassViewController: CNContactPickerDelegate {
         emailTextField.text = (contact.emailAddresses.count > 0) ? contact.emailAddresses[0].value as String : ""
         imageData = contact.thumbnailImageData
         
-        contactView.setupContactView(forData: imageData, andName: fNameTextField.text ?? "C N")
+        contactView.setupContactView(forData: imageData, andName: ((fNameTextField.text ?? "") + " " + (lNameTextField.text ?? "")) )
         
 
     }

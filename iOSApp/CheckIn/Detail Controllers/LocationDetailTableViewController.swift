@@ -1,36 +1,15 @@
 //
-//  CDTableViewController.swift
+//  LocationDetailTableViewController.swift
 //  True Pass
 //
-//  Created by Cliff Panos on 6/20/17.
+//  Created by Cliff Panos on 7/2/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
 import UIKit
 
+class LocationDetailTableViewController: UITableViewController {
 
-enum CDTableViewLayoutType {
-    case fixed(Int)
-    case percentage(Double, Int) //Percentage of portrait and then minimum for landscape
-    case calculated(() -> Int)
-    
-}
-
-enum CDOrientationType {
-    case portrait
-    case landscape
-}
-
-class CDTableViewController: UITableViewController {
-
-    var autoDetectControllerBars: Bool = true
-    var tableViewHeightSpace: CGFloat {
-        return CGFloat(orientation == .portrait ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width)
-    }
-    var orientation: CDOrientationType {
-        return UIDevice.current.orientation.isPortrait || (UIDevice.current.orientation.isFlat && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width) ? .portrait : .landscape
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,43 +19,6 @@ class CDTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let layout = self.tableView(self.tableView, heightLayoutForIndexPath: indexPath)
-        
-        //TODO this is in progress and must be modified so that percentage heights are calculated at the very end
-        
-        switch layout {
-        case let .calculated(heightCalculator):
-            return CGFloat(heightCalculator())
-        
-        case let .fixed(fixedHeight):
-            return CGFloat(fixedHeight)
-            
-        case let .percentage(percentage, minimumHeight):
-            let proportionalHeight = tableViewHeightSpace * CGFloat(percentage)
-            let maximumHeight = max(minimumHeight, Int(proportionalHeight))
-            return CGFloat(maximumHeight)
-        }
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, heightLayoutForIndexPath indexPath: IndexPath) -> CDTableViewLayoutType {
-        
-        let defaultHeight = Int(self.tableView.rowHeight)
-        
-        return CDTableViewLayoutType.fixed(defaultHeight)
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -149,6 +91,5 @@ class CDTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
 
 }

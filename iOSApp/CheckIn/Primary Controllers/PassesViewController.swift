@@ -91,9 +91,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         
         print("FILTERING FROM FUNCTION CALLED!!")
         tableView.reloadData()
-        
-        print("Filter count: \(filtered.count)")
-    
+            
     }
 
     

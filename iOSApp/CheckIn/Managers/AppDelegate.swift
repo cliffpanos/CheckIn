@@ -17,14 +17,14 @@
  How to save Date data to database? CHANGE XCDATAMODEL to DATE!
     And images? **********
 
- login screen for admins with QR scanner
+ extra screen for admins with QR scanner
  hash the QR code for security.
  Use an identifier with each pass which is the hash of the pass info
  Create the time travel and complication update functionality for the watch
  multiple contacts
  allow for multiple check-in locations
  action menu on ipads
- QR code encryption via hashing and identifier?
+ QR code encryption via hashing and identifier and current date?
  Scroll views?
  iPad optimization with action sheet so that it doesn't crash
  WATCH APP: Menu actions, settings updating, pass deletion, page becomeCurrentPage()
@@ -45,13 +45,13 @@
  Add UserInfo keys to the 3D touch Quick Actions that represent their version / build number - DONE
 
 Find out why I can't rename my CheckIn directories to something else lol
-Create the CILocation class and maybe rename this to TRULocation
 Override hashCode for each guest pass
 Give each pass a unique identifier using its hashCode, and override hashCode for the Pass class - perhaps put the hashCode function into another class and make both the Core Data Pass class and the WatchKit app's Pass class subclass this new class that has the hash function?
 
-Fix issue where constraints get messed up for MapViewController when the app is launched from a 3D touch quick action
 Implement some kind of superclass to UITableViewController that automatically manages the proportions of static table view cells
 Implement a HashMap in swift?
+ 
+ Change tabBarController tabbar items when the device is in landscape orientation
  
  Handle SplitViewController things like when there are no passes and when the user deletes the pass of the current detail controller, auto-selecting the first row if it exists, etc.
  */

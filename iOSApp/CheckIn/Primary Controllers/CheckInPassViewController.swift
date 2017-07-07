@@ -57,7 +57,7 @@ class CheckInPassViewController: UIViewController {
         
         if let location = locationForPass {
             locationNameLabel.text = location.title
-            locationTypeLabel.text = location.type.rawValue.capitalized
+            locationTypeLabel.text = location.type.rawValue.uppercased()
         }
         
     }

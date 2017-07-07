@@ -44,7 +44,7 @@ class ContactView: CDInterfaceBuilderView {
     
     ///Call this function when there is no available contact image to be used so the initials of a contact name will be used instead
     func removeImageViewAndSetInitials(forName name: String) {
-        print("NO IMAGE NEW NAME: \(name)")
+
         let components = name.components(separatedBy: " ")
         if components.count > 1 && !components[1].isEmptyOrWhitespace() {
             contactInitialsLabel.text = "\(components[0][0])\(components[1][0])"
