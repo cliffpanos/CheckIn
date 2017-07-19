@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationDetailTableViewController: UITableViewController {
+class LocationDetailTableViewController: CDTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

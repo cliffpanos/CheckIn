@@ -85,6 +85,9 @@ class CheckInPassViewController: UIViewController {
         }
     }
 
+    @IBAction func pullDownPressed(_ sender: Any) {
+        onDonePressed(sender)
+    }
 
     @IBAction func onDonePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

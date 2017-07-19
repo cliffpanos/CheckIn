@@ -33,6 +33,8 @@ class CDTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -69,55 +71,109 @@ class CDTableViewController: UITableViewController {
         return CDTableViewLayoutType.fixed(defaultHeight)
     }
     
-    /*
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        print("called")
+//        if cell.responds(to: #selector(getter: UIView.tintColor)) {
+//            print("responds")
+//            if (tableView == self.tableView) {
+//                let cornerRadius : CGFloat = 12.0
+//                cell.backgroundColor = UIColor.clear
+//                let layer: CAShapeLayer = CAShapeLayer()
+//                let pathRef: CGMutablePath = CGMutablePath()
+//                let bounds: CGRect = cell.bounds.insetBy(dx: 0, dy: 0)
+//                var addLine: Bool = false
+//                
+//                let minX = bounds.minX
+//                let midX = bounds.midX
+//                let maxX = bounds.maxX
+//                let minY = bounds.minY
+//                let midY = bounds.midY
+//                let maxY = bounds.maxY
+//                
+//                if (indexPath.row == 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1) {
+//                    pathRef.__addRoundedRect(transform: nil, rect: bounds, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
+//                } else if (indexPath.row == 0) {
+//                    pathRef.move(to: CGPoint(x: minX, y: maxY))
+//                    pathRef.addArc(tangent1End: CGPoint(x: minX, y: minY), tangent2End: CGPoint(x: midX, y: minY), radius: cornerRadius)
+//                    pathRef.addArc(tangent1End: CGPoint(x: maxX, y: minY), tangent2End: CGPoint(x: maxX, y: midY), radius: cornerRadius)
+//                    pathRef.addLine(to: CGPoint(x: maxX, y: maxY))
+//                    addLine = true
+//                } else if (indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1) {
+//                    pathRef.move(to: CGPoint(x: minX, y: minY))
+//                    pathRef.addArc(tangent1End: CGPoint(x: minX, y: maxY), tangent2End: CGPoint(x: midX, y: maxY), radius: cornerRadius)
+//                    pathRef.addArc(tangent1End: CGPoint(x: maxX, y: maxY), tangent2End: CGPoint(x: maxX, y: midY), radius: cornerRadius)
+//                    pathRef.addLine(to: CGPoint(x: maxX, y: minY))
+//                } else {
+//                    pathRef.addRect(bounds)
+//                    addLine = true
+//                }
+//                
+//                layer.path = pathRef
+//                layer.fillColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.8).cgColor
+//                
+//                if (addLine == true) {
+//                    let lineLayer: CALayer = CALayer()
+//                    let lineHeight: CGFloat = (1.0 / UIScreen.main.scale)
+//                    lineLayer.frame = CGRect(x: bounds.minX+10, y: bounds.size.height-lineHeight, width: bounds.size.width-10, height: lineHeight)
+//                    lineLayer.backgroundColor = tableView.separatorColor?.cgColor
+//                    layer.addSublayer(lineLayer)
+//                }
+//                let testView: UIView = UIView(frame: bounds)
+//                testView.layer.insertSublayer(layer, at: 0)
+//                testView.backgroundColor = UIColor.clear
+//                cell.backgroundView = testView
+//            }
+//        }
+//    }
     
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (cell.respondsToSelector(Selector("tintColor"))){
-            if (tableView == self.tableView) {
-                let cornerRadius : CGFloat = 12.0
-                cell.backgroundColor = UIColor.clearColor               var layer: CAShapeLayer = CAShapeLayer()
-                var pathRef:CGMutablePathRef = CGPathCreateMutable()
-                var bounds: CGRect = CGRectInset(cell.bounds, 25, 0)
-                var addLine: Bool = false
-                
-                if (indexPath.row == 0 && indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
-                    CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius)
-                } else if (indexPath.row == 0) {
-                    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds))
-                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius)
-                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius)
-                    CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds))
-                    addLine = true
-                } else if (indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
-                    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds))
-                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius)
-                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius)
-                    CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds))
-                } else {
-                    CGPathAddRect(pathRef, nil, bounds)
-                    addLine = true
-                }
-                
-                layer.path = pathRef
-                layer.fillColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.8).CGColor
-                
-                if (addLine == true) {
-                    var lineLayer: CALayer = CALayer()
-                    var lineHeight: CGFloat = (1.0 / UIScreen.mainScreen().scale)
-                    lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+10, bounds.size.height-lineHeight, bounds.size.width-10, lineHeight)
-                    lineLayer.backgroundColor = tableView.separatorColor.CGColor
-                    layer.addSublayer(lineLayer)
-                }
-                var testView: UIView = UIView(frame: bounds)
-                testView.layer.insertSublayer(layer, atIndex: 0)
-                testView.backgroundColor = UIColor.clearColor()
-                cell.backgroundView = testView
-            }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        return
+        
+        let cornerRadius: CGFloat = 12
+        cell.backgroundColor = .clear
+        
+        let layer = CAShapeLayer()
+        let pathRef = CGMutablePath()
+        let bounds = cell.bounds.insetBy(dx: 0, dy: 0)
+        var addLine = false
+        
+        if indexPath.row == 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            pathRef.__addRoundedRect(transform: nil, rect: bounds, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
+        } else if indexPath.row == 0 {
+            pathRef.move(to: .init(x: bounds.minX, y: bounds.maxY))
+            pathRef.addArc(tangent1End: .init(x: bounds.minX, y: bounds.minY), tangent2End: .init(x: bounds.midX, y: bounds.minY), radius: cornerRadius)
+            pathRef.addArc(tangent1End: .init(x: bounds.maxX, y: bounds.minY), tangent2End: .init(x: bounds.maxX, y: bounds.midY), radius: cornerRadius)
+            pathRef.addLine(to: .init(x: bounds.maxX, y: bounds.maxY))
+            addLine = true
+        } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            pathRef.move(to: .init(x: bounds.minX, y: bounds.minY))
+            pathRef.addArc(tangent1End: .init(x: bounds.minX, y: bounds.maxY), tangent2End: .init(x: bounds.midX, y: bounds.maxY), radius: cornerRadius)
+            pathRef.addArc(tangent1End: .init(x: bounds.maxX, y: bounds.maxY), tangent2End: .init(x: bounds.maxX, y: bounds.midY), radius: cornerRadius)
+            pathRef.addLine(to: .init(x: bounds.maxX, y: bounds.minY))
+        } else {
+            pathRef.addRect(bounds)
+            addLine = true
         }
+        
+        layer.path = pathRef
+        layer.fillColor = UIColor(white: 1, alpha: 0.8).cgColor
+        
+        if (addLine == true) {
+            let lineLayer = CALayer()
+            let lineHeight = 1.0 / UIScreen.main.scale
+            lineLayer.frame = CGRect(x: bounds.minX + 10, y: bounds.size.height - lineHeight, width: bounds.size.width - 10, height: lineHeight)
+            lineLayer.backgroundColor = tableView.separatorColor?.cgColor
+            layer.addSublayer(lineLayer)
+        }
+        
+        let testView = UIView(frame: bounds)
+        testView.layer.insertSublayer(layer, at: 0)
+        testView.backgroundColor = .clear
+        cell.backgroundView = testView
     }
     
-    */
     
     
 
@@ -128,15 +184,15 @@ class CDTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

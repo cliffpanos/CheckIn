@@ -72,6 +72,7 @@
 		91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
 		91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
 		91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */; };
+		91F21B0B1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		91D517BA1ED7908E00E6B452 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassKitManager.swift; path = Managers/PassKitManager.swift; sourceTree = "<group>"; };
 		91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonDataModels.swift; path = ../CommonDataModels.swift; sourceTree = "<group>"; };
 		91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseStorage.swift; path = Managers/DataServices/FirebaseStorage.swift; sourceTree = "<group>"; };
+		91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAffiliationTableViewController.swift; sourceTree = "<group>"; };
 		AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_True_Pass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
 				91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */,
 				913B0E4C1F04079900252276 /* NewLocationTableViewController.swift */,
+				91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */,
 			);
 			path = "Constructive Controllers";
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */,
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				911B7E621EE76E150074D338 /* Testing.swift in Sources */,
+				91F21B0B1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 				91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				91273E841EDDEAB100FB4E25 /* UserAuthentication.swift in Sources */,

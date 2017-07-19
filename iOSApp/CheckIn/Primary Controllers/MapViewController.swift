@@ -87,6 +87,17 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         mapView.showsUserLocation = (status == .authorizedAlways)
     }
     
+    func mapViewDidStopLocatingUser(_ mapView: MKMapView) {
+        print("Located")
+    }
+    
+    func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
+        print("started")
+    }
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("LOCATION UPDATED")
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let overlay = overlay as? MKCircle {
             let circleRenderer = MKCircleRenderer(circle: overlay)

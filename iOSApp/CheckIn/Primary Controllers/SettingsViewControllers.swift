@@ -11,11 +11,13 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var userProfileImage: CDImageViewCircular!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO The values below should be replaced with CoreData values
         ownerLabel.text = C.nameOfUser
+        userProfileImage.image = #imageLiteral(resourceName: "TestProfile")
     }
     
     override func viewWillAppear(_ animated: Bool) {
