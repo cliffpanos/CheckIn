@@ -52,7 +52,7 @@ class ContactView: CDInterfaceBuilderView {
             contactInitialsLabel.text = name[0]
         }
         
-        contactImageView.isHidden = true
+        //contactImageView.isHidden = true
         outerCircularView.borderColor = UIColor.TrueColors.trueBlue
 
     }

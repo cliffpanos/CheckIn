@@ -9,7 +9,7 @@
 import UIKit
 import QRCodeReader
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: ManagedViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!

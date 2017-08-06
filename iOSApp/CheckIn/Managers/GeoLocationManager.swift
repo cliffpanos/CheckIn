@@ -12,12 +12,35 @@ import CoreLocation
 
 class GeoLocationManager {
     
+    static var sharedLocationManager = CLLocationManager()
+    
     static var nearestLocation: TPLocation? {
         if C.truePassLocations.isEmpty { return nil }
         
         return C.truePassLocations[0] //TODO create nearest algorithm
     }
     
-    
+    static func address(for location: CLLocation, completion: @escaping (_ address: [String: Any]?, _ error: Error?) -> ()) {
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location) { placemarks, error in
+            
+            if let error = error {
+                completion(nil, error)
+            } else {
+                
+                let placeMark = placemarks?[0]
+                
+                guard let address = placeMark?.addressDictionary  as? [String: Any] else {
+                    return
+                }
+                
+                completion(address, nil)
+                
+            }
+            
+        }
+    }
     
 }

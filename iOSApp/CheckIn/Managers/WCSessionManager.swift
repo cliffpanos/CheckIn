@@ -28,9 +28,14 @@ extension AppDelegate {
         switch (message[WCD.KEY] as! String) {
         
         case WCD.checkInPassRequest :
-            let image = C.userQRCodePass(withSize: nil)
-            let imageData = UIImagePNGRepresentation(image)!
-            replyHandler([WCD.KEY : WCD.checkInPassRequest, WCD.checkInPassRequest : imageData])
+            
+            let imageData: Data? = nil
+            if let nearestLocation = C.nearestTruePassLocations.first {
+                let image = C.userQRCodePass(forLocation: nearestLocation, withSize: nil)
+                let imageData = UIImagePNGRepresentation(image)!
+            }
+            
+            replyHandler([WCD.KEY : WCD.checkInPassRequest, WCD.checkInPassRequest : imageData ?? Data()])
         
         case WCD.mapLocationsRequest :
             let coordinate = C.truePassLocations[0].coordinate

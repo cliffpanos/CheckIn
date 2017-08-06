@@ -57,6 +57,10 @@ class TPLocation: NSObject, MKAnnotation {
         return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
     }
     
+    public var clLocation: CLLocation {
+        return CLLocation(latitude: self.latitude, longitude: self.longitude)
+    }
+    
     var type: TPLocationType {
         if let theType = TPLocationType(rawValue: self.locationType ?? "") {
             return theType

@@ -237,7 +237,6 @@ extension PassesViewController: UIViewControllerPreviewingDelegate {
         
         //searchDisplay.dismiss(animated: true)
         self.navigationController?.pushViewController(viewControllerToCommit, animated: true)
-    
     }
     
 }

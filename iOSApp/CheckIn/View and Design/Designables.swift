@@ -217,6 +217,13 @@ class CircularView: RoundedView {
 @IBDesignable
 class RoundedMapView: MKMapView {
     
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+        }
+    }
+    
 }
 
 @IBDesignable

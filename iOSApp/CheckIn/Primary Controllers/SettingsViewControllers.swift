@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: ManagedViewController {
 
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var userProfileImage: CDImageViewCircular!
@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
-        C.showDestructiveAlert(withTitle: "Confirm Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self, popoverSetup: nil, withStyle: .alert) { action in
+        UIAlert.showDestructiveAlert(withTitle: "Confirm Logout", andMessage: nil, andDestructiveAction: "Logout", inView: self, popoverSetup: nil, withStyle: .alert) { action in
             let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
             self.present(controller, animated: true, completion: nil)
             C.userIsLoggedIn = false

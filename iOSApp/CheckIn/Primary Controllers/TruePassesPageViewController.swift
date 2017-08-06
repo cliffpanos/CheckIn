@@ -8,42 +8,88 @@
 
 import UIKit
 
-class TruePassesPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class TruePassPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    
+    var truePassControllers = [UIViewController]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         self.dataSource = self
-
-        // Do any additional setup after loading the view.
+        
+        for location in C.nearestTruePassLocations {
+            let pvc = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController") as! CheckInPassViewController
+            pvc.locationForPass = location
+            pvc.changedBottomConstraint = 0
+            truePassControllers.append(pvc)
+        }
+        if truePassControllers.isEmpty {
+            let pvc = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController") as! CheckInPassViewController
+            pvc.changedBottomConstraint = 0
+            truePassControllers.append(pvc)
+        }
+                
+        self.setViewControllers([truePassControllers.first!], direction: .forward, animated: false)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for view in self.view.subviews {
+            if let pageControl = view as? UIPageControl {
+                pageControl.backgroundColor = UIColor.white
+                pageControl.currentPageIndicatorTintColor = UIColor.TrueColors.trueBlue
+                pageControl.pageIndicatorTintColor = UIColor.lightGray
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+
+        guard let viewControllerIndex = truePassControllers.index(of: viewController) else {
+            return nil
+        }
+        
+        let previousIndex = viewControllerIndex - 1
+        
+        //Loop
+        guard previousIndex >= 0 else {
+            return truePassControllers.last
+        }
+        guard truePassControllers.count > previousIndex else {
+            return nil
+        }
+        
+        return truePassControllers[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
+        
+        guard let viewControllerIndex = truePassControllers.index(of: viewController) else {
+            return nil
+        }
+        
+        let nextIndex = viewControllerIndex + 1
+        let count = truePassControllers.count
+        
+        //Loop
+        guard count != nextIndex else {
+            return truePassControllers.first
+        }
+        guard count > nextIndex else {
+            return nil
+        }
+        
+        return truePassControllers[nextIndex]
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return C.truePassLocations.count
     }
     
-//    override func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)?) {
-//        
-//    }
-    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

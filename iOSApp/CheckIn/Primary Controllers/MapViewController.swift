@@ -15,14 +15,14 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapTypeController: UISegmentedControl!
     
-    let locationManager = CLLocationManager()
+    let locationManager = GeoLocationManager.sharedLocationManager
     var locationCollectionViewSpace: CGFloat {
         return CGFloat(UIDevice.current.isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.28
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
             locationManager.requestAlwaysAuthorization()
@@ -36,7 +36,7 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         
         for location in C.truePassLocations {
             mapView.addAnnotation(location)
-            let circle = MKCircle(center: location.coordinate, radius: 0.05 as CLLocationDistance)
+            let circle = MKCircle(center: location.coordinate, radius: 0.01 as CLLocationDistance)
             self.mapView.add(circle)
         }
         
@@ -69,7 +69,7 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
     func zoomToCheckInLocation() {
         if C.truePassLocations.count > 0 {
             let truePassLocation = C.truePassLocations[0].coordinate
-            zoom(to: truePassLocation, withViewSize: 0.005)
+            zoom(to: truePassLocation, withViewSize: 0.05)
         }
     }
     
@@ -115,6 +115,12 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toLocationDetailEmbedder", let cell = sender as? LocationCell {
+            let detailVC = segue.destination as! LocationDetailEmbedderController
+            detailVC.location = cell.location
+        }
+    }
 
 }
 
@@ -178,10 +184,15 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        let totalItems = collectionView.numberOfItems(inSection: 0)
         let collectionSize = collectionView.frame.size
         let cellHeight = collectionSize.height
-        let cellWidth = cellHeight - 32.5
+        var cellWidth = cellHeight - 32.5
         
+        //At the beginning and end of the collectionView, we need extra 16px padding
+        if indexPath.row == 0 || indexPath.row == totalItems - 1 {
+            cellWidth += 16;
+        }
         
         return CGSize(width: cellWidth, height: cellHeight)
         

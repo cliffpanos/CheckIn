@@ -62,7 +62,7 @@ class NewAccountViewController: UITableViewController {
         
         guard let firstName = fNameTextField.text, let lastName = lNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         
-        UserAuthentication.shared.standardRegister(withEmail: email, password: password, completion: { success in
+        Accounts.shared.standardRegister(withEmail: email, password: password, completion: { success in
             
             self.activityIndicator.stopAnimating()
             
@@ -81,9 +81,9 @@ class NewAccountViewController: UITableViewController {
                 user.lastName = lastName
                 
                 
-                service.enterData(forIdentifier: UserAuthentication.shared.current?.uid ?? "UID MANUAL", data: user)
+                service.enterData(forIdentifier: Accounts.shared.current?.uid ?? "UID MANUAL", data: user)
                 
-                if let user = UserAuthentication.shared.current {
+                if let user = Accounts.shared.current {
                     user.sendEmailVerification { success in
                         print("User made and email sent!")
                     }

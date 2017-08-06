@@ -1,5 +1,5 @@
 //
-//  UserAuthentication.swift
+//  Accounts.swift
 //  True Pass
 //
 //  Created by Cliff Panos on 5/1/17.
@@ -14,13 +14,15 @@ import FirebaseAuth
 //import FacebookCore
 //import FacebookLogin
 
-class UserAuthentication {
+class Accounts {
     
-    static let shared = UserAuthentication()
+    static let shared = Accounts()
     
     var current: User? {
         return Auth.auth().currentUser
     }
+    
+    static var currentUser: FTPUser!
     
     func standardLogin(withEmail email: String, password: String, completion: @escaping ((_ loginSuccessful: Bool) -> Void)) {
         

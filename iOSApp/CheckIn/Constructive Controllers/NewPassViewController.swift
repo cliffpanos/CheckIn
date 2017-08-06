@@ -11,6 +11,8 @@ import ContactsUI
 
 class NewPassViewController: UITableViewController, UITextFieldDelegate {
 
+    var preselectedLocation: TPLocation?
+    
     @IBOutlet weak var fNameTextField: UITextField!
     @IBOutlet weak var lNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -65,6 +67,10 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
         endDatePicker.inputView = datePicker
         startDatePicker.text = C.format(date: startDate)
         endDatePicker.placeholder = C.format(date: endDate)
+        
+//        if let location = preselectedLocation {
+//            //Auto-set the location
+//        }
     
     }
     
@@ -109,7 +115,7 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func onCancelPressed(_ sender: Any) {
         if fNameTextField.text != "" && emailTextField.text != "" {
             
-            C.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, popoverSetup: {ppc in
+            UIAlert.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, popoverSetup: {ppc in
                     ppc.barButtonItem = self.navigationItem.leftBarButtonItem
                 }, withStyle: .actionSheet) { _ in
                 self.dismiss(animated: true, completion: nil)

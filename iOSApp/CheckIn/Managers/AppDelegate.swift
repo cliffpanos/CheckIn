@@ -81,6 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         C.appDelegate = self
         WCActivator.set(&C.session, for: self)
         
+        if let currentUser = Accounts.shared.current {
+            FirebaseService(entity: .FTPUser).retrieveData(forIdentifier: currentUser.uid, completion: { user in
+                Accounts.currentUser = (user as! FTPUser)
+            })
+        }
+        
         Testing.setupForTesting()
         
         tabBarController = window?.rootViewController as! UITabBarController

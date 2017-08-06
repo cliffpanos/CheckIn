@@ -8,38 +8,19 @@
 
 import UIKit
 
-class CheckInPassViewController: UIViewController {
+class CheckInPassViewController: ManagedViewController {
     
-    var locationForPass: TPLocation? = GeoLocationManager.nearestLocation
+    var locationForPass: TPLocation?
+    var changedBottomConstraint: Int?
 
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var locationTypeLabel: UILabel!
     @IBOutlet weak var locationNameLabel: UILabel!
     
-    
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
-    static var initialScreenBrightness: CGFloat = UIScreen.main.brightness {
-        
-        didSet {
-            print("Initial B changed to: \(CheckInPassViewController.initialScreenBrightness)")
-        }
-    }
-    static var targetBrightness: CGFloat = CheckInPassViewController.initialScreenBrightness {
-        didSet {
-            print("TARGET B changed to: \(CheckInPassViewController.targetBrightness)")
-        }
-    }
-    static var presented: Bool = false {
-        didSet {
-            print("Presented changed to: \(CheckInPassViewController.presented)")
-        }
-    }
-
-    
-    //SEE Extensions.swift FOR UIScreen extension
-    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,17 +28,21 @@ class CheckInPassViewController: UIViewController {
         //TODO if locationForPass is nil, present a view controller explaining that there are no passes or locations and whatnot
         
         CheckInPassViewController.initialScreenBrightness = UIScreen.main.brightness
-
-        let image = C.userQRCodePass(withSize: qrCodeImageView.frame.size)
         
-        qrCodeImageView.image = image
         
-        let sLetter = C.nameOfUser[C.nameOfUser.characters.count - 1] == "s" ? " " : "s"
-        ownerLabel.text = "\(C.nameOfUser)'\(sLetter) Pass"
+        let name = Accounts.currentUser.firstName
+        let sLetter = name[name.characters.count - 1] == "s" ? "" : "s"
+        ownerLabel.text = "\(name)'\(sLetter) Pass"
         
         if let location = locationForPass {
             locationNameLabel.text = location.title
             locationTypeLabel.text = location.type.rawValue.uppercased()
+            let image = C.userQRCodePass(forLocation: location, withSize: qrCodeImageView.frame.size)
+            qrCodeImageView.image = image
+        }
+        
+        if let newConstraint = changedBottomConstraint {
+            bottomConstraint.constant = CGFloat(newConstraint)
         }
         
     }
@@ -84,6 +69,26 @@ class CheckInPassViewController: UIViewController {
             perform(#selector(updateScreenBrightness), with: nil, afterDelay: 0.01)
         }
     }
+    
+    static var initialScreenBrightness: CGFloat = UIScreen.main.brightness {
+        didSet {
+            print("Initial B changed to: \(CheckInPassViewController.initialScreenBrightness)")
+        }
+    }
+    static var targetBrightness: CGFloat = CheckInPassViewController.initialScreenBrightness {
+        didSet {
+            print("TARGET B changed to: \(CheckInPassViewController.targetBrightness)")
+        }
+    }
+    static var presented: Bool = false {
+        didSet {
+            print("Presented changed to: \(CheckInPassViewController.presented)")
+        }
+    }
+    
+    
+    //SEE Extensions.swift FOR UIScreen extension
+    
 
     @IBAction func pullDownPressed(_ sender: Any) {
         onDonePressed(sender)

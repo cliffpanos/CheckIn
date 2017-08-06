@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 import WatchConnectivity
 import QRCoder
 
 
 class C: WCActivator {
     
+    static var shared = C()
     static var appDelegate: AppDelegate!
     static var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     static var session: WCSession?
@@ -39,6 +41,24 @@ class C: WCActivator {
             return [TPLocation]()
         }
     }*/
+    
+    static var nearestTruePassLocations: [TPLocation] {
+        
+        guard (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) && CLLocationManager.locationServicesEnabled() else { return truePassLocations }
+        
+        guard let userLocation = GeoLocationManager.sharedLocationManager.location else { return truePassLocations }
+        
+        var locationsAndDistances = [TPLocation: Double]()
+        for location in truePassLocations {
+            let distance = userLocation.distance(from: CLLocation(latitude: location.latitude, longitude: location.longitude))
+            locationsAndDistances[location] = distance
+        }
+        
+        let sortedLocations = truePassLocations.sorted { l1, l2 in
+            locationsAndDistances[l1]! > locationsAndDistances[l2]!
+        }
+        return sortedLocations
+    }
 
     static var passes: [Pass] {
         get {
@@ -166,55 +186,27 @@ class C: WCActivator {
         activityViewController.setValue("True Pass", forKey: "Subject")
         //activityViewController.setValue("cliffpanos@gmail.com", forKey: "email")
         
-        C.setupPopoverPresentation(for: activityViewController, popoverSetup: popoverSetup)
+        UIAlert.setupPopoverPresentation(for: activityViewController, popoverSetup: popoverSetup)
         
         viewController.present(activityViewController, animated: true, completion: nil)
         
     }
     
-    static func userQRCodePass(withSize size: CGSize?) -> UIImage {
+    static func userQRCodePass(forLocation location: TPLocation, withSize size: CGSize?) -> UIImage {
         return C.generateQRCode(forMessage:
             "\(C.nameOfUser)|" +
             "\(C.emailOfUser)|" +
             "\(C.locationName)"
+            //Add in things specific to the location
             , withSize: size)
     }
     
-    static func generateQRCode(forMessage message: String, withSize size: CGSize?) -> UIImage {
+    internal static func generateQRCode(forMessage message: String, withSize size: CGSize?) -> UIImage {
         
         let bounds = size ?? CGSize(width: 275, height: 275)
         let generator = QRCodeGenerator()
         let image: QRImage = generator.createImage(value: message, size: bounds)!
         return image as UIImage
-    }
-    
-    
-    
-    //MARK: - AlertController helper methods
-    
-    static func showDestructiveAlert(withTitle title: String, andMessage message: String?, andDestructiveAction destructive: String, inView viewController: UIViewController, popoverSetup:((UIPopoverPresentationController) -> Void)?, withStyle style: UIAlertControllerStyle, forDestruction completionHandler: @escaping (UIAlertAction) -> Void) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let destructiveAction = UIAlertAction(title: destructive, style: .destructive, handler:
-            completionHandler)
-        
-        alert.addAction(cancelAction)
-        alert.addAction(destructiveAction)
-        
-        C.setupPopoverPresentation(for: alert, popoverSetup: popoverSetup)
-
-        viewController.present(alert, animated: true, completion: nil)
-    
-    }
-    
-    fileprivate static func setupPopoverPresentation(for popup: UIViewController, popoverSetup: ((UIPopoverPresentationController) -> Void)?) {
-        
-        if let presenter = popup.popoverPresentationController, let setup = popoverSetup {
-            print("PopoverPresentationController activated")
-            setup(presenter)
-        }
-    
     }
     
     
