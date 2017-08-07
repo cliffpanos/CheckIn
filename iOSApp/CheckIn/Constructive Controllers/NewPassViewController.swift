@@ -9,9 +9,10 @@
 import UIKit
 import ContactsUI
 
-class NewPassViewController: UITableViewController, UITextFieldDelegate {
+class NewPassViewController: UITableViewController {
 
     var preselectedLocation: TPLocation?
+    var textFieldManager: CPTextFieldManager!
     
     @IBOutlet weak var fNameTextField: UITextField!
     @IBOutlet weak var lNameTextField: UITextField!
@@ -36,23 +37,11 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
     var imageData: Data?
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for textField in [fNameTextField, lNameTextField, emailTextField, startDatePicker, endDatePicker] {
-            let numberToolbar: UIToolbar = UIToolbar()
-            numberToolbar.barStyle = UIBarStyle.default
-            
-            let textInputAccessories = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
-                UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
-            ]
-            
-            numberToolbar.items = textInputAccessories
-            numberToolbar.sizeToFit()
-            textField?.inputAccessoryView = numberToolbar
-        
-        } //End for loop for setting up the "Done" toolbars
+        textFieldManager = CPTextFieldManager(textFields: [fNameTextField, lNameTextField, emailTextField, startDatePicker, endDatePicker], in: self)
+        textFieldManager.setupTextFields(withAccessory: .done)
         
         startDatePicker.tintColor = UIColor.clear
         endDatePicker.tintColor = UIColor.clear
@@ -81,35 +70,6 @@ class NewPassViewController: UITableViewController, UITextFieldDelegate {
             endDate = datePicker.date
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch (textField) {
-        case fNameTextField: emailTextField.becomeFirstResponder()
-        case emailTextField: startDatePicker.becomeFirstResponder()
-            let indexPath = IndexPath(row: 0, section: 2)
-            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-        default: dismissKeyboard()
-        }
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        guard textField == startDatePicker || textField == endDatePicker else { return }
-        
-        textField.textColor = UIColor.TrueColors.blue
-        
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard textField == startDatePicker || textField == endDatePicker else { return }
-        textField.textColor = UIColor.black
-    }
-    
-    func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
-
 
     
     @IBAction func onCancelPressed(_ sender: Any) {

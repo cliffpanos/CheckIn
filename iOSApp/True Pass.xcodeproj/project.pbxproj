@@ -58,6 +58,7 @@
 		918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918DB6DE1EF436810093B86A /* CDExtensions.swift */; };
 		919405841F37687B0067FBCD /* PassManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919405831F37687B0067FBCD /* PassManager.swift */; };
 		919405861F37694E0067FBCD /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919405851F37694E0067FBCD /* UIAlert.swift */; };
+		919405881F3839E00067FBCD /* AboutTruePassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919405871F3839E00067FBCD /* AboutTruePassTableViewController.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
 		91989DA41E90024800F83E1C /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA31E90024800F83E1C /* PassesViewController.swift */; };
 		91989DA61E90095E00F83E1C /* CoreFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91989DA51E90095E00F83E1C /* CoreFramework.swift */; };
@@ -181,6 +182,7 @@
 		918DB6DE1EF436810093B86A /* CDExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDExtensions.swift; path = Models/CDExtensions.swift; sourceTree = "<group>"; };
 		919405831F37687B0067FBCD /* PassManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassManager.swift; path = Managers/PassManager.swift; sourceTree = "<group>"; };
 		919405851F37694E0067FBCD /* UIAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlert.swift; path = "View and Design/UIAlert.swift"; sourceTree = "<group>"; };
+		919405871F3839E00067FBCD /* AboutTruePassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutTruePassTableViewController.swift; path = "Detail Controllers/AboutTruePassTableViewController.swift"; sourceTree = "<group>"; };
 		91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91989DA31E90024800F83E1C /* PassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassesViewController.swift; path = "Primary Controllers/PassesViewController.swift"; sourceTree = "<group>"; };
 		91989DA51E90095E00F83E1C /* CoreFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreFramework.swift; path = Managers/CoreFramework.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			children = (
 				91989DA91E904AA100F83E1C /* PassDetailViewController.swift */,
 				911B83521F08FB8D00BB4437 /* LocationDetailTableViewController.swift */,
+				919405871F3839E00067FBCD /* AboutTruePassTableViewController.swift */,
 			);
 			name = "Detail Controllers";
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				911B7E621EE76E150074D338 /* Testing.swift in Sources */,
 				91F21B0B1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift in Sources */,
+				919405881F3839E00067FBCD /* AboutTruePassTableViewController.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 				91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				91273E841EDDEAB100FB4E25 /* Accounts.swift in Sources */,

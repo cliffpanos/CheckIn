@@ -30,9 +30,13 @@ class CheckInPassViewController: ManagedViewController {
         CheckInPassViewController.initialScreenBrightness = UIScreen.main.brightness
         
         
-        let name = Accounts.currentUser.firstName
-        let sLetter = name[name.characters.count - 1] == "s" ? "" : "s"
-        ownerLabel.text = "\(name)'\(sLetter) Pass"
+        if let name = Accounts.currentUser?.firstName {
+            let sLetter = name[name.characters.count - 1] == "s" ? "" : "s"
+            ownerLabel.text = "\(name)'\(sLetter) Pass"
+        } else {
+            ownerLabel.text = "My True Pass"
+        }
+
         
         if let location = locationForPass {
             locationNameLabel.text = location.title

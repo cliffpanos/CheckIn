@@ -132,7 +132,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
 
     @IBAction func revokeAccessPressed(_ sender: Any) {
         
-        C.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, popoverSetup: { ppc in
+        UIAlert.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, popoverSetup: { ppc in
                 ppc.barButtonItem = self.navigationItem.rightBarButtonItem
             }, withStyle: .actionSheet) { _ in
             
