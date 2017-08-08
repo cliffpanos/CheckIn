@@ -14,10 +14,14 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapTypeController: UISegmentedControl!
+    var isVertical: Bool {
+        return tableView.frame.height > tableView.frame.width
+    }
     
     let locationManager = GeoLocationManager.sharedLocationManager
     var locationCollectionViewSpace: CGFloat {
-        return CGFloat(UIDevice.current.isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.28
+        let space = CGFloat(isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.28
+        return space
     }
     
     override func viewDidLoad() {
@@ -29,7 +33,6 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(considerOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
         
         mapView.showsUserLocation = true
         mapView.mapType = .standard
@@ -45,14 +48,22 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        tableView.beginUpdates()
+        tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         considerOrientation()
+//        tableView.endUpdates()
     }
     
     func considerOrientation() {
         guard UIDevice.current.userInterfaceIdiom == .phone else { return }
-        self.mapView.isScrollEnabled = UIDevice.current.isVertical
+        self.mapView.isScrollEnabled = isVertical
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: self.tabBarController!.tabBar.frame.height, right: 0)
     }
     
     
@@ -131,6 +142,7 @@ extension MapViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let heightSpace = UIScreen.main.bounds.size.height - 95 - 49
+        print("heightSpace: \(heightSpace)")
         let locationSpace = locationCollectionViewSpace 
         
         if !UIApplication.shared.isStatusBarHidden && UIDevice.current.userInterfaceIdiom != .pad {
@@ -145,7 +157,8 @@ extension MapViewController {
         case 3: scaledHeights = (44.5, 44.5)
         default: scaledHeights = (200, 100)
         }
-        return UIDevice.current.isVertical ? scaledHeights.forVertical : scaledHeights.forHorizontal
+        print(scaledHeights)
+        return isVertical ? scaledHeights.forVertical : scaledHeights.forHorizontal
     }
     
     

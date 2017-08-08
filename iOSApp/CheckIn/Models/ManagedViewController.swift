@@ -11,11 +11,40 @@ import UIKit
 class ManagedViewController: UIViewController {
     
     //See Extensions.swift for UIWindow's static variable 'presentedViewController'
+    var managedScrollViewForKeyboard: UIScrollView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func setScrollViewForKeyboard(_ scrollView: UIScrollView) {
+        self.managedScrollViewForKeyboard = scrollView
+    }
+    
+    func keyboardWillShow(notification: Notification) {
+        adjustInsetForKeyboardShow(true, notification: notification)
+    }
+    
+    func keyboardWillHide(notification: Notification) {
+        adjustInsetForKeyboardShow(false, notification: notification)
+    }
+    
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+        guard let scrollView = managedScrollViewForKeyboard else { return }
+        print("adjusting!")
+        let userInfo = notification.userInfo ?? [:]
+        let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     

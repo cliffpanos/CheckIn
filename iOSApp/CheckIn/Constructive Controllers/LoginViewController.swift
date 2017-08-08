@@ -20,9 +20,6 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         for textField in [emailTextField, passwordTextField] {
             let numberToolbar: UIToolbar = UIToolbar()
@@ -50,7 +47,7 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = true
     }
 
-    func keyboardWillShow(notification: NSNotification) {
+    override func keyboardWillShow(notification: Notification) {
         
         guard !textFieldSelected else { return }
         
@@ -61,12 +58,13 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
             self.primaryView.frame.origin.y -= 75
             
         })
+        UIView.commitAnimations()
         self.textFieldSelected = true
 
         
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    override func keyboardWillHide(notification: Notification) {
         if !self.textFieldSelected {
             return
         }
@@ -77,6 +75,8 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
             self.primaryView.frame.origin.y += 75
 
         }, completion: nil)
+        UIView.commitAnimations()
+
         self.textFieldSelected = false
     }
     
@@ -138,11 +138,6 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
         return (emailTextField.text ?? "") == "admin" && (passwordTextField.text ?? "") == "pass"
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self)
-    }
     
     @IBAction func newAccount(_ sender: Any) {
         let vc = C.storyboard.instantiateViewController(withIdentifier: "newAccountViewController")

@@ -63,7 +63,7 @@ extension AppDelegate {
         
             //CheckInPassViewController.initialScreenBrightness = UIScreen.main.brightness
         
-            let controller = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController")
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "pagesViewController")
             C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
             
             
