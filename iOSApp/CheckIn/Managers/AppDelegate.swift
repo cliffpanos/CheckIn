@@ -89,7 +89,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         
         Testing.setupForTesting()
         
-        tabBarController = window?.rootViewController as! UITabBarController
+        
+        
+        //LoginViewController
+        if !C.userIsLoggedIn {
+            self.window!.rootViewController = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        } else {
+            tabBarController = window?.rootViewController as! UITabBarController
+        }
+        
+        
+        if UIApplication.shared.shortcutItems == nil { AppDelegate.setShortcutItems(on: false) }
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem]
             as? UIApplicationShortcutItem {

@@ -50,7 +50,7 @@ extension AppDelegate {
             
             let passIndex = message[WCD.nextPassIndex] as! Int
             let pass = C.passes[passIndex]
-            let data = C.preparedData(forPass: pass)
+            let data = PassManager.preparedData(forPass: pass)
 
             print("Should be sending pass message")
             let nextPassIndex = (passIndex + 1 < C.passes.count) ? passIndex + 1 : -1
@@ -77,7 +77,7 @@ extension AppDelegate {
                 if current.name == name && current.email == email && current.timeStart == timeStart && current.timeEnd == timeEnd {
                     print("FOUND A PASS MATCH AND DELETING")
                     
-                    successStatus = C.delete(pass: current, andInformWatchKitApp: false)
+                    successStatus = PassManager.delete(pass: current, andInformWatchKitApp: false)
                         //since we are going to inform the WatchKitApp with the replyHandler
                     
                     if let vc = UIWindow.presented.viewController as? PassesViewController {

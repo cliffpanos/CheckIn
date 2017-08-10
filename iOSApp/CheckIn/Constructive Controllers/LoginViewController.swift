@@ -37,13 +37,17 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
             
             textField?.isUserInteractionEnabled = true
         }
-        
         let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setNeedsStatusBarAppearanceUpdate()
+        self.navigationController?.setNeedsStatusBarAppearanceUpdate()
         self.navigationController?.navigationBar.isHidden = true
     }
 
@@ -141,6 +145,7 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
     
     @IBAction func newAccount(_ sender: Any) {
         let vc = C.storyboard.instantiateViewController(withIdentifier: "newAccountViewController")
+        self.view.endEditing(true)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func forgotPassword(_ sender: Any) {
@@ -176,20 +181,37 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
                 
             C.userIsLoggedIn = true
 
-            self.dismiss(animated: true, completion: {
-                self.emailTextField.text = ""
-                self.passwordTextField.text = ""
-
-                C.userIsLoggedIn = true
-
-            })
+            let tabBarController = C.storyboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+//            self.present(tabBarController, animated: true, completion: {
+//
+//            
+//            })
+            C.appDelegate.window!.rootViewController = tabBarController
+            C.appDelegate.tabBarController = tabBarController
+            
             C.appDelegate.tabBarController.selectedIndex = 0
+
             
         })
         
     }
-    
 
-    
+}
 
+
+class LoginNavigationController: UINavigationController {
+    
+    var manualStatusBarStyle: UIStatusBarStyle?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return manualStatusBarStyle ?? .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    
+    
 }

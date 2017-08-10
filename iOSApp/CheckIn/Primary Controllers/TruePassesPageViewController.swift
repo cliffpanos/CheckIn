@@ -54,7 +54,8 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
         
         //Loop
         guard previousIndex >= 0 else {
-            return truePassControllers.last
+            return nil
+//            return truePassControllers.last
         }
         guard truePassControllers.count > previousIndex else {
             return nil
@@ -74,7 +75,8 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
         
         //Loop
         guard count != nextIndex else {
-            return truePassControllers.first
+            return nil
+//            return truePassControllers.first
         }
         guard count > nextIndex else {
             return nil

@@ -75,7 +75,7 @@ class NewPassViewController: UITableViewController {
     @IBAction func onCancelPressed(_ sender: Any) {
         if fNameTextField.text != "" && emailTextField.text != "" {
             
-            UIAlert.showDestructiveAlert(withTitle: "Cancel Pass Creation?", andMessage: nil, andDestructiveAction: "Discard Pass", inView: self, popoverSetup: {ppc in
+            showDestructiveAlert("Cancel Pass Creation?", message: nil, destructiveTitle: "Discard Pass", popoverSetup: {ppc in
                     ppc.barButtonItem = self.navigationItem.leftBarButtonItem
                 }, withStyle: .actionSheet) { _ in
                 self.dismiss(animated: true, completion: nil)
@@ -115,7 +115,7 @@ class NewPassViewController: UITableViewController {
         let start = self.startDate
         let end = self.endDate
         
-        let success = C.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: start, to: end)
+        let success = PassManager.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: start, to: end)
         
         if success {
             self.dismiss(animated: true) {
@@ -184,7 +184,7 @@ extension NewPassViewController: CNContactPickerDelegate {
 
         let contactsVC = CNContactPickerViewController()
         contactsVC.delegate = self
-        self.present(contactsVC, animated: true, completion: nil)
+        self.present(contactsVC, animated: true)
         
     }
     

@@ -23,7 +23,10 @@ class ForgotPasswordViewController: ManagedViewController, UIScrollViewDelegate 
         errorMessage.text = ""
         textFieldManager = CPTextFieldManager(textFields: [emailTextField], in: self)!
         textFieldManager.setupTextFields(withAccessory: .done)
-        textFieldManager.setFinalReturn(keyType: .send, action: { self.resetPasswordPressed(self.emailTextField) })
+        textFieldManager.setFinalReturn(keyType: .send, action: {
+            self.textFieldManager.dismissKeyboard()
+            self.resetPasswordPressed(self.emailTextField)
+        })
         scrollView.contentSize = contentView.frame.size
         setScrollViewForKeyboard(scrollView)
     }
@@ -39,7 +42,7 @@ class ForgotPasswordViewController: ManagedViewController, UIScrollViewDelegate 
         
         //Confirm that the user really wants to reset his or her password
         
-        UIAlert.showDestructiveAlert(withTitle: "Confirm Reset", andMessage: "Are you sure that you want to reset your password?", andDestructiveAction: "Reset", inView: self, popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
+        self.showDestructiveAlert("Confirm Reset", message: "Are you sure that you want to reset your password?", destructiveTitle: "Reset", popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
             self.resetPassword()
             self.textFieldManager.dismissKeyboard()
         })
@@ -59,7 +62,7 @@ class ForgotPasswordViewController: ManagedViewController, UIScrollViewDelegate 
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
             } else {
-                UIAlert.showAlert(title: "Error", message: "An error occurred while trying to reset your password; the email entered may have been invalid.", inView: self)
+                self.showAlert("Error", message: "An error occurred while trying to reset your password; the email entered may have been invalid.")
             }
         }
         

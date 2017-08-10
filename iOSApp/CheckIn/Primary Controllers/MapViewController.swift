@@ -142,8 +142,7 @@ extension MapViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let heightSpace = UIScreen.main.bounds.size.height - 95 - 49
-        print("heightSpace: \(heightSpace)")
-        let locationSpace = locationCollectionViewSpace 
+        let locationSpace = locationCollectionViewSpace
         
         if !UIApplication.shared.isStatusBarHidden && UIDevice.current.userInterfaceIdiom != .pad {
             //heightSpace -= 20
@@ -151,13 +150,13 @@ extension MapViewController {
         
         let scaledHeights: (forVertical: CGFloat, forHorizontal: CGFloat)
         switch (indexPath.row) {
-        case 0 : scaledHeights = (95, 80)
+        case 0 :
+            scaledHeights = UIApplication.shared.isStatusBarHidden ? (95, 80) : (95, 95)
         case 1: scaledHeights = (heightSpace - locationSpace, heightSpace)
         case 2: scaledHeights = (locationSpace, locationSpace)
         case 3: scaledHeights = (44.5, 44.5)
         default: scaledHeights = (200, 100)
         }
-        print(scaledHeights)
         return isVertical ? scaledHeights.forVertical : scaledHeights.forHorizontal
     }
     

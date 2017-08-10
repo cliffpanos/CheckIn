@@ -26,19 +26,19 @@ class ManagedViewController: UIViewController {
     }
     
     func keyboardWillShow(notification: Notification) {
-        adjustInsetForKeyboardShow(true, notification: notification)
+        adjustInsetForKeyboardShowing(true, notification: notification)
     }
     
     func keyboardWillHide(notification: Notification) {
-        adjustInsetForKeyboardShow(false, notification: notification)
+        adjustInsetForKeyboardShowing(false, notification: notification)
     }
     
-    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+    func adjustInsetForKeyboardShowing(_ showing: Bool, notification: Notification) {
         guard let scrollView = managedScrollViewForKeyboard else { return }
-        print("adjusting!")
+        guard UIDevice.current.userInterfaceIdiom != .pad else { return }
         let userInfo = notification.userInfo ?? [:]
         let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        let adjustmentHeight = (keyboardFrame.height + 20) * (showing ? 1 : -1)
         scrollView.contentInset.bottom += adjustmentHeight
         scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
     }

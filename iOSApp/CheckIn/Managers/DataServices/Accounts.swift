@@ -77,7 +77,6 @@ class Accounts {
     }
     
     private func userHasAuth(type: String) -> Bool {
-
         for provider in (current?.providerData)! {
             if provider.providerID.contains(type) {
                 return true;

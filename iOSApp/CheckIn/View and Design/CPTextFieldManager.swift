@@ -11,10 +11,20 @@ import UIKit
 class CPTextFieldManager: NSObject, UITextFieldDelegate {
     
     var textFields: [UITextField]
-    var viewController: UIViewController
+    unowned var viewController: UIViewController
     var unselectedTextColor: UIColor!
     var selectedTextColor: UIColor?
     var finalReturnAction: (() -> Void)?
+    var tapToDismiss: Bool = false {
+        didSet {
+            if (tapToDismiss) {
+                viewController.view.addGestureRecognizer(tapGestureRecognizer)
+            } else {
+                viewController.view.removeGestureRecognizer(tapGestureRecognizer)
+            }
+        }
+    }
+    var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
     
     init?(textFields: [UITextField], in viewController: UIViewController) {
@@ -37,6 +47,7 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
             
             
             if accessoryViewStyle == .none { continue individualSetup }
+            if UIDevice.current.userInterfaceIdiom == .pad { continue individualSetup }
             
             let numberToolbar: UIToolbar = UIToolbar()
             numberToolbar.barStyle = UIBarStyle.default

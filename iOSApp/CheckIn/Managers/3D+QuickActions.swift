@@ -29,9 +29,9 @@ extension AppDelegate {
         
         var handled: Bool = false;
         
-        guard C.userIsLoggedIn else {
-            return handled
-        }
+//        guard C.userIsLoggedIn else {
+//            return handled
+//        }
         
         if (AppDelegate.QuickActionTrackers.resetRoot) {
             print("NEW ROOT")
@@ -42,7 +42,6 @@ extension AppDelegate {
         
         
         handled = true
-        print("Dynamic Actions: \(String(describing: UIApplication.shared.shortcutItems))")
         print("Switching on: \(shortcutItem.type)")
         switch (shortcutItem.type) {
             
@@ -66,12 +65,39 @@ extension AppDelegate {
             let controller = C.storyboard.instantiateViewController(withIdentifier: "pagesViewController")
             C.appDelegate.tabBarController.selectedViewController?.present(controller, animated: true, completion: nil)
             
+        case "aboutTruePass" :
+            let controller = C.storyboard.instantiateViewController(withIdentifier: "infoNavigationController")
+            print("showing about")
+            C.appDelegate.window?.rootViewController?.present(controller, animated: true)
             
         default: break //should never be executed
         
         }
         
         return handled
+    }
+    
+    
+    
+    //MARK: - Handle DYNAMIC 3D Quick Actions ----------------------- //
+    
+    static let applicationVersion = 1.0
+    
+    static func setShortcutItems(on: Bool) {
+        
+        if !on {
+            let aboutInfoItem = UIApplicationShortcutItem(type: "aboutTruePass", localizedTitle: "Getting Started", localizedSubtitle: "Learn About True Pass", icon: UIApplicationShortcutIcon(type: .home), userInfo: ["version" : applicationVersion])
+            UIApplication.shared.shortcutItems = [aboutInfoItem]
+            return
+        }
+        
+        let showPassItem = UIApplicationShortcutItem(type: "showUserPass", localizedTitle: "Show My True Pass", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(templateImageName: "QRQuickAction"), userInfo:
+            ["version" : applicationVersion])
+        let newGuestPassItem = UIApplicationShortcutItem(type: "newGuestPass", localizedTitle: "New Guest Pass", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .add), userInfo: ["version" : applicationVersion])
+        let nearbyItem = UIApplicationShortcutItem(type: "nearbyLocations", localizedTitle: "Nearby", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .location), userInfo: ["version" : applicationVersion])
+        
+        let shortcutItems = [showPassItem, newGuestPassItem, nearbyItem]
+        UIApplication.shared.shortcutItems = shortcutItems
     }
     
     

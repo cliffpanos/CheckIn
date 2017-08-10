@@ -132,14 +132,14 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
 
     @IBAction func revokeAccessPressed(_ sender: Any) {
         
-        UIAlert.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, popoverSetup: { ppc in
+        showDestructiveAlert("Confirm Revocation", message: "Permanently revoke this pass?", destructiveTitle: "Revoke", popoverSetup: { ppc in
                 ppc.barButtonItem = self.navigationItem.rightBarButtonItem
             }, withStyle: .actionSheet) { _ in
             
             //All passes MUST have a name, so if the name is nil, then the pass no longer exists in CoreData
             guard self.pass.name != nil else { return }
             
-            let success = C.delete(pass: self.pass)
+            let success = PassManager.delete(pass: self.pass)
             
             if success {
                 self.navigationController?.popViewController(animated: true)

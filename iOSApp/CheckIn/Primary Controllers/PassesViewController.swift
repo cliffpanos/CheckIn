@@ -146,10 +146,10 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch editingStyle {
         case .delete:
-            UIAlert.showDestructiveAlert(withTitle: "Confirm Revocation", andMessage: "Permanently revoke this pass?", andDestructiveAction: "Revoke", inView: self, popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
+            showDestructiveAlert("Confirm Revocation", message: "Permanently revoke this pass?", destructiveTitle: "Revoke", popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
         
                 let pass = C.passes[indexPath.row]
-                if C.delete(pass: pass) {
+                if PassManager.delete(pass: pass) {
                     tableView.deleteRows(at: [indexPath], with: .fade)
                 }
             })
