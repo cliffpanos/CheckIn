@@ -15,16 +15,19 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
     var unselectedTextColor: UIColor!
     var selectedTextColor: UIColor?
     var finalReturnAction: (() -> Void)?
-    var tapToDismiss: Bool = false {
+    internal var tapToDismiss: Bool = false {   //Internal because it does not yet work
         didSet {
             if (tapToDismiss) {
+                print("Added Tap Gesture Recognizer")
                 viewController.view.addGestureRecognizer(tapGestureRecognizer)
             } else {
+                print("Removed Tap Gesture Recognizer")
                 viewController.view.removeGestureRecognizer(tapGestureRecognizer)
             }
         }
     }
-    var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    var selectedTextField: UITextField?
+    var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
     
     init?(textFields: [UITextField], in viewController: UIViewController) {
@@ -90,6 +93,7 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        selectedTextField = textField
         textField.textColor = selectedTextColor ?? unselectedTextColor
     }
     

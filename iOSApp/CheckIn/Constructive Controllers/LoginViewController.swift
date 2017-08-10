@@ -17,25 +17,15 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTitle: UILabel!
     
     var textFieldSelected: Bool = false
+    var textFieldManager: CPTextFieldManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for textField in [emailTextField, passwordTextField] {
-            let numberToolbar: UIToolbar = UIToolbar()
-            numberToolbar.barStyle = UIBarStyle.default
-            
-            numberToolbar.items = [
-                
-                UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),
-                UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(dismissKeyboard))
-            ]
-            
-            numberToolbar.sizeToFit()
-            
-            textField?.inputAccessoryView = numberToolbar
-            
-            textField?.isUserInteractionEnabled = true
+        textFieldManager = CPTextFieldManager(textFields: [emailTextField, passwordTextField], in: self)
+        textFieldManager.setupTextFields(withAccessory: .done)
+        textFieldManager.setFinalReturn(keyType: .go) {
+            self.signInPressed(Int(0))
         }
         let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
     }
@@ -85,6 +75,7 @@ class LoginViewController: ManagedViewController, UITextFieldDelegate {
     }
     
     func dismissKeyboard() {
+        print("VC TAP GESTURE")
         self.view.endEditing(true)
     }
     

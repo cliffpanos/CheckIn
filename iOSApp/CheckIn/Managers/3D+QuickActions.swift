@@ -35,9 +35,14 @@ extension AppDelegate {
         
         if (AppDelegate.QuickActionTrackers.resetRoot) {
             print("NEW ROOT")
-            let newRootViewController = C.storyboard.instantiateInitialViewController()
-            self.window?.rootViewController = newRootViewController
-            self.tabBarController = newRootViewController as! UITabBarController
+            let newRootController: UIViewController!
+            if !C.userIsLoggedIn {
+                newRootController = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            } else {
+                newRootController = C.storyboard.instantiateInitialViewController()
+                self.tabBarController = newRootController as! UITabBarController
+            }
+            self.window!.rootViewController = newRootController
         }
         
         
@@ -83,9 +88,9 @@ extension AppDelegate {
     
     static let applicationVersion = 1.0
     
-    static func setShortcutItems(on: Bool) {
+    static func setShortcutItems(loggedIn: Bool) {
         
-        if !on {
+        if !loggedIn {
             let aboutInfoItem = UIApplicationShortcutItem(type: "aboutTruePass", localizedTitle: "Getting Started", localizedSubtitle: "Learn About True Pass", icon: UIApplicationShortcutIcon(type: .home), userInfo: ["version" : applicationVersion])
             UIApplication.shared.shortcutItems = [aboutInfoItem]
             return

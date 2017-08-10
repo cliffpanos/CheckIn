@@ -69,10 +69,11 @@ class NewAccountViewController: UITableViewController {
     }
     
     
-    var contactManager: CPContactsManager!
+    var contactManager: CPContactsManager! = nil
     func choosePersonalContact() {
-        contactManager = CPContactsManager(vc: self)
-        contactManager.contactSelectedAction = {contact in
+        if contactManager == nil { contactManager = CPContactsManager(vc: self) }
+        contactManager.contactSelectedAction = {
+            [unowned self](contact) in
             self.fNameTextField.text = contact.givenName as String
             self.lNameTextField.text = contact.familyName + " " + contact.nameSuffix
             self.emailTextField.text = contact.emailAddresses.first?.value as String? ?? ""
@@ -84,8 +85,30 @@ class NewAccountViewController: UITableViewController {
     }
     
     
-    @IBAction func chooseContactPhoto(_ sender: UIButton) {
-        
+    var photoPicker: CPPhotoPicker! = nil
+    @IBAction func chooseContactPhoto(_ button: UIButton) {
+        if photoPicker == nil { photoPicker = CPPhotoPicker(vc: self) }
+        photoPicker.photoSelectedAction = { [unowned self](image) in
+            guard let image = image else { return }
+            let data = UIImagePNGRepresentation(image)
+            self.contactView.setupContactView(forData: data, andName: "")
+            self.dismiss(animated: true)
+        }
+        photoPicker.photoPickerDismissedAction = { [unowned self] in
+            self.dismiss(animated: true)
+        }
+        photoPicker.popoverPresentationSetup = { (popover) in
+            popover.canOverlapSourceViewRect = false
+            popover.sourceView = button
+            popover.sourceRect = button.bounds
+            popover.permittedArrowDirections = [.right, .up]
+        }
+        photoPicker.pickImageConsideringAuth()
+    }
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        print("adaptive called")
+        return .none
     }
     
     
@@ -95,7 +118,7 @@ class NewAccountViewController: UITableViewController {
         textFieldManager.dismissKeyboard()
         
         guard let fN = fNameTextField.text, let lN = lNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {
-            self.showAlert("Incomplete Fields", message: "Please enter all required fields")
+            self.showSimpleAlert("Incomplete Fields", message: "Please enter all required fields")
             return
         }
         
@@ -133,7 +156,7 @@ class NewAccountViewController: UITableViewController {
                     }
                 }
                 
-                self.showAlert("Registration Successful", message: "Congratulations! You have created a True Pass Account. Head over to Mail and verify your email address.") { self.navigationController?.popViewController(animated: true)
+                self.showSimpleAlert("Registration Successful", message: "Congratulations! You have created a True Pass Account. Head over to Mail and verify your email address.") { self.navigationController?.popViewController(animated: true)
                 }
             }
             
@@ -145,24 +168,27 @@ class NewAccountViewController: UITableViewController {
         guard let firstName = fNameTextField.text, let lastName = lNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmTextField.text else { return false }
         
         for text in [firstName, lastName, email, password, confirmPassword] {
-            if text.isEmptyOrWhitespace() {          self.showAlert("Incomplete Fields", message: "Please enter all required fields")
+            if text.isEmptyOrWhitespace() {          self.showSimpleAlert("Incomplete Fields", message: "Please enter all required fields")
                 return false
             }
         }
         
+        if !email.isValidEmail {
+            self.showSimpleAlert("Invalid Email", message: "The email that you entered is not a valid email address")
+            return false
+        }
         if password != confirmPassword {
-            self.showAlert("Password Mismatch", message: "The two passwords that you entered do not match")
+            self.showSimpleAlert("Password Mismatch", message: "The two passwords that you entered do not match")
             return false
         }
         if password.characters.count < 6 {
-            self.showAlert("Password Too Short", message: "The password must be at least 6 characters long")
+            self.showSimpleAlert("Password Too Short", message: "The password must be at least 6 characters long")
             return false
         }
-        if !email.isValidEmail {
-            self.showAlert("Invalid Email", message: "The email that you entered is not a valid email address")
+        if imageData == nil {
+            self.showSimpleAlert("Choose a Profile Picture", message: "True Pass requires every user to have a profile picture. This helps locations to know that you're you when you affiliate with them. Press the 'Edit' button to choose a photo")
             return false
         }
-        
 
         return true
     }

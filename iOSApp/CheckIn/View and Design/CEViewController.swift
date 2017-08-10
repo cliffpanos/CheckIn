@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(_ title: String, message: String?, handler: (() -> Void)? = nil) {
+    func showSimpleAlert(_ title: String, message: String?, handler: (() -> Void)? = nil) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {_ in handler?() })
@@ -43,7 +43,7 @@ extension UIViewController {
         
         self.setupPopoverPresentation(for: alert, popoverSetup: popoverSetup)
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true)
         
     }
     

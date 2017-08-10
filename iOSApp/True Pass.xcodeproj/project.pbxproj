@@ -30,6 +30,7 @@
 		913B0E4E1F04079900252276 /* NewLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B0E4C1F04079900252276 /* NewLocationTableViewController.swift */; };
 		913F7F1B1F3C0D0A005A9B50 /* CEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F7F1A1F3C0D0A005A9B50 /* CEViewController.swift */; };
 		913F7F1D1F3C20B3005A9B50 /* CPContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F7F1C1F3C20B3005A9B50 /* CPContactsManager.swift */; };
+		913F7F1F1F3CAB89005A9B50 /* CPPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F7F1E1F3CAB88005A9B50 /* CPPhotoPicker.swift */; };
 		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
 		9157035B1F396D4D00AA7D92 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157035A1F396D4D00AA7D92 /* ForgotPasswordViewController.swift */; };
 		916759FC1F3428A60091EA0A /* AdministrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916759FB1F3428A60091EA0A /* AdministrationTableViewController.swift */; };
@@ -149,6 +150,7 @@
 		913B0E4C1F04079900252276 /* NewLocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLocationTableViewController.swift; sourceTree = "<group>"; };
 		913F7F1A1F3C0D0A005A9B50 /* CEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CEViewController.swift; path = "View and Design/CEViewController.swift"; sourceTree = "<group>"; };
 		913F7F1C1F3C20B3005A9B50 /* CPContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPContactsManager.swift; path = "View and Design/CPContactsManager.swift"; sourceTree = "<group>"; };
+		913F7F1E1F3CAB88005A9B50 /* CPPhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPhotoPicker.swift; path = "View and Design/CPPhotoPicker.swift"; sourceTree = "<group>"; };
 		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Models/Extensions.swift; sourceTree = "<group>"; };
 		9157035A1F396D4D00AA7D92 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "Detail Controllers/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
 		916759FB1F3428A60091EA0A /* AdministrationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdministrationTableViewController.swift; path = "Primary Controllers/AdministrationTableViewController.swift"; sourceTree = "<group>"; };
@@ -243,8 +245,8 @@
 				910134571EB521EE006D11AD /* WCSessionManager.swift */,
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
 				917FDA031EB7D90500616173 /* GeoLocationManager.swift */,
-				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 				919405831F37687B0067FBCD /* PassManager.swift */,
+				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 				91273E7E1EDDEA6500FB4E25 /* Data Services */,
 				918DB6DD1EF425070093B86A /* HomeKit Service */,
 				91D517B91ED7906800E6B452 /* PassKit Service */,
@@ -259,6 +261,7 @@
 				913B0E4A1F04073000252276 /* CPTextFieldManager.swift */,
 				913F7F1A1F3C0D0A005A9B50 /* CEViewController.swift */,
 				913F7F1C1F3C20B3005A9B50 /* CPContactsManager.swift */,
+				913F7F1E1F3CAB88005A9B50 /* CPPhotoPicker.swift */,
 			);
 			name = Enhancements;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				91CE2D6B1EF7321F00755720 /* NewAccountViewController.swift in Sources */,
 				917FDA041EB7D90500616173 /* GeoLocationManager.swift in Sources */,
 				913F7F1B1F3C0D0A005A9B50 /* CEViewController.swift in Sources */,
+				913F7F1F1F3CAB89005A9B50 /* CPPhotoPicker.swift in Sources */,
 				9101345B1EB52902006D11AD /* 3D+QuickActions.swift in Sources */,
 				911B7E621EE76E150074D338 /* Testing.swift in Sources */,
 				91F21B0B1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift in Sources */,

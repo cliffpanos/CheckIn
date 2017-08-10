@@ -62,7 +62,7 @@ class ForgotPasswordViewController: ManagedViewController, UIScrollViewDelegate 
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
             } else {
-                self.showAlert("Error", message: "An error occurred while trying to reset your password; the email entered may have been invalid.")
+                self.showSimpleAlert("Error", message: "An error occurred while trying to reset your password; the email entered may have been invalid.")
             }
         }
         

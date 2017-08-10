@@ -85,7 +85,7 @@ class C: WCActivator {
             print("User is logging \(newValue ? "in" : "out")---------------")
             Shared.defaults.setValue(newValue, forKey: "userIsLoggedIn")
             Shared.defaults.synchronize()
-            AppDelegate.setShortcutItems(on: newValue)
+            AppDelegate.setShortcutItems(loggedIn: newValue)
             try? C.session?.updateApplicationContext([WCD.signInStatus : newValue])
         }
     }
@@ -108,7 +108,6 @@ class C: WCActivator {
         let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityType.print, UIActivityType.postToWeibo, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
         activityViewController.setValue("True Pass", forKey: "Subject")
-        //activityViewController.setValue("cliffpanos@gmail.com", forKey: "email")
         
         viewController.setupPopoverPresentation(for: activityViewController, popoverSetup: popoverSetup)
         
