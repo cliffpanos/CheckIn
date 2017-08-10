@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationCont
         }
         
         
-        if UIApplication.shared.shortcutItems == nil { AppDelegate.setShortcutItems(on: false) }
+        if UIApplication.shared.shortcutItems == nil { AppDelegate.setShortcutItems(loggedIn: false) }
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem]
             as? UIApplicationShortcutItem {

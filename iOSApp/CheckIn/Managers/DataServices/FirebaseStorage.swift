@@ -7,11 +7,11 @@
 //
 
 import UIKit
-//import FirebaseStorage
+import FirebaseStorage
 
 class FirebaseStorage {
     
-    
-    
+    static let shared = FirebaseStorage()
+    let storage = Storage()
     
 }
