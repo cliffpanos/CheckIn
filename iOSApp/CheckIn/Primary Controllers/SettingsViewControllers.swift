@@ -40,10 +40,17 @@ class SettingsViewController: ManagedViewController {
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
         self.showDestructiveAlert("Confirm Logout", message: nil, destructiveTitle: "Logout", popoverSetup: nil, withStyle: .alert) { action in
-            let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            C.appDelegate.window!.rootViewController = controller
-//            self.present(controller, animated: true, completion: nil)
-            C.userIsLoggedIn = false
+            Accounts.shared.logout(completion: { error in
+                if let error = error {
+                    self.showSimpleAlert("An error occurred while trying to log out of True Pass", message: error.localizedDescription)
+                } else {
+                    let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
+                    C.appDelegate.window!.rootViewController = controller
+                    //            self.present(controller, animated: true, completion: nil)
+                    C.userIsLoggedIn = false
+                }
+            })
+
         }
     
     }

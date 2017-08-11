@@ -16,6 +16,7 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
         super.viewDidLoad()
         self.delegate = self
         self.dataSource = self
+        self.view.backgroundColor = UIColor.white
         
         for location in C.nearestTruePassLocations {
             let pvc = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController") as! CheckInPassViewController

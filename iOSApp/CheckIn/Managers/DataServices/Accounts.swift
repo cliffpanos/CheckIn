@@ -50,17 +50,17 @@ class Accounts {
         }
     }
     
-    func logout(completion: @escaping ((_ logoutSuccessful: Bool) -> Void)) {
+    func logout(completion: @escaping ((_ failure: Error?) -> Void)) {
         do {
 //            if AccessToken.current != nil { // authenticated with Facebook
 //                let loginManager = LoginManager()
 //                loginManager.logOut()
 //            }
             try Auth.auth().signOut()
-            completion(true)
+            completion(nil)
         } catch let error as NSError {
             print("Error signing out: \(error.localizedDescription)")
-            completion(false)
+            completion(error)
         }
     }
     

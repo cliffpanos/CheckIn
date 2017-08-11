@@ -58,6 +58,23 @@ class LoginViewController: ManagedViewController {
             if success {
                 
                 //CHECK TO SEE IF EMAIL IS VERIFIED
+                if let current = Accounts.shared.current, !current.isEmailVerified {
+                    self.showOptionsAlert("Email Not Yet Verified", message: "For your security, you must verify your email address before logging into your account", left: "Send Email Again", right: "OK", handlerOne: {
+                        current.sendEmailVerification(completion: { error in
+                            if let error = error {
+                                self.showSimpleAlert("Error While Resending Email", message: error.localizedDescription)
+                            } else {
+                                self.showSimpleAlert("Verification Email Sent", message: nil)
+                            }
+                        })
+                    })
+                    self.feedbackGenerator.notificationOccurred(.warning)
+                    
+                    return // ! -- CRITICAL -- !//
+                    //update gesture on passviewController
+                    //fix background on pageViewController
+                }
+                
                 self.feedbackGenerator.notificationOccurred(.success)
                 self.animateOff()
             } else {
