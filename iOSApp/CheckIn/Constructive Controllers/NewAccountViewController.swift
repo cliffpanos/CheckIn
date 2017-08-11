@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class NewAccountViewController: UITableViewController {
 
@@ -91,6 +92,7 @@ class NewAccountViewController: UITableViewController {
         photoPicker.photoSelectedAction = { [unowned self](image) in
             guard let image = image else { return }
             let data = UIImagePNGRepresentation(image)
+            self.imageData = data
             self.contactView.setupContactView(forData: data, andName: "")
             self.dismiss(animated: true)
         }
@@ -129,16 +131,15 @@ class NewAccountViewController: UITableViewController {
         
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        Accounts.shared.standardRegister(withEmail: email, password: password, completion: { success in
+        Accounts.shared.standardRegister(withEmail: email, password: password, completion: { success, error in
             
             self.activityIndicator.stopAnimating()
             
             self.activityIndicator.isHidden = true
             
-            if success {
+            if success {    //success means error is nil
                 
                 //Create a TP User here
-                
                 let service = FirebaseService(entity: .FTPUser)
                 let snapshot = DataSnapshot()
                 let user = FTPUser(snapshot: snapshot)
@@ -147,6 +148,11 @@ class NewAccountViewController: UITableViewController {
                 user.firstName = firstName
                 user.lastName = lastName
                 
+                FirebaseStorage.shared.uploadProfilePicture(data: self.imageData!, for: user) {metadata, error in
+                    if let error = error {
+                        self.showSimpleAlert("Picture Saving Error", message: error.localizedDescription)
+                    }
+                }
                 
                 service.enterData(forIdentifier: Accounts.shared.current?.uid ?? "UID MANUAL", data: user)
                 
@@ -158,6 +164,8 @@ class NewAccountViewController: UITableViewController {
                 
                 self.showSimpleAlert("Registration Successful", message: "Congratulations! You have created a True Pass Account. Head over to Mail and verify your email address.") { self.navigationController?.popViewController(animated: true)
                 }
+            } else {
+                self.showSimpleAlert("Registration Error", message: error!.localizedDescription)
             }
             
         })

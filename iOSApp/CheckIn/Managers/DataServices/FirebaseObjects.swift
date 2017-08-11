@@ -16,6 +16,7 @@ class FTPUser: FirebaseObject {
     public var userIdentifier = String()
     public var firstName = String()
     public var lastName = String()
+    public var imageData = Data()
     
     override var dictionaryForm: [String: Any] {
         return self.dictionaryWithValues(forKeys: ["email", "userIdentifier", "firstName", "lastName"])

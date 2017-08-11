@@ -51,7 +51,7 @@ class ForgotPasswordViewController: ManagedViewController, UIScrollViewDelegate 
     
     func resetPassword() -> Void {
         
-        let email = emailTextField.text ?? ""
+        let email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespaces)
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             
             if error == nil {

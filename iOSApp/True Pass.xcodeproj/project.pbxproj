@@ -269,10 +269,10 @@
 		91273E7E1EDDEA6500FB4E25 /* Data Services */ = {
 			isa = PBXGroup;
 			children = (
+				91273E811EDDEAB100FB4E25 /* Accounts.swift */,
 				910FD5D21EC6B25A0058FF5C /* DatabaseManager.swift */,
 				91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */,
 				91273E801EDDEAB100FB4E25 /* FirebaseService.swift */,
-				91273E811EDDEAB100FB4E25 /* Accounts.swift */,
 				91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */,
 			);
 			name = "Data Services";
@@ -302,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
-				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
 				91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */,
+				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
 				913B0E4C1F04079900252276 /* NewLocationTableViewController.swift */,
 				91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */,
 			);

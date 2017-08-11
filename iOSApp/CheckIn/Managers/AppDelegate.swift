@@ -19,10 +19,8 @@
 
  extra screen for admins with QR scanner
  hash the QR code for security.
- Use an identifier with each pass which is the hash of the pass info
  Create the time travel and complication update functionality for the watch
  multiple contacts
- allow for multiple check-in locations
  action menu on ipads
  QR code encryption via hashing and identifier and current date?
  Scroll views?
@@ -33,23 +31,21 @@
  Implement handoff functionality between watch and iPhone
  Keep track of all user defaults stored so that they can be deleted upon logout
  WIDGET (Today View Extension)
- Add 3D Touch menu actions to watch app. Work on communication and core data things
+ Watch app. Work on communication and core data things
  Write extension for screen class that manages brightness
- Change editableBound on Login screen textFields to move with the animation
  Create Swift package thingy (like a Pod? for some of the IB designables and functions)
  Login screen!!
 	- Create account, login with Facebook, login with Google, Create Check-in Location
 	- Double screen part: first screen is how to log in
 	- Animate in and out
 	- Show True Pass icon but with an alpha < 1
- Add UserInfo keys to the 3D touch Quick Actions that represent their version / build number - DONE
 
 Find out why I can't rename my CheckIn directories to something else lol
 Override hashCode for each guest pass
-Give each pass a unique identifier using its hashCode, and override hashCode for the Pass class - perhaps put the hashCode function into another class and make both the Core Data Pass class and the WatchKit app's Pass class subclass this new class that has the hash function?
 
-Implement some kind of superclass to UITableViewController that automatically manages the proportions of static table view cells
-Implement a HashMap in swift?
+Implement some kind of subclass to UITableViewController that automatically manages the proportions of static table view cells
+ 
+ Add system haptics for feedback
  
  Change tabBarController tabbar items when the device is in landscape orientation
  
@@ -69,7 +65,7 @@ import Firebase
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UIPopoverPresentationControllerDelegate, WCSessionDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
     var tabBarController: UITabBarController!

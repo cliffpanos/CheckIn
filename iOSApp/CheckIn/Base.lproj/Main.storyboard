@@ -731,7 +731,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="3np-2A-TGd" secondAttribute="bottom" id="c8o-q7-PJa"/>
                                                             </constraints>
                                                             <connections>
-                                                                <segue destination="1ip-Fy-566" kind="presentation" identifier="toTruePassPageController" id="E4C-28-ebn">
+                                                                <segue destination="1ip-Fy-566" kind="presentation" identifier="toTruePassPageController" modalPresentationStyle="pageSheet" id="E4C-28-ebn">
                                                                     <segue key="commit" inheritsFrom="parent" id="bgR-Rj-S9Q"/>
                                                                     <segue key="preview" inheritsFrom="commit" id="gEN-3o-DO0"/>
                                                                 </segue>
@@ -844,7 +844,7 @@
                                                                 <outlet property="locationIcon" destination="g0Y-xd-9r3" id="ar7-6y-u8z"/>
                                                                 <outlet property="locationTypeLabel" destination="Mwx-Ol-YdL" id="nsu-bt-Oxj"/>
                                                                 <outlet property="titleLabel" destination="0VZ-Aw-odn" id="2Bi-b6-0TA"/>
-                                                                <segue destination="KZx-nP-mBa" kind="showDetail" identifier="toLocationDetailEmbedder" id="6pB-8O-YN6">
+                                                                <segue destination="KZx-nP-mBa" kind="presentation" identifier="toLocationDetailEmbedder" modalPresentationStyle="pageSheet" id="6pB-8O-YN6">
                                                                     <segue key="commit" inheritsFrom="parent" id="yhO-dD-Mvh"/>
                                                                     <segue key="preview" inheritsFrom="commit" id="8ZL-Dy-b8F"/>
                                                                 </segue>
@@ -2508,10 +2508,6 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                                <connections>
-                                                    <action selector="emailFieldPressed:" destination="ogE-8H-CWG" eventType="touchDown" id="kTW-5e-A8s"/>
-                                                    <outlet property="delegate" destination="ogE-8H-CWG" id="ZYP-xu-L1r"/>
-                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vLV-Wr-DO6">
                                                 <rect key="frame" x="0.0" y="50.5" width="222" height="38"/>
@@ -2519,9 +2515,6 @@
                                                 <color key="textColor" red="0.99457603049999999" green="1" blue="0.96735031660000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="ogE-8H-CWG" id="W0k-bb-Qld"/>
-                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-OO-AvY" customClass="CDButton" customModule="True_Pass" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="100.5" width="222" height="38.5"/>
@@ -2561,7 +2554,6 @@
                                                             <color key="titleColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="forgotPassword:" destination="ogE-8H-CWG" eventType="touchUpInside" id="2by-da-58w"/>
                                                             <segue destination="nFu-T9-3pJ" kind="presentation" modalPresentationStyle="formSheet" id="Tdi-CZ-gck">
                                                                 <segue key="commit" inheritsFrom="parent" id="TTO-az-Dwv"/>
                                                                 <segue key="preview" inheritsFrom="commit" id="233-Ep-Ur3"/>
@@ -2600,10 +2592,7 @@
                                 <rect key="frame" x="337" y="629" width="22" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="jLA-3u-Uj6" kind="presentation" modalPresentationStyle="formSheet" id="WQb-wD-sdO">
-                                        <segue key="commit" inheritsFrom="parent" id="ey5-jo-NnU"/>
-                                        <segue key="preview" inheritsFrom="commit" id="dJp-tm-P2i"/>
-                                    </segue>
+                                    <segue destination="jLA-3u-Uj6" kind="presentation" modalPresentationStyle="formSheet" id="WQb-wD-sdO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4645,13 +4634,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6pB-8O-YN6"/>
-        <segue reference="m8p-7Z-GHj"/>
-        <segue reference="E4C-28-ebn"/>
         <segue reference="AQx-1m-CSn"/>
+        <segue reference="E4C-28-ebn"/>
         <segue reference="sDO-lD-KVr"/>
-        <segue reference="Jth-3j-5je"/>
         <segue reference="eEu-jI-XTz"/>
-        <segue reference="WQb-wD-sdO"/>
+        <segue reference="Jth-3j-5je"/>
+        <segue reference="m8p-7Z-GHj"/>
         <segue reference="Tdi-CZ-gck"/>
     </inferredMetricsTieBreakers>
 </document>

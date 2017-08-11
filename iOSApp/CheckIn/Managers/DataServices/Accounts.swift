@@ -31,11 +31,11 @@ class Accounts {
         }
     }
     
-    func standardRegister(withEmail email: String, password: String, completion: @escaping ((_ registrationSuccessful: Bool) -> Void)) {
+    func standardRegister(withEmail email: String, password: String, completion: @escaping ((Bool, Error?) -> Void)) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             print(error ?? "")
-            completion(error == nil)
+            completion(error == nil, error)
         }
     }
     
