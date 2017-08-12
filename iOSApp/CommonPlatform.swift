@@ -13,7 +13,19 @@ import WatchConnectivity
 //User Defaults to be used by the iOS App and WatchKit App
 
 class Shared {
+    
+    ///The shared user defaults for all True Pass grouped apps (iOS & watchOS)
     static var defaults = UserDefaults(suiteName: "group.com.cliffpanos.TruePass")!
+    
+    ///The current version of the application
+    static let VERSION_OF_APPLICATION: String = "1.0"
+    
+    ///The key for the user default value that returns which version the application has most recently had a first launch cycle for.
+    ///Helps to present a new info controller when there are version updates
+    static let VERSION_FIRST_LAUNCHED: String = "VersionMostRecentlyFirstLaunched"
+    
+    ///The key used to find using UserDefaults if the user has ever launched the app, a Bool
+    static let FIRST_LAUNCH_OF_APP_EVER: String = "FirstLaunchOfAppEver"
 }
 
 

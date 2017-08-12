@@ -17,13 +17,13 @@ class NewAccountViewController: UITableViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
-    
+    @IBOutlet weak var editPhotoButton: UIButton!
     @IBOutlet weak var contactView: ContactView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var textFieldManager: CPTextFieldManager!
     var imageData: Data?
-    
+    var tapRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,12 @@ class NewAccountViewController: UITableViewController {
         textFieldManager.setFinalReturn(keyType: .go) {
             self.createAccount()
         }
+        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPhotoFromSelector))
+        contactView.addGestureRecognizer(tapRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
         (self.navigationController as? LoginNavigationController)?.manualStatusBarStyle = UIStatusBarStyle.default
         self.navigationController?.setNeedsStatusBarAppearanceUpdate()
     }
@@ -69,6 +70,13 @@ class NewAccountViewController: UITableViewController {
         self.confirmTextField.isSecureTextEntry = false
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        showDestructiveAlert("Cancel Sign Up?", message: "Any entered information will be lost.", destructiveTitle: "Cancel Sign Up", popoverSetup: nil, withStyle: .alert, forDestruction: {_ in self.dismiss(animated: true)})
+    }
+    
+    
+    
+    
     
     var contactManager: CPContactsManager! = nil
     func choosePersonalContact() {
@@ -85,6 +93,10 @@ class NewAccountViewController: UITableViewController {
         contactManager.requestContactConsideringAuth()
     }
     
+    //Called by the tap gesture recognizer
+    internal func editPhotoFromSelector() {
+        chooseContactPhoto(editPhotoButton)
+    }
     
     var photoPicker: CPPhotoPicker! = nil
     @IBAction func chooseContactPhoto(_ button: UIButton) {
@@ -147,6 +159,7 @@ class NewAccountViewController: UITableViewController {
                 user.email = email
                 user.firstName = firstName
                 user.lastName = lastName
+                service.enterData(forIdentifier: Accounts.shared.current!.uid, data: user)
                 
                 FirebaseStorage.shared.uploadProfilePicture(data: self.imageData!, for: user) {metadata, error in
                     if let error = error {
@@ -154,7 +167,6 @@ class NewAccountViewController: UITableViewController {
                     }
                 }
                 
-                service.enterData(forIdentifier: Accounts.shared.current?.uid ?? "UID MANUAL", data: user)
                 
                 if let user = Accounts.shared.current {
                     user.sendEmailVerification { success in

@@ -28,6 +28,30 @@ enum TPLocationType: String {
         ]
 }
 
+enum TPLocationOpenType {
+    case allKnown
+    case usersAndAdmins
+    case adminsOnly
+    case closed
+}
+
+enum TPLocationGeoType {
+    case entry
+    case exit
+    case bidirectional
+    case none
+}
+
+enum TPVisitEntryType {
+    case geofence
+    case scannedByUser(String)
+}
+
+
+
+
+
+
 /*class TPLocation: NSManagedObject {
 
  @nonobjc public class func fetchRequest() -> NSFetchRequest<TPLocation> {

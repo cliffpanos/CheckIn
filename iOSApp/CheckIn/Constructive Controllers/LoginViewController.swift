@@ -29,6 +29,13 @@ class LoginViewController: ManagedViewController {
             self.signInPressed(Int(0))
         }
         let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        
+        //Check to see if an information controller or version update controller should be shown
+        let firstLaunchedEver = C.getFromUserDefaults(withKey: Shared.FIRST_LAUNCH_OF_APP_EVER) as? Bool ?? true
+        if firstLaunchedEver {
+            self.performSegue(withIdentifier: "toTruePassInfo", sender: nil)
+            C.persistUsingUserDefaults(false, forKey: Shared.FIRST_LAUNCH_OF_APP_EVER)
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

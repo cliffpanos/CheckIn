@@ -134,7 +134,7 @@ class C: WCActivator {
     
     
     
-    static func persistUsingUserDefaults(_ value: Any?, for keyString: String) {
+    static func persistUsingUserDefaults(_ value: Any?, forKey keyString: String) {
         
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: keyString)
@@ -145,12 +145,13 @@ class C: WCActivator {
     static func getFromUserDefaults(withKey keyString: String) -> Any? {
         
         let defaults = UserDefaults.standard
-        if let value = defaults.object(forKey: keyString) {
-            return value
-        }
-        
-        return nil
+        return defaults.object(forKey: keyString)
+    
     }
     
+    static func removeValueFromUserDefaults(withKey keyString: String) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: keyString)
+    }
     
 }

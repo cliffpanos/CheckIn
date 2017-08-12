@@ -85,16 +85,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         Testing.setupForTesting()
         
-        
-        
         //LoginViewController
         if !C.userIsLoggedIn {
             self.window!.rootViewController = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
         } else {
+            //Else go straight to the homescreen
             tabBarController = window?.rootViewController as! UITabBarController
         }
         
         
+        //Set the Home Screen Quick Actions for when the app is first launched ever
         if UIApplication.shared.shortcutItems == nil { AppDelegate.setShortcutItems(loggedIn: false) }
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem]

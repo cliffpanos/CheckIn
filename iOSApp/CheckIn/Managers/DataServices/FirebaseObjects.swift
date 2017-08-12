@@ -10,13 +10,23 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-class FTPUser: FirebaseObject {
+protocol TPIdentified {
+    var identifier: String! { get set }
+}
+
+class FTPUser: FirebaseObject, TPIdentified {
     
     public var email = String()
     public var userIdentifier = String()
     public var firstName = String()
     public var lastName = String()
     public var imageData = Data()
+    //imageRef is userIdentifier
+    
+    var identifier: String!
+    public var name: String {
+        return firstName + " " + lastName
+    }
     
     override var dictionaryForm: [String: Any] {
         return self.dictionaryWithValues(forKeys: ["email", "userIdentifier", "firstName", "lastName"])
