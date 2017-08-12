@@ -37,17 +37,6 @@ class NewAccountViewController: UITableViewController {
         contactView.addGestureRecognizer(tapRecognizer)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        (self.navigationController as? LoginNavigationController)?.manualStatusBarStyle = UIStatusBarStyle.default
-        self.navigationController?.setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        (self.navigationController as? LoginNavigationController)?.manualStatusBarStyle = nil
-        self.navigationController?.setNeedsStatusBarAppearanceUpdate()
-    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

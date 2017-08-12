@@ -91,6 +91,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         } else {
             //Else go straight to the homescreen
             tabBarController = window?.rootViewController as! UITabBarController
+            
+            //Ensure that the user's geofence monitoring is correctly on or off for their locations according to the locations' preference
+            GeoLocationManager.validateGeofenceMonitoring()
         }
         
         

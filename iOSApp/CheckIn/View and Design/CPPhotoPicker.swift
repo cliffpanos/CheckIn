@@ -92,12 +92,14 @@ class CPPhotoPicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
         photoPickerVC.delegate = self
 //        photoPickerVC.preferredContentSize = CGSize(width: 333, height: 700)
         
-        photoPickerVC.modalPresentationStyle = .popover
-        viewController.present(photoPickerVC, animated: true)
-        if let popoverSetup = popoverPresentationSetup, let controller = photoPickerVC.popoverPresentationController {
-            popoverSetup(controller)
-        } else {
-            print("Popover presentation controller setup incomplete for photo picker.")
+        DispatchQueue.main.async {
+            photoPickerVC.modalPresentationStyle = .popover
+            self.viewController.present(photoPickerVC, animated: true)
+            if let popoverSetup = self.popoverPresentationSetup, let controller = photoPickerVC.popoverPresentationController {
+                popoverSetup(controller)
+            } else {
+                print("Popover presentation controller setup incomplete for photo picker.")
+            }
         }
     }
     

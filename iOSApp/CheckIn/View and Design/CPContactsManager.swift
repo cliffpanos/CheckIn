@@ -65,6 +65,7 @@ class CPContactsManager: NSObject,CNContactPickerDelegate {
     internal func presentContactPicker() {
         let contactPickerVC = CNContactPickerViewController()
         contactPickerVC.delegate = self
+        contactPickerVC.modalPresentationStyle = .overCurrentContext
         viewController.present(contactPickerVC, animated: true)
     }
     

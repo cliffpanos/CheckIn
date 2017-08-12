@@ -17,8 +17,22 @@ class GeoLocationManager {
     static var nearestLocation: TPLocation? {
         if C.truePassLocations.isEmpty { return nil }
         
-        return C.truePassLocations[0] //TODO create nearest algorithm
+        return C.nearestTruePassLocations[0]
     }
+    
+    static func validateGeofenceMonitoring() {
+        //TODO
+    }
+    
+}
+
+
+
+
+
+
+//MARK: - Utility functions
+extension GeoLocationManager {
     
     static func address(for location: CLLocation, completion: @escaping (_ address: [String: Any]?, _ error: Error?) -> ()) {
         
@@ -42,5 +56,4 @@ class GeoLocationManager {
             
         }
     }
-    
 }

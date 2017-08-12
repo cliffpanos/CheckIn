@@ -14,6 +14,7 @@ class LoginViewController: ManagedViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var primaryView: UIView!
+    @IBOutlet weak var titleStackView: UIStackView!
     @IBOutlet weak var loginTitle: UILabel!
     
     var textFieldSelected: Bool = false
@@ -28,14 +29,6 @@ class LoginViewController: ManagedViewController {
         textFieldManager.setFinalReturn(keyType: .go) {
             self.signInPressed(Int(0))
         }
-        let _: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        
-        //Check to see if an information controller or version update controller should be shown
-        let firstLaunchedEver = C.getFromUserDefaults(withKey: Shared.FIRST_LAUNCH_OF_APP_EVER) as? Bool ?? true
-        if firstLaunchedEver {
-            self.performSegue(withIdentifier: "toTruePassInfo", sender: nil)
-            C.persistUsingUserDefaults(false, forKey: Shared.FIRST_LAUNCH_OF_APP_EVER)
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -45,8 +38,16 @@ class LoginViewController: ManagedViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setNeedsStatusBarAppearanceUpdate()
-        self.navigationController?.setNeedsStatusBarAppearanceUpdate()
-        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //Check to see if an information controller or version update controller should be shown
+        let firstLaunchedEver = C.getFromUserDefaults(withKey: Shared.FIRST_LAUNCH_OF_APP_EVER) as? Bool ?? true
+        if firstLaunchedEver {
+            self.performSegue(withIdentifier: "toTruePassInfo", sender: nil)
+            C.persistUsingUserDefaults(false, forKey: Shared.FIRST_LAUNCH_OF_APP_EVER)
+        }
     }
 
     
@@ -82,16 +83,15 @@ class LoginViewController: ManagedViewController {
                     //fix background on pageViewController
                 }
                 
+                //At this point, the user is about to be logged in
                 self.feedbackGenerator.notificationOccurred(.success)
+                self.loginTitle.text = "Success"
                 self.animateOff()
             } else {
                 self.shakeTextFields()
                 self.feedbackGenerator.notificationOccurred(.error)
             }
         })
-        if (email == "user" && password == "pass") {
-            animateOff()
-        }
 
     }
     
@@ -114,9 +114,9 @@ class LoginViewController: ManagedViewController {
         let animation = CABasicAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.repeatCount = 3
-        animation.duration = 0.07
+        animation.duration = 0.08
         animation.autoreverses = true
-        animation.byValue = 7 //how much it moves
+        animation.byValue = 9 //how much it moves
         self.passwordTextField.layer.add(animation, forKey: "position")
         self.emailTextField.layer.add(animation, forKey: "position")
     }
@@ -125,33 +125,22 @@ class LoginViewController: ManagedViewController {
         
         guard !textFieldSelected else { return }
         
-        print("moving up")
-        
-        UIView.animate(withDuration: 0.75, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.68, initialSpringVelocity: 4, options: .curveEaseIn, animations: {
             
-            self.primaryView.frame.origin.y -= 75
+            self.primaryView.transform = CGAffineTransform(translationX: 0, y: -75)
             
-        })
-        UIView.commitAnimations()
-        self.textFieldSelected = true
-        
-        
+        }, completion: {_ in self.textFieldSelected = true })
     }
     
     override func keyboardWillHide(notification: Notification) {
-        if !self.textFieldSelected {
-            return
-        }
-        print("moving down")
         
-        UIView.animate(withDuration: 0.75, delay: 0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
-            
-            self.primaryView.frame.origin.y += 75
-            
-        }, completion: nil)
-        UIView.commitAnimations()
+        guard textFieldSelected else { return }
         
-        self.textFieldSelected = false
+        UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.68, initialSpringVelocity: 4, options: .curveEaseIn, animations: {
+            
+            self.primaryView.transform = CGAffineTransform(translationX: 0, y: 0)
+            
+        }, completion: {_ in self.textFieldSelected = false })
     }
     
     func dismissKeyboard() {
@@ -161,12 +150,11 @@ class LoginViewController: ManagedViewController {
     func animateOff() {
         
         dismissKeyboard()
-        UIView.animate(withDuration: 0.75, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.25, options: .curveEaseIn, animations: {
+        
+        UIView.animate(withDuration: 0.7, delay: 0.5, usingSpringWithDamping: 0.7, initialSpringVelocity: 2.5, options: .curveEaseOut, animations: {
             
-            let translationY = 0.5 * self.view.frame.height + 100
-            self.primaryView.frame.origin.y += translationY
-            self.loginTitle.text = "Success"
-
+            self.primaryView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
+            self.titleStackView.transform = CGAffineTransform(translationX: 0, y: -150)
             
         }, completion: {_ in
             self.textFieldSelected = false
@@ -188,22 +176,4 @@ class LoginViewController: ManagedViewController {
         
     }
 
-}
-
-
-class LoginNavigationController: UINavigationController {
-    
-    var manualStatusBarStyle: UIStatusBarStyle?
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return manualStatusBarStyle ?? .lightContent
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    
-    
 }

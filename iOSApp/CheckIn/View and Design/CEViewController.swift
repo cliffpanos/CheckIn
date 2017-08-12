@@ -13,7 +13,7 @@ extension UIViewController {
     public func showSimpleAlert(_ title: String, message: String?, handler: (() -> Void)? = nil) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: {_ in handler?() })
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {_ in handler?() })
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
         
@@ -21,9 +21,11 @@ extension UIViewController {
     
     public func showOptionsAlert(_ title: String?, message: String?, left: String, right: String, handlerOne: (() -> Void)? = nil, handlerTwo: (() -> Void)? = nil) {
         
+        let rightStyle = style(right)   //Two actions CANNOT have the .cancel style. Only one can.
+        let leftStyle = rightStyle == .cancel ? .default : style(left)
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let left = UIAlertAction(title: left, style: style(left), handler: { _ in handlerOne?() })
-        let right = UIAlertAction(title: right, style: style(right), handler: {_ in handlerTwo?() })
+        let left = UIAlertAction(title: left, style: leftStyle, handler: { _ in handlerOne?() })
+        let right = UIAlertAction(title: right, style: rightStyle, handler: {_ in handlerTwo?() })
         alert.addAction(left)
         alert.addAction(right)
         

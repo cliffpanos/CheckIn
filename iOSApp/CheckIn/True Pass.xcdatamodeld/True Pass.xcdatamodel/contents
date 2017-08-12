@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1.0">
-    <entity name="Affiliation" representedClassName="Affiliation" syncable="YES" codeGenerationType="class">
-        <attribute name="canAllowUserEntry" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="canControlUsers" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isAdministrator" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="CheckInStamp" representedClassName="CheckInStamp" syncable="YES" codeGenerationType="class">
-        <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timeStampIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="timeStampOut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Pass" representedClassName="Pass" syncable="YES" codeGenerationType="class">
         <attribute name="accessCodeQR" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="firebaseImageRef" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,6 +14,14 @@
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timeStart" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userIdentifierXXXX" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TPAffiliation" representedClassName="TPAffiliation" syncable="YES" codeGenerationType="class">
+        <attribute name="canAllowUserEntry" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="canControlUsers" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isAdministrator" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TPLocation" representedClassName="TPLocation" syncable="YES">
         <attribute name="affiliationAccessCode" optional="YES" attributeType="String" syncable="YES"/>
@@ -54,10 +47,17 @@
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TPVisit" representedClassName="TPVisit" syncable="YES" codeGenerationType="class">
+        <attribute name="geoType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStampIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timeStampOut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Affiliation" positionX="-36" positionY="45" width="128" height="135"/>
-        <element name="CheckInStamp" positionX="-36" positionY="99" width="128" height="105"/>
-        <element name="Pass" positionX="-180" positionY="-9" width="128" height="255"/>
+        <element name="TPAffiliation" positionX="-36" positionY="45" width="128" height="135"/>
+        <element name="TPVisit" positionX="-36" positionY="99" width="128" height="120"/>
+        <element name="Pass" positionX="-180" positionY="-9" width="128" height="240"/>
         <element name="TPLocation" positionX="115" positionY="-3" width="128" height="210"/>
         <element name="TPUser" positionX="-18" positionY="63" width="128" height="180"/>
     </elements>

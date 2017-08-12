@@ -23,13 +23,15 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>True Pass would like to be able to scan other True Pass QR Codes</string>
+	<string>True Pass would like to be able to scan other True Pass QR Codes.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>True Pass would like to ease the Guest Pass creation process</string>
+	<string>True Pass would like to help you autofill contact information for your convenience.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>True Pass would like to check you in automatically when you enter a geofence</string>
+	<string>True Pass would like to help you find locations nearest to you and be able to check you in automatically when you enter a geofence.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>True Pass would like to help you find locations nearest to you.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>True Pass would like to be able to save Passes to your Photo Library</string>
+	<string>True Pass would like to help you find profile photos and be able to save Passes to your Photo Library.</string>
 	<key>UIApplicationShortcutItems</key>
 	<array/>
 	<key>UILaunchStoryboardName</key>
@@ -44,8 +46,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
