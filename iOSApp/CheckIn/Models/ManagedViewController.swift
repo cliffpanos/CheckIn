@@ -19,6 +19,8 @@ class ManagedViewController: UIViewController {
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name:
+            NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     func setScrollViewForKeyboard(_ scrollView: UIScrollView) {
@@ -43,6 +45,11 @@ class ManagedViewController: UIViewController {
         scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
     }
     
+    func deviceOrientationDidChange() {
+        //Meant to be overridden
+    }
+    
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -56,7 +63,7 @@ class ManagedViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View DID APPEAR and is Presented")
+        //print("View DID APPEAR and is Presented")
         
         UIWindow.presented.viewController = self
         //Core purpose of this custom class

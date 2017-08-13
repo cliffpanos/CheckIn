@@ -14,6 +14,10 @@ class GeoLocationManager {
     
     static var sharedLocationManager = CLLocationManager()
     
+    static var userLocation: CLLocation? {
+        return sharedLocationManager.location
+    }
+    
     static var nearestLocation: TPLocation? {
         if C.truePassLocations.isEmpty { return nil }
         

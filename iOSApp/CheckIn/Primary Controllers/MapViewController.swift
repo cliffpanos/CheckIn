@@ -10,19 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var mapTypeController: UISegmentedControl!
-    var isVertical: Bool {
-        return tableView.frame.height > tableView.frame.width
-    }
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     let locationManager = GeoLocationManager.sharedLocationManager
-    var locationCollectionViewSpace: CGFloat {
-        let space = CGFloat(isVertical ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width) * 0.28
-        return space
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +24,6 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
             locationManager.requestAlwaysAuthorization()
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(considerOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         mapView.showsUserLocation = true
         mapView.mapType = .standard
@@ -43,33 +34,37 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
             self.mapView.add(circle)
         }
         
-        zoomToCheckInLocation()
+        if let userLocation = GeoLocationManager.userLocation {
+            zoom(to: userLocation.coordinate, withViewSize: 0.05)
+        } else {
+            zoomToCheckInLocation()
+        }
         //https://www.raywenderlich.com/136165/core-location-geofencing-tutorial
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        tableView.beginUpdates()
-        tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
+    
+    @IBOutlet weak var mapButtonsView: UIView!
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        mapButtonsView.layer.cornerRadius = mapButtonsView.bounds.width / 3.8
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        considerOrientation()
-//        tableView.endUpdates()
-    }
-    
-    func considerOrientation() {
-        guard UIDevice.current.userInterfaceIdiom == .phone else { return }
-        self.mapView.isScrollEnabled = isVertical
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: self.tabBarController!.tabBar.frame.height, right: 0)
-    }
-    
-    
-    @IBAction func mapTypeSelected(_ sender: Any) {
-        let mapTypes: [MKMapType] = [.standard, .satellite, .hybrid]
-        mapView.mapType = mapTypes[mapTypeController.selectedSegmentIndex]
+    @IBAction func selectMapType(_ sender: UIButton) {
+        func changeTo(mapType: MKMapType) {
+            self.mapView.mapType = mapType
+        }
+        let alert = UIAlertController(title: "Map Type", message: nil, preferredStyle: .actionSheet)
+        let standard = UIAlertAction(title: "Standard", style: .default) {_ in changeTo(mapType: .standard)}
+        let satellite = UIAlertAction(title: "Satellite", style: .default) {_ in changeTo(mapType: .satellite)}
+        let hybrid = UIAlertAction(title: "Hybrid", style: .default) {_ in changeTo(mapType: .hybrid)}
+        alert.addAction(standard); alert.addAction(satellite); alert.addAction(hybrid)
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = sender
+            popover.sourceRect = sender.bounds
+            popover.permittedArrowDirections = [.right]
+        }
+        self.present(alert, animated: true)
     }
     
     @IBOutlet weak var zoomToUserLocationButton: CDButton!
@@ -78,9 +73,8 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func zoomToCheckInLocation() {
-        if C.truePassLocations.count > 0 {
-            let truePassLocation = C.truePassLocations[0].coordinate
-            zoom(to: truePassLocation, withViewSize: 0.05)
+        if let nearest = C.nearestTruePassLocations.first {
+            zoom(to: nearest.coordinate, withViewSize: 0.05)
         }
     }
     
@@ -99,11 +93,11 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func mapViewDidStopLocatingUser(_ mapView: MKMapView) {
-        print("Located")
+        print("Located user")
     }
     
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
-        print("started")
+        print("started locating user")
     }
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         print("LOCATION UPDATED")
@@ -122,49 +116,18 @@ class MapViewController: UITableViewController, MKMapViewDelegate, CLLocationMan
         zoomToUserLocationButton.tintColor = mapView.isUserLocationVisible ? UIColor.TrueColors.lightBlue : UIColor.TrueColors.trueBlue
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toLocationDetailEmbedder", let cell = sender as? LocationCell {
             let detailVC = segue.destination as! LocationDetailEmbedderController
             detailVC.location = cell.location
         }
     }
-
-}
-
-
-//MARK: - Handle TableViewController Delegation
-extension MapViewController {
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let heightSpace = UIScreen.main.bounds.size.height - 95 - 49
-        let locationSpace = locationCollectionViewSpace
-        
-        if !UIApplication.shared.isStatusBarHidden && UIDevice.current.userInterfaceIdiom != .pad {
-            //heightSpace -= 20
-        }
-        
-        let scaledHeights: (forVertical: CGFloat, forHorizontal: CGFloat)
-        switch (indexPath.row) {
-        case 0 :
-            scaledHeights = UIApplication.shared.isStatusBarHidden ? (95, 80) : (95, 95)
-        case 1: scaledHeights = (heightSpace - locationSpace, heightSpace)
-        case 2: scaledHeights = (locationSpace, locationSpace)
-        case 3: scaledHeights = (44.5, 44.5)
-        default: scaledHeights = (200, 100)
-        }
-        return isVertical ? scaledHeights.forVertical : scaledHeights.forHorizontal
+    override func deviceOrientationDidChange() {
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
-    
-    
-    
-    
-}
 
+}
 
 
 
@@ -187,18 +150,29 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addLocationCell", for: indexPath)
         }
         
+        cell.layer.masksToBounds = false
+        let roundedView = cell.subviews.first!
+        roundedView.layer.masksToBounds = false
+        roundedView.layer.cornerRadius = 7
+        roundedView.layer.shadowColor = UIColor.lightGray.cgColor
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: 0);
+        roundedView.layer.shadowRadius = 8
+        roundedView.layer.shadowOpacity = 0.8
+        //roundedView.layer.shadowPath = UIBezierPath(rect: roundedView.layer.bounds).cgPath
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(16)
+        return CGFloat(24)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let totalItems = collectionView.numberOfItems(inSection: 0)
-        let collectionSize = collectionView.frame.size
-        let cellHeight = collectionSize.height
+        
+        let verticalInset = CGFloat(16.0)
+        let cellHeight = collectionView.frame.size.height - (4.0 * verticalInset)
         var cellWidth = cellHeight - 32.5
         
         //At the beginning and end of the collectionView, we need extra 16px padding
@@ -220,11 +194,14 @@ class LocationCell: UICollectionViewCell {
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var locationTypeLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
     var location: TPLocation!
     func decorate(for location: TPLocation) {
         
         self.location = location
+        
+        visualEffectView.layer.cornerRadius = visualEffectView.bounds.height / 4.0
         
         locationTypeLabel.text = (location.locationType ?? "Location").localizedUppercase
         titleLabel.text = location.shortTitle

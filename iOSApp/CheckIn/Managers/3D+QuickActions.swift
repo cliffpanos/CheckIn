@@ -86,7 +86,7 @@ extension AppDelegate {
     
     //MARK: - Handle DYNAMIC 3D Quick Actions ----------------------- //
     
-    static let applicationVersion = 1.0
+    static let applicationVersion = Shared.VERSION_OF_APPLICATION
     
     static func setShortcutItems(loggedIn: Bool) {
         

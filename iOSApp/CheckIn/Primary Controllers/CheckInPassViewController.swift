@@ -76,17 +76,17 @@ class CheckInPassViewController: ManagedViewController {
     
     static var initialScreenBrightness: CGFloat = UIScreen.main.brightness {
         didSet {
-            print("Initial B changed to: \(CheckInPassViewController.initialScreenBrightness)")
+            //print("Initial B changed to: \(CheckInPassViewController.initialScreenBrightness)")
         }
     }
     static var targetBrightness: CGFloat = CheckInPassViewController.initialScreenBrightness {
         didSet {
-            print("TARGET B changed to: \(CheckInPassViewController.targetBrightness)")
+            //print("TARGET B changed to: \(CheckInPassViewController.targetBrightness)")
         }
     }
     static var presented: Bool = false {
         didSet {
-            print("Presented changed to: \(CheckInPassViewController.presented)")
+            //print("Presented changed to: \(CheckInPassViewController.presented)")
         }
     }
     
