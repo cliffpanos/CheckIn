@@ -1,16 +1,15 @@
 //
-//  GeoLocationManager.swift
+//  LocationManager.swift
 //  True Pass
 //
-//  Created by Cliff Panos on 5/1/17.
+//  Created by Cliff Panos on 8/13/17.
 //  Copyright © 2017 Clifford Panos. All rights reserved.
 //
 
 import UIKit
 import CoreLocation
 
-
-class GeoLocationManager {
+class LocationManager {
     
     static var sharedLocationManager = CLLocationManager()
     
@@ -24,19 +23,15 @@ class GeoLocationManager {
         return C.nearestTruePassLocations[0]
     }
     
-    static func validateGeofenceMonitoring() {
-        //TODO
-    }
+    
+    
     
 }
 
 
 
-
-
-
 //MARK: - Utility functions
-extension GeoLocationManager {
+extension LocationManager {
     
     static func address(for location: CLLocation, completion: @escaping (_ address: [String: Any]?, _ error: Error?) -> ()) {
         

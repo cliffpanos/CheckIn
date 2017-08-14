@@ -87,7 +87,8 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return C.truePassLocations.count
+        let count = C.truePassLocations.count
+        return count > 0 ? count : 1
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {

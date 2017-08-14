@@ -50,3 +50,16 @@ extension UINavigationBar {
         return nil
     }
 }
+
+
+extension UIView {
+    
+    func shadowed() {
+        self.layer.masksToBounds = false
+        self.layer.cornerRadius = 7
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowRadius = 8
+        self.layer.shadowOpacity = 0.8
+    }
+}

@@ -144,7 +144,7 @@ class NewAccountViewController: UITableViewController {
                 let service = FirebaseService(entity: .FTPUser)
                 let snapshot = DataSnapshot()
                 let user = FTPUser(snapshot: snapshot)
-                user.userIdentifier = Accounts.shared.current!.uid
+                user.identifier = Accounts.shared.current!.uid
                 user.email = email
                 user.firstName = firstName
                 user.lastName = lastName

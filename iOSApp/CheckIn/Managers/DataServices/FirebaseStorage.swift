@@ -38,12 +38,12 @@ class FirebaseStorage {
     }
     
     func uploadProfilePicture(data: Data, for user: FTPUser, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
-        let childRef = usersDirectoryReference.child("\(user.userIdentifier).png")
+        let childRef = usersDirectoryReference.child("\(user.identifier).png")
         childRef.putData(data, metadata: pngMetadata) { metadata, error in
             handler(metadata, error) }
     }
     
-    func uploadpassPicture(data: Data, for pass: FPass) {
+    func uploadpassPicture(data: Data, for pass: FTPPass) {
         
     }
     

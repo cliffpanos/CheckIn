@@ -17,10 +17,10 @@ protocol TPIdentified {
 class FTPUser: FirebaseObject, TPIdentified {
     
     public var email = String()
-    public var userIdentifier = String()
     public var firstName = String()
     public var lastName = String()
     public var imageData = Data()
+    public var geoDevice = "none"
     //imageRef is userIdentifier
     
     var identifier: String!
@@ -29,23 +29,25 @@ class FTPUser: FirebaseObject, TPIdentified {
     }
     
     override var dictionaryForm: [String: Any] {
-        return self.dictionaryWithValues(forKeys: ["email", "userIdentifier", "firstName", "lastName"])
+        return self.dictionaryWithValues(forKeys: ["email", "firstName", "lastName", "geoDevice"])
     }
 }
 
 class FTPLocation: FirebaseObject {
 
+    public var title = String()
+    public var shortTitle = String()
     public var locationIdentifier: String = ""
 
 }
 
-class FPass: FirebaseObject {
+class FTPPass: FirebaseObject {
 
     public var passIdentifier: String = ""
 
 }
 
-class FAffiliation : FirebaseObject {
+class FTPAffiliation: FirebaseObject {
     
     public var isAdministrator: Bool = false
     public var userIdentifier = String()
@@ -53,7 +55,28 @@ class FAffiliation : FirebaseObject {
     
 }
 
+class FTPVisit: FirebaseObject {
+    
+}
 
+class FTPUserList: FirebaseObject {
+    
+}
+
+class FTPAffiliationList: FirebaseObject {
+    
+}
+
+class FTPPassList: FirebaseObject {
+    
+}
+
+class FTPVisitList: FirebaseObject {
+    
+}
+
+
+/// A functionally abstract class to manage all Firebases-stored data objects (entities)
 class FirebaseObject: NSObject {
     
     override init() {

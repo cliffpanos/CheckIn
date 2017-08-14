@@ -70,7 +70,7 @@ class LocationDetailTableViewController: UITableViewController {
         let typeDetails = TPLocationType.Details[location.type]!
         locationIcon.image = UIImage(named: typeDetails.iconName)
 
-        GeoLocationManager.address(for: location.clLocation) {
+        LocationManager.address(for: location.clLocation) {
             address, error in
             if let address = address, let city = address["City"] as? String, let state = address["State"] as? String {
                 self.cityStateLabel.text = "\(city) • \(state)"

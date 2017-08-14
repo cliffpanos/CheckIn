@@ -19,12 +19,6 @@ class C: WCActivator {
     static var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     static var session: WCSession?
     
-    
-    static var nameOfUser: String = "Clifford Panos"
-    static var emailOfUser: String = "cliffpanos@gmail.com"
-    static var locationName: String = "iOS Club 2017 Demo Day"
-    
-    
     static var passesActive: Bool = true
     
     static var automaticCheckIn: Bool = true
@@ -45,7 +39,7 @@ class C: WCActivator {
         
         guard (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) && CLLocationManager.locationServicesEnabled() else { return truePassLocations }
         
-        guard let userLocation = GeoLocationManager.sharedLocationManager.location else { return truePassLocations }
+        guard let userLocation = LocationManager.sharedLocationManager.location else { return truePassLocations }
         
         var locationsAndDistances = [TPLocation: Double]()
         for location in truePassLocations {
@@ -117,9 +111,9 @@ class C: WCActivator {
     
     static func userQRCodePass(forLocation location: TPLocation, withSize size: CGSize?) -> UIImage {
         return C.generateQRCode(forMessage:
-            "\(C.nameOfUser)|" +
-            "\(C.emailOfUser)|" +
-            "\(C.locationName)"
+            "\(Accounts.userName)|" +
+            "\(Accounts.userEmail)|" +
+            "\(location.title ?? "Location?")|"
             //Add in things specific to the location
             , withSize: size)
     }
@@ -135,23 +129,19 @@ class C: WCActivator {
     
     
     static func persistUsingUserDefaults(_ value: Any?, forKey keyString: String) {
-        
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: keyString)
         defaults.synchronize()
-    
     }
     
     static func getFromUserDefaults(withKey keyString: String) -> Any? {
-        
-        let defaults = UserDefaults.standard
-        return defaults.object(forKey: keyString)
-    
+        return UserDefaults.standard.object(forKey: keyString)
     }
     
     static func removeValueFromUserDefaults(withKey keyString: String) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: keyString)
+        defaults.synchronize()
     }
     
 }

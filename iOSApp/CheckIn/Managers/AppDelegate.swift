@@ -82,7 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 Accounts.currentUser = (user as! FTPUser)
             })
         }
-        
         Testing.setupForTesting()
         
         //LoginViewController
@@ -93,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             tabBarController = window?.rootViewController as! UITabBarController
             
             //Ensure that the user's geofence monitoring is correctly on or off for their locations according to the locations' preference
-            GeoLocationManager.validateGeofenceMonitoring()
+            GeofenceManager.validateGeofenceMonitoring()
         }
         
         

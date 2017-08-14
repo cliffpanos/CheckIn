@@ -28,14 +28,14 @@ enum TPLocationType: String {
         ]
 }
 
-enum TPLocationOpenType {
+enum TPLocationOpenType: String {
     case allKnown
     case usersAndAdmins
     case adminsOnly
     case closed
 }
 
-enum TPLocationGeoType {
+enum TPLocationGeoType: String {
     case entry
     case exit
     case bidirectional
@@ -45,6 +45,12 @@ enum TPLocationGeoType {
 enum TPVisitEntryType {
     case geofence
     case scannedByUser(String)
+}
+
+enum TPUserGeoDeviceType {
+    case none
+    case iPhone(String)
+    case Android(String)
 }
 
 

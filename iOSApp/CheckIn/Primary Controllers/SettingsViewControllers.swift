@@ -16,13 +16,17 @@ class SettingsViewController: ManagedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO The values below should be replaced with CoreData values
-        ownerLabel.text = C.nameOfUser
-        userProfileImage.image = #imageLiteral(resourceName: "ModernContactEmpty")
-        FirebaseStorage.shared.retrieveProfilePictureForCurrentUser() { data, error in
-            if let error = error {
-                print("Error Retrieving profile picture!! --------- \(error.localizedDescription)")
-            } else {
-                self.userProfileImage.image = UIImage(data: data!)
+        ownerLabel.text = Accounts.userName
+        
+        if let image = Accounts.userImage {
+            userProfileImage.image = image
+        } else {
+            FirebaseStorage.shared.retrieveProfilePictureForCurrentUser() { data, error in
+                if let error = error {
+                    print("Error Retrieving profile picture!! --------- \(error.localizedDescription)")
+                } else {
+                    self.userProfileImage.image = UIImage(data: data!)
+                }
             }
         }
     }
@@ -47,6 +51,7 @@ class SettingsViewController: ManagedViewController {
                     let controller = C.storyboard.instantiateViewController(withIdentifier: "loginViewController")
                     C.appDelegate.window!.rootViewController = controller
                     //            self.present(controller, animated: true, completion: nil)
+                    Accounts.userImageData = nil
                     C.userIsLoggedIn = false
                 }
             })
@@ -69,8 +74,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO The three values below should be replaced with CoreData values
-        ownerEmailLabel.text = C.emailOfUser
+        ownerEmailLabel.text = Accounts.userEmail
 
     }
     

@@ -79,14 +79,22 @@ class LoginViewController: ManagedViewController {
                     self.feedbackGenerator.notificationOccurred(.warning)
                     
                     return // ! -- CRITICAL -- !//
-                    //update gesture on passviewController
-                    //fix background on pageViewController
                 }
                 
-                //At this point, the user is about to be logged in
-                self.feedbackGenerator.notificationOccurred(.success)
-                self.loginTitle.text = "Success"
-                self.animateOff()
+                
+                //RETRIEVE important account info to be saved in Core Data
+                let newUserService = FirebaseService(entity: FirebaseEntity.FTPUser)
+                
+                newUserService.retrieveData(forIdentifier: Accounts.shared.current!.uid) { object in
+                    let newUser = object as! FTPUser
+                    Accounts.saveToUserDefaults(user: newUser, updateImage: true)
+                    
+                    //At this point, the user is about to be logged in
+                    self.feedbackGenerator.notificationOccurred(.success)
+                    self.loginTitle.text = "Success"
+                    self.animateOff()
+                }
+                
             } else {
                 self.shakeTextFields()
                 self.feedbackGenerator.notificationOccurred(.error)

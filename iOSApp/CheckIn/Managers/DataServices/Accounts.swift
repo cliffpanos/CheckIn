@@ -77,7 +77,7 @@ class Accounts {
     }
     
     private func userHasAuth(type: String) -> Bool {
-        for provider in (current?.providerData)! {
+        for provider in current?.providerData ?? [] {
             if provider.providerID.contains(type) {
                 return true;
             }
@@ -85,10 +85,83 @@ class Accounts {
         return false
     }
     
-    private func externalLogin(credential: AuthCredential, completion: @escaping ((_ loginSuccessful: Bool) -> Void)) {
+    private func customLogin(credential: AuthCredential, completion: @escaping ((_ loginSuccessful: Bool) -> Void)) {
         
         Auth.auth().signIn(with: credential) { (user, error) in
             completion(error == nil)
+        }
+    }
+    
+}
+
+
+//Handle the simple but incredibly important storage of user information
+//Though ratchet, UserDefaults are used to provide a completely, 100% infallible way of preserving this data
+extension Accounts {
+    
+    enum TPUDKeys: String {
+        case TPUDkUserFirstName
+        case TPUDkUserLastName
+        case TPUDkUserIdenfitier
+        case TPUDkUserImageData
+        case TPUDkUserEmail
+    }
+    class func saveToUserDefaults(user: FTPUser, updateImage: Bool = false) {
+        userFirstName = user.firstName
+        userLastName = user.lastName
+        userImageData = user.imageData
+        userEmail = user.email
+        userIdentifier = user.identifier
+        guard updateImage else { return }
+        FirebaseStorage.shared.retrieveProfilePicture(for: user.identifier) { data, error in
+            if let data = data { userImageData = data }
+        }
+    }
+    class var userFirstName: String {
+        get {
+            return C.getFromUserDefaults(withKey: TPUDKeys.TPUDkUserFirstName.rawValue) as! String
+        }
+        set {
+            C.persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserFirstName.rawValue)
+        }
+    }
+    class var userLastName: String {
+        get {
+            return C.getFromUserDefaults(withKey: TPUDKeys.TPUDkUserLastName.rawValue) as! String
+        }
+        set {
+            C.persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserLastName.rawValue)
+        }
+    }
+    class var userName: String {
+        return userFirstName + " " + userLastName
+    }
+    class var userIdentifier: String {
+        get {
+            return C.getFromUserDefaults(withKey: TPUDKeys.TPUDkUserIdenfitier.rawValue) as! String
+        }
+        set {
+            C.persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserIdenfitier.rawValue)
+        }
+    }
+    class var userImageData: Data? {
+        get {
+            return C.getFromUserDefaults(withKey: TPUDKeys.TPUDkUserImageData.rawValue) as? Data
+        }
+        set {
+            C.persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserImageData.rawValue)
+        }
+    }
+    class var userImage: UIImage? {
+        if let imageData = Accounts.userImageData { return UIImage(data: imageData) }
+        return nil
+    }
+    class var userEmail: String {
+        get {
+            return C.getFromUserDefaults(withKey: TPUDKeys.TPUDkUserEmail.rawValue) as! String
+        }
+        set {
+            C.persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserEmail.rawValue)
         }
     }
     

@@ -80,7 +80,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
                 "\(self.pass.email!)|" +
                 "\(self.startTimeLabel.text!)|" +
                 "\(self.endTimeLabel.text!)|" +
-            "\(C.locationName)|"
+            "\(pass.locationIdentifier ?? "Location Identifier Unknown")|"
             
             , withSize: nil)
     }

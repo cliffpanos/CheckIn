@@ -14,8 +14,9 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
-    let locationManager = GeoLocationManager.sharedLocationManager
+    let locationManager = LocationManager.sharedLocationManager
 
+    @IBOutlet weak var outerMapButtonsView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         
         mapView.showsUserLocation = true
         mapView.mapType = .standard
+//        outerMapButtonsView.shadowed()
         
         for location in C.truePassLocations {
             mapView.addAnnotation(location)
@@ -34,13 +36,18 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
             self.mapView.add(circle)
         }
         
-        if let userLocation = GeoLocationManager.userLocation {
+        if let userLocation = LocationManager.userLocation {
             zoom(to: userLocation.coordinate, withViewSize: 0.05)
         } else {
             zoomToCheckInLocation()
         }
         //https://www.raywenderlich.com/136165/core-location-geofencing-tutorial
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -58,7 +65,8 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         let standard = UIAlertAction(title: "Standard", style: .default) {_ in changeTo(mapType: .standard)}
         let satellite = UIAlertAction(title: "Satellite", style: .default) {_ in changeTo(mapType: .satellite)}
         let hybrid = UIAlertAction(title: "Hybrid", style: .default) {_ in changeTo(mapType: .hybrid)}
-        alert.addAction(standard); alert.addAction(satellite); alert.addAction(hybrid)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in alert.dismiss(animated: true) })
+        alert.addAction(standard); alert.addAction(satellite); alert.addAction(hybrid); alert.addAction(cancel)
         if let popover = alert.popoverPresentationController {
             popover.sourceView = sender
             popover.sourceRect = sender.bounds
@@ -145,7 +153,7 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "truePassCell", for: indexPath) as! LocationCell
         case 1..<C.truePassLocations.count + 1 :
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath)
-            (cell as! LocationCell).decorate(for: C.truePassLocations[indexPath.row - 1])
+            (cell as! LocationCell).decorate(for: C.truePassLocations[indexPath.row - 1], in: self)
         default :
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addLocationCell", for: indexPath)
         }
@@ -164,7 +172,7 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(24)
+        return UIDevice.current.userInterfaceIdiom == .pad ? CGFloat(24) : CGFloat(16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -172,7 +180,8 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
         let totalItems = collectionView.numberOfItems(inSection: 0)
         
         let verticalInset = CGFloat(16.0)
-        let cellHeight = collectionView.frame.size.height - (4.0 * verticalInset)
+        let multiplier = UIDevice.current.userInterfaceIdiom == .pad ? CGFloat(4) : CGFloat(2)
+        let cellHeight = collectionView.frame.size.height - (multiplier * verticalInset)
         var cellWidth = cellHeight - 32.5
         
         //At the beginning and end of the collectionView, we need extra 16px padding
@@ -195,11 +204,16 @@ class LocationCell: UICollectionViewCell {
     @IBOutlet weak var locationTypeLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    var tapRecognizer: UITapGestureRecognizer!
+    weak var mapViewController: MapViewController?
     
     var location: TPLocation!
-    func decorate(for location: TPLocation) {
+    func decorate(for location: TPLocation, in mvc: MapViewController) {
         
         self.location = location
+        self.mapViewController = mvc
+        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(goToLocationOnMap))
+        visualEffectView.addGestureRecognizer(tapRecognizer)
         
         visualEffectView.layer.cornerRadius = visualEffectView.bounds.height / 4.0
         
@@ -210,6 +224,10 @@ class LocationCell: UICollectionViewCell {
         locationIcon.image = UIImage(named: typeDetails.iconName)
         backgroundImage.image = UIImage(named: "\(typeDetails.iconName)Scene")
         
+    }
+    
+    func goToLocationOnMap() {
+        mapViewController?.zoom(to: location.coordinate, withViewSize: 0.01)
     }
     
 }

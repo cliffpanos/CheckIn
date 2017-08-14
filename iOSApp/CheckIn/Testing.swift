@@ -29,7 +29,7 @@ class Testing {
             
             locations.append(newLocation)
         }
-        C.truePassLocations = locations
+        //C.truePassLocations = locations
         
     }
 
