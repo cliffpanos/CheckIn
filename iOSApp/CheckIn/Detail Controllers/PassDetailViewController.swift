@@ -109,6 +109,11 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         //self.navigationController?.view.addSubview(imageView)
         
     }
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat { return 100
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

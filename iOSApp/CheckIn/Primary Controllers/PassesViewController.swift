@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+class PassesNavigationController: UINavigationController { }
+
 class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +18,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
     var searchDisplay = UISearchController(searchResultsController: nil)
     var searchBar: UISearchBar!
     var filtered = [Pass]()
-    
+    var selectedIndexPath: IndexPath?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,24 +46,30 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
             registerForPreviewing(with: self, sourceView: self.view)
         }
         
-        //TODO FIX THIS
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            print("Autoselecting row 0")
-            let indexZero = IndexPath(row: 0, section: 0)
-            tableView.selectRow(at: indexZero, animated: true, scrollPosition: .none)
-            self.performSegue(withIdentifier: "toPassDetail", sender: tableView.cellForRow(at: indexZero))
-        }
-        
-        if C.passes.count == 0 { switchToGuestGettingStarted() }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if C.passes.count == 0 { switchToGuestGettingStarted() }
+
         self.navigationItem.leftBarButtonItem?.isEnabled = tableView.visibleCells.count != 0
         tableView.reloadData()
+        
+        //TODO FIX THIS
+        if !(SplitViewController.instance?.isCollapsed ?? true) && selectedIndexPath == nil {
+            print("Autoselecting row 0")
+            let indexZero = IndexPath(row: 0, section: 0)
+            self.selectedIndexPath = indexZero
+            tableView.selectRow(at: indexZero, animated: true, scrollPosition: .none)
+            self.performSegue(withIdentifier: "toPassDetail", sender: tableView.cellForRow(at: indexZero))
+        }
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let indexPath = selectedIndexPath else { return }
+        if SplitViewController.isShowingDetail { tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle) }
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -92,7 +100,6 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         let text = searchBar.text?.lowercased() ?? ""
         filtered = C.passes.filter { ($0.name ?? "").lowercased().contains(text) }
         
-        print("FILTERING FROM FUNCTION CALLED!!")
         tableView.reloadData()
             
     }
@@ -152,6 +159,7 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
                 let row = indexPath.row; let section = indexPath.section
                 let relevantPasses = self.isSearching() ? self.filtered : C.passes
                 let pass = relevantPasses[row]
+                let sameCellSelectedAsPresented = indexPath == self.selectedIndexPath
                 if PassManager.delete(pass: pass) {
                     tableView.deleteRows(at: [indexPath], with: .fade)
                 } else {
@@ -162,7 +170,8 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
                         self.switchToGuestGettingStarted()
                         return
                 }
-                
+                guard sameCellSelectedAsPresented else { print(1); return }
+                guard SplitViewController.isShowingDetail else { print(2); return }
                 let newIndexPath = IndexPath(row: (row - 1 < relevantPasses.count - 1 && row - 1 >= 0) ? row - 1 : row, section: section)
                 tableView.selectRow(at: newIndexPath, animated: true, scrollPosition: .middle)
                 let cell = tableView.cellForRow(at: newIndexPath)
@@ -175,6 +184,7 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
     func switchToGuestGettingStarted() {
         (self.navigationController!.tabBarController! as! RootViewController).switchToGuestRootController(withIdentifier: "passInfoViewController")
     }
@@ -185,8 +195,9 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let cell = sender as? PassCell{
             let embedder = (segue.destination as! UINavigationController).viewControllers.first! as! PassDetailEmbedderController
-            let index = tableView.indexPathForRow(at: cell.center)!.row
-            embedder.pass = isSearching() ? filtered[index] : C.passes[index]
+            let indexPath = tableView.indexPathForRow(at: cell.center)!
+            self.selectedIndexPath = indexPath
+            embedder.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
         }
         
         searchDisplay.dismiss(animated: true, completion: nil)
@@ -225,10 +236,10 @@ class PassCell: UITableViewCell {
     }
         
     override func setSelected(_ selected: Bool, animated: Bool) {
-        self.backgroundColor = selected ? UIColor.lightGray : UIColor.white
+        self.backgroundColor = selected ? UIColor.groupTableViewBackground : UIColor.white
     }
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        self.backgroundColor = highlighted ? UIColor.lightGray : UIColor.white
+        self.backgroundColor = highlighted ? UIColor.groupTableViewBackground : UIColor.white
     }
 }
 
@@ -242,12 +253,11 @@ extension PassesViewController: UIViewControllerPreviewingDelegate {
         let cellPosition = tableView.convert(location, from: self.view)
         guard let indexPath = tableView.indexPathForRow(at: cellPosition) else { return nil }
         
-        print("Previewing")
         let rect = self.view.convert(tableView.cellForRow(at: indexPath)!.frame, from: self.tableView)
 
         previewingContext.sourceRect = rect
-        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
-        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
+        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailNavigationController") as! PassDetailNavigationController
+        (pdvc.viewControllers.first! as! PassDetailEmbedderController).pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
         
         return pdvc
     }
