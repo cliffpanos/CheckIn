@@ -23,13 +23,13 @@ class FirebaseStorage {
     }
     
     var usersDirectoryReference: StorageReference {
-        return storageRef.child("TPUsers")
+        return storageRef.child("FTPUser")
     }
     var locationsDirectoryReference: StorageReference {
-        return storageRef.child("TPLocations")
+        return storageRef.child("FTPLocation")
     }
     var passesDirectoryReference: StorageReference {
-        return storageRef.child("TPPasses")
+        return storageRef.child("FTPPass")
     }
     var pngMetadata: StorageMetadata {
         let metadata = StorageMetadata()
@@ -37,19 +37,12 @@ class FirebaseStorage {
         return metadata
     }
     
-    func uploadProfilePicture(data: Data, for user: FTPUser, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
-        let childRef = usersDirectoryReference.child("\(user.identifier).png")
+    func uploadImage(data: Data, for identifiable: TPIdentifiable, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
+        let childRef = usersDirectoryReference.child("\(identifiable.identifier).png")
         childRef.putData(data, metadata: pngMetadata) { metadata, error in
             handler(metadata, error) }
     }
     
-    func uploadpassPicture(data: Data, for pass: FTPPass) {
-        
-    }
-    
-    func uploadLocationPicture(data: Data, for location: FTPLocation) {
-        
-    }
     
     func retrieveProfilePicture(for uid: String, _ handler: @escaping (Data?, Error?) -> Void) {
         let childRef = usersDirectoryReference.child("\(uid).png")

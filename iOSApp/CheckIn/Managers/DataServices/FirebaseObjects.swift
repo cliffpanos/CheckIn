@@ -10,11 +10,11 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-protocol TPIdentified {
-    var identifier: String! { get set }
+protocol TPIdentifiable {
+    var identifier: String { get set }
 }
 
-class FTPUser: FirebaseObject, TPIdentified {
+class FTPUser: FirebaseObject, TPIdentifiable {
     
     public var email = String()
     public var firstName = String()
@@ -23,7 +23,7 @@ class FTPUser: FirebaseObject, TPIdentified {
     public var geoDevice = "none"
     //imageRef is userIdentifier
     
-    var identifier: String!
+    public var identifier: String = String()
     public var name: String {
         return firstName + " " + lastName
     }
@@ -33,17 +33,17 @@ class FTPUser: FirebaseObject, TPIdentified {
     }
 }
 
-class FTPLocation: FirebaseObject {
+class FTPLocation: FirebaseObject, TPIdentifiable {
 
     public var title = String()
     public var shortTitle = String()
-    public var locationIdentifier: String = ""
+    public var identifier: String = String()
 
 }
 
-class FTPPass: FirebaseObject {
+class FTPPass: FirebaseObject, TPIdentifiable {
 
-    public var passIdentifier: String = ""
+    public var identifier: String = String()
 
 }
 

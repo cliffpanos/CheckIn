@@ -14,7 +14,6 @@ class ContactView: CDInterfaceBuilderView {
     @IBOutlet weak var contactInitialsLabel: UILabel!
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var outerCircularView: CircularView!
-    @IBOutlet weak var innerCircularView: CircularView!
 
     @IBInspectable var contactImage: UIImage? {
         didSet {
@@ -36,7 +35,7 @@ class ContactView: CDInterfaceBuilderView {
             
             contactImageView.image = image
             contactImageView.isHidden = false
-            outerCircularView.borderColor = UIColor.clear
+            //outerCircularView.borderColor = UIColor.clear
             return
         }
         removeImageViewAndSetInitials(forName: name)
@@ -53,13 +52,17 @@ class ContactView: CDInterfaceBuilderView {
         }
         
         //contactImageView.isHidden = true
-        outerCircularView.borderColor = UIColor.TrueColors.trueBlue
+        //outerCircularView.borderColor = UIColor.TrueColors.trueBlue
 
     }
     
+    //override func backgroun
+
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        self.layer.cornerRadius = self.bounds.size.width / 2.0
+        self.layer.masksToBounds = true
         contactInitialsLabel.font = contactInitialsLabel.font.withSize(self.layer.bounds.width / 2.5)
     }
 

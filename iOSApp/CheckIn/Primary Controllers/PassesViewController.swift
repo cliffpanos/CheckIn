@@ -44,12 +44,15 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
             registerForPreviewing(with: self, sourceView: self.view)
         }
         
+        //TODO FIX THIS
         if UIDevice.current.userInterfaceIdiom == .pad {
             print("Autoselecting row 0")
             let indexZero = IndexPath(row: 0, section: 0)
             tableView.selectRow(at: indexZero, animated: true, scrollPosition: .none)
             self.performSegue(withIdentifier: "toPassDetail", sender: tableView.cellForRow(at: indexZero))
         }
+        
+        if C.passes.count == 0 { switchToGuestGettingStarted() }
         
     }
     
@@ -118,12 +121,11 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        //TODO
         return false
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return !isSearching()
     }
     
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
@@ -143,15 +145,29 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
+        print("\(indexPath.row)")
         switch editingStyle {
         case .delete:
             showDestructiveAlert("Confirm Revocation", message: "Permanently revoke this pass?", destructiveTitle: "Revoke", popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
-        
-                let pass = C.passes[indexPath.row]
+                let row = indexPath.row; let section = indexPath.section
+                let relevantPasses = self.isSearching() ? self.filtered : C.passes
+                let pass = relevantPasses[row]
                 if PassManager.delete(pass: pass) {
                     tableView.deleteRows(at: [indexPath], with: .fade)
+                } else {
+                    return
                 }
+                guard (row - 1 < relevantPasses.count - 1 && row - 1 >= 0)
+                    || (row < relevantPasses.count - 1 && row >= 0) else {
+                        self.switchToGuestGettingStarted()
+                        return
+                }
+                
+                let newIndexPath = IndexPath(row: (row - 1 < relevantPasses.count - 1 && row - 1 >= 0) ? row - 1 : row, section: section)
+                tableView.selectRow(at: newIndexPath, animated: true, scrollPosition: .middle)
+                let cell = tableView.cellForRow(at: newIndexPath)
+                self.performSegue(withIdentifier: "toPassDetail", sender: cell)
+                
             })
             
         default: return
@@ -159,22 +175,18 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let pdvc = C.storyboard.instantiateViewController(withIdentifier: "passDetailViewController") as! PassDetailViewController
-//        
-//        pdvc.pass = isSearching() ? filtered[indexPath.row] : C.passes[indexPath.row]
-        //        searchDisplay.dismiss(animated: true)
-//
-//        self.navigationController?.pushViewController(pdvc, animated: true)
+    func switchToGuestGettingStarted() {
+        (self.navigationController!.tabBarController! as! RootViewController).switchToGuestRootController(withIdentifier: "passInfoViewController")
     }
     
     
     //Segue preparation for when a UITableViewCell is pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let cell = sender as? PassCell, let destination = segue.destination as? PassDetailViewController {
+        if let cell = sender as? PassCell{
+            let embedder = (segue.destination as! UINavigationController).viewControllers.first! as! PassDetailEmbedderController
             let index = tableView.indexPathForRow(at: cell.center)!.row
-            destination.pass = isSearching() ? filtered[index] : C.passes[index]
+            embedder.pass = isSearching() ? filtered[index] : C.passes[index]
         }
         
         searchDisplay.dismiss(animated: true, completion: nil)
@@ -210,6 +222,13 @@ class PassCell: UITableViewCell {
 
         fullContactView.setupContactView(forData: pass.image as Data?, andName: pass.name!)
         
+    }
+        
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        self.backgroundColor = selected ? UIColor.lightGray : UIColor.white
+    }
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        self.backgroundColor = highlighted ? UIColor.lightGray : UIColor.white
     }
 }
 

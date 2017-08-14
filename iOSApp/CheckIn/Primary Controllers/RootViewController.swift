@@ -25,6 +25,14 @@ class RootViewController: UITabBarController {
 //        let currentItems = self.tabBar.items!
 //        self.tabBar.setItems(([moreItem] + currentItems), animated: true)
     }
+    
+    func switchToGuestRootController(withIdentifier identifier: String) {
+        print("CHANGING GUEST ROOT VIEW CONTROLLER")
+        let newVC = C.storyboard.instantiateViewController(withIdentifier: identifier)
+        var viewControllers = self.viewControllers!
+        viewControllers[1] = newVC
+        self.viewControllers = viewControllers
+    }
 
 }
 

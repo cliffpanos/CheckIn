@@ -57,7 +57,7 @@ class CPPhotoPicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
     
     
     
-    ///Present the Photo Picker if authorized and otherwise display alerts to tell the user how to authorize the application
+    ///Present the Photo Picker if authorized and otherwise display alerts to tell the user how to authorize the application. NOTE: on iPad, the cropped image will NOT be returned because UIImagePicker currently has a bug on iPad that causes cropping to stretch the image incorrectly. So, the original image is instead returned on iPad.
     public func pickImageConsideringAuth() {
         if authStatus == .authorized {
             presentPhotoPicker()
@@ -110,8 +110,13 @@ class CPPhotoPicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         var image: UIImage?
-        if let selectedImage = info[UIImagePickerControllerEditedImage] as? UIImage? {
+        let preferredImage = UIDevice.current.userInterfaceIdiom == .pad ? UIImagePickerControllerOriginalImage : UIImagePickerControllerEditedImage
+        if let selectedImage = info[preferredImage] as? UIImage? {
             image = selectedImage
+        }
+        //Ensure that the photo is not too large
+        if let existingImage = image {
+            image = existingImage.drawAspectFill(in: CGRect(x: 0, y: 0, width: 400, height: 400))
         }
         if let action = photoSelectedAction {
             action(image)

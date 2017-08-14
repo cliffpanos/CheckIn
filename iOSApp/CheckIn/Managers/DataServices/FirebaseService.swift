@@ -93,12 +93,12 @@ class FirebaseService : NSObject {
             
         case .FTPLocation:
             let location = FTPLocation(snapshot: snapshot)
-            location.locationIdentifier = snapshot.key
+            location.identifier = snapshot.key
             return location
             
         case .FTPPass:
             let pass = FTPPass(snapshot: snapshot)
-            pass.passIdentifier = snapshot.key
+            pass.identifier = snapshot.key
             return pass
             
         case .FTPVisit:

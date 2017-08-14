@@ -77,6 +77,7 @@
 		91BC02221EF994CE00E27FC4 /* CDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC02211EF994CE00E27FC4 /* CDTableViewController.swift */; };
 		91CE2D6B1EF7321F00755720 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */; };
 		91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D517BA1ED7908E00E6B452 /* PassKitManager.swift */; };
+		91DD5C801F4192A3001254DE /* GuestsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD5C7F1F4192A3001254DE /* GuestsInfoViewController.swift */; };
 		91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
 		91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
 		91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */; };
@@ -205,6 +206,7 @@
 		91BC02211EF994CE00E27FC4 /* CDTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDTableViewController.swift; path = "View and Design/CDTableViewController.swift"; sourceTree = "<group>"; };
 		91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
 		91D517BA1ED7908E00E6B452 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassKitManager.swift; path = Managers/PassKitManager.swift; sourceTree = "<group>"; };
+		91DD5C7F1F4192A3001254DE /* GuestsInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuestsInfoViewController.swift; path = "Detail Controllers/GuestsInfoViewController.swift"; sourceTree = "<group>"; };
 		91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonDataModels.swift; path = ../CommonDataModels.swift; sourceTree = "<group>"; };
 		91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseStorage.swift; path = Managers/DataServices/FirebaseStorage.swift; sourceTree = "<group>"; };
 		91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAffiliationTableViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				911B83521F08FB8D00BB4437 /* LocationDetailTableViewController.swift */,
 				919405871F3839E00067FBCD /* TruePassInfoViewControllers.swift */,
 				9157035A1F396D4D00AA7D92 /* ForgotPasswordViewController.swift */,
+				91DD5C7F1F4192A3001254DE /* GuestsInfoViewController.swift */,
 			);
 			name = "Detail Controllers";
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				913B0E4B1F04073000252276 /* CPTextFieldManager.swift in Sources */,
 				91989DB01E90DDDB00F83E1C /* MapViewController.swift in Sources */,
 				916E0F011E8F705400911417 /* LoginViewController.swift in Sources */,
+				91DD5C801F4192A3001254DE /* GuestsInfoViewController.swift in Sources */,
 				918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */,
 				9106AB601E9455C100CEBD7A /* Designables.swift in Sources */,
 				913B0E4E1F04079900252276 /* NewLocationTableViewController.swift in Sources */,

@@ -70,7 +70,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         if let popover = alert.popoverPresentationController {
             popover.sourceView = sender
             popover.sourceRect = sender.bounds
-            popover.permittedArrowDirections = [.right]
+            popover.permittedArrowDirections = [.down]
         }
         self.present(alert, animated: true)
     }

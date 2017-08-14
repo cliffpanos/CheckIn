@@ -51,9 +51,9 @@ extension UIViewController {
     
     public func setupPopoverPresentation(for popup: UIViewController, popoverSetup: ((UIPopoverPresentationController) -> Void)?) {
         
-        if let presenter = popup.popoverPresentationController, let setup = popoverSetup {
+        if let presented = popup.popoverPresentationController, let setup = popoverSetup {
             print("PopoverPresentationController activated")
-            setup(presenter)
+            setup(presented)
         }
         
     }

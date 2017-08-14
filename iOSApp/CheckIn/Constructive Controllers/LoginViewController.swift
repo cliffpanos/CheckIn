@@ -21,6 +21,8 @@ class LoginViewController: ManagedViewController {
     var textFieldManager: CPTextFieldManager!
     let feedbackGenerator = UINotificationFeedbackGenerator()
     
+    static var preFilledEmail: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +30,10 @@ class LoginViewController: ManagedViewController {
         textFieldManager.setupTextFields(withAccessory: .done)
         textFieldManager.setFinalReturn(keyType: .go) {
             self.signInPressed(Int(0))
+        }
+        if let email = LoginViewController.preFilledEmail {
+            emailTextField.text = email
+            LoginViewController.preFilledEmail = nil
         }
     }
     

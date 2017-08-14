@@ -120,7 +120,7 @@ class NewAccountViewController: UITableViewController {
         
         textFieldManager.dismissKeyboard()
         
-        guard let fN = fNameTextField.text, let lN = lNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {
+        guard let fN = fNameTextField.text, let lN = lNameTextField.text, let em = emailTextField.text, let pwd = passwordTextField.text else {
             self.showSimpleAlert("Incomplete Fields", message: "Please enter all required fields")
             return
         }
@@ -129,6 +129,8 @@ class NewAccountViewController: UITableViewController {
         
         let firstName = fN.trimmingCharacters(in: .whitespaces)
         let lastName = lN.trimmingCharacters(in: .whitespaces)
+        let email = em.trimmingCharacters(in: .whitespaces)
+        let password = pwd.trimmingCharacters(in: .whitespaces)
         
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
@@ -150,7 +152,7 @@ class NewAccountViewController: UITableViewController {
                 user.lastName = lastName
                 service.enterData(forIdentifier: Accounts.shared.current!.uid, data: user)
                 
-                FirebaseStorage.shared.uploadProfilePicture(data: self.imageData!, for: user) {metadata, error in
+                FirebaseStorage.shared.uploadImage(data: self.imageData!, for: user) {metadata, error in
                     if let error = error {
                         self.showSimpleAlert("Picture Saving Error", message: error.localizedDescription)
                     }
@@ -163,7 +165,8 @@ class NewAccountViewController: UITableViewController {
                     }
                 }
                 
-                self.showSimpleAlert("Registration Successful", message: "Congratulations! You have created a True Pass Account. Head over to Mail and verify your email address.") { self.navigationController?.popViewController(animated: true)
+                LoginViewController.preFilledEmail = email
+                self.showSimpleAlert("Registration Successful", message: "Congratulations! You have created a True Pass Account. Head over to Mail and verify your email address.") { self.dismiss(animated: true)
                 }
             } else {
                 self.showSimpleAlert("Registration Error", message: error!.localizedDescription)
@@ -177,12 +180,13 @@ class NewAccountViewController: UITableViewController {
         guard let firstName = fNameTextField.text, let lastName = lNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmTextField.text else { return false }
         
         for text in [firstName, lastName, email, password, confirmPassword] {
-            if text.isEmptyOrWhitespace() {          self.showSimpleAlert("Incomplete Fields", message: "Please enter all required fields")
+            if text.isEmptyOrWhitespace() {
+                self.showSimpleAlert("Incomplete Fields", message: "Please enter all required fields")
                 return false
             }
         }
         
-        if !email.isValidEmail {
+        if !email.trimmingCharacters(in: .whitespaces).isValidEmail {
             self.showSimpleAlert("Invalid Email", message: "The email that you entered is not a valid email address")
             return false
         }
@@ -190,7 +194,7 @@ class NewAccountViewController: UITableViewController {
             self.showSimpleAlert("Password Mismatch", message: "The two passwords that you entered do not match")
             return false
         }
-        if password.characters.count < 6 {
+        if password.trimmingCharacters(in: .whitespaces).characters.count < 6 {
             self.showSimpleAlert("Password Too Short", message: "The password must be at least 6 characters long")
             return false
         }

@@ -119,15 +119,17 @@ class NewPassViewController: UITableViewController {
         
         if success {
             self.dismiss(animated: true) {
+                print("success")
+                if let guestInfoVC = UIWindow.presented.viewController as? GuestsInfoViewController {
+                    print("switching")
+                    guestInfoVC.switchToSplitVC()
+                }
                 if let vc = UIWindow.presented.viewController as? PassesViewController {
                     vc.tableView.reloadData()
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Failed to save Pass", message: "The pass could not be saved at this time.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
+            self.showSimpleAlert("Failed to save Pass", message: "The pass could not be saved at this time.")
         }
     }
 
