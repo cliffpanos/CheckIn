@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class LocationManager {
     
@@ -23,7 +24,39 @@ class LocationManager {
         return C.nearestTruePassLocations[0]
     }
     
+    static func chooseMapType(for mapView: MKMapView, from button: UIButton, arrow direction: UIPopoverArrowDirection, in viewController: UIViewController) {
+        func changeTo(mapType: MKMapType) {
+            mapView.mapType = mapType
+        }
+        let alert = UIAlertController(title: "Map Type", message: nil, preferredStyle: .actionSheet)
+        let standard = UIAlertAction(title: "Standard", style: .default) {_ in changeTo(mapType: .standard)}
+        let satellite = UIAlertAction(title: "Satellite", style: .default) {_ in changeTo(mapType: .satellite)}
+        let hybrid = UIAlertAction(title: "Hybrid", style: .default) {_ in changeTo(mapType: .hybrid)}
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in alert.dismiss(animated: true) })
+        alert.addAction(standard); alert.addAction(satellite); alert.addAction(hybrid); alert.addAction(cancel)
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = button
+            popover.sourceRect = button.bounds
+            popover.permittedArrowDirections = [direction]
+        }
+        viewController.present(alert, animated: true)
+    }
     
+    static func zoomClose(to location: CLLocationCoordinate2D, in mapView: MKMapView) {
+        let newRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(newRegion, animated: true)
+    }
+    
+    static func zoom(to location: CLLocationCoordinate2D, in mapView: MKMapView, sizeDelta: Double = 0.05) {
+        let newRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: sizeDelta, longitudeDelta: sizeDelta))
+        mapView.setRegion(newRegion, animated: true)
+    }
+    
+    static func zoomToUserLocation(in mapView: MKMapView) {
+        guard let location = userLocation else { return }
+        let newRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+        mapView.setRegion(newRegion, animated: true)
+    }
     
     
 }
@@ -45,9 +78,11 @@ extension LocationManager {
                 
                 let placeMark = placemarks?[0]
                 
-                guard let address = placeMark?.addressDictionary  as? [String: Any] else {
+                guard var address = placeMark?.addressDictionary  as? [String: Any] else {
                     return
                 }
+                address["InlandWater"] = placeMark?.inlandWater
+                address["Ocean"] = placeMark?.ocean
                 
                 completion(address, nil)
                 

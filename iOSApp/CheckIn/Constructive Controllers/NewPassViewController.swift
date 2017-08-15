@@ -72,11 +72,12 @@ class NewPassViewController: UITableViewController {
     }
 
     
-    @IBAction func onCancelPressed(_ sender: Any) {
+    @IBAction func onCancelPressed(_ sender: UIBarButtonItem) {
         if fNameTextField.text != "" && emailTextField.text != "" {
             
             showDestructiveAlert("Cancel Pass Creation?", message: nil, destructiveTitle: "Discard Pass", popoverSetup: {ppc in
                     ppc.barButtonItem = self.navigationItem.leftBarButtonItem
+                    ppc.permittedArrowDirections = [.up]
                 }, withStyle: .actionSheet) { _ in
                 self.dismiss(animated: true, completion: nil)
             }

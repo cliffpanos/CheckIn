@@ -34,6 +34,7 @@
 		914F79CF1EADCD350095B0D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F79CE1EADCD350095B0D6 /* Extensions.swift */; };
 		9157035B1F396D4D00AA7D92 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157035A1F396D4D00AA7D92 /* ForgotPasswordViewController.swift */; };
 		916759FC1F3428A60091EA0A /* AdministrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916759FB1F3428A60091EA0A /* AdministrationTableViewController.swift */; };
+		916976771F427CCD0018F2DC /* PinSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916976761F427CCD0018F2DC /* PinSelectionViewController.swift */; };
 		916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE71E8F6CB700911417 /* AppDelegate.swift */; };
 		916E0EEA1E8F6CB700911417 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EE91E8F6CB700911417 /* RootViewController.swift */; };
 		916E0EED1E8F6CB700911417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E0EEB1E8F6CB700911417 /* Main.storyboard */; };
@@ -156,6 +157,7 @@
 		914F79CE1EADCD350095B0D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Models/Extensions.swift; sourceTree = "<group>"; };
 		9157035A1F396D4D00AA7D92 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "Detail Controllers/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
 		916759FB1F3428A60091EA0A /* AdministrationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdministrationTableViewController.swift; path = "Primary Controllers/AdministrationTableViewController.swift"; sourceTree = "<group>"; };
+		916976761F427CCD0018F2DC /* PinSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinSelectionViewController.swift; sourceTree = "<group>"; };
 		916E0EE41E8F6CB700911417 /* True Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "True Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E0EE71E8F6CB700911417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Managers/AppDelegate.swift; sourceTree = "<group>"; };
 		916E0EE91E8F6CB700911417 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "Primary Controllers/RootViewController.swift"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				916E0F001E8F705400911417 /* LoginViewController.swift */,
 				91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */,
 				91989DAB1E9053B300F83E1C /* NewPassViewController.swift */,
+				916976761F427CCD0018F2DC /* PinSelectionViewController.swift */,
 				913B0E4C1F04079900252276 /* NewLocationTableViewController.swift */,
 				91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */,
 			);
@@ -779,6 +782,7 @@
 				91F21B0B1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift in Sources */,
 				919405881F3839E00067FBCD /* TruePassInfoViewControllers.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
+				916976771F427CCD0018F2DC /* PinSelectionViewController.swift in Sources */,
 				91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				91273E841EDDEAB100FB4E25 /* Accounts.swift in Sources */,
 				911CBAF41EF8361A00800451 /* SplitViewController.swift in Sources */,

@@ -9,35 +9,64 @@
 import UIKit
 import MapKit
 
-class NewLocationTableViewController: UITableViewController {
+class LocationConstructionNavigationController: UINavigationController, UINavigationControllerDelegate {
+    override func viewDidLoad() {
+        self.delegate = self
+    }
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        let show = viewController is PinSelectionViewController
+        navigationController.setNavigationBarHidden(!show, animated: animated)
+    }
+}
+
+class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
     
     @IBOutlet weak var fullLocationTitleTextField: UITextField!
     @IBOutlet weak var shortLocationTitleTextField: UITextField!
     @IBOutlet weak var locationTypeTextField: UITextField!
     @IBOutlet weak var accessCodeTextField: UITextField!
+    @IBOutlet weak var openTimeTextField: UITextField!
+    @IBOutlet weak var closeTimeTextField: UITextField!
     
     @IBOutlet weak var radiusSlider: UISlider!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     
-    
+    var textFieldManager: CPTextFieldManager!
+    var location: TPLocation?
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        radiusSlider.minimumValue = 10
-        radiusSlider.maximumValue = 250
-        
         activityIndicator.isHidden = true
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        textFieldManager = CPTextFieldManager(textFields: [fullLocationTitleTextField, shortLocationTitleTextField, locationTypeTextField, openTimeTextField, closeTimeTextField, accessCodeTextField], in: self)
+        textFieldManager.setupTextFields(withAccessory: .done)
+        textFieldManager.setFinalReturn(keyType: .go) { [unowned self] in self.createNewLocation()}
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let location = location {
+            if let current = mapView.annotations.first {
+                mapView.removeAnnotation(current)
+            }
+            mapView.addAnnotation(location)
+            LocationManager.zoomClose(to: location.coordinate, in: mapView)
+            self.location = location
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "AV")
+        view.tintColor = UIColor.TrueColors.softRed
+        return view
     }
 
+    
     @IBAction func cancelPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.showDestructiveAlert("Exit Location Creation?", message: "Any entered information will be lost.", destructiveTitle: "Exit Location Creation", popoverSetup: nil, withStyle: .alert, forDestruction: {_ in self.dismiss(animated: true)})
     }
 
     @IBAction func geofenceRadiusChanged(_ sender: Any) {
@@ -45,72 +74,49 @@ class NewLocationTableViewController: UITableViewController {
         guard let slider = sender as? UISlider else { return }
         let section = tableView.footerView(forSection: 1)
         
-        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(Int(slider.value)) feet or closer."
-    
+        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(Int(slider.value)) meters or closer."
+    }
+    @IBAction func chooseMapType(_ sender: UIButton) {
+        LocationManager.chooseMapType(for: mapView, from: sender, arrow: [.right], in: self)
+    }
+    @IBAction func zoomToUserLocation(_ sender: Any) {
+        LocationManager.zoomToUserLocation(in: mapView)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chooseIndex = IndexPath(row: 0, section: 1)
+        let createIndex = IndexPath(row: 0, section: 4)
+        if indexPath == chooseIndex {
+            let pinSelectionVC = C.storyboard.instantiateViewController(withIdentifier: "pinSelectionViewController") as! PinSelectionViewController
+            pinSelectionVC.location = location
+            self.navigationController!.pushViewController(pinSelectionVC, animated: true)
+        } else if indexPath == createIndex {
+            createNewLocation()
+        }
+    }
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        if indexPath == IndexPath(row: 1, section: 0) {
+            self.showSimpleAlert("Short Titles", message: "Short Titles should be up to 15 characters long. For example, 'Apple Inc. Headquarters' could choose 'Apple HQ' as its short title.")
+        }
+    }
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
-
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    func createNewLocation() {
+        
+        
+        
+        
+        
+        
+        
+        
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

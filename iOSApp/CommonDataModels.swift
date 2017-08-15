@@ -82,9 +82,16 @@ class TPLocation: NSObject, MKAnnotation {
     var title: String?
     var shortTitle: String?
     var locationType: String?
+    var geofenceRadius: CLLocationDegrees?
     
     public var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        get {
+            return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        }
+        set {
+            self.latitude = newValue.latitude
+            self.longitude = newValue.longitude
+        }
     }
     
     public var clLocation: CLLocation {
