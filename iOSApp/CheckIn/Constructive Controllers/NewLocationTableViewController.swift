@@ -28,23 +28,37 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var openTimeTextField: UITextField!
     @IBOutlet weak var closeTimeTextField: UITextField!
     
+    @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     
     var textFieldManager: CPTextFieldManager!
     var location: TPLocation?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         activityIndicator.isHidden = true
         textFieldManager = CPTextFieldManager(textFields: [fullLocationTitleTextField, shortLocationTitleTextField, locationTypeTextField, openTimeTextField, closeTimeTextField, accessCodeTextField], in: self)
+        
+        openTimeTextField.inputView = timePicker
+        openTimeTextField.tintColor = UIColor.clear
+        closeTimeTextField.inputView = timePicker
+        closeTimeTextField.tintColor = UIColor.clear
         textFieldManager.setupTextFields(withAccessory: .done)
         textFieldManager.setFinalReturn(keyType: .go) { [unowned self] in self.createNewLocation()}
-
+        accessCodeTextField.text! += "-\(arc4random())"
     }
     
+    @IBAction func timeValueChanged(_ picker: UIDatePicker) {
+        let textField = openTimeTextField.isEditing ? openTimeTextField : closeTimeTextField
+        let text = DateFormatter.localizedString(from: picker.date, dateStyle: .none, timeStyle: .short)
+        textField?.text = text
+    }
+    
+    
+    var circleGeofence: MKCircle?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let location = location {
@@ -52,8 +66,16 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
                 mapView.removeAnnotation(current)
             }
             mapView.addAnnotation(location)
-            LocationManager.zoomClose(to: location.coordinate, in: mapView)
+            LocationManager.zoom(to: location.coordinate, in: mapView, sizeDelta: 0.0001)
             self.location = location
+            circleGeofence = MKCircle(center: location.coordinate, radius: CLLocationDistance(radiusSlider.value))
+            mapView.add(circleGeofence!)
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let circle = circleGeofence {
+            mapView.remove(circle)
         }
     }
     
@@ -73,9 +95,32 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         
         guard let slider = sender as? UISlider else { return }
         let section = tableView.footerView(forSection: 1)
-        
         section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(Int(slider.value)) meters or closer."
+        if let circle = circleGeofence, let location = location {
+            mapView.remove(circle)
+            circleGeofence = MKCircle(center: location.coordinate, radius: CLLocationDistance(slider.value))
+            mapView.add(circleGeofence!)
+        }
     }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let circle = MKCircleRenderer(overlay: overlay)
+            circle.strokeColor = UIColor.white
+            circle.fillColor = UIColor.TrueColors.lightBlue.withAlphaComponent(0.35)
+            circle.lineWidth = 1
+            return circle
+        } else {
+            return MKPolylineRenderer()
+        }
+    }
+    
+    
+    
+    
+    
+    
     @IBAction func chooseMapType(_ sender: UIButton) {
         LocationManager.chooseMapType(for: mapView, from: sender, arrow: [.right], in: self)
     }
@@ -91,6 +136,7 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
             pinSelectionVC.location = location
             self.navigationController!.pushViewController(pinSelectionVC, animated: true)
         } else if indexPath == createIndex {
+            tableView.deselectRow(at: indexPath, animated: true)
             createNewLocation()
         }
     }
@@ -104,27 +150,59 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
     
     func createNewLocation() {
         
+        guard let title = fullLocationTitleTextField.text?.trimmed, let shortTitle = shortLocationTitleTextField.text?.trimmed, let locationType = locationTypeTextField.text?.trimmed, let accessCode = accessCodeTextField.text?.trimmed else {
+            self.showSimpleAlert("Incomplete Fields", message: "Ensure that you have completed all location details at the top and entered an access code.")
+            return
+        }
+        
+        guard let location = location else {
+            showSimpleAlert("No Location Chosen", message: "You must explicitly chose the coordinates of your new location.")
+            return
+        }
+        
+        if title.characters.count < 3 {
+            showSimpleAlert("Enter a title at least 3 characters long.", message: nil)
+            return
+        }
+        if title.characters.count > 50 {
+            showSimpleAlert("Title too long", message: "Please enter a location title that is fewer than 50 characters long.")
+            return
+        }
+        if shortTitle.characters.count > 15 {
+            showSimpleAlert("Short Title Too Long", message: "Short titles should be fewer than 16 characters.")
+            return
+        }
+        if accessCode.characters.count < 8 {
+            showSimpleAlert("Create a more secure Access Code", message: "Make sure the access code you choose is at least 8 characters long.")
+            return
+        }
+        if accessCode.characters.count > 100 {
+            showSimpleAlert("Access code too long", message: "Please enter an access code that is fewer than 100 characters long.")
+        }
+        if let open = openTimeTextField.text?.trimmed, let close = closeTimeTextField.text?.trimmed {
+            let dateFormat = DateFormatter()
+            dateFormat.dateStyle = .none
+            dateFormat.timeStyle = .short
+            guard let _ = dateFormat.date(from: open), let _ = dateFormat.date(from: close) else {
+                showSimpleAlert("Incorrect Time Format", message: "The open time and/or close time is incorrectly formatted.")
+                return
+            }
+        
+        }
         
         
-        
-        
-        
-        
+        //Then the data is ready for Firebase
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         
     }
-
     
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let pvc = segue.destination as? PinSelectionViewController {
+            pvc.location = location
+        }
     }
-    */
+
+
     
 }

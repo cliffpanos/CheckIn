@@ -12,7 +12,7 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
     
     var textFields: [UITextField]
     unowned var viewController: UIViewController
-    var unselectedTextColor: UIColor!
+    var unselectedTextColor: UIColor?
     var selectedTextColor: UIColor?
     var finalReturnAction: (() -> Void)?
     internal var tapToDismiss: Bool = false {   //Internal because it does not yet work
@@ -37,7 +37,6 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
         
         self.textFields = textFields
         self.viewController = viewController
-        self.unselectedTextColor = textFields[0].textColor
     }
     
     func setupTextFields(withAccessory accessoryViewStyle: CPTextFieldManagerAccessoryViewStyle = .none) {
@@ -50,7 +49,8 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
             
             
             if accessoryViewStyle == .none { continue individualSetup }
-            if UIDevice.current.userInterfaceIdiom == .pad { continue individualSetup }
+            
+            if UIDevice.current.userInterfaceIdiom == .pad && textField.inputView == nil { continue individualSetup }
             
             let numberToolbar: UIToolbar = UIToolbar()
             numberToolbar.barStyle = UIBarStyle.default
@@ -94,11 +94,11 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         selectedTextField = textField
-        textField.textColor = selectedTextColor ?? unselectedTextColor
+        textField.textColor = selectedTextColor ?? textField.textColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.textColor = unselectedTextColor
+        textField.textColor = unselectedTextColor ?? textField.textColor
     }
     
     func goToFirst() {

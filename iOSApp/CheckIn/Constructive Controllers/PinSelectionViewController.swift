@@ -19,6 +19,9 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let location = location {
             mapView.addAnnotation(location)
             LocationManager.zoomClose(to: location.coordinate, in: mapView)
@@ -27,9 +30,6 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
         } else {
             LocationManager.zoomToUserLocation(in: mapView)
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         useThisLocationButton.isEnabled = location != nil
     }
     

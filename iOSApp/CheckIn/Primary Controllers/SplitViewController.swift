@@ -44,7 +44,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
     
     
     func splitViewController(_ svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool {
-        print("hide? \(vc)")
+        //print("hide? \(vc)")
         if vc is PassesNavigationController || vc is PassDetailNavigationController { return false }
         print("hiding")
         return true

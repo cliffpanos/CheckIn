@@ -26,13 +26,35 @@ class DatabaseManager {
         })
     }
     
+    /*
+    
+    Add haptics to pin drop
+     
+    For enums: store the raw Int value in Firebase, not a string!!
+     Create payment entity for security
+     Add "visible" property to Locations (whether others can find the location and affiliate with it: Open, Only by Identifier, None)
+     Add search by identifier to NewAffiliationList
+     LocationChunkList:
+        flooredLatSQUAREflooredLong
+            identifier: Title
+            identifier: Title
+        <next chunk>
+    
+    LocationTitleList
+        word
+            identifier: type
+     
+    UserList:
+        locationIdentifier
+            userIdentifier: true or false for admin or not
+     
+    LocationList:
+        userIdentifier
+            locationIdentifier: true
+            locationIdentifier: true
     
     
-    
-    
-    
-    
-    
+    */
     
     
 }

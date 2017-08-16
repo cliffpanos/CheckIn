@@ -11,6 +11,7 @@ import UIKit
 class TruePassPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     var truePassControllers = [UIViewController]()
+    var isEmpty = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
             let pvc = C.storyboard.instantiateViewController(withIdentifier: "checkInPassViewController") as! CheckInPassViewController
             pvc.changedBottomConstraint = 0
             truePassControllers.append(pvc)
+            isEmpty = true
         }
                 
         self.setViewControllers([truePassControllers.first!], direction: .forward, animated: false)
@@ -38,8 +40,8 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
         for view in self.view.subviews {
             if let pageControl = view as? UIPageControl {
                 pageControl.backgroundColor = UIColor.white
-                pageControl.currentPageIndicatorTintColor = UIColor.TrueColors.trueBlue
-                pageControl.pageIndicatorTintColor = UIColor.lightGray
+                pageControl.currentPageIndicatorTintColor = isEmpty ? UIColor.white : UIColor.TrueColors.trueBlue
+                pageControl.pageIndicatorTintColor = UIColor.TrueColors.lightestBlueGray
             }
         }
     }
