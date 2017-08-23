@@ -78,8 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         WCActivator.set(&C.session, for: self)
         
         if let currentUser = Accounts.shared.current {
-            FirebaseService(entity: .FTPUser).retrieveData(forIdentifier: currentUser.uid, completion: { user in
-                Accounts.currentUser = (user as! FTPUser)
+            FirebaseService(entity: .TPUser).retrieveData(forIdentifier: currentUser.uid, completion: { user in
+                Accounts.currentUser = (user as! TPUser)
             })
         }
         Testing.setupForTesting()

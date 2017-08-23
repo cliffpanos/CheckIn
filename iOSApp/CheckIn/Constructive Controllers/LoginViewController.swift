@@ -31,10 +31,6 @@ class LoginViewController: ManagedViewController {
         textFieldManager.setFinalReturn(keyType: .go) {
             self.signInPressed(Int(0))
         }
-        if let email = LoginViewController.preFilledEmail {
-            emailTextField.text = email
-            LoginViewController.preFilledEmail = nil
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -44,6 +40,12 @@ class LoginViewController: ManagedViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setNeedsStatusBarAppearanceUpdate()
+        passwordTextField.text = ""
+        if let email = LoginViewController.preFilledEmail {
+            emailTextField.text = email
+            LoginViewController.preFilledEmail = nil
+            passwordTextField.becomeFirstResponder()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,10 +91,10 @@ class LoginViewController: ManagedViewController {
                 
                 
                 //RETRIEVE important account info to be saved in Core Data
-                let newUserService = FirebaseService(entity: FirebaseEntity.FTPUser)
+                let newUserService = FirebaseService(entity: FirebaseEntity.TPUser)
                 
                 newUserService.retrieveData(forIdentifier: Accounts.shared.current!.uid) { object in
-                    let newUser = object as! FTPUser
+                    let newUser = object as! TPUser
                     Accounts.saveToUserDefaults(user: newUser, updateImage: true)
                     
                     //At this point, the user is about to be logged in

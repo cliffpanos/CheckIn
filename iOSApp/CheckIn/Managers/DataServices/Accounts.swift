@@ -22,7 +22,7 @@ class Accounts {
         return Auth.auth().currentUser
     }
     
-    static var currentUser: FTPUser!
+    static var currentUser: TPUser!
     
     func standardLogin(withEmail email: String, password: String, completion: @escaping ((_ loginSuccessful: Bool) -> Void)) {
         
@@ -106,14 +106,14 @@ extension Accounts {
         case TPUDkUserImageData
         case TPUDkUserEmail
     }
-    class func saveToUserDefaults(user: FTPUser, updateImage: Bool = false) {
-        userFirstName = user.firstName
-        userLastName = user.lastName
-        userImageData = user.imageData
-        userEmail = user.email
-        userIdentifier = user.identifier
+    class func saveToUserDefaults(user: TPUser, updateImage: Bool = false) {
+        userFirstName = user.firstName ?? ""
+        userLastName = user.lastName ?? ""
+        userImageData = user.imageData as Data?
+        userEmail = user.email!
+        userIdentifier = user.identifier!
         guard updateImage else { return }
-        FirebaseStorage.shared.retrieveProfilePicture(for: user.identifier) { data, error in
+        FirebaseStorage.shared.retrieveProfilePicture(for: user.identifier!) { data, error in
             if let data = data { userImageData = data }
         }
     }

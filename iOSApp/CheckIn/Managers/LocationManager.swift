@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import FirebaseDatabase
 
 class LocationManager {
     
@@ -23,6 +24,21 @@ class LocationManager {
         
         return C.nearestTruePassLocations[0]
     }
+    
+    
+    ///Database function
+    static func createNewLocation(title: String, shortTitle: String, locationType: TPLocationType, coordinate: CLLocationCoordinate2D, geofenceRadius: CLLocationDistance, openTime: String?, closeTime: String?, accessCode: String) -> String {
+        
+        //let location = FTPLocation(snapshot: nil)
+        let locationService = FirebaseService(entity: .TPLocation)
+        let identifier = locationService.identifierKey
+        //locationService.enterData(forIdentifier: identifier, data: )
+        return identifier //the new identifier of the location
+    }
+    
+    
+    
+    
     
     static func chooseMapType(for mapView: MKMapView, from button: UIButton, arrow direction: UIPopoverArrowDirection, in viewController: UIViewController) {
         func changeTo(mapType: MKMapType) {

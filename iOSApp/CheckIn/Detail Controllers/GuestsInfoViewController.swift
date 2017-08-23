@@ -10,29 +10,24 @@ import UIKit
 
 class GuestsInfoViewController: ManagedViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var infoMessage: UILabel!
+    @IBOutlet weak var createButton: CDButton!
 
-        // Do any additional setup after loading the view.
+    let canCreateMessage = "Guest passes temporarily allow family, friends, and clients to quickly enter your location using a QR code."
+    let needsAffiliationMessage = "Before creating guest passes for a location, you must first affiliate with a location or create one of your own. See the Locations tab."
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let canCreate = !C.truePassLocations.isEmpty
+        createButton.isEnabled = canCreate
+        infoMessage.text = canCreate ? canCreateMessage : needsAffiliationMessage
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func switchToSplitVC() {
         (self.tabBarController! as! RootViewController).switchToGuestRootController(withIdentifier: "splitViewController")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

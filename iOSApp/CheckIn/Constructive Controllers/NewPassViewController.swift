@@ -111,12 +111,13 @@ class NewPassViewController: UITableViewController {
     
     func createAndSavePass() {
         
-        let name = "\(fNameTextField.text ?? "No Name") \(lNameTextField.text ?? "")"
+        let firstName = fNameTextField.text ?? "No Name"
+        let lastName = lNameTextField.text ?? ""
         let email = emailTextField.text == "" ? "no email provided" : emailTextField.text ?? ""
         let start = self.startDate
         let end = self.endDate
         
-        let success = PassManager.save(pass: nil, withName: name, andEmail: email, andImage: imageData, from: start, to: end)
+        let success = PassManager.save(pass: nil, firstName: firstName, lastName: lastName, andEmail: email, andImage: imageData, from: start, to: end)
         
         if success {
             self.dismiss(animated: true) {

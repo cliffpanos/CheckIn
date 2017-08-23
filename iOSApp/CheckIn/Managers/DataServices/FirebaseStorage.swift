@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import Firebase
+import CoreData
 
 class FirebaseStorage {
     
@@ -37,8 +38,8 @@ class FirebaseStorage {
         return metadata
     }
     
-    func uploadImage(data: Data, for identifiable: TPIdentifiable, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
-        let childRef = usersDirectoryReference.child("\(identifiable.identifier).png")
+    func uploadImage(data: Data, for entity: FirebaseObject, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
+        let childRef = usersDirectoryReference.child("\(entity.identifier!).png")
         childRef.putData(data, metadata: pngMetadata) { metadata, error in
             handler(metadata, error) }
     }

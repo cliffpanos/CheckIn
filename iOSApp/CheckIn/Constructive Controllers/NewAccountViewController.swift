@@ -143,9 +143,9 @@ class NewAccountViewController: UITableViewController {
             if success {    //success means error is nil
                 
                 //Create a TP User here
-                let service = FirebaseService(entity: .FTPUser)
+                let service = FirebaseService(entity: .TPUser)
                 let snapshot = DataSnapshot()
-                let user = FTPUser(snapshot: snapshot)
+                let user = TPUser(snapshot: snapshot)
                 user.identifier = Accounts.shared.current!.uid
                 user.email = email
                 user.firstName = firstName

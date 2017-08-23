@@ -9,23 +9,24 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import CoreData
 
 protocol TPIdentifiable {
     var identifier: String { get set }
 }
 
-class FTPUser: FirebaseObject, TPIdentifiable {
+extension TPUser {
     
-    public var email = String()
-    public var firstName = String()
-    public var lastName = String()
-    public var imageData = Data()
-    public var geoDevice = "none"
+    //public var email = String()
+    //public var firstName = String()
+    //public var lastName = String()
+    //public var imageData = Data()
+    //public var geoDevice = "none"
     //imageRef is userIdentifier
     
-    public var identifier: String = String()
+    //public var identifier: String = String()
     public var name: String {
-        return firstName + " " + lastName
+        return (firstName ?? "") + " " + (lastName ?? "")
     }
     
     override var dictionaryForm: [String: Any] {
@@ -33,59 +34,51 @@ class FTPUser: FirebaseObject, TPIdentifiable {
     }
 }
 
-class FTPLocation: FirebaseObject, TPIdentifiable {
+extension TPLocation {
 
-    public var title = String()
-    public var shortTitle = String()
-    public var identifier: String = String()
-
-}
-
-class FTPPass: FirebaseObject, TPIdentifiable {
-
-    public var identifier: String = String()
+    //public var title = String()
+    //public var shortTitle = String()
+    //public var identifier: String = String()
 
 }
 
-class FTPAffiliation: FirebaseObject {
-    
-    public var isAdministrator: Bool = false
-    public var userIdentifier = String()
-    public var locationIdentifier = String()
-    
-}
 
-class FTPVisit: FirebaseObject {
-    
-}
+//class TPAffiliation: FirebaseObject {
+//    
+//    public var isAdministrator: Bool = false
+//    public var userIdentifier = String()
+//    public var locationIdentifier = String()
+//    
+//}
+//
+//class TPVisit: FirebaseObject {
+//    
+//}
 
-class FTPUserList: FirebaseObject {
+class TPUserList: FirebaseObject {
     
 }
 
-class FTPAffiliationList: FirebaseObject {
+class TPAffiliationList: FirebaseObject {
     
 }
 
-class FTPPassList: FirebaseObject {
+class TPPassList: FirebaseObject {
     
 }
 
-class FTPVisitList: FirebaseObject {
+class TPVisitList: FirebaseObject {
     
 }
 
 
 /// A functionally abstract class to manage all Firebases-stored data objects (entities)
-class FirebaseObject: NSObject {
+extension FirebaseObject {
     
-    override init() {
-        super.init()
-    }
-    
-    required init(snapshot: DataSnapshot) {
+    convenience init(snapshot: DataSnapshot) {
         
-        super.init()
+        self.init()
+        //super.init()
         
         for child in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
             let key = String(child.key.characters.filter { !" \n\t\r".characters.contains($0) })

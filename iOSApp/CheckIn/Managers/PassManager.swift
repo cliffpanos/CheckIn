@@ -14,16 +14,17 @@ class PassManager {
     
     //MARK: - Handle Guest Pass Functionality with Core Data
     
-    static func save(pass: Pass?, withName name: String, andEmail email: String, andImage imageData: Data?, from startTime: Date, to endTime: Date) -> Bool {
+    static func save(pass: TPPass?, firstName: String, lastName: String, andEmail email: String, andImage imageData: Data?, from startTime: Date, to endTime: Date) -> Bool {
         
         let managedContext = C.appDelegate.persistentContainer.viewContext
         
-        let pass = pass ?? Pass(context: managedContext)
+        let pass = pass ?? TPPass(context: managedContext)
         
-        pass.name = name
+        pass.firstName = firstName
+        pass.lastName = lastName
         pass.email = email
-        pass.timeStart = C.format(date: startTime)
-        pass.timeEnd = C.format(date: endTime)
+        pass.startDate = C.format(date: startTime)
+        pass.endDate = C.format(date: endTime)
         
         if let data = imageData, let image = UIImage(data: data) {
             print("OLD IMAGE SIZE: \(data.count)")
@@ -31,7 +32,7 @@ class PassManager {
             let reducedData = UIImagePNGRepresentation(resizedImage)
             print("NEW IMAGE SIZE: \(reducedData!.count)")
             
-            pass.image = data as NSData
+            pass.imageData = data as NSData
         }
         
         defer {
@@ -44,7 +45,7 @@ class PassManager {
         
     }
     
-    static func delete(pass: Pass, andInformWatchKitApp sendMessage: Bool = true) -> Bool {
+    static func delete(pass: TPPass, andInformWatchKitApp sendMessage: Bool = true) -> Bool {
         
         let data = PassManager.preparedData(forPass: pass, includingImage: false)   //Do NOT include image
         
@@ -66,11 +67,11 @@ class PassManager {
         
     }
     
-    static func preparedData(forPass pass: Pass, includingImage: Bool = true) -> Data {
+    static func preparedData(forPass pass: TPPass, includingImage: Bool = true) -> Data {
         
-        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "timeStart", "timeEnd"])
+        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "startDate", "endDate"])
         
-        if includingImage, let imageData = pass.image as Data?, let image = UIImage(data: imageData) {
+        if includingImage, let imageData = pass.imageData as Data?, let image = UIImage(data: imageData) {
             
             let res = 60.0
             let resizedImage = image.drawAspectFill(in: CGRect(x: 0, y: 0, width: res, height: res))

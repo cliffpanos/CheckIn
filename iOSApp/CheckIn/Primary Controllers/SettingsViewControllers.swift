@@ -90,7 +90,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
 
-
     @IBAction func automaticCheckInChanged(_ sender: Any) {
         if let switchButton = sender as? UISwitch {
             C.automaticCheckIn = switchButton.isOn
@@ -101,6 +100,22 @@ class SettingsTableViewController: UITableViewController {
         if let activeSwitch = sender as? UISwitch {
             C.passesActive = activeSwitch.isOn
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch (indexPath.section, indexPath.row) {
+        case (3,0):
+            let infoVC = C.storyboard.instantiateViewController(withIdentifier: "infoNavigationController")
+            infoVC.modalPresentationStyle = .formSheet
+            self.present(infoVC, animated: true)
+        case (3,1):
+            showSimpleAlert("Deletion not yet supported", message: "Account deletion will be available in the next version of True Pass.")
+        default:
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
     

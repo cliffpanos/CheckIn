@@ -63,6 +63,7 @@
 		918BDCCC1EB6943A00DBAB4C /* WCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCB1EB6943A00DBAB4C /* WCSessionManager.swift */; };
 		918BDCCE1EB6970B00DBAB4C /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BDCCD1EB6970B00DBAB4C /* ManagedViewController.swift */; };
 		918DB6DF1EF436810093B86A /* CDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918DB6DE1EF436810093B86A /* CDExtensions.swift */; };
+		9191BAD41F4DC6E700B8E34C /* True Pass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916E0EEE1E8F6CB700911417 /* True Pass.xcdatamodeld */; };
 		919405841F37687B0067FBCD /* PassManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919405831F37687B0067FBCD /* PassManager.swift */; };
 		919405881F3839E00067FBCD /* TruePassInfoViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919405871F3839E00067FBCD /* TruePassInfoViewControllers.swift */; };
 		91989DA21E8F774A00F83E1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91989DA11E8F774A00F83E1C /* GoogleService-Info.plist */; };
@@ -809,6 +810,7 @@
 				9187E3C61EA2F3700085E415 /* InterfaceController.swift in Sources */,
 				91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				918BDCC81EB68C9E00DBAB4C /* CommonPlatform.swift in Sources */,
+				9191BAD41F4DC6E700B8E34C /* True Pass.xcdatamodeld in Sources */,
 				9187E3DE1EA341090085E415 /* MapViewInterfaceController.swift in Sources */,
 				917FDA0E1EB85C7F00616173 /* ManagedInterfaceController.swift in Sources */,
 			);

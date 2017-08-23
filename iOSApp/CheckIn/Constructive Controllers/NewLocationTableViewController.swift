@@ -95,7 +95,7 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         
         guard let slider = sender as? UISlider else { return }
         let section = tableView.footerView(forSection: 1)
-        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are \(Int(slider.value)) meters or closer."
+        section?.textLabel?.text = "Users will automatically check into your location via geofence when they are within \(Int(slider.value)) meters."
         if let circle = circleGeofence, let location = location {
             mapView.remove(circle)
             circleGeofence = MKCircle(center: location.coordinate, radius: CLLocationDistance(slider.value))
@@ -150,7 +150,12 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
     
     func createNewLocation() {
         
-        guard let title = fullLocationTitleTextField.text?.trimmed, let shortTitle = shortLocationTitleTextField.text?.trimmed, let locationType = locationTypeTextField.text?.trimmed, let accessCode = accessCodeTextField.text?.trimmed else {
+        guard DatabaseManager.isConnected else {
+            showSimpleAlert("Connection Unavailable", message: "The location cannot be created at this time because True Pass is unable to connect to the internet.")
+            return
+        }
+        
+        guard let title = fullLocationTitleTextField.text?.trimmed, let shortTitle = shortLocationTitleTextField.text?.trimmed, let type = locationTypeTextField.text?.trimmed, let accessCode = accessCodeTextField.text?.trimmed else {
             self.showSimpleAlert("Incomplete Fields", message: "Ensure that you have completed all location details at the top and entered an access code.")
             return
         }
@@ -172,6 +177,10 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
             showSimpleAlert("Short Title Too Long", message: "Short titles should be fewer than 16 characters.")
             return
         }
+        guard let locationType = TPLocationType(rawValue: type) else {
+            showSimpleAlert("Invalid Location Type", message: "The location type that you entered is invalid.")
+            return
+        }
         if accessCode.characters.count < 8 {
             showSimpleAlert("Create a more secure Access Code", message: "Make sure the access code you choose is at least 8 characters long.")
             return
@@ -179,7 +188,12 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         if accessCode.characters.count > 100 {
             showSimpleAlert("Access code too long", message: "Please enter an access code that is fewer than 100 characters long.")
         }
-        if let open = openTimeTextField.text?.trimmed, let close = closeTimeTextField.text?.trimmed {
+        
+        let openTime: String? = openTimeTextField.text?.trimmed
+        let closeTime: String? = closeTimeTextField.text?.trimmed
+        
+        //Hours of operation are optional, but if some were entered, validate them.
+        if let open = openTime, let close = closeTime {
             let dateFormat = DateFormatter()
             dateFormat.dateStyle = .none
             dateFormat.timeStyle = .short
@@ -187,14 +201,15 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
                 showSimpleAlert("Incorrect Time Format", message: "The open time and/or close time is incorrectly formatted.")
                 return
             }
-        
         }
         
         
-        //Then the data is ready for Firebase
+        //Then the data is ready to be entered into Firebase
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        
+        let identifier = LocationManager.createNewLocation(title: title, shortTitle: shortTitle, locationType: locationType, coordinate: location.coordinate, geofenceRadius: Double(radiusSlider.value), openTime: openTime, closeTime: closeTime, accessCode: accessCode)
+        let locationCheck = FirebaseService(entity: .TPLocation)
+        locationCheck.retrieveData(forIdentifier: identifier, completion: {_ in })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

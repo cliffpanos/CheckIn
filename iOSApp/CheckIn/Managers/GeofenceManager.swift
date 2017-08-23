@@ -21,7 +21,7 @@ class GeofenceManager {
         //TODO
     }
     
-    static func createGeofence(for location: FTPLocation) {
+    static func createGeofence(for location: TPLocation) {
         let _ = LocationManager.sharedLocationManager.maximumRegionMonitoringDistance
     }
 

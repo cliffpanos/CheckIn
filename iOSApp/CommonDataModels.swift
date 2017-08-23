@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 import MapKit
 
-
 /** The Types of True Pass Locations */
 enum TPLocationType: String {
     case Home
@@ -19,6 +18,7 @@ enum TPLocationType: String {
     case Apartment
     case School
     case Event
+    case Organization
     case Other
     
     static let Details: [TPLocationType: (iconName: String, colorA: UIColor, colorB: UIColor)] = [
@@ -28,14 +28,14 @@ enum TPLocationType: String {
         ]
 }
 
-enum TPLocationOpenType: String {
+enum TPLocationOpenType: Int {
     case allKnown
     case usersAndAdmins
     case adminsOnly
     case closed
 }
 
-enum TPLocationGeoType: String {
+enum TPLocationGeoType: Int {
     case entry
     case exit
     case bidirectional
@@ -73,9 +73,34 @@ enum TPUserGeoDeviceType {
  @NSManaged public var title: String?
 }*/
 
+class TPPass: FirebaseObject {
+    
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TPPass> {
+        return NSFetchRequest<TPPass>(entityName: "TPPass")
+    }
+        
+    @NSManaged public var accessCodeQR: String?
+    @NSManaged public var didCheckIn: Bool
+    @NSManaged public var email: String?
+    @NSManaged public var endDate: String?
+    @NSManaged public var firstName: String?
+    @NSManaged public var isActive: Bool
+    @NSManaged public var lastName: String?
+    @NSManaged public var locationIdentifier: String?
+    @NSManaged public var phoneNumber: String?
+    @NSManaged public var startDate: String?
+    @NSManaged public var uid: String?
+    @NSManaged public var imageData: NSData?
+    
+    public var name: String {
+        return (firstName ?? "") + " " + (lastName ?? "")
+    }
+    
+}
+
 //MARK: - Shared Models for TPLocation, TPUser, and Pass from CoreData ENTITIES
 
-class TPLocation: NSObject, MKAnnotation {
+class TPLocation: FirebaseObject, MKAnnotation {
     
     var longitude: Double!
     var latitude: Double!

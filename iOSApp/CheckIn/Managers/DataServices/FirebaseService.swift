@@ -9,17 +9,19 @@
 import Firebase
 import FirebaseDatabase
 
+typealias FirebaseObjectCompletion = ((FirebaseObject) -> Void)
+
 enum FirebaseEntity: String {
-    case FTPAffiliation
-    case FTPUser
-    case FTPLocation
-    case FTPPass
-    case FTPVisit
+    case TPAffiliation
+    case TPUser
+    case TPLocation
+    case TPPass
+    case TPVisit
     
-    case FTPAffiliationList
-    case FTPUserList
-    case FTPPassList
-    case FTPVisitList
+    case TPAffiliationList
+    case TPUserList
+    case TPPassList
+    case TPVisitList
     //case FTPLocationList does not exist because Users only ever have very few locations, so worrying about nesting would be unncessary as we are on the order of magnitude of 10^1
     
 }
@@ -36,7 +38,7 @@ class FirebaseService : NSObject {
     
     func retrieveData(forIdentifier identifier: String, completion: @escaping ((FirebaseObject) -> Void)) {
         database.child(entity.rawValue).child(identifier).observeSingleEvent(of: .value, with: { (snapshot) in
-            let data = self.createFTPEntity(from: snapshot)
+            let data = self.createTPEntity(from: snapshot)
             completion(data)
         }) { (error) in
             print(error.localizedDescription)
@@ -53,7 +55,7 @@ class FirebaseService : NSObject {
     
     func continuouslyObserveData(withIdentifier identifier: String, completion: @escaping ((FirebaseObject) -> Void)) {
         database.child(entity.rawValue).child(identifier).observe(.value, with: { snapshot in
-            let data = self.createFTPEntity(from: snapshot)
+            let data = self.createTPEntity(from: snapshot)
             completion(data) }) { error in
                 print(error.localizedDescription)
         }
@@ -65,60 +67,60 @@ class FirebaseService : NSObject {
             (snapshot) in
                 var result : [FirebaseObject] = [FirebaseObject]()
                 for child in snapshot.children {
-                    result.append(self.createFTPEntity(from: child as! DataSnapshot))
+                    result.append(self.createTPEntity(from: child as! DataSnapshot))
                 }
                 completion(result)
             })
     }
     
-    var key: String {
+    var identifierKey: String {
         let key = database.child(entity.rawValue).childByAutoId().key
         
         return key
     }
     
-    private func createFTPEntity(from snapshot: DataSnapshot) -> FirebaseObject {
+    private func createTPEntity(from snapshot: DataSnapshot) -> FirebaseObject {
         
         switch entity {
-        case FirebaseEntity.FTPUser:
-            let user = FTPUser(snapshot: snapshot)
+        case FirebaseEntity.TPUser:
+            let user = TPUser(snapshot: snapshot)
             user.identifier = snapshot.key
             return user
             
-        case .FTPAffiliation:
-            let affiliation = FTPAffiliation(snapshot: snapshot)
-            affiliation.userIdentifier = snapshot.key
+        case .TPAffiliation:
+            let affiliation = TPAffiliation(snapshot: snapshot)
+            affiliation.identifier = snapshot.key
             //TODO
             return affiliation
             
-        case .FTPLocation:
-            let location = FTPLocation(snapshot: snapshot)
+        case .TPLocation:
+            let location = TPLocation(snapshot: snapshot)
             location.identifier = snapshot.key
             return location
             
-        case .FTPPass:
-            let pass = FTPPass(snapshot: snapshot)
+        case .TPPass:
+            let pass = TPPass(snapshot: snapshot)
             pass.identifier = snapshot.key
             return pass
             
-        case .FTPVisit:
-            let visit = FTPVisit(snapshot: snapshot)
+        case .TPVisit:
+            let visit = TPVisit(snapshot: snapshot)
             return visit
         
-        case .FTPAffiliationList:
-            let affiliationList = FTPAffiliationList(snapshot: snapshot)
+        case .TPAffiliationList:
+            let affiliationList = TPAffiliationList(snapshot: snapshot)
             return affiliationList
 
-        case .FTPUserList:
-            let userList = FTPUserList(snapshot: snapshot)
+        case .TPUserList:
+            let userList = TPUserList(snapshot: snapshot)
             return userList
         
-        case .FTPVisitList:
-            let visitList = FTPVisit(snapshot: snapshot)
+        case .TPVisitList:
+            let visitList = TPVisit(snapshot: snapshot)
             return visitList
         
-        case .FTPPassList:
-            let passList = FTPPassList(snapshot: snapshot)
+        case .TPPassList:
+            let passList = TPPassList(snapshot: snapshot)
             return passList
         }
     }

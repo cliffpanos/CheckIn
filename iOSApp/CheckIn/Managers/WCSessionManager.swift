@@ -67,14 +67,14 @@ extension AppDelegate {
             
             for index in 0..<C.passes.count {
                 
-                let name = passDictionary["name"] as! String
+                let firstName = passDictionary["firstName"] as! String
                 let email = passDictionary["email"] as! String
                 let timeStart = passDictionary["timeStart"] as! String
                 let timeEnd = passDictionary["timeEnd"] as! String
                 
                 let current = C.passes[index]
 
-                if current.name == name && current.email == email && current.timeStart == timeStart && current.timeEnd == timeEnd {
+                if current.firstName == firstName && current.email == email && current.startDate == timeStart && current.endDate == timeEnd {
                     print("FOUND A PASS MATCH AND DELETING")
                     
                     successStatus = PassManager.delete(pass: current, andInformWatchKitApp: false)

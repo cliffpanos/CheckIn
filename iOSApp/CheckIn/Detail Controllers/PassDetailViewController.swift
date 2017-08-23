@@ -15,7 +15,7 @@ class PassDetailNavigationController: UINavigationController {
 }
 
 class PassDetailEmbedderController: UIViewController {
-    var pass: Pass!
+    var pass: TPPass!
     override func viewDidLoad() {
         super.viewDidLoad()
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareQRCode))
@@ -23,10 +23,10 @@ class PassDetailEmbedderController: UIViewController {
     }
     func getQRCodeImage() -> UIImage {
         return C.generateQRCode(forMessage:
-            "\(self.pass.name!)|" +
+            "\(self.pass.name)|" +
                 "\(self.pass.email!)|" +
-                "\(self.pass.timeStart!)|" +
-                "\(self.pass.timeEnd!)|" +
+                "\(self.pass.startDate!)|" +
+                "\(self.pass.endDate!)|" +
             "\(pass.locationIdentifier ?? "Location Identifier Unknown")|"
             
             , withSize: nil)
@@ -46,8 +46,8 @@ class PassDetailEmbedderController: UIViewController {
             ppc.permittedArrowDirections = [.down]
         }, withStyle: .actionSheet) { _ in
             
-            //All passes MUST have a name, so if the name is nil, then the pass no longer exists in CoreData
-            guard self.pass.name != nil else { return }
+            //Must have a managedObjectContext or the pass no longer exists in CoreData
+            guard self.pass.managedObjectContext != nil else { return }
             
             let success = PassManager.delete(pass: self.pass)
             
@@ -84,7 +84,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
     @IBOutlet weak var locationTitleLabel: UILabel!
     
     @IBOutlet var imageView: CDImageView!
-    var pass: Pass!
+    var pass: TPPass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +99,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         */
         
         guard pass != nil else { return }
-        if let imageData = pass.image {
+        if let imageData = pass.imageData {
             let image = UIImage(data: imageData as Data)
                 imageView.image = image
         }
@@ -109,7 +109,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         //self.navigationController?.view.addSubview(imageView)
         
     }
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat { return 100
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat { return 150
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -122,8 +122,8 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         guard pass != nil else { return }
 
         nameLabel.text = pass.name
-        startTimeLabel.text = pass.timeStart
-        endTimeLabel.text = pass.timeEnd
+        startTimeLabel.text = pass.startDate
+        endTimeLabel.text = pass.endDate
         locationTypeLabel.text = "LOC TYPE" //TODO
         locationTitleLabel.text = "Location Title"
         
@@ -139,10 +139,10 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
     func getQRCodeImage() -> UIImage {
         
         return C.generateQRCode(forMessage:
-            "\(self.pass.name!)|" +
+            "\(self.pass.name)|" +
                 "\(self.pass.email!)|" +
-                "\(self.pass.timeStart!)|" +
-                "\(self.pass.timeEnd!)|" +
+                "\(self.pass.startDate!)|" +
+                "\(self.pass.endDate!)|" +
             "\(pass.locationIdentifier ?? "Location Identifier Unknown")|"
             
             , withSize: nil)
@@ -159,7 +159,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         mailController.mailComposeDelegate = self
         mailController.setToRecipients([pass.email ?? ""])
         mailController.setSubject("True Pass")
-        mailController.setMessageBody("Hi \(pass.name!), attached is your True Pass", isHTML: false)
+        mailController.setMessageBody("Hi \(pass.name), attached is your True Pass", isHTML: false)
         
         let qrCode = getQRCodeImage()
         if let imageData = UIImagePNGRepresentation(qrCode) {
@@ -177,7 +177,7 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         let messageController = MFMessageComposeViewController()
         messageController.messageComposeDelegate = self
         messageController.recipients = [pass.phoneNumber ?? ""]
-        messageController.body = "Hi \(pass.name!), attached is your True Pass"
+        messageController.body = "Hi \(pass.name), attached is your True Pass"
         
         let qrCode = getQRCodeImage()
         if let imageData = UIImagePNGRepresentation(qrCode) {

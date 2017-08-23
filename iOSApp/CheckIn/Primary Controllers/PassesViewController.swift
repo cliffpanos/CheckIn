@@ -17,7 +17,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
     
     var searchDisplay = UISearchController(searchResultsController: nil)
     var searchBar: UISearchBar!
-    var filtered = [Pass]()
+    var filtered = [TPPass]()
     var selectedIndexPath: IndexPath?
         
     override func viewDidLoad() {
@@ -98,7 +98,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
     func updateSearchResults(for searchController: UISearchController) {
         
         let text = searchBar.text?.lowercased() ?? ""
-        filtered = C.passes.filter { ($0.name ?? "").lowercased().contains(text) }
+        filtered = C.passes.filter { ($0.name).lowercased().contains(text) }
         
         tableView.reloadData()
             
@@ -208,7 +208,7 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
 
 class PassCell: UITableViewCell {
     
-    var pass: Pass!
+    var pass: TPPass!
     var contactTextView = ContactView()
 
     
@@ -216,22 +216,22 @@ class PassCell: UITableViewCell {
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var fullContactView: ContactView!
     
-    func decorate(for pass: Pass) {
+    func decorate(for pass: TPPass) {
         
         self.pass = pass
         
-        self.nameTitle.text = pass.name ?? "Contact Name Unknown"
+        self.nameTitle.text = pass.name 
         
-        let text = pass.timeStart ?? ""
+        let text = pass.startDate ?? ""
         let components = text.components(separatedBy: ",")
         
         if components.count >= 3 {
             self.startTime.text = "\(components[0]) at\(components[2])"
         } else {
-            self.startTime.text = pass.timeStart ?? "No Start Date & Time"
+            self.startTime.text = pass.startDate ?? "No Start Date & Time"
         }
 
-        fullContactView.setupContactView(forData: pass.image as Data?, andName: pass.name!)
+        fullContactView.setupContactView(forData: pass.imageData as Data?, andName: pass.name)
         
     }
         
@@ -265,7 +265,8 @@ extension PassesViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         
         //searchDisplay.dismiss(animated: true)
-        self.navigationController?.pushViewController(viewControllerToCommit, animated: true)
+        SplitViewController.instance?.showDetailViewController(viewControllerToCommit, sender: nil)
+        //self.navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
     
 }

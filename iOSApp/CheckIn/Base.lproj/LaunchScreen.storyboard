@@ -54,6 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="truePassLaunch" width="250" height="250"/>
+        <image name="truePassLaunch" width="346" height="346"/>
     </resources>
 </document>

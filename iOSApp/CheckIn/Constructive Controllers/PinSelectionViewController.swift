@@ -15,6 +15,7 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var useThisLocationButton: UIBarButtonItem!
     
     var location: TPLocation?
+    let feedbackGenerator = UISelectionFeedbackGenerator()
     
     
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
             LocationManager.zoomToUserLocation(in: mapView)
         }
         useThisLocationButton.isEnabled = location != nil
+        feedbackGenerator.prepare()
     }
     
     @IBAction func chooseMapType(_ sender: UIButton) {
@@ -67,6 +69,9 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
         pin.title = "New Location"
         pin.coordinate = gestureCoordinate
         
+        //Feedback ----------
+        feedbackGenerator.selectionChanged()
+        
         if let current = mapView.annotations.first {
             if current is MKUserLocation {
                 if mapView.annotations.count > 1 {
@@ -99,6 +104,7 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         if newState == .ending, let coordinate = view.annotation?.coordinate {
             location?.coordinate = coordinate
+            feedbackGenerator.selectionChanged()
         }
         if let annotation = view.annotation {
             setTitle(for: annotation)
