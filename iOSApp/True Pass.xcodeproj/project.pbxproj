@@ -80,6 +80,7 @@
 		91BC02221EF994CE00E27FC4 /* CDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC02211EF994CE00E27FC4 /* CDTableViewController.swift */; };
 		91CE2D6B1EF7321F00755720 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */; };
 		91D517BB1ED7908E00E6B452 /* PassKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D517BA1ED7908E00E6B452 /* PassKitManager.swift */; };
+		91D9806C1F5E46FE0094BF39 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9806B1F5E46FE0094BF39 /* PaymentManager.swift */; };
 		91DD5C801F4192A3001254DE /* GuestsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD5C7F1F4192A3001254DE /* GuestsInfoViewController.swift */; };
 		91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
 		91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
@@ -211,6 +212,7 @@
 		91BC02211EF994CE00E27FC4 /* CDTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDTableViewController.swift; path = "View and Design/CDTableViewController.swift"; sourceTree = "<group>"; };
 		91CE2D6A1EF7321F00755720 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
 		91D517BA1ED7908E00E6B452 /* PassKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassKitManager.swift; path = Managers/PassKitManager.swift; sourceTree = "<group>"; };
+		91D9806B1F5E46FE0094BF39 /* PaymentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentManager.swift; path = Managers/PaymentManager.swift; sourceTree = "<group>"; };
 		91DD5C7F1F4192A3001254DE /* GuestsInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuestsInfoViewController.swift; path = "Detail Controllers/GuestsInfoViewController.swift"; sourceTree = "<group>"; };
 		91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonDataModels.swift; path = ../CommonDataModels.swift; sourceTree = "<group>"; };
 		91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseStorage.swift; path = Managers/DataServices/FirebaseStorage.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				9101345A1EB52902006D11AD /* 3D+QuickActions.swift */,
 				917FDA031EB7D90500616173 /* GeofenceManager.swift */,
 				9188F8A51F4118F800D3D251 /* LocationManager.swift */,
+				91D9806B1F5E46FE0094BF39 /* PaymentManager.swift */,
 				919405831F37687B0067FBCD /* PassManager.swift */,
 				91989DA51E90095E00F83E1C /* CoreFramework.swift */,
 				91273E7E1EDDEA6500FB4E25 /* Data Services */,
@@ -773,6 +776,7 @@
 				910FD5D31EC6B25A0058FF5C /* DatabaseManager.swift in Sources */,
 				915244A41F42CB03000C2C40 /* LocationTypePicker.swift in Sources */,
 				911CBAF21EF817A700800451 /* TruePassesPageViewController.swift in Sources */,
+				91D9806C1F5E46FE0094BF39 /* PaymentManager.swift in Sources */,
 				91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */,
 				91989DAC1E9053B300F83E1C /* NewPassViewController.swift in Sources */,
 				91BC02221EF994CE00E27FC4 /* CDTableViewController.swift in Sources */,

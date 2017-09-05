@@ -145,7 +145,7 @@ class NewAccountViewController: UITableViewController {
                 //Create a TP User here
                 let service = FirebaseService(entity: .TPUser)
                 let snapshot = DataSnapshot()
-                let user = TPUser(snapshot: snapshot)
+                let user = TPUser(snapshot: snapshot, FirebaseEntity.TPUser)
                 user.identifier = Accounts.shared.current!.uid
                 user.email = email
                 user.firstName = firstName

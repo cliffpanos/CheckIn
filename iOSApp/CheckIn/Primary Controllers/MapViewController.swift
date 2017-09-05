@@ -41,8 +41,26 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         } else {
             zoomToCheckInLocation()
         }
-        //https://www.raywenderlich.com/136165/core-location-geofencing-tutorial
-
+        let _ = LocationManager.coreDataLocations
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let userListService = FirebaseService(entity: .TPUserList)
+        let locationService = FirebaseService(entity: .TPLocation)
+        userListService.retrieveList(forIdentifier: Accounts.userIdentifier) { pairs in
+            for (locationIdentifier, _) in pairs {
+                locationService.retrieveData(forIdentifier: locationIdentifier) { object in
+                    let location = object as! TPLocation
+                    var contains = false
+                    for current in C.truePassLocations { if current == location { contains = true } }
+                    if !contains {
+                        C.truePassLocations.append(location)
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,6 +116,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         mapView.showsUserLocation = (status == .authorizedAlways)
+        //zoomToUserLocation()
     }
     
     func mapViewDidStopLocatingUser(_ mapView: MKMapView) {

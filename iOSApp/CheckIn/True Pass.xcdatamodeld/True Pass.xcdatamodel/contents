@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1.0">
     <entity name="FirebaseObject" representedClassName="FirebaseObject" isAbstract="YES" syncable="YES" codeGenerationType="class">
-        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="1adefault" syncable="YES"/>
     </entity>
     <entity name="TPAffiliation" representedClassName="TPAffiliation" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class">
         <attribute name="accessCodeQR" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,24 +9,25 @@
         <attribute name="canGrantEntry" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="canGrantPasses" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="geoType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isAdministrator" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isAdmin" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastVisit" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="TPLocation" representedClassName="TPLocation" parentEntity="FirebaseObject" syncable="YES">
+    <entity name="TPLocation" representedClassName="TPLocation" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class">
         <attribute name="affiliationCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="geofenceRadius" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="geoType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="hours" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="geoType" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
+        <attribute name="hours" optional="YES" attributeType="String" defaultValueString="-" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="locationType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationType" optional="YES" attributeType="String" defaultValueString="Other" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="openType" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="paid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="openType" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paid" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
         <attribute name="shortTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TPLocationList" representedClassName="TPLocationList" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class"/>
     <entity name="TPPass" representedClassName="TPPass" parentEntity="FirebaseObject" syncable="YES">
         <attribute name="accessCodeQR" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="didCheckIn" optional="YES" attributeType="Boolean" allowsExternalBinaryDataStorage="YES" usesScalarValueType="YES" syncable="YES"/>
@@ -53,6 +54,7 @@
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TPUserList" representedClassName="TPUserList" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class"/>
     <entity name="TPVisit" representedClassName="TPVisit" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class">
         <attribute name="geoType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
@@ -61,12 +63,14 @@
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TPPass" positionX="-180" positionY="-9" width="128" height="225"/>
+        <element name="FirebaseObject" positionX="-36" positionY="90" width="128" height="60"/>
         <element name="TPAffiliation" positionX="-36" positionY="45" width="128" height="180"/>
         <element name="TPLocation" positionX="115" positionY="-3" width="128" height="210"/>
-        <element name="TPUser" positionX="-18" positionY="63" width="128" height="120"/>
-        <element name="TPVisit" positionX="-36" positionY="99" width="128" height="120"/>
-        <element name="FirebaseObject" positionX="-36" positionY="90" width="128" height="60"/>
+        <element name="TPPass" positionX="-180" positionY="-9" width="128" height="225"/>
         <element name="TPPayment" positionX="-27" positionY="99" width="128" height="90"/>
+        <element name="TPUser" positionX="-18" positionY="63" width="128" height="120"/>
+        <element name="TPVisit" positionX="-36" positionY="45" width="128" height="120"/>
+        <element name="TPUserList" positionX="-27" positionY="99" width="128" height="45"/>
+        <element name="TPLocationList" positionX="-18" positionY="108" width="128" height="45"/>
     </elements>
 </model>

@@ -83,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             })
         }
         Testing.setupForTesting()
+        let _ = DatabaseManager.shared //initialize the lazy variable to start monitoring
         
         //LoginViewController
         if !C.userIsLoggedIn {
@@ -171,6 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "True Pass")
+
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

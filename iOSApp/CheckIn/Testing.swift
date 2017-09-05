@@ -20,7 +20,7 @@ class Testing {
         var locations = [TPLocation]()
         
         for testL in [hackGSU, iOSClub] {
-            let newLocation = TPLocation()
+            let newLocation = TPLocation(.TPLocation)
             newLocation.title = testL.longTitle
             newLocation.shortTitle = testL.title
             newLocation.latitude = testL.latitude

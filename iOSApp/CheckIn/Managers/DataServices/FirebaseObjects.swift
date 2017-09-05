@@ -35,13 +35,16 @@ extension TPUser {
 }
 
 extension TPLocation {
-
-    //public var title = String()
-    //public var shortTitle = String()
-    //public var identifier: String = String()
-
+    override var dictionaryForm: [String: Any] {
+        return self.dictionaryWithValues(forKeys: ["title", "shortTitle", "paid", "openType", "longitude", "latitude", "locationType", "hours", "geoType", "geofenceRadius", "affiliationCode"])
+    }
 }
 
+extension TPAffiliation {
+    override var dictionaryForm: [String: Any] {
+        return self.dictionaryWithValues(forKeys:["lastVisit", "isAdmin", "geoType", "canGrantPasses", "canGrantEntry", "canEnter", "accessCodeQR"])
+    }
+}
 
 //class TPAffiliation: FirebaseObject {
 //    
@@ -55,8 +58,8 @@ extension TPLocation {
 //    
 //}
 
-class TPUserList: FirebaseObject {
-    
+extension TPUserList {
+    //var list: [(userIdentifier: String, isAdmin: Bool)] = []
 }
 
 class TPAffiliationList: FirebaseObject {
@@ -71,15 +74,21 @@ class TPVisitList: FirebaseObject {
     
 }
 
+extension TPLocationList {
+    
+}
+
 
 /// A functionally abstract class to manage all Firebases-stored data objects (entities)
 extension FirebaseObject {
     
-    convenience init(snapshot: DataSnapshot) {
+    convenience init(snapshot: DataSnapshot? = nil, _ entity: FirebaseEntity) {
+        print("Initializing from snapshot")
+
+        //self.init(context: C.appDelegate.persistentContainer.viewContext)
+        self.init(entity: NSEntityDescription.entity(forEntityName: entity.rawValue, in: C.appDelegate.persistentContainer.viewContext)!, insertInto: nil)
         
-        self.init()
-        //super.init()
-        
+        guard let snapshot = snapshot else { return }
         for child in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
             let key = String(child.key.characters.filter { !" \n\t\r".characters.contains($0) })
             if responds(to: Selector(key)) {

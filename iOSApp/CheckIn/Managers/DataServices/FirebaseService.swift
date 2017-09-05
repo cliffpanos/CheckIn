@@ -18,26 +18,30 @@ enum FirebaseEntity: String {
     case TPPass
     case TPVisit
     
+    case TPPayment
+    case TPLocationTileList
+    case TPLocationKeywordList
+    
     case TPAffiliationList
     case TPUserList
     case TPPassList
     case TPVisitList
-    //case FTPLocationList does not exist because Users only ever have very few locations, so worrying about nesting would be unncessary as we are on the order of magnitude of 10^1
+    case TPLocationList //???does not exist because Users only ever have very few locations, so worrying about nesting would be unncessary as we are on the order of magnitude of 10^1
     
 }
 
 class FirebaseService : NSObject {
-    var database: DatabaseReference!
+    var reference: DatabaseReference!
     var entity: FirebaseEntity
     
     init(entity: FirebaseEntity) {
         self.entity = entity
-        self.database = Database.database().reference()
+        self.reference = Database.database().reference().child(entity.rawValue)
         super.init()
     }
     
     func retrieveData(forIdentifier identifier: String, completion: @escaping ((FirebaseObject) -> Void)) {
-        database.child(entity.rawValue).child(identifier).observeSingleEvent(of: .value, with: { (snapshot) in
+        reference.child(identifier).observeSingleEvent(of: .value, with: { snapshot in
             let data = self.createTPEntity(from: snapshot)
             completion(data)
         }) { (error) in
@@ -45,16 +49,30 @@ class FirebaseService : NSObject {
         }
     }
     
+    func retrieveList(forIdentifier identifier: String, completion: @escaping ([String: Any]) -> Void) {
+        reference.child(identifier).observeSingleEvent(of: .value, with: { snapshot in
+            var pairs = [String: Any]()
+            for child in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
+                pairs[child.key] = child.value!
+            }
+            completion(pairs)
+        })
+    }
+    
     func enterData(forIdentifier identifier: String, data: FirebaseObject) {
-        self.database.child(entity.rawValue).child(identifier).setValue(data.dictionaryForm)
+        reference.child(identifier).setValue(data.dictionaryForm)
+    }
+    
+    func addChildData(forIdentifier identifier: String, key: String, value: Any) {
+        reference.child(identifier).child(key).setValue(value)
     }
     
     func deleteData(forIdentifier identifier: String) {
-       self.database.child(entity.rawValue).child(identifier).removeValue()
+       reference.child(identifier).removeValue()
     }
     
     func continuouslyObserveData(withIdentifier identifier: String, completion: @escaping ((FirebaseObject) -> Void)) {
-        database.child(entity.rawValue).child(identifier).observe(.value, with: { snapshot in
+        reference.child(identifier).observe(.value, with: { snapshot in
             let data = self.createTPEntity(from: snapshot)
             completion(data) }) { error in
                 print(error.localizedDescription)
@@ -63,7 +81,7 @@ class FirebaseService : NSObject {
     
     
     func retrieveAll(completion: @escaping (([FirebaseObject]) -> Void)) {
-        database.child(entity.rawValue).observeSingleEvent(of: .value, with: {
+        reference.observeSingleEvent(of: .value, with: {
             (snapshot) in
                 var result : [FirebaseObject] = [FirebaseObject]()
                 for child in snapshot.children {
@@ -74,7 +92,7 @@ class FirebaseService : NSObject {
     }
     
     var identifierKey: String {
-        let key = database.child(entity.rawValue).childByAutoId().key
+        let key = reference.childByAutoId().key
         
         return key
     }
@@ -83,46 +101,58 @@ class FirebaseService : NSObject {
         
         switch entity {
         case FirebaseEntity.TPUser:
-            let user = TPUser(snapshot: snapshot)
+            let user = TPUser(snapshot: snapshot, entity)
             user.identifier = snapshot.key
             return user
             
         case .TPAffiliation:
-            let affiliation = TPAffiliation(snapshot: snapshot)
+            let affiliation = TPAffiliation(snapshot: snapshot, entity)
             affiliation.identifier = snapshot.key
             //TODO
             return affiliation
             
         case .TPLocation:
-            let location = TPLocation(snapshot: snapshot)
+            let location = TPLocation(snapshot: snapshot, entity)
             location.identifier = snapshot.key
             return location
             
         case .TPPass:
-            let pass = TPPass(snapshot: snapshot)
+            let pass = TPPass(snapshot: snapshot, entity)
             pass.identifier = snapshot.key
             return pass
             
         case .TPVisit:
-            let visit = TPVisit(snapshot: snapshot)
+            let visit = TPVisit(snapshot: snapshot, entity)
             return visit
         
         case .TPAffiliationList:
-            let affiliationList = TPAffiliationList(snapshot: snapshot)
+            let affiliationList = TPAffiliationList(snapshot: snapshot, entity)
             return affiliationList
+            
+        case .TPLocationList:
+            let locationList = TPLocationList(snapshot: snapshot, entity)
+            return locationList
 
         case .TPUserList:
-            let userList = TPUserList(snapshot: snapshot)
+            let userList = TPUserList(snapshot: snapshot, entity)
             return userList
         
         case .TPVisitList:
-            let visitList = TPVisit(snapshot: snapshot)
+            let visitList = TPVisit(snapshot: snapshot, entity)
             return visitList
         
         case .TPPassList:
-            let passList = TPPassList(snapshot: snapshot)
+            let passList = TPPassList(snapshot: snapshot, entity)
             return passList
+        
+        case .TPPayment:
+            let payment = TPPayment(snapshot: snapshot, entity)
+            return payment
+        
+        default: break
+        
         }
+        return FirebaseObject(.TPAffiliation) //DUMMY CODE
     }
-    
+
 }

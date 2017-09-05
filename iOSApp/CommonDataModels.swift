@@ -21,6 +21,8 @@ enum TPLocationType: String {
     case Organization
     case Other
     
+    static let enumerated: [TPLocationType] = [.Home, .Work, .Apartment, .School, .Event, .Organization, .Other]
+    
     static let Details: [TPLocationType: (iconName: String, colorA: UIColor, colorB: UIColor)] = [
         Home : ("Home", UIColor.TrueColors.blue, UIColor.TrueColors.lightBlue),
         Work : ("Work", UIColor.TrueColors.oceanic, UIColor.TrueColors.sandy),
@@ -98,16 +100,31 @@ class TPPass: FirebaseObject {
     
 }
 
+//class TPVisit: FirebaseObject {
+//}
+
 //MARK: - Shared Models for TPLocation, TPUser, and Pass from CoreData ENTITIES
 
-class TPLocation: FirebaseObject, MKAnnotation {
+extension TPLocation: MKAnnotation {
     
-    var longitude: Double!
-    var latitude: Double!
-    var title: String?
-    var shortTitle: String?
-    var locationType: String?
-    var geofenceRadius: CLLocationDegrees?
+//    @NSManaged public var affiliationCode: String!
+//    @NSManaged public var geofenceRadius: NSNumber!
+//    @NSManaged public var geoType: String!
+//    @NSManaged public var hours: String?
+////    @NSManaged public var
+////    @NSManaged public var
+////    @NSManaged public var
+////    @NSManaged public var
+////    @NSManaged public var
+////    @NSManaged public var
+////    @NSManaged public var
+////    @NSManaged public var
+//    var longitude: Double!
+//    var latitude: Double!
+//    var title: String?
+//    var shortTitle: String?
+//    var locationType: String?
+//    var geofenceRadius: CLLocationDegrees?
     
     public var coordinate: CLLocationCoordinate2D {
         get {
@@ -128,6 +145,11 @@ class TPLocation: FirebaseObject, MKAnnotation {
             return theType
         }
         return TPLocationType.Other
+    }
+    
+    static func == (lhs: TPLocation, rhs: TPLocation) -> Bool {
+        print(lhs.identifier == rhs.identifier)
+        return lhs.identifier == rhs.identifier
     }
     
 }

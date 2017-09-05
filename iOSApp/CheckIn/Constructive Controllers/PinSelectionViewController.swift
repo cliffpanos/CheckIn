@@ -65,7 +65,7 @@ class PinSelectionViewController: UIViewController, MKMapViewDelegate {
         let gestureLocation = gestureRecognizer.location(in: mapView)
         let gestureCoordinate = mapView.convert(gestureLocation, toCoordinateFrom: mapView)
         
-        let pin = self.location ?? TPLocation()
+        let pin = self.location ?? TPLocation(.TPLocation)
         pin.title = "New Location"
         pin.coordinate = gestureCoordinate
         

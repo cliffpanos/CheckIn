@@ -8,14 +8,39 @@
 
 import UIKit
 
-class LocationTypePicker: UIPickerView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class LocationTypePicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var changeCallback: ((TPLocationType) -> Void)? = nil
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.delegate = self
+        self.dataSource = self
     }
-    */
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.delegate = self
+        self.dataSource = self
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return TPLocationType.enumerated.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return TPLocationType.enumerated[row].rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let locationType = TPLocationType.enumerated[row]
+        if let callback = changeCallback {
+            callback(locationType)
+        }
+    }
 
 }

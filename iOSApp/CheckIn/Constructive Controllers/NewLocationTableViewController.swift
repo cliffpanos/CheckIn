@@ -32,6 +32,7 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationTypePicker: LocationTypePicker!
     
     var textFieldManager: CPTextFieldManager!
     var location: TPLocation?
@@ -49,6 +50,12 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         textFieldManager.setupTextFields(withAccessory: .done)
         textFieldManager.setFinalReturn(keyType: .go) { [unowned self] in self.createNewLocation()}
         accessCodeTextField.text! += "-\(arc4random())"
+        
+        locationTypeTextField.inputView = locationTypePicker
+        locationTypePicker.changeCallback = { [unowned self](type: TPLocationType) in
+            self.locationTypeValueChanged(to: type)
+        }
+
     }
     
     @IBAction func timeValueChanged(_ picker: UIDatePicker) {
@@ -57,6 +64,9 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         textField?.text = text
     }
     
+    func locationTypeValueChanged(to type: TPLocationType) {
+        self.locationTypeTextField.text = type.rawValue
+    }
     
     var circleGeofence: MKCircle?
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +98,12 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
 
     
     @IBAction func cancelPressed(_ sender: Any) {
+        if (fullLocationTitleTextField.text ?? "").isEmptyOrWhitespace()
+            && (shortLocationTitleTextField.text ?? "").isEmptyOrWhitespace()
+            && location == nil {
+            self.dismiss(animated: true)
+            return
+        }
         self.showDestructiveAlert("Exit Location Creation?", message: "Any entered information will be lost.", destructiveTitle: "Exit Location Creation", popoverSetup: nil, withStyle: .alert, forDestruction: {_ in self.dismiss(animated: true)})
     }
 
@@ -207,9 +223,29 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         //Then the data is ready to be entered into Firebase
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        let identifier = LocationManager.createNewLocation(title: title, shortTitle: shortTitle, locationType: locationType, coordinate: location.coordinate, geofenceRadius: Double(radiusSlider.value), openTime: openTime, closeTime: closeTime, accessCode: accessCode)
+        
+        let newLocationToEnter = TPLocation(.TPLocation)
+        newLocationToEnter.title = title
+        newLocationToEnter.shortTitle = shortTitle
+        newLocationToEnter.locationType = locationType.rawValue
+        newLocationToEnter.coordinate = location.coordinate
+        newLocationToEnter.geofenceRadius = Double(radiusSlider.value)
+        newLocationToEnter.hours = "\(openTime ?? "")-\(closeTime ?? "")"
+        print("New Location hours: '\(openTime ?? "")-\(closeTime ?? "")'")
+        newLocationToEnter.affiliationCode = accessCode
+        
+        LocationManager.createNewLocation(newLocationToEnter)
+//        let identifier = LocationManager.createNewLocation(title: title, shortTitle: shortTitle, locationType: locationType, coordinate: location.coordinate, geofenceRadius: Double(radiusSlider.value), openTime: openTime, closeTime: closeTime, accessCode: accessCode)
+        
+        //NEEDS TO BE IN COMPLETION OF ABOVE
         let locationCheck = FirebaseService(entity: .TPLocation)
-        locationCheck.retrieveData(forIdentifier: identifier, completion: {_ in })
+        locationCheck.retrieveData(forIdentifier: newLocationToEnter.identifier!, completion: {_ in
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            print("retrieved new location successfully!!")
+            self.showSimpleAlert("Location Creation Successful", message: "\(title) has is ready for True Pass.", handler: {self.dismiss(animated: true)})
+        })
+        //let n = NSTimed
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

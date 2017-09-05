@@ -2559,7 +2559,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="5Hc-Fn-KzQ" id="pHM-c9-XVR"/>
                                                     </connections>
@@ -2586,7 +2586,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="5Hc-Fn-KzQ" id="viX-3h-V0n"/>
                                                     </connections>
@@ -2613,7 +2613,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="5Hc-Fn-KzQ" id="tbN-TL-Z8z"/>
                                                     </connections>
@@ -2661,7 +2661,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgJ-k0-BGV">
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" scrollEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgJ-k0-BGV">
                                                     <rect key="frame" x="15" y="15" width="345" height="219.5"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="QIx-fM-Cga" id="qPs-76-P4o"/>
@@ -2943,6 +2943,7 @@
                         <outlet property="activityIndicator" destination="DLP-aW-AEl" id="8ck-LX-Ren"/>
                         <outlet property="closeTimeTextField" destination="xe5-LI-Gx0" id="5ci-I5-pqN"/>
                         <outlet property="fullLocationTitleTextField" destination="X8Z-6Z-lF3" id="qNS-sE-QAO"/>
+                        <outlet property="locationTypePicker" destination="SAr-pJ-UlC" id="ehC-eh-4pA"/>
                         <outlet property="locationTypeTextField" destination="jiA-Dm-xrp" id="C7k-Jm-KCy"/>
                         <outlet property="mapView" destination="lgJ-k0-BGV" id="2Fi-D1-sMK"/>
                         <outlet property="openTimeTextField" destination="hZj-cC-WNt" id="B3w-7U-Du8"/>
@@ -2967,6 +2968,10 @@
                         <action selector="timeValueChanged:" destination="QIx-fM-Cga" eventType="valueChanged" id="AiV-gn-J1V"/>
                     </connections>
                 </datePicker>
+                <pickerView contentMode="scaleToFill" id="SAr-pJ-UlC" customClass="LocationTypePicker" customModule="True_Pass" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </pickerView>
             </objects>
             <point key="canvasLocation" x="1599" y="-1667"/>
         </scene>

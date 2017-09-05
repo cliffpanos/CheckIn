@@ -17,6 +17,7 @@ class DatabaseManager {
     internal var connectedReference: DatabaseReference!
     
     init() {
+        print("Monitoring for connection")
         connectedReference = Database.database().reference(withPath: ".info/connected")
         connectedReference.observe(.value, with: { snapshot in
             if snapshot.value as? Bool ?? false {
