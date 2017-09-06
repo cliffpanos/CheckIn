@@ -1695,7 +1695,7 @@
                             <constraint firstItem="Qfc-gX-Oo7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wf9-79-K46" secondAttribute="leading" constant="20" id="xyI-8F-C1r"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Guests" image="WrappedLocation" id="yKX-PM-TZP"/>
+                    <tabBarItem key="tabBarItem" title="Guests" image="CardsTabBar" id="yKX-PM-TZP"/>
                     <navigationItem key="navigationItem" title="No Guest Passes" id="8WJ-cb-cVl"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -4914,14 +4914,14 @@
         <scene sceneID="bEl-C4-gUb">
             <objects>
                 <tableViewController id="YOK-V6-jwk" customClass="SettingsTableViewController" customModule="True_Pass" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="0kE-aU-x0N">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="0kE-aU-x0N">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="371"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="My Account" id="n5r-sf-lSG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="akU-xW-XI1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="akU-xW-XI1">
                                         <rect key="frame" x="0.0" y="55.5" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="akU-xW-XI1" id="6o0-nf-1xu">
@@ -5049,7 +5049,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Geofence Notifications" footerTitle="Instantly turn geofence notifications for ALL locations on or off." id="ifJ-EV-SlG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qf4-1o-TnL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="qf4-1o-TnL">
                                         <rect key="frame" x="0.0" y="359.5" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qf4-1o-TnL" id="mrM-Dx-k5O">
@@ -5064,7 +5064,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="0.5"/>
+                                                            <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="5"/>
@@ -5101,7 +5101,7 @@
                             </tableViewSection>
                             <tableViewSection id="czk-5b-U4Q">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" id="nCk-zL-3zJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nCk-zL-3zJ">
                                         <rect key="frame" x="0.0" y="473.5" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nCk-zL-3zJ" id="ywu-IT-5ej">
@@ -5125,7 +5125,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" id="ut1-64-AP3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ut1-64-AP3">
                                         <rect key="frame" x="0.0" y="523.5" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ut1-64-AP3" id="UsE-KG-wQm">
@@ -5386,7 +5386,7 @@
         <scene sceneID="zBj-4i-xgL">
             <objects>
                 <navigationController storyboardIdentifier="passInfoViewController" automaticallyAdjustsScrollViewInsets="NO" id="0q9-XF-dhk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Guests" image="WrappedLocation" id="vVC-wk-Btp"/>
+                    <tabBarItem key="tabBarItem" title="Guests" image="CardsTabBar" id="vVC-wk-Btp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Thm-t4-jCf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

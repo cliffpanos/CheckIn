@@ -29,7 +29,7 @@ class AdministrationTableViewController: UITableViewController {
         mapView.setRegion(MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)), animated: false)
         
         let typeDetails = TPLocationType.Details[location.type]!
-        locationIcon.image = UIImage(named: typeDetails.iconName)
+        locationIcon.image = UIImage(named: typeDetails)
         
         LocationManager.address(for: location.clLocation) {
             address, error in

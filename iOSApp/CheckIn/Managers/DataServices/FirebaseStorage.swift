@@ -24,13 +24,13 @@ class FirebaseStorage {
     }
     
     var usersDirectoryReference: StorageReference {
-        return storageRef.child("FTPUser")
+        return storageRef.child("TPUser")
     }
     var locationsDirectoryReference: StorageReference {
-        return storageRef.child("FTPLocation")
+        return storageRef.child("TPLocation")
     }
     var passesDirectoryReference: StorageReference {
-        return storageRef.child("FTPPass")
+        return storageRef.child("TPPass")
     }
     var pngMetadata: StorageMetadata {
         let metadata = StorageMetadata()

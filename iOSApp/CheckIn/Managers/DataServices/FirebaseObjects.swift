@@ -62,17 +62,17 @@ extension TPUserList {
     //var list: [(userIdentifier: String, isAdmin: Bool)] = []
 }
 
-class TPAffiliationList: FirebaseObject {
-    
-}
-
-class TPPassList: FirebaseObject {
-    
-}
-
-class TPVisitList: FirebaseObject {
-    
-}
+//class TPAffiliationList: FirebaseObject {
+//    
+//}
+//
+//class TPPassList: FirebaseObject {
+//    
+//}
+//
+//class TPVisitList: FirebaseObject {
+//    
+//}
 
 extension TPLocationList {
     

@@ -243,7 +243,7 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
             print("retrieved new location successfully!!")
-            self.showSimpleAlert("Location Creation Successful", message: "\(title) has is ready for True Pass.", handler: {self.dismiss(animated: true)})
+            self.showSimpleAlert("Location Creation Successful", message: "\(title) is ready for True Pass.", handler: {self.dismiss(animated: true)})
         })
         //let n = NSTimed
     }

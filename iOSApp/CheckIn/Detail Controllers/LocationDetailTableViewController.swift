@@ -20,7 +20,7 @@ class LocationDetailEmbedderController: UIViewController {
         super.viewDidLoad()
         locationTypeLabel.text = (location.locationType ?? "Location").localizedUppercase
         let typeDetails = TPLocationType.Details[location.type]!
-        backgroundImage.image = UIImage(named: "\(typeDetails.iconName)Scene")
+        backgroundImage.image = UIImage(named: "\(typeDetails)Scene")
         setNeedsStatusBarAppearanceUpdate()
     }
 
@@ -68,7 +68,7 @@ class LocationDetailTableViewController: UITableViewController {
         mapView.setRegion(MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)), animated: false)
         
         let typeDetails = TPLocationType.Details[location.type]!
-        locationIcon.image = UIImage(named: typeDetails.iconName)
+        locationIcon.image = UIImage(named: typeDetails)
 
         LocationManager.address(for: location.clLocation) {
             address, error in

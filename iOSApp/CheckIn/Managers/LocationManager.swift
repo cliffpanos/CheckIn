@@ -50,14 +50,14 @@ class LocationManager {
         let locationListService = FirebaseService(entity: .TPLocationList)
         locationListService.addChildData(forIdentifier: identifier, key: Accounts.userIdentifier, value: true) //Because the current user is by default an admin
         
+        let userListService = FirebaseService(entity: .TPUserList)
+        userListService.addChildData(forIdentifier: Accounts.userIdentifier, key: identifier, value: true) //Because the current user is by default an admin
+        
         addUser(Accounts.userIdentifier, toAdminListAtLocation: identifier)
         affiliate(userIdentifier: Accounts.userIdentifier, with: location, using: defaultAffiliation)
         addTitleKeywords(forLocation: location)
         addTileChunk(forLocation: location)
-        
-        let userListService = FirebaseService(entity: .TPUserList)
-        userListService.addChildData(forIdentifier: Accounts.userIdentifier, key: identifier, value: true) //Because the current user is by default an admin
-        
+                
     }
     
     
@@ -104,9 +104,10 @@ class LocationManager {
     
     static func addTileChunk(forLocation location: TPLocation) {
         let tileService = FirebaseService(entity: .TPLocationTileList)
-        let lat = location.latitude.formattedToHundredths
-        let long = location.longitude.formattedToHundredths
+        let lat = location.latitude.formattedToFour
+        let long = location.longitude.formattedToFour
         let tileChunk: String = "\(lat)T\(long)"
+        print("TileChunk: \(tileChunk)")
         tileService.addChildData(forIdentifier: tileChunk, key: location.identifier!, value: location.title!)
     }
     

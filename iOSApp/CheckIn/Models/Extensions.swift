@@ -48,17 +48,17 @@ extension UIScreen {
 }
 
 extension Double {
-    var formattedToHundredths: String {
+    var formattedToFour: Int {
         let numberFormatter = NumberFormatter()
         numberFormatter.minimumIntegerDigits = 1
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 2
         
         let mult = (self * 100).rounded(FloatingPointRoundingRule.towardZero)
-        let inted = Int(mult)
-        let div = Double(inted) / 100.0
-        let formatted = numberFormatter.string(from: NSNumber(value: div))!
-        return formatted
+        return Int(mult)
+        //let div = Double(inted)
+        //let formatted = numberFormatter.string(from: NSNumber(value: div))!
+        //return formatted
     }
 }
 

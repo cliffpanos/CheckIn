@@ -37,7 +37,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         }
         
         if let userLocation = LocationManager.userLocation {
-            zoom(to: userLocation.coordinate, withViewSize: 0.05)
+            zoom(to: userLocation.coordinate, withViewSize: 0.032)
         } else {
             zoomToCheckInLocation()
         }
@@ -55,7 +55,9 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
                     var contains = false
                     for current in C.truePassLocations { if current == location { contains = true } }
                     if !contains {
+                        print("Adding location to collection view")
                         C.truePassLocations.append(location)
+                        self.mapView.addAnnotation(location)
                         self.collectionView.reloadData()
                     }
                 }
@@ -100,7 +102,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
     
     func zoomToCheckInLocation() {
         if let nearest = C.nearestTruePassLocations.first {
-            zoom(to: nearest.coordinate, withViewSize: 0.05)
+            zoom(to: nearest.coordinate, withViewSize: 0.03)
         }
     }
     
@@ -240,8 +242,8 @@ class LocationCell: UICollectionViewCell {
         titleLabel.text = location.shortTitle
         
         let typeDetails = TPLocationType.Details[location.type]!
-        locationIcon.image = UIImage(named: typeDetails.iconName)
-        backgroundImage.image = UIImage(named: "\(typeDetails.iconName)Scene")
+        locationIcon.image = UIImage(named: typeDetails)
+        backgroundImage.image = UIImage(named: "\(typeDetails)Scene")
         
     }
     

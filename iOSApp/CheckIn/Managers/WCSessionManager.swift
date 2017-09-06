@@ -38,6 +38,7 @@ extension AppDelegate {
             replyHandler([WCD.KEY : WCD.checkInPassRequest, WCD.checkInPassRequest : imageData ?? Data()])
         
         case WCD.mapLocationsRequest :
+            guard C.truePassLocations.count > 0 else { break }
             let coordinate = C.truePassLocations[0].coordinate
             replyHandler([WCD.KEY : WCD.mapLocationsRequest, "latitude" : coordinate.latitude, "longitude" : coordinate.longitude])
         

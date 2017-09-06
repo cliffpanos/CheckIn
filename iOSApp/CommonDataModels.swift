@@ -23,10 +23,14 @@ enum TPLocationType: String {
     
     static let enumerated: [TPLocationType] = [.Home, .Work, .Apartment, .School, .Event, .Organization, .Other]
     
-    static let Details: [TPLocationType: (iconName: String, colorA: UIColor, colorB: UIColor)] = [
-        Home : ("Home", UIColor.TrueColors.blue, UIColor.TrueColors.lightBlue),
-        Work : ("Work", UIColor.TrueColors.oceanic, UIColor.TrueColors.sandy),
-        Other : ("truePassLaunch", UIColor.TrueColors.lightBlueGray, UIColor.TrueColors.lightestBlueGray),
+    static let Details: [TPLocationType: String] = [
+        Home : "Home",
+        Work : "Work",
+        Apartment : "Apartment",
+        School : "School",
+        Event : "Event",
+        Organization : "Organization",
+        Other : "truePassLaunch",
         ]
 }
 
