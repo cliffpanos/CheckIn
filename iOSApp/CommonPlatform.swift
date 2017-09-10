@@ -26,6 +26,8 @@ class Shared {
     
     ///The key used to find using UserDefaults if the user has ever launched the app, a Bool
     static let FIRST_LAUNCH_OF_APP_EVER: String = "FirstLaunchOfAppEver"
+    
+    static let RECEIEVE_CHECKIN_NOTIFICATIONS_SETTING: String = "TPRecieveCheckInNotifications"
 }
 
 

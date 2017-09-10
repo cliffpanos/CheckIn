@@ -23,6 +23,15 @@ class C: WCActivator {
     
     static var automaticCheckIn: Bool = true
     
+    static var receiveCheckInNotifications: Bool {
+        get {
+            return getFromUserDefaults(withKey: Shared.RECEIEVE_CHECKIN_NOTIFICATIONS_SETTING) as? Bool ?? false
+        }
+        set {
+            persistUsingUserDefaults(newValue, forKey: Shared.RECEIEVE_CHECKIN_NOTIFICATIONS_SETTING)
+        }
+    }
+    
     static var truePassLocations: [TPLocation] = [] /*{
         get {
             let managedContext = C.appDelegate.persistentContainer.viewContext
@@ -48,7 +57,7 @@ class C: WCActivator {
         }
         
         let sortedLocations = truePassLocations.sorted { l1, l2 in
-            locationsAndDistances[l1]! > locationsAndDistances[l2]!
+            locationsAndDistances[l1]! < locationsAndDistances[l2]!
         }
         return sortedLocations
     }

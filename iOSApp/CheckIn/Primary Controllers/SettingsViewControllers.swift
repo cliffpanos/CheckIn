@@ -60,46 +60,164 @@ class SettingsViewController: ManagedViewController {
     
     }
     
+    @IBAction func editImage(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Edit Profile Picture", message: nil, preferredStyle: .actionSheet)
+        let photosAction = UIAlertAction(title: "Choose from Photos", style: .default) {_ in
+            self.changeProfileImage(sender: sender)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in self.dismiss(animated: true)}
+        alert.addAction(photosAction); alert.addAction(cancelAction)
+        alert.popoverPresentationController?.sourceView = sender
+        alert.popoverPresentationController?.sourceRect = sender.bounds
+        alert.popoverPresentationController?.permittedArrowDirections = [.up, .right]
+        self.present(alert, animated: true)
+    }
+    
+    var photoPicker: CPPhotoPicker!
+    internal func changeProfileImage(sender: UIButton) {
+        if photoPicker == nil {
+            photoPicker = CPPhotoPicker(vc: self)
+        }
+        photoPicker.photoPickerDismissedAction = { [unowned self] in
+            self.dismiss(animated: true)
+        }
+        photoPicker.popoverPresentationSetup = { popover in
+            popover.canOverlapSourceViewRect = false
+            popover.sourceView = sender
+            popover.sourceRect = sender.bounds
+            popover.permittedArrowDirections = [.up, .right]
+        }
+        photoPicker.photoSelectedAction = { [unowned self](image) in
+            guard let image = image else { return }
+            guard let data = UIImagePNGRepresentation(image) else { return }
+            FirebaseStorage.shared.uploadImage(data: data, for: .TPUser, withIdentifier: Accounts.userIdentifier) {metadata, error in
+                if let error = error {
+                    self.showSimpleAlert("Profile Picture Saving Error", message: error.localizedDescription)
+                } else {
+                    self.showSimpleAlert("Profile Picture Sucessfully Updated", message: nil)
+                    self.userProfileImage.image = image
+                    Accounts.userImageData = data
+                }
+            }
+            
+            self.dismiss(animated: true)
+        }
+        photoPicker.pickImageConsideringAuth()
+    }
+    
 
 }
 
 
 class SettingsTableViewController: UITableViewController {
     
-    @IBOutlet weak var ownerEmailLabel: UILabel!
-    @IBOutlet weak var locationAffiliationsLabel: UILabel!
-    @IBOutlet weak var administrationNumLabel: UILabel!
-    
+    let TPEmailCellID = "emailCell"
+    let TPLocationCountCellID = "locationCountCell"
+    let TPLocationNameCellID = "locationNameCell"
+    let TPNotificationsCellID = "notificationsCell"
+    let TPAboutCellID = "aboutCell"
+    let TPDeleteAccountCellID = "deleteCell"
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        ownerEmailLabel.text = Accounts.userEmail
-
+        tableView.setNeedsLayout()
+        tableView.layoutIfNeeded()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let locationCount = C.truePassLocations.count
-        locationAffiliationsLabel.text = "You are affiliated with \(locationCount) location\(locationCount != 1 ? "s" : "")."
-        
-        let administrationCount = (Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 2) == 0 ? 0 : 1) //TODO: this is just random
-        administrationNumLabel.text = "You administer \(administrationCount) location\(administrationCount != 1 ? "s" : "")."
-        
-    }
-    
+        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 
-    @IBAction func automaticCheckInChanged(_ sender: Any) {
-        if let switchButton = sender as? UISwitch {
-            C.automaticCheckIn = switchButton.isOn
+        tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let nums = [2, C.truePassLocations.count, 1, 2]
+        return nums[section]
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TPLocationNameCellID) as! LocationNameCell
+            cell.decorate(for: C.truePassLocations[indexPath.row])
+            cell.accessoryType = .detailButton
+            return cell
+        }
+        
+        let identifiersBySection = [[0: TPEmailCellID, 1: TPLocationCountCellID], [0: "DummyPlaceholder"], [0: TPNotificationsCellID], [0: TPAboutCellID, 1: TPDeleteAccountCellID]]
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifiersBySection[indexPath.section][indexPath.row]!) as! DecorableCell
+        cell.decorate()
+        if let cell = cell as? EmailCell { cell.viewController = self }
+
+        return cell as! UITableViewCell
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let location = C.truePassLocations[indexPath.row]
+        let listService = FirebaseService(entity: .TPLocationList)
+        listService.retrieveList(forIdentifier: "\(location.identifier!)/TPAdminList") { pairs in
+            var emails = [String]()
+            var names = [String]()
+            let userIdentifiers = pairs.keys
+            for (index, uid) in userIdentifiers.enumerated() {
+                let userService = FirebaseService(entity: .TPUser)
+                userService.retrieveData(forIdentifier: uid, completion: { object in
+                    let user = object as! TPUser
+                    emails.append(user.email!); names.append(user.name)
+                    if index == pairs.keys.count - 1 {
+                        let alert = UIAlertController(title: "Email Administrators", message: nil, preferredStyle: .actionSheet)
+                        for (index, email) in emails.enumerated() {
+                            let action = UIAlertAction(title: names[index], style: UIAlertActionStyle.default, handler: {_ in
+                                    UIPasteboard.general.string = email
+                                    self.showSimpleAlert("Email Copied to Clipboard.", message: nil)
+                                })
+                            alert.addAction(action)
+                        }
+                        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in alert.dismiss(animated: true) })
+                        alert.addAction(cancel)
+                        alert.modalPresentationStyle = .popover
+                        alert.popoverPresentationController?.permittedArrowDirections = [.right]
+                        let cell = tableView.cellForRow(at: indexPath)!
+                        var accessoryView: UIView!
+                        for view in cell.subviews {
+                            if view is UIButton { accessoryView = view }
+                        }
+                        alert.popoverPresentationController?.sourceRect = accessoryView!.bounds
+                        alert.popoverPresentationController?.sourceView = accessoryView
+                        self.present(alert, animated: true)
+                    }
+                })
+            }
         }
     }
     
-    @IBAction func passesSwitchChanged(_ sender: Any) {
-        if let activeSwitch = sender as? UISwitch {
-            C.passesActive = activeSwitch.isOn
-        }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ((indexPath.section, indexPath.row) == (0, 1)) ? 65 : 50 //50 is default
+    }
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let titles = [
+            "My Account",
+            "Locations",
+            "Geofence Notifications",
+            ""
+        ]
+        return titles[section]
+    }
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let footers = ["",
+            "Contact & manage your True Pass Locations",
+            "Instantly turn geofence notifications for all locations on or off.",
+        ""]
+        return footers[section]
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,13 +230,77 @@ class SettingsTableViewController: UITableViewController {
         case (3,1):
             showSimpleAlert("Deletion not yet supported", message: "Account deletion will be available in the next version of True Pass.")
         default:
-            tableView.deselectRow(at: indexPath, animated: true)
+            break
         }
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
-    
-    
-    
-    
 }
+
+protocol DecorableCell {
+    func decorate()
+}
+
+class EmailCell: UITableViewCell, DecorableCell {
+    @IBOutlet weak var ownerEmailLabel: UILabel!
+    @IBOutlet weak var wrapperView: UIView!
+    weak var viewController: UIViewController?
+    
+    func decorate() {
+        ownerEmailLabel.text = Accounts.userEmail
+        let bottom = NSLayoutConstraint(item: wrapperView, attribute: .bottom, relatedBy: .equal, toItem: wrapperView.superview!, attribute: .bottom, multiplier: 1, constant: 0)
+        let top = NSLayoutConstraint(item: wrapperView, attribute: .top, relatedBy: .equal, toItem: wrapperView.superview!, attribute: .top, multiplier: 1, constant: 0)
+        let right = NSLayoutConstraint(item: wrapperView, attribute: .right, relatedBy: .equal, toItem: wrapperView.superview!, attribute: .right, multiplier: 1, constant: 0)
+        let left = NSLayoutConstraint(item: wrapperView, attribute: .left, relatedBy: .equal, toItem: wrapperView.superview!, attribute: .left, multiplier: 1, constant: 0)
+        bottom.isActive = true; top.isActive = true; right.isActive = true; left.isActive = true
+        
+    }
+    @IBAction func editPressed(_ sender: Any) {
+        self.viewController?.showSimpleAlert("Account Editing Unavailable", message: nil)
+    }
+}
+
+class LocationCountCell: UITableViewCell, DecorableCell {
+    @IBOutlet weak var locationAffiliationsLabel: UILabel!
+    @IBOutlet weak var administrationNumLabel: UILabel!
+    func decorate() {
+        let locationCount = C.truePassLocations.count
+        locationAffiliationsLabel.text = "You are affiliated with \(locationCount) location\(locationCount != 1 ? "s" : "")."
+        //var adminCount = 0
+        //        for location in C.truePassLocations {
+        //            //if location.
+        //        }
+        //Use affiliations to set administrationNumLabel
+    }
+}
+
+class LocationNameCell: UITableViewCell, DecorableCell {
+    
+    @IBOutlet weak var imageIcon: CDImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    var identifier: String!
+    func decorate() {}
+    func decorate(for location: TPLocation) {
+        if let type = TPLocationType(rawValue: location.locationType ?? "") {
+            let details = TPLocationType.Details[type]
+            imageIcon.image = UIImage(named: details!)
+        } else {
+            imageIcon.image = #imageLiteral(resourceName: "marker")
+        }
+        titleLabel.text = location.title
+        identifier = location.identifier!
+    }
+}
+
+class NotificationsCell: UITableViewCell, DecorableCell {
+    @IBOutlet weak var onSwitch: UISwitch!
+    func decorate() {
+        onSwitch.isOn = C.receiveCheckInNotifications
+    }
+    @IBAction func receiveNotifications(_ onSwitch: UISwitch) {
+        C.receiveCheckInNotifications = onSwitch.isOn
+    }
+}
+
+class AboutCell: UITableViewCell, DecorableCell { func decorate() {} }
+class DeleteCell: UITableViewCell, DecorableCell { func decorate() {} }

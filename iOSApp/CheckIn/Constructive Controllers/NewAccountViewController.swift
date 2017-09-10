@@ -152,7 +152,7 @@ class NewAccountViewController: UITableViewController {
                 user.lastName = lastName
                 service.enterData(forIdentifier: Accounts.shared.current!.uid, data: user)
                 
-                FirebaseStorage.shared.uploadImage(data: self.imageData!, for: user) {metadata, error in
+                FirebaseStorage.shared.uploadImage(data: self.imageData!, for: .TPUser, withIdentifier: user.identifier!) {metadata, error in
                     if let error = error {
                         self.showSimpleAlert("Picture Saving Error", message: error.localizedDescription)
                     }

@@ -24,22 +24,17 @@ class FirebaseStorage {
     }
     
     var usersDirectoryReference: StorageReference {
-        return storageRef.child("TPUser")
+        return storageRef.child(FirebaseEntity.TPUser.rawValue)
     }
-    var locationsDirectoryReference: StorageReference {
-        return storageRef.child("TPLocation")
-    }
-    var passesDirectoryReference: StorageReference {
-        return storageRef.child("TPPass")
-    }
+
     var pngMetadata: StorageMetadata {
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
         return metadata
     }
     
-    func uploadImage(data: Data, for entity: FirebaseObject, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
-        let childRef = usersDirectoryReference.child("\(entity.identifier!).png")
+    func uploadImage(data: Data, for entity: FirebaseEntity, withIdentifier identifier: String, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
+        let childRef = storageRef.child(entity.rawValue).child("\(identifier).png")
         childRef.putData(data, metadata: pngMetadata) { metadata, error in
             handler(metadata, error) }
     }

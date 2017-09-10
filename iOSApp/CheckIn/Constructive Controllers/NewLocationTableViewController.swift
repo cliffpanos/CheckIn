@@ -55,6 +55,7 @@ class NewLocationTableViewController: UITableViewController, MKMapViewDelegate {
         locationTypePicker.changeCallback = { [unowned self](type: TPLocationType) in
             self.locationTypeValueChanged(to: type)
         }
+        LocationManager.zoomToUserLocation(in: mapView)
 
     }
     

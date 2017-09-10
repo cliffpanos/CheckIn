@@ -102,12 +102,12 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
     
     func zoomToCheckInLocation() {
         if let nearest = C.nearestTruePassLocations.first {
-            zoom(to: nearest.coordinate, withViewSize: 0.03)
+            zoom(to: nearest.coordinate, withViewSize: 0.02)
         }
     }
     
     func zoomToUserLocation() {
-        zoom(to: mapView.userLocation.coordinate, withViewSize: 0.05)
+        zoom(to: mapView.userLocation.coordinate, withViewSize: 0.03)
     }
     
     func zoom(to location: CLLocationCoordinate2D, withViewSize sizeDelta: CLLocationDegrees) {
@@ -172,9 +172,9 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
         switch (indexPath.row) {
         case 0 :
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "truePassCell", for: indexPath) as! LocationCell
-        case 1..<C.truePassLocations.count + 1 :
+        case 1..<C.nearestTruePassLocations.count + 1 :
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath)
-            (cell as! LocationCell).decorate(for: C.truePassLocations[indexPath.row - 1], in: self)
+            (cell as! LocationCell).decorate(for: C.nearestTruePassLocations[indexPath.row - 1], in: self)
         default :
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addLocationCell", for: indexPath)
         }
