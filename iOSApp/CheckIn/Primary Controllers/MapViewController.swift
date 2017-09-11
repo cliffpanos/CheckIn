@@ -37,7 +37,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         }
         
         if let userLocation = LocationManager.userLocation {
-            zoom(to: userLocation.coordinate, withViewSize: 0.032)
+            zoom(to: userLocation.coordinate, withViewSize: 0.015)
         } else {
             zoomToCheckInLocation()
         }

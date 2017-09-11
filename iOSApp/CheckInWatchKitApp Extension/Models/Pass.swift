@@ -12,10 +12,10 @@ class Pass: Equatable, Hashable {
     var name: String!
     var email: String!
     var image: Data!
-    var timeStart: String!
-    var timeEnd: String!
+    var timeStart: Date!
+    var timeEnd: Date!
     
-    var checkedIn: Bool?
+    var didCheckIn: Bool?
     var locationName: String?
     
     

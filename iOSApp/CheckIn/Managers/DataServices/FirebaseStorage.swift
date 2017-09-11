@@ -18,6 +18,9 @@ class FirebaseStorage {
     let storage: Storage
     let storageRef: StorageReference
     
+    let TPProfilePictureMaxSize: Int64 = 4*1024*1024
+    let TPPassPictureMaxSize: Int64 = 4*1024*1024
+    
     internal init() {
         storage = Storage.storage()
         storageRef = storage.reference()
@@ -39,12 +42,15 @@ class FirebaseStorage {
             handler(metadata, error) }
     }
     
+    func retrieveImageData(for identifier: String, entity: FirebaseEntity, handler: @escaping (Data?, Error?) -> Void) {
+        let reference = storageRef.child(entity.rawValue).child("\(identifier).png")
+        reference.getData(maxSize: TPPassPictureMaxSize, completion: handler)
+    }
+    
     
     func retrieveProfilePicture(for uid: String, _ handler: @escaping (Data?, Error?) -> Void) {
         let childRef = usersDirectoryReference.child("\(uid).png")
-        childRef.getData(maxSize: 4*1024*1024, completion: {data, error in
-            handler(data, error)
-        })
+        childRef.getData(maxSize: TPProfilePictureMaxSize, completion: handler)
     }
     
     func retrieveProfilePictureForCurrentUser(_ handler: @escaping (Data?, Error?) -> Void) {

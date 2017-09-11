@@ -91,7 +91,7 @@ class FirebaseService : NSObject {
             })
     }
     
-    var identifierKey: String {
+    var newIdentifierKey: String {
         let key = reference.childByAutoId().key
         
         return key

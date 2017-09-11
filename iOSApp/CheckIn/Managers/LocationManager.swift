@@ -43,7 +43,7 @@ class LocationManager {
     static func createNewLocation(_ location: TPLocation) {
         
         let locationService = FirebaseService(entity: .TPLocation)
-        let identifier = locationService.identifierKey
+        let identifier = locationService.newIdentifierKey
         location.identifier = identifier
         locationService.enterData(forIdentifier: identifier, data: location)
         

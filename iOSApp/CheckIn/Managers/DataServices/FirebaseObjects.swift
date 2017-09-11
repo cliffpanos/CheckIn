@@ -40,6 +40,16 @@ extension TPLocation {
     }
 }
 
+extension TPPass {
+    override var dictionaryForm: [String: Any] {
+        return self.dictionaryWithValues(forKeys: ["firstName", "lastName", "email", "locationIdentifier", "phoneNumber", "isActive", "didCheckIn", "accessCodeQR"])
+    }
+    
+    static func == (lhs: TPPass, rhs: TPPass) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+}
+
 extension TPAffiliation {
     override var dictionaryForm: [String: Any] {
         return self.dictionaryWithValues(forKeys:["lastVisit", "isAdmin", "geoType", "canGrantPasses", "canGrantEntry", "canEnter", "accessCodeQR"])
@@ -92,7 +102,12 @@ extension FirebaseObject {
         for child in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
             let key = String(child.key.characters.filter { !" \n\t\r".characters.contains($0) })
             if responds(to: Selector(key)) {
-                setValue(child.value, forKey: key)
+                if key == "startDate" || key == "endDate" {
+                    setValue(Date(timeIntervalSince1970: TimeInterval(child.value as! Double)), forKey: key)
+                } else {
+                    setValue(child.value, forKey: key)
+                }
+
             }
         }
     }

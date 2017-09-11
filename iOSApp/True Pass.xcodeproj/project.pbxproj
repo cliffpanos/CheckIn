@@ -86,6 +86,7 @@
 		91E96E551EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */; };
 		91EBA4BD1EF1CA2A00957D7A /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */; };
 		91F21B0B1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */; };
+		91F3633F1F65E22B009E9B16 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3633E1F65E22B009E9B16 /* LocationPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,7 @@
 		91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonDataModels.swift; path = ../CommonDataModels.swift; sourceTree = "<group>"; };
 		91EBA4BC1EF1CA2A00957D7A /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseStorage.swift; path = Managers/DataServices/FirebaseStorage.swift; sourceTree = "<group>"; };
 		91F21B0A1F1FC40100AF50D3 /* NewAffiliationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAffiliationTableViewController.swift; sourceTree = "<group>"; };
+		91F3633E1F65E22B009E9B16 /* LocationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPicker.swift; path = "View and Design/LocationPicker.swift"; sourceTree = "<group>"; };
 		AB3F94BA52E62BF2AAC94983 /* Pods_True_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_True_Pass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -342,10 +344,10 @@
 				911CBAF31EF8361A00800451 /* SplitViewController.swift */,
 				91989DAF1E90DDDB00F83E1C /* MapViewController.swift */,
 				91989DA31E90024800F83E1C /* PassesViewController.swift */,
-				91989DA71E901B0C00F83E1C /* SettingsViewControllers.swift */,
 				91989DAD1E90846100F83E1C /* CheckInPassViewController.swift */,
 				911CBAF11EF817A700800451 /* TruePassesPageViewController.swift */,
 				916759FB1F3428A60091EA0A /* AdministrationTableViewController.swift */,
+				91989DA71E901B0C00F83E1C /* SettingsViewControllers.swift */,
 			);
 			name = "Primary Controllers";
 			sourceTree = "<group>";
@@ -358,6 +360,7 @@
 				91B801911EE81925003EB7AD /* CDInterfaceBuilderView.swift */,
 				9106AB5F1E9455C100CEBD7A /* Designables.swift */,
 				915244A31F42CB03000C2C40 /* LocationTypePicker.swift */,
+				91F3633E1F65E22B009E9B16 /* LocationPicker.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				919405881F3839E00067FBCD /* TruePassInfoViewControllers.swift in Sources */,
 				916E0EE81E8F6CB700911417 /* AppDelegate.swift in Sources */,
 				916976771F427CCD0018F2DC /* PinSelectionViewController.swift in Sources */,
+				91F3633F1F65E22B009E9B16 /* LocationPicker.swift in Sources */,
 				91E96E541EF07EA300C9C9F0 /* CommonDataModels.swift in Sources */,
 				91273E841EDDEAB100FB4E25 /* Accounts.swift in Sources */,
 				911CBAF41EF8361A00800451 /* SplitViewController.swift in Sources */,

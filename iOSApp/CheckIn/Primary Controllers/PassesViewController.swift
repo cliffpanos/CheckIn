@@ -222,16 +222,27 @@ class PassCell: UITableViewCell {
         
         self.nameTitle.text = pass.name 
         
-        let text = pass.startDate ?? ""
+        guard let start = pass.startDate else {
+            self.startTime.text = "No Start Date & Time"
+            return }
+        let text = C.format(date: start as Date)
         let components = text.components(separatedBy: ",")
         
         if components.count >= 3 {
             self.startTime.text = "\(components[0]) at\(components[2])"
         } else {
-            self.startTime.text = pass.startDate ?? "No Start Date & Time"
+            self.startTime.text = C.format(date: start as Date)
         }
+        
+        FirebaseStorage.shared.retrieveImageData(for: pass.identifier!, entity: .TPPass) { data, _ in
+                self.fullContactView.setupContactView(forData: data, andName: pass.name)
+                if let data = data {
+                    pass.imageData = data as NSData
+                }
+            }
+        
 
-        fullContactView.setupContactView(forData: pass.imageData as Data?, andName: pass.name)
+    //fullContactView.setupContactView(forData: pass.imageData as Data?, andName: pass.name)
         
     }
         

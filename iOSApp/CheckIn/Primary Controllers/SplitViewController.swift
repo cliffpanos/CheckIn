@@ -28,8 +28,30 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         super.viewDidLoad()
         SplitViewController.instance = self
         self.delegate = self
+        let passListService = FirebaseService(entity: .TPPassList)
+        let passService = FirebaseService(entity: .TPPass)
+        passListService.retrieveList(forIdentifier: Accounts.userIdentifier) { pairs in
+            for (passIdentifier, _) in pairs {
+                print("ID: " + passIdentifier)
+                passService.retrieveData(forIdentifier: passIdentifier) { object in
+                    let pass = object as! TPPass
+                    var contains = false
+                    for current in C.passes { if current == pass { contains = true } }
+                    if !contains {
+                        print("Adding pass to C.passes")
+                        C.passes.append(pass)
+                    }
+                    guard let root = RootViewController.instance else { return }
+                    
+                    print("switching")
+                    
+                    if !root.showingPassesTableView {
+                        root.switchToGuestRootController(withIdentifier: "splitViewController")
+                    }
+                }
+            }
+        }
 
-        // Do any additional setup after loading the view.
     }
 
 

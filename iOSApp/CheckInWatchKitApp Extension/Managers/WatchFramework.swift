@@ -136,8 +136,9 @@ class WC: NSObject {
         pass.name = passName
         pass.email = dictionary["email"] as! String?
         pass.image = dictionary["image"] as? Data
-        pass.timeStart = dictionary["timeStart"] as! String
-        pass.timeEnd = dictionary["timeEnd"] as! String
+        pass.timeStart = dictionary["startDate"] as! Date
+        pass.timeEnd = dictionary["endDate"] as! Date
+        pass.didCheckIn = dictionary["didCheckIn"] as? Bool
         return pass
     }
     

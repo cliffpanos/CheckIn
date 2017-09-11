@@ -62,7 +62,7 @@ class C: WCActivator {
         return sortedLocations
     }
 
-    static var passes: [TPPass] {
+    static var passes: [TPPass] = [] /*{
         get {
             let managedContext = C.appDelegate.persistentContainer.viewContext
             let fetchRequest: NSFetchRequest<TPPass> = TPPass.fetchRequest()
@@ -73,7 +73,7 @@ class C: WCActivator {
 
             return [TPPass]()
         }
-    }
+    }*/
     
     
     

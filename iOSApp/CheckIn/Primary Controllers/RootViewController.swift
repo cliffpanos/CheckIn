@@ -10,6 +10,12 @@ import UIKit
 
 class RootViewController: UITabBarController {
     
+    static weak var instance: RootViewController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        RootViewController.instance = self
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -19,12 +25,16 @@ class RootViewController: UITabBarController {
 //        self.tabBar.setItems(([moreItem] + currentItems), animated: true)
     }
     
+    var showingPassesTableView = false
+    
     func switchToGuestRootController(withIdentifier identifier: String) {
         print("CHANGING GUEST ROOT VIEW CONTROLLER")
         let newVC = C.storyboard.instantiateViewController(withIdentifier: identifier)
         var viewControllers = self.viewControllers!
         viewControllers[1] = newVC
         self.viewControllers = viewControllers
+        
+        showingPassesTableView = identifier != "passInfoViewController"
     }
 
 }

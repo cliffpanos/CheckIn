@@ -103,6 +103,20 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
             let image = UIImage(data: imageData as Data)
                 imageView.image = image
         }
+        print("looking")
+        var location: TPLocation? = nil
+        IDLoop: for loc in C.truePassLocations {
+            if loc.identifier == pass.locationIdentifier {
+                location = loc
+                print("found")
+                break IDLoop
+            }
+        }
+        if let location = location {
+            print("here")
+            locationTitleLabel.text = location.shortTitle
+            locationTypeLabel.text = String(describing: location.type).localizedUppercase
+        }
 
         //navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         //navigationItem.titleView?.addSubview(imageView)
@@ -122,10 +136,8 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         guard pass != nil else { return }
 
         nameLabel.text = pass.name
-        startTimeLabel.text = pass.startDate
-        endTimeLabel.text = pass.endDate
-        locationTypeLabel.text = "LOC TYPE" //TODO
-        locationTitleLabel.text = "Location Title"
+        startTimeLabel.text = C.format(date: pass.startDate! as Date)
+        endTimeLabel.text = C.format(date: pass.endDate! as Date)
         
         passActivityState.text = C.passesActive ? "PASS ACTIVE BETWEEN:" : "PASS CURRENTLY INACTIVE"
             

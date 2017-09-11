@@ -19,7 +19,11 @@ class NewPassViewController: UITableViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var startDatePicker: UITextField!
     @IBOutlet weak var endDatePicker: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var contactView: ContactView!
+    
+    @IBOutlet weak var locationPicker: LocationPicker!
+    var locationSelected = C.truePassLocations[0]
     
     var startDate: Date = Date() {
         didSet {
@@ -56,11 +60,18 @@ class NewPassViewController: UITableViewController {
         endDatePicker.inputView = datePicker
         startDatePicker.text = C.format(date: startDate)
         endDatePicker.placeholder = C.format(date: endDate)
-        
-//        if let location = preselectedLocation {
-//            //Auto-set the location
-//        }
-    
+
+        if let preSelected = preselectedLocation {
+            self.locationSelected = preSelected
+            locationTextField.text = locationSelected.shortTitle
+        } else {
+            locationTextField.text = C.truePassLocations[0].shortTitle
+        }
+        locationPicker.changeCallback = { [unowned self](location: TPLocation) in
+            self.locationSelected = location
+            self.locationTextField.text = location.shortTitle
+        }
+        locationTextField.inputView = locationPicker
     }
     
     func updateDate() {
@@ -116,23 +127,21 @@ class NewPassViewController: UITableViewController {
         let email = emailTextField.text == "" ? "no email provided" : emailTextField.text ?? ""
         let start = self.startDate
         let end = self.endDate
-        
-        let success = PassManager.save(pass: nil, firstName: firstName, lastName: lastName, andEmail: email, andImage: imageData, from: start, to: end)
-        
-        if success {
-            self.dismiss(animated: true) {
-                print("success")
-                if let guestInfoVC = UIWindow.presented.viewController as? GuestsInfoViewController {
-                    print("switching")
-                    guestInfoVC.switchToSplitVC()
-                }
-                if let vc = UIWindow.presented.viewController as? PassesViewController {
-                    vc.tableView.reloadData()
-                }
+
+        let pass = PassManager.save(pass: nil, firstName: firstName, lastName: lastName, andEmail: email, andImage: imageData, from: start, to: end, forLocation: locationSelected.identifier!)
+        C.passes.append(pass)
+
+        self.dismiss(animated: true) {
+            print("success")
+            if let guestInfoVC = UIWindow.presented.viewController as? GuestsInfoViewController {
+                print("switching")
+                guestInfoVC.switchToSplitVC()
             }
-        } else {
-            self.showSimpleAlert("Failed to save Pass", message: "The pass could not be saved at this time.")
+            if let vc = UIWindow.presented.viewController as? PassesViewController {
+                vc.tableView.reloadData()
+            }
         }
+
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

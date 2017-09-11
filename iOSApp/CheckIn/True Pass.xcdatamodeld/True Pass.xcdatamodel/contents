@@ -32,18 +32,18 @@
     <entity name="TPLocationKeywordList" representedClassName="TPLocationKeywordList" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class"/>
     <entity name="TPLocationList" representedClassName="TPLocationList" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class"/>
     <entity name="TPLocationTileList" representedClassName="TPLocationTileList" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class"/>
-    <entity name="TPPass" representedClassName="TPPass" parentEntity="FirebaseObject" syncable="YES">
+    <entity name="TPPass" representedClassName="TPPass" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class">
         <attribute name="accessCodeQR" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="didCheckIn" optional="YES" attributeType="Boolean" allowsExternalBinaryDataStorage="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="startDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TPPassList" representedClassName="TPPassList" parentEntity="FirebaseObject" syncable="YES" codeGenerationType="class"/>
@@ -69,18 +69,18 @@
     </entity>
     <elements>
         <element name="FirebaseObject" positionX="-36" positionY="90" width="128" height="60"/>
+        <element name="TPAdminList" positionX="-27" positionY="99" width="128" height="45"/>
         <element name="TPAffiliation" positionX="-36" positionY="45" width="128" height="180"/>
+        <element name="TPAffiliationList" positionX="-9" positionY="117" width="128" height="45"/>
         <element name="TPLocation" positionX="115" positionY="-3" width="128" height="210"/>
+        <element name="TPLocationKeywordList" positionX="-18" positionY="108" width="128" height="45"/>
         <element name="TPLocationList" positionX="-18" positionY="108" width="128" height="45"/>
+        <element name="TPLocationTileList" positionX="-36" positionY="90" width="128" height="45"/>
         <element name="TPPass" positionX="-180" positionY="-9" width="128" height="225"/>
+        <element name="TPPassList" positionX="0" positionY="126" width="128" height="45"/>
         <element name="TPPayment" positionX="-27" positionY="99" width="128" height="90"/>
         <element name="TPUser" positionX="-18" positionY="63" width="128" height="120"/>
         <element name="TPUserList" positionX="-27" positionY="99" width="128" height="45"/>
         <element name="TPVisit" positionX="-36" positionY="45" width="128" height="120"/>
-        <element name="TPLocationTileList" positionX="-36" positionY="90" width="128" height="45"/>
-        <element name="TPAdminList" positionX="-27" positionY="99" width="128" height="45"/>
-        <element name="TPLocationKeywordList" positionX="-18" positionY="108" width="128" height="45"/>
-        <element name="TPAffiliationList" positionX="-9" positionY="117" width="128" height="45"/>
-        <element name="TPPassList" positionX="0" positionY="126" width="128" height="45"/>
     </elements>
 </model>

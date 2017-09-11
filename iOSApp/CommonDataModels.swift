@@ -79,9 +79,9 @@ enum TPUserGeoDeviceType {
  @NSManaged public var title: String?
 }*/
 
-class TPPass: FirebaseObject {
+extension TPPass {
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<TPPass> {
+   /* @nonobjc public class func fetchRequest() -> NSFetchRequest<TPPass> {
         return NSFetchRequest<TPPass>(entityName: "TPPass")
     }
         
@@ -97,7 +97,7 @@ class TPPass: FirebaseObject {
     @NSManaged public var startDate: String?
     @NSManaged public var uid: String?
     @NSManaged public var imageData: NSData?
-    
+    */
     public var name: String {
         return (firstName ?? "") + " " + (lastName ?? "")
     }
@@ -152,7 +152,6 @@ extension TPLocation: MKAnnotation {
     }
     
     static func == (lhs: TPLocation, rhs: TPLocation) -> Bool {
-        print(lhs.identifier == rhs.identifier)
         return lhs.identifier == rhs.identifier
     }
     

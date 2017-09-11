@@ -14,17 +14,22 @@ class PassManager {
     
     //MARK: - Handle Guest Pass Functionality with Core Data
     
-    static func save(pass: TPPass?, firstName: String, lastName: String, andEmail email: String, andImage imageData: Data?, from startTime: Date, to endTime: Date) -> Bool {
+    static func save(pass: TPPass?, firstName: String, lastName: String, andEmail email: String, andImage imageData: Data?, from startTime: Date, to endTime: Date, forLocation locationID: String) -> TPPass {
         
         let managedContext = C.appDelegate.persistentContainer.viewContext
         
-        let pass = pass ?? TPPass(context: managedContext)
+        let pass = pass ?? TPPass(.TPPass)
         
         pass.firstName = firstName
         pass.lastName = lastName
         pass.email = email
-        pass.startDate = C.format(date: startTime)
-        pass.endDate = C.format(date: endTime)
+        pass.startDate = startTime as NSDate
+        pass.endDate = endTime as NSDate
+        pass.accessCodeQR = "\(Date().addingTimeInterval(TimeInterval(arc4random())).timeIntervalSince1970)"
+        pass.isActive = true
+        pass.didCheckIn = false
+        pass.locationIdentifier = locationID
+        pass.phoneNumber = ""
         
         if let data = imageData, let image = UIImage(data: data) {
             print("OLD IMAGE SIZE: \(data.count)")
@@ -35,13 +40,31 @@ class PassManager {
             pass.imageData = data as NSData
         }
         
+        let passService = FirebaseService(entity: .TPPass)
+        let identifier = passService.newIdentifierKey
+        passService.enterData(forIdentifier: identifier, data: pass)
+        passService.addChildData(forIdentifier: identifier, key: "startDate", value: pass.startDate!.timeIntervalSince1970)
+        passService.addChildData(forIdentifier: identifier, key: "endDate", value: pass.endDate!.timeIntervalSince1970)
+
+        let passListService = FirebaseService(entity: .TPPassList)
+        passListService.addChildData(forIdentifier: Accounts.userIdentifier, key: identifier, value: locationID)
+        passListService.addChildData(forIdentifier: locationID, key: identifier, value: Accounts.userIdentifier)
+        //passListService.reference.child(Accounts.userIdentifier).setValue(locationID)
+        //passListService.reference.child(locationID).setValue(Accounts.userIdentifier)
+        
+        guard let data = pass.imageData as Data? else { return pass }
+        FirebaseStorage.shared.uploadImage(data: data, for: .TPPass, withIdentifier: identifier) { metadata, error in
+            if let error = error { print("Error uploading pass image!!") }
+        }
+        
+        
         defer {
             let passData = PassManager.preparedData(forPass: pass)
             let newPassInfo = [WCD.KEY: WCD.singleNewPass, WCD.passPayload: passData] as [String : Any]
             C.session?.transferUserInfo(newPassInfo)
         }
         
-        return C.appDelegate.saveContext()
+        return pass
         
     }
     
@@ -69,7 +92,7 @@ class PassManager {
     
     static func preparedData(forPass pass: TPPass, includingImage: Bool = true) -> Data {
         
-        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "startDate", "endDate"])
+        var dictionary = pass.dictionaryWithValues(forKeys: ["name", "email", "startDate", "endDate", "didCheckIn"])
         
         if includingImage, let imageData = pass.imageData as Data?, let image = UIImage(data: imageData) {
             

@@ -66,7 +66,7 @@ class CheckInPassViewController: ManagedViewController {
         let currentBrightness = UIScreen.main.brightness
         if (currentBrightness > CheckInPassViewController.targetBrightness + 0.025 || currentBrightness < CheckInPassViewController.targetBrightness - 0.025) {
             UIScreen.main.brightness += (currentBrightness < targetBrightness ? 0.025 : -0.025)
-            perform(#selector(updateScreenBrightness), with: nil, afterDelay: 0.01)
+            perform(#selector(updateScreenBrightness), with: nil, afterDelay: 0.008)
         }
     }
     
