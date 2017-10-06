@@ -41,7 +41,7 @@ class TruePassPageViewController: UIPageViewController, UIPageViewControllerDele
             if let pageControl = view as? UIPageControl {
                 pageControl.backgroundColor = UIColor.white
                 pageControl.currentPageIndicatorTintColor = isEmpty ? UIColor.white : UIColor.TrueColors.trueBlue
-                pageControl.pageIndicatorTintColor = UIColor.TrueColors.lightestBlueGray
+                pageControl.pageIndicatorTintColor = UIColor.TrueColors.lightBlueGray
             }
         }
     }

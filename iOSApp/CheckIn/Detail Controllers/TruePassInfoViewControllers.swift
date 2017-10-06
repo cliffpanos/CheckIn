@@ -41,7 +41,7 @@ class AboutTruePassTableViewController: UITableViewController {
 
 }
 
-class TruePassDevelopmentTableViewController: UITableViewController {
+class TruePassDevelopmentViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
     

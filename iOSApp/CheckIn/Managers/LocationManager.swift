@@ -139,14 +139,14 @@ class LocationManager {
         mapView.setRegion(newRegion, animated: true)
     }
     
-    static func zoom(to location: CLLocationCoordinate2D, in mapView: MKMapView, sizeDelta: Double = 0.05) {
+    static func zoom(to location: CLLocationCoordinate2D, in mapView: MKMapView, sizeDelta: Double = 0.02) {
         let newRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: sizeDelta, longitudeDelta: sizeDelta))
         mapView.setRegion(newRegion, animated: true)
     }
     
     static func zoomToUserLocation(in mapView: MKMapView) {
         guard let location = userLocation else { return }
-        let newRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+        let newRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(newRegion, animated: true)
     }
     

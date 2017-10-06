@@ -105,9 +105,8 @@ class LocationDetailTableViewController: UITableViewController {
             let passViewController = segue.destination as! CheckInPassViewController
             passViewController.locationForPass = location
         } else if segue.identifier == "toNewGuestPass" {
-//            TODO implement this
-//            let newPassViewController = segue.destination as! NewPassViewController
-//            newPassViewController.preselectedLocation = location
+            let newPassViewController = segue.destination as! NewPassNavController
+            newPassViewController.preselectedLocation = location
         } else if segue.identifier == "toAdminController" {
             let adminViewController = segue.destination as! AdministrationTableViewController
             adminViewController.location = location

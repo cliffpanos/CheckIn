@@ -24,19 +24,25 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         super.viewDidLoad()
         
         searchBar = searchDisplay.searchBar
-        searchBar.placeholder = "Search guest passes"
+        searchBar.placeholder = "Search by name"
         searchBar.autocapitalizationType = .words
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
         searchDisplay.obscuresBackgroundDuringPresentation = false
         self.searchDisplay.searchResultsUpdater = self
         
-        
-        tableView.tableHeaderView = searchDisplay.searchBar
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationItem.searchController = searchDisplay
+            self.navigationItem.hidesSearchBarWhenScrolling = true
+            navigationItem.largeTitleDisplayMode = .automatic
+        } else {
+            tableView.tableHeaderView = searchDisplay.searchBar
+        }
         
         //Hide the search bar on initial launch
-        let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
-        tableView.setContentOffset(offset, animated: true)
+        //let offset = CGPoint(x: 0, y: (self.navigationController?.navigationBar.frame.height)!)
+        //tableView.setContentOffset(offset, animated: true)
         
         //Make the tableView editable from the Navigation Bar
         navigationItem.leftBarButtonItem = self.editButtonItem
@@ -53,7 +59,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
         
         if C.passes.count == 0 { switchToGuestGettingStarted() }
 
-        self.navigationItem.leftBarButtonItem?.isEnabled = tableView.visibleCells.count != 0
+        //self.navigationItem.leftBarButtonItem?.isEnabled = tableView.visibleCells.count != 0
         tableView.reloadData()
         
         //TODO FIX THIS
@@ -233,16 +239,8 @@ class PassCell: UITableViewCell {
         } else {
             self.startTime.text = C.format(date: start as Date)
         }
-        
-        FirebaseStorage.shared.retrieveImageData(for: pass.identifier!, entity: .TPPass) { data, _ in
-                self.fullContactView.setupContactView(forData: data, andName: pass.name)
-                if let data = data {
-                    pass.imageData = data as NSData
-                }
-            }
-        
 
-    //fullContactView.setupContactView(forData: pass.imageData as Data?, andName: pass.name)
+    fullContactView.setupContactView(forData: pass.imageData as Data?, andName: pass.name)
         
     }
         

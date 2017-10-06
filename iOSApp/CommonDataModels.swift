@@ -30,7 +30,7 @@ enum TPLocationType: String {
         School : "School",
         Event : "Event",
         Organization : "Organization",
-        Other : "truePassLaunch",
+        Other : "Other",
         ]
 }
 

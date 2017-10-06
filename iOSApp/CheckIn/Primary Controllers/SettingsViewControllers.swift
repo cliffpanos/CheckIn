@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsViewController: ManagedViewController {
 
@@ -26,6 +27,7 @@ class SettingsViewController: ManagedViewController {
                     print("Error Retrieving profile picture!! --------- \(error.localizedDescription)")
                 } else {
                     self.userProfileImage.image = UIImage(data: data!)
+                    Accounts.userImageData = data
                 }
             }
         //}
@@ -104,12 +106,11 @@ class SettingsViewController: ManagedViewController {
         }
         photoPicker.pickImageConsideringAuth()
     }
-    
 
 }
 
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     let TPEmailCellID = "emailCell"
     let TPLocationCountCellID = "locationCountCell"
@@ -125,6 +126,27 @@ class SettingsTableViewController: UITableViewController {
         if !didLoad {
             tableView.reloadData()
             didLoad = true
+        }
+    }
+    
+    func emailAdmin(named name: String, withAddress emailAddress: String) {
+        
+        guard MFMailComposeViewController.canSendMail() else {
+            self.showSimpleAlert("Unable to send Mail", message: nil); return
+        }
+        let mailController = MFMailComposeViewController()
+        mailController.mailComposeDelegate = self
+        mailController.setToRecipients([emailAddress])
+        mailController.setSubject("True Pass Location Inquiry")
+        mailController.setMessageBody("Hi \(name), ", isHTML: false)
+        self.present(mailController, animated: true)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true) {
+            if let error = error {
+                self.showSimpleAlert("The email failed to send", message: error.localizedDescription)
+            }
         }
     }
     
@@ -169,8 +191,9 @@ class SettingsTableViewController: UITableViewController {
                         let alert = UIAlertController(title: "Email Administrators", message: nil, preferredStyle: .actionSheet)
                         for (index, email) in emails.enumerated() {
                             let action = UIAlertAction(title: names[index], style: UIAlertActionStyle.default, handler: {_ in
-                                    UIPasteboard.general.string = email
-                                    self.showSimpleAlert("Email Copied to Clipboard.", message: nil)
+                                    self.emailAdmin(named: names[index], withAddress: email)
+                                    //UIPasteboard.general.string = email
+                                    //self.showSimpleAlert("Email Copied to Clipboard.", message: nil)
                                 })
                             alert.addAction(action)
                         }

@@ -145,7 +145,6 @@
 		911CBAF11EF817A700800451 /* TruePassesPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TruePassesPageViewController.swift; path = "Primary Controllers/TruePassesPageViewController.swift"; sourceTree = "<group>"; };
 		911CBAF31EF8361A00800451 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = "Primary Controllers/SplitViewController.swift"; sourceTree = "<group>"; };
 		911FC20C1EA6CBBD00B6936F /* PassDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDetailInterfaceController.swift; sourceTree = "<group>"; };
-		9120FD111EE8986100B107AB /* LocationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationTest.gpx; sourceTree = "<group>"; };
 		91273E7F1EDDEAB100FB4E25 /* FirebaseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseObjects.swift; path = Managers/DataServices/FirebaseObjects.swift; sourceTree = "<group>"; };
 		91273E801EDDEAB100FB4E25 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = Managers/DataServices/FirebaseService.swift; sourceTree = "<group>"; };
 		91273E811EDDEAB100FB4E25 /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Accounts.swift; path = Managers/DataServices/Accounts.swift; sourceTree = "<group>"; };
@@ -395,7 +394,6 @@
 			children = (
 				917FDA051EB816A700616173 /* True Pass.entitlements */,
 				911B7E611EE76E150074D338 /* Testing.swift */,
-				9120FD111EE8986100B107AB /* LocationTest.gpx */,
 				91E96E531EF07EA300C9C9F0 /* CommonDataModels.swift */,
 				910134591EB521F8006D11AD /* Managers */,
 				9169EE191EB2FAD20018C434 /* Models */,

@@ -9,9 +9,12 @@
 import UIKit
 import ContactsUI
 
+class NewPassNavController: UINavigationController {
+    var preselectedLocation: TPLocation?
+}
+
 class NewPassViewController: UITableViewController {
 
-    var preselectedLocation: TPLocation?
     var textFieldManager: CPTextFieldManager!
     
     @IBOutlet weak var fNameTextField: UITextField!
@@ -61,7 +64,7 @@ class NewPassViewController: UITableViewController {
         startDatePicker.text = C.format(date: startDate)
         endDatePicker.placeholder = C.format(date: endDate)
 
-        if let preSelected = preselectedLocation {
+        if let preSelected = (self.navigationController as! NewPassNavController).preselectedLocation {
             self.locationSelected = preSelected
             locationTextField.text = locationSelected.shortTitle
         } else {

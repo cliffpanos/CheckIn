@@ -25,7 +25,7 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
             locationManager.requestAlwaysAuthorization()
         }
-        
+        locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
         mapView.mapType = .standard
 //        outerMapButtonsView.shadowed()
@@ -46,6 +46,10 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        reloadAllLocations()
+    }
+    
+    func reloadAllLocations() {
         let userListService = FirebaseService(entity: .TPUserList)
         let locationService = FirebaseService(entity: .TPLocation)
         userListService.retrieveList(forIdentifier: Accounts.userIdentifier) { pairs in
@@ -78,26 +82,12 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
     }
     
     @IBAction func selectMapType(_ sender: UIButton) {
-        func changeTo(mapType: MKMapType) {
-            self.mapView.mapType = mapType
-        }
-        let alert = UIAlertController(title: "Map Type", message: nil, preferredStyle: .actionSheet)
-        let standard = UIAlertAction(title: "Standard", style: .default) {_ in changeTo(mapType: .standard)}
-        let satellite = UIAlertAction(title: "Satellite", style: .default) {_ in changeTo(mapType: .satellite)}
-        let hybrid = UIAlertAction(title: "Hybrid", style: .default) {_ in changeTo(mapType: .hybrid)}
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in alert.dismiss(animated: true) })
-        alert.addAction(standard); alert.addAction(satellite); alert.addAction(hybrid); alert.addAction(cancel)
-        if let popover = alert.popoverPresentationController {
-            popover.sourceView = sender
-            popover.sourceRect = sender.bounds
-            popover.permittedArrowDirections = [.down]
-        }
-        self.present(alert, animated: true)
+        LocationManager.chooseMapType(for: mapView, from: sender, arrow: .down, in: self)
     }
     
     @IBOutlet weak var zoomToUserLocationButton: CDButton!
     @IBAction func zoomButtonPressed(_ sender: Any) {
-        zoomToUserLocation()
+        LocationManager.zoomToUserLocation(in: mapView)
     }
     
     func zoomToCheckInLocation() {
@@ -107,17 +97,19 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func zoomToUserLocation() {
-        zoom(to: mapView.userLocation.coordinate, withViewSize: 0.03)
+        LocationManager.zoomToUserLocation(in: mapView)
     }
     
     func zoom(to location: CLLocationCoordinate2D, withViewSize sizeDelta: CLLocationDegrees) {
         let newRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: sizeDelta, longitudeDelta: sizeDelta))
         mapView.setRegion(newRegion, animated: true)
+        let camera = MKMapCamera(lookingAtCenter: location, fromEyeCoordinate: CLLocationCoordinate2D(latitude: location.latitude - 0.001, longitude: location.longitude - 0.001), eyeAltitude: 1)
+        mapView.setCamera(camera, animated: true)
     }
 
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        mapView.showsUserLocation = (status == .authorizedAlways)
+        mapView.showsUserLocation = ((status == .authorizedAlways) || status == .authorizedWhenInUse)
         //zoomToUserLocation()
     }
     

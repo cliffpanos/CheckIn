@@ -15,6 +15,38 @@ class RootViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         RootViewController.instance = self
+        let passListService = FirebaseService(entity: .TPPassList)
+        let passService = FirebaseService(entity: .TPPass)
+        passListService.retrieveList(forIdentifier: Accounts.userIdentifier) { pairs in
+            for (passIdentifier, _) in pairs {
+                passService.retrieveData(forIdentifier: passIdentifier) { object in
+                    let pass = object as! TPPass
+                    var contains = false
+                    for current in C.passes { if current == pass { contains = true } }
+                    if !contains {
+                        print("Adding pass to C.passes")
+                        C.passes.append(pass)
+                    }
+                    guard let root = RootViewController.instance else { return }
+                    
+                    print("switching")
+                    
+                    if !root.showingPassesTableView {
+                        root.switchToGuestRootController(withIdentifier: "splitViewController")
+                    }
+                    
+                    FirebaseStorage.shared.retrieveImageData(for: passIdentifier, entity: .TPPass) { data, _ in
+                        if let data = data {
+                            pass.imageData = data as NSData
+                        }
+                    }
+                }
+
+            }
+        }
+        
+        
+
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
