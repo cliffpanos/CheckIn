@@ -83,7 +83,7 @@ class NewAccountViewController: UITableViewController {
     }
     
     //Called by the tap gesture recognizer
-    internal func editPhotoFromSelector() {
+    @objc internal func editPhotoFromSelector() {
         chooseContactPhoto(editPhotoButton)
     }
     

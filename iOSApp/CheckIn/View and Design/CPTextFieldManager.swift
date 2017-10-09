@@ -109,7 +109,7 @@ class CPTextFieldManager: NSObject, UITextFieldDelegate {
         textFields.last!.becomeFirstResponder()
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.viewController.view.endEditing(true)
     }
 

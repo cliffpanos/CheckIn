@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseDatabase
 
 class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -37,33 +38,67 @@ class MapViewController: ManagedViewController, MKMapViewDelegate, CLLocationMan
         }
         
         if let userLocation = LocationManager.userLocation {
-            zoom(to: userLocation.coordinate, withViewSize: 0.015)
+            zoom(to: userLocation.coordinate, withViewSize: 0.03)
         } else {
             zoomToCheckInLocation()
         }
         let _ = LocationManager.coreDataLocations
+        reloadAllLocations()
+        
+        let userListService = FirebaseService(entity: .TPUserList)
+        userListService.reference.child(Accounts.userIdentifier).observe(DataEventType.childAdded, with: { dataSnapshot in
+            let locationIdentifier = dataSnapshot.key
+            let locationService = FirebaseService(entity: .TPLocation)
+            locationService.retrieveData(forIdentifier: locationIdentifier) { object in
+                let location = object as! TPLocation
+                var contains = false
+                for current in C.truePassLocations { if current == location { contains = true } }
+                if !contains {
+                    print("Adding location to collection view")
+                    C.truePassLocations.append(location)
+                    self.mapView.addAnnotation(location)
+                    self.collectionView.reloadData()
+                }
+            }
+        })
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadAllLocations()
     }
     
     func reloadAllLocations() {
         let userListService = FirebaseService(entity: .TPUserList)
         let locationService = FirebaseService(entity: .TPLocation)
         userListService.retrieveList(forIdentifier: Accounts.userIdentifier) { pairs in
+            
+            let numberOfLocations = pairs.count
+            var validRefreshedLocationIdentifiers = [String]()
+            
+            var currentIndex = 0
             for (locationIdentifier, _) in pairs {
                 locationService.retrieveData(forIdentifier: locationIdentifier) { object in
                     let location = object as! TPLocation
                     var contains = false
                     for current in C.truePassLocations { if current == location { contains = true } }
                     if !contains {
+                        validRefreshedLocationIdentifiers.append(location.identifier!)
                         print("Adding location to collection view")
                         C.truePassLocations.append(location)
                         self.mapView.addAnnotation(location)
                         self.collectionView.reloadData()
                     }
+                    
+                    //TODO: handle updating of CoreDataLocations
+                    
+                    if currentIndex == numberOfLocations - 1 {
+                        //Then we have done the work for the last possible location
+                        let allLocationsUpdatedNotification = Notification(name: Notification.Name.init("AllLocationsUpdated"))
+                        NotificationCenter.default.post(allLocationsUpdatedNotification)
+                    }
+                    currentIndex += 1
+
                 }
             }
         }
@@ -239,7 +274,7 @@ class LocationCell: UICollectionViewCell {
         
     }
     
-    func goToLocationOnMap() {
+    @objc func goToLocationOnMap() {
         mapViewController?.zoom(to: location.coordinate, withViewSize: 0.01)
     }
     

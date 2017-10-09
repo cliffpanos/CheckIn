@@ -59,7 +59,13 @@ class FirebaseStorage {
         }
     }
     
-    
+    func deleteImage(forEntity entity: FirebaseEntity, withIdentifier identifier: String) {
+        guard entity == .TPPass || entity == .TPUser || entity == .TPLocation else {
+            print("This type of entity does not have image data")
+            return
+        }
+        storageRef.child(entity.rawValue).child(identifier).delete(completion: nil)
+    }
     
     
 }

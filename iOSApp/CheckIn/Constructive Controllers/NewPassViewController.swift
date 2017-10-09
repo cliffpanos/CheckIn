@@ -77,7 +77,7 @@ class NewPassViewController: UITableViewController {
         locationTextField.inputView = locationPicker
     }
     
-    func updateDate() {
+    @objc func updateDate() {
         if startDatePicker.isEditing {
             startDate = datePicker.date
         } else {

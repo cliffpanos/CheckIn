@@ -72,7 +72,7 @@ enum WCD {
 class WCActivator {
     static func set(_ session: inout WCSession?, for delegate: WCSessionDelegate) {
         if WCSession.isSupported() {
-            session = WCSession.default()
+            session = WCSession.default
             session?.delegate = delegate
             session?.activate()
             print("WCSession activated by WCActivator!")

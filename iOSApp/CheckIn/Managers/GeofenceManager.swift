@@ -12,13 +12,25 @@ import CoreLocation
 
 class GeofenceManager {
     
+    static var locationManager: CLLocationManager = LocationManager.sharedLocationManager
+    static let thisDeviceUUID = UIDevice.current.identifierForVendor
+    
     class var deviceIsAssignedToMonitor: Bool {
         get { return C.getFromUserDefaults(withKey: "deviceIsAssignedToMonitor") as? Bool ?? false}
         set { C.persistUsingUserDefaults(newValue, forKey: "deviceIsAssignedToMonitor")}
     }
     
     static func validateGeofenceMonitoring() {
-        //TODO
+        
+        guard deviceIsAssignedToMonitor else {
+            return
+        }
+        
+        let regions = locationManager.monitoredRegions
+
+        for location in C.truePassLocations {
+            //ensure that the updated pass has been received
+        }
     }
     
     static func createGeofence(for location: TPLocation) {

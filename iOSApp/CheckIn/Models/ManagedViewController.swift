@@ -27,11 +27,11 @@ class ManagedViewController: UIViewController {
         self.managedScrollViewForKeyboard = scrollView
     }
     
-    func keyboardWillShow(notification: Notification) {
+    @objc func keyboardWillShow(notification: Notification) {
         adjustInsetForKeyboardShowing(true, notification: notification)
     }
     
-    func keyboardWillHide(notification: Notification) {
+    @objc func keyboardWillHide(notification: Notification) {
         adjustInsetForKeyboardShowing(false, notification: notification)
     }
     
@@ -45,7 +45,7 @@ class ManagedViewController: UIViewController {
         scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
     }
     
-    func deviceOrientationDidChange() {
+    @objc func deviceOrientationDidChange() {
         //Meant to be overridden
     }
     

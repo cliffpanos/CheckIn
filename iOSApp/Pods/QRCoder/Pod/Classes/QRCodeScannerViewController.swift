@@ -11,7 +11,7 @@ import AVFoundation
 public class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 {
     var captureSession: AVCaptureSession = AVCaptureSession()
-    var captureDevice:AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    var captureDevice:AVCaptureDevice? = AVCaptureDevice.default(for: AVMediaType.video)
     var deviceInput:AVCaptureDeviceInput?
     var metadataOutput:AVCaptureMetadataOutput = AVCaptureMetadataOutput()
     var videoPreviewLayer:AVCaptureVideoPreviewLayer!
@@ -26,7 +26,7 @@ public class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOut
         highlightView.layer.borderColor = (UIColor.green as! CGColor)
         highlightView.layer.borderWidth = 3
 
-        let preset = AVCaptureSessionPresetHigh
+        let preset = AVCaptureSession.Preset.high
         if(captureSession.canSetSessionPreset(preset)) {
             captureSession.sessionPreset = preset
         }
@@ -44,7 +44,7 @@ public class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOut
         view.addSubview(highlightView)
         
         do {
-            deviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            deviceInput = try AVCaptureDeviceInput(device: captureDevice!)
         } catch let error as NSError {
              didFailWithError(error: error)
             return
@@ -60,7 +60,7 @@ public class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOut
         metadataOutput.metadataObjectTypes = metadataOutput.availableMetadataObjectTypes
         
         videoPreviewLayer.frame = self.view.bounds;
-        videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
         view.layer.addSublayer(videoPreviewLayer)
         view.bringSubview(toFront: highlightView)
     }
@@ -157,7 +157,7 @@ public class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOut
         for metadata in metadataObjects {
             if let metadataObject = metadata as? AVMetadataObject {
                 
-                if (metadataObject.type == AVMetadataObjectTypeQRCode) {
+                if (metadataObject.type == AVMetadataObject.ObjectType.qr) {
                     barCodeObject = videoPreviewLayer.transformedMetadataObject(for: metadataObject) as! AVMetadataMachineReadableCodeObject
                     highlightViewRect = barCodeObject.bounds
                     self.highlightView.frame = highlightViewRect

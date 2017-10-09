@@ -63,7 +63,7 @@ class SettingsViewController: ManagedViewController {
     }
     
     @IBAction func editImage(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Edit Profile Picture", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Change Profile Picture", message: nil, preferredStyle: .actionSheet)
         let photosAction = UIAlertAction(title: "Choose from Photos", style: .default) {_ in
             self.changeProfileImage(sender: sender)
         }
@@ -204,7 +204,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
                         let cell = tableView.cellForRow(at: indexPath)!
                         var accessoryView: UIView!
                         for view in cell.subviews {
-                            if view is UIButton { accessoryView = view }
+                            if view is UIButton { accessoryView = view; break }
                         }
                         alert.popoverPresentationController?.sourceRect = accessoryView!.bounds
                         alert.popoverPresentationController?.sourceView = accessoryView
@@ -234,7 +234,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let footers = ["",
             "Contact & manage your True Pass Locations",
-            "Instantly turn geofence notifications for all locations on or off.",
+            "Receive a notification when you enter the geofence of a location.",
         ""]
         return footers[section]
     }
@@ -242,7 +242,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         if UIDevice.current.userInterfaceIdiom == .pad {
             for subview in tableView.cellForRow(at: indexPath)!.subviews {
                 if String(describing: subview.classForCoder) == "UITableViewCellSelectedBackground" {
-                    print("made it")
                     subview.layer.cornerRadius = 5; subview.layer.masksToBounds = true
                 }
             }

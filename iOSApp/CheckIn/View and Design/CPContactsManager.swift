@@ -39,7 +39,7 @@ class CPContactsManager: NSObject,CNContactPickerDelegate {
         if authStatus == .authorized {
             presentContactPicker()
         } else if authStatus == .notDetermined {
-            viewController.showOptionsAlert("Access Contacts?", message: "Would you like to allow True Pass to access your contacts?", left: "No", right: "Yes", handlerOne: nil, handlerTwo: { _ in
+            viewController.showOptionsAlert("Access Contacts?", message: "Would you like to allow True Pass to access your contacts?", left: "No", right: "Yes", handlerOne: nil, handlerTwo: {
                 
                 let contactsStore = CNContactStore()
                 contactsStore.requestAccess(for: .contacts) {
@@ -54,7 +54,7 @@ class CPContactsManager: NSObject,CNContactPickerDelegate {
                 
             })
         } else {
-            viewController.showOptionsAlert("True Pass Not Authorized", message: goToSettingsMessage, left: "OK", right: "Settings", handlerOne: nil) { _ in
+            viewController.showOptionsAlert("True Pass Not Authorized", message: goToSettingsMessage, left: "OK", right: "Settings", handlerOne: nil) {
                 if let settingsAppURL = URL(string: UIApplicationOpenSettingsURLString) {
                     UIApplication.shared.open(settingsAppURL)
                 }

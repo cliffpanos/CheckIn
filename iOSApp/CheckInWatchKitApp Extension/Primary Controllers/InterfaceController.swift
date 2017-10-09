@@ -67,7 +67,7 @@ class InterfaceController: ManagedInterfaceController {
 
     }
     
-    func refreshAllPasses() {
+    @objc func refreshAllPasses() {
         WC.passes = []    //Necessary?
         WC.requestPassesFromiOS()
     }

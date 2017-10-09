@@ -55,10 +55,10 @@ class ManagedInterfaceController: WKInterfaceController {
     }
     
     //Menu Item selector functions below:
-    func showUserCheckInPass() {
+    @objc func showUserCheckInPass() {
         self.presentController(withName: "checkInPassInterfaceController", context: nil)
     }
-    func showMapInterfaceController() {
+    @objc func showMapInterfaceController() {
         if (self is CheckInPassInterfaceController || self is PassDetailInterfaceController) { self.dismiss() }
         MapViewInterfaceController.instance?.becomeCurrentPage()
     }

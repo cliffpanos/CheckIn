@@ -14,11 +14,14 @@ class DatabaseManager {
     
     static let shared = DatabaseManager()
     static var isConnected: Bool = false
+    static var reference: DatabaseReference!
     internal var connectedReference: DatabaseReference!
     
     init() {
         print("Monitoring for connection")
-        connectedReference = Database.database().reference(withPath: ".info/connected")
+        let database = Database.database()
+        DatabaseManager.reference = database.reference()
+        connectedReference = database.reference(withPath: ".info/connected")
         connectedReference.observe(.value, with: { snapshot in
             if snapshot.value as? Bool ?? false {
                 print("Connected to Database!")

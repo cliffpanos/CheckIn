@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import QRCodeReader
 
 class LoginViewController: ManagedViewController {
 

@@ -120,7 +120,7 @@ class LocationManager {
         func changeTo(mapType: MKMapType) {
             mapView.mapType = mapType
         }
-        let alert = UIAlertController(title: "Show", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let standard = UIAlertAction(title: "Map", style: .default) {_ in changeTo(mapType: .standard)}
         let satellite = UIAlertAction(title: "Satellite", style: .default) {_ in changeTo(mapType: .satellite)}
         let hybrid = UIAlertAction(title: "Hybrid", style: .default) {_ in changeTo(mapType: .hybrid)}

@@ -41,7 +41,6 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - QRCoder (0.3.0)
-  - QRCodeReader (1.2)
 
 DEPENDENCIES:
   - Firebase/Core
@@ -49,7 +48,6 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseDatabase (~> 4.0)
   - QRCoder
-  - QRCodeReader
 
 SPEC CHECKSUMS:
   Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
@@ -63,8 +61,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   QRCoder: 92f20e157132630da4da05e9a69cdbe128a4cd08
-  QRCodeReader: be8d663cd428ab4cc2583ef568b93f8e9462e43e
 
-PODFILE CHECKSUM: e47be114e3afe4560638d98000456f3f41675d94
+PODFILE CHECKSUM: c6bb577de499fcae4e1052e6d1253f77e2ab7445
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

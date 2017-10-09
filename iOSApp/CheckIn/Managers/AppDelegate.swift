@@ -77,12 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         C.appDelegate = self
         WCActivator.set(&C.session, for: self)
         
-        if let currentUser = Accounts.shared.current {
-            FirebaseService(entity: .TPUser).retrieveData(forIdentifier: currentUser.uid, completion: { user in
-                Accounts.currentUser = (user as! TPUser)
-            })
-        }
-        Testing.setupForTesting()
+//        if let currentUser = Accounts.shared.current {
+//            FirebaseService(entity: .TPUser).retrieveData(forIdentifier: currentUser.uid, completion: { user in
+//                Accounts.currentUser = (user as! TPUser)
+//            })
+//        }
         let _ = DatabaseManager.shared //initialize the lazy variable to start monitoring
         
         //LoginViewController

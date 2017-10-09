@@ -28,6 +28,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         super.viewDidLoad()
         SplitViewController.instance = self
         self.delegate = self
+        self.presentsWithGesture = true
     }
 
 
@@ -39,7 +40,6 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         print("primary for collapsing \(viewControllers[0])")
         return viewControllers[0]
     }
-    
     
     func splitViewController(_ svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool {
         //print("hide? \(vc)")

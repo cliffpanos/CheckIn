@@ -10,7 +10,6 @@ target 'True Pass' do
   pod 'FirebaseAuth'
   pod 'Firebase/Storage'
   pod "QRCoder"
-  pod "QRCodeReader"
 
   # Pods for TruePass
 

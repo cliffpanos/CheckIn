@@ -24,7 +24,7 @@ enum FirebaseEntity: String {
     
     case TPAffiliationList
     case TPUserList
-    case TPPassList
+    case TPPassList //A list using the USER that created it as a key and ALSO the location that it has as a key
     case TPVisitList
     case TPLocationList //???does not exist because Users only ever have very few locations, so worrying about nesting would be unncessary as we are on the order of magnitude of 10^1
     

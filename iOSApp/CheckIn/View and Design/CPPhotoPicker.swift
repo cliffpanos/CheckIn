@@ -62,7 +62,7 @@ class CPPhotoPicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
         if authStatus == .authorized {
             presentPhotoPicker()
         } else if authStatus == .notDetermined {
-            viewController.showOptionsAlert("Access Photos?", message: "Would you like to allow True Pass to access your photos?", left: "No", right: "Yes", handlerOne: nil, handlerTwo: { _ in
+            viewController.showOptionsAlert("Access Photos?", message: "Would you like to allow True Pass to access your photos?", left: "No", right: "Yes", handlerOne: nil, handlerTwo: {
                 
                 PHPhotoLibrary.requestAuthorization { status in
                     if status == .authorized {
@@ -72,7 +72,7 @@ class CPPhotoPicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
                 
             })
         } else {
-            viewController.showOptionsAlert("True Pass Not Authorized", message: goToSettingsMessage, left: "OK", right: "Settings", handlerOne: nil) { _ in
+            viewController.showOptionsAlert("True Pass Not Authorized", message: goToSettingsMessage, left: "OK", right: "Settings", handlerOne: nil) {
                 if let settingsAppURL = URL(string: UIApplicationOpenSettingsURLString) {
                     UIApplication.shared.open(settingsAppURL)
                 }

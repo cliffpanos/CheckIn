@@ -23,8 +23,8 @@ class PassManager {
         pass.firstName = firstName
         pass.lastName = lastName
         pass.email = email
-        pass.startDate = startTime as NSDate
-        pass.endDate = endTime as NSDate
+        pass.startDate = startTime
+        pass.endDate = endTime
         pass.accessCodeQR = "\(Date().addingTimeInterval(TimeInterval(arc4random())).timeIntervalSince1970)"
         pass.isActive = true
         pass.didCheckIn = false
@@ -37,7 +37,7 @@ class PassManager {
             let reducedData = UIImagePNGRepresentation(resizedImage)
             print("NEW IMAGE SIZE: \(reducedData!.count)")
             
-            pass.imageData = data as NSData
+            pass.imageData = data
         }
         
         let passService = FirebaseService(entity: .TPPass)
@@ -70,11 +70,20 @@ class PassManager {
     
     static func delete(pass: TPPass, andInformWatchKitApp sendMessage: Bool = true) -> Bool {
         
+        //DELETE PASS FROM FIREBASE
+        let passListService = FirebaseService(entity: .TPPassList)
+        
+        //Remove from TPPassList/locationIdentifier/passIdentifier
+        passListService.reference.child(pass.locationIdentifier!).child(pass.identifier!).removeValue()
+        //Remove from TPPassList/userIdentifier/passIdentifier
+        passListService.reference.child(Accounts.userIdentifier).child(pass.identifier!).removeValue()
+        
+        let passService = FirebaseService(entity: .TPPass)
+        passService.reference.child(pass.identifier!).removeValue()
+        
+        FirebaseStorage.shared.deleteImage(forEntity: .TPPass, withIdentifier: pass.identifier!)
+        
         let data = PassManager.preparedData(forPass: pass, includingImage: false)   //Do NOT include image
-        
-        let managedContext = C.appDelegate.persistentContainer.viewContext
-        managedContext.delete(pass)
-        
         defer {
             if sendMessage {
                 let deletePassInfo = [WCD.KEY: WCD.deletePass, WCD.passPayload: data] as [String : Any]
@@ -86,7 +95,7 @@ class PassManager {
             vc.navigationController?.popViewController(animated: true)
         }
         
-        return C.appDelegate.saveContext()
+        return true
         
     }
     

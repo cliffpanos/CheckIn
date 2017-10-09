@@ -92,6 +92,7 @@ class PassesViewController: ManagedViewController, UISearchBarDelegate, UISearch
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
         dismissKeyboard()
     }
     
@@ -158,7 +159,6 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
         switch editingStyle {
         case .delete:
             showDestructiveAlert("Confirm Revocation", message: "Permanently revoke this pass?", destructiveTitle: "Revoke", popoverSetup: nil, withStyle: .alert, forDestruction: { _ in
@@ -167,7 +167,13 @@ extension PassesViewController: UITableViewDelegate, UITableViewDataSource {
                 let pass = relevantPasses[row]
                 let sameCellSelectedAsPresented = indexPath == self.selectedIndexPath
                 if PassManager.delete(pass: pass) {
-                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    if let index = C.passes.index(of: pass) {
+                        C.passes.remove(at: index)
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else {
+                        tableView.reloadData()
+                    }
+                    
                 } else {
                     return
                 }

@@ -92,11 +92,13 @@ extension TPLocationList {
 /// A functionally abstract class to manage all Firebases-stored data objects (entities)
 extension FirebaseObject {
     
-    convenience init(snapshot: DataSnapshot? = nil, _ entity: FirebaseEntity) {
-        print("Initializing from snapshot")
+    convenience init(snapshot: DataSnapshot? = nil, _ entity: FirebaseEntity, saveToCoreData: Bool = false) {
 
-        //self.init(context: C.appDelegate.persistentContainer.viewContext)
-        self.init(entity: NSEntityDescription.entity(forEntityName: entity.rawValue, in: C.appDelegate.persistentContainer.viewContext)!, insertInto: nil)
+        if saveToCoreData {
+            self.init(context: C.appDelegate.persistentContainer.viewContext)
+        } else {
+            self.init(entity: NSEntityDescription.entity(forEntityName: entity.rawValue, in: C.appDelegate.persistentContainer.viewContext)!, insertInto: nil)
+        }
         
         guard let snapshot = snapshot else { return }
         for child in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
@@ -112,7 +114,7 @@ extension FirebaseObject {
         }
     }
     
-    var dictionaryForm: [String: Any] {
+    @objc var dictionaryForm: [String: Any] {
         return [String: Any]()
     }
 }

@@ -37,7 +37,7 @@ class RootViewController: UITabBarController {
                     
                     FirebaseStorage.shared.retrieveImageData(for: passIdentifier, entity: .TPPass) { data, _ in
                         if let data = data {
-                            pass.imageData = data as NSData
+                            pass.imageData =  data
                         }
                     }
                 }

@@ -62,7 +62,7 @@ class CheckInPassViewController: ManagedViewController {
         CheckInPassViewController.presented = false
     }
     
-    static func updateScreenBrightness() {
+    @objc static func updateScreenBrightness() {
         let currentBrightness = UIScreen.main.brightness
         if (currentBrightness > CheckInPassViewController.targetBrightness + 0.025 || currentBrightness < CheckInPassViewController.targetBrightness - 0.025) {
             UIScreen.main.brightness += (currentBrightness < targetBrightness ? 0.025 : -0.025)

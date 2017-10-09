@@ -20,6 +20,8 @@ class PassDetailEmbedderController: UIViewController {
         super.viewDidLoad()
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareQRCode))
         navigationItem.rightBarButtonItem = shareButton
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        
     }
     func getQRCodeImage() -> UIImage {
         return C.generateQRCode(forMessage:
@@ -31,7 +33,7 @@ class PassDetailEmbedderController: UIViewController {
             
             , withSize: nil)
     }
-    func shareQRCode() {
+    @objc func shareQRCode() {
         let qrCodeImage = getQRCodeImage()
         C.share(image: qrCodeImage, in: self, popoverSetup: {
             ppc in ppc.barButtonItem = self.navigationItem.rightBarButtonItem
@@ -108,14 +110,15 @@ class PassDetailViewController: UITableViewController, MFMessageComposeViewContr
         IDLoop: for loc in C.truePassLocations {
             if loc.identifier == pass.locationIdentifier {
                 location = loc
-                print("found")
                 break IDLoop
             }
         }
         if let location = location {
-            print("here")
             locationTitleLabel.text = location.shortTitle
             locationTypeLabel.text = String(describing: location.type).localizedUppercase
+            if let typeDetails = TPLocationType.Details[location.type] {
+                imageView.image = UIImage(named: "\(typeDetails)Scene")
+            }
         }
 
         //navigationItem.titleView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))

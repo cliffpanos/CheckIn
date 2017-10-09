@@ -42,7 +42,7 @@ class PassDetailInterfaceController: ManagedInterfaceController {
         super.willActivate()
     }
 
-    func requestDeletionOfPass() {
+    @objc func requestDeletionOfPass() {
         
         guard let pass = pass else { return }
         
